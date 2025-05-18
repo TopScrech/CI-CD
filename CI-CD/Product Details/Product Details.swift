@@ -19,12 +19,8 @@ struct ProductDetails: View {
             }
             
             Section {
-                ForEach(vm.builds) { build in
-                    NavigationLink {
-                        BuildDetails(build)
-                    } label: {
-                        BuildCard(build)
-                    }
+                ForEach(vm.builds.reversed()) { build in
+                    BuildCard(build)
                 }
             }
         }

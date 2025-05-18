@@ -24,60 +24,64 @@ struct BuildCard: View {
         let commit = build.attributes?.sourceCommit
         let author = commit?.author
         
-        HStack {
-            Capsule()
-                .frame(width: 5)
-                .frame(maxHeight: .infinity)
-                .foregroundStyle(statusColor.gradient)
-                .padding(.vertical, 5)
-            
-            VStack(alignment: .leading) {
-                HStack {
-                    if let build = build.attributes?.number {
-                        Text("Build \(build)")
-                            .title3(.semibold, design: .rounded)
-                    }
-                    
-                    if let commit, let id = commit.commitSha?.prefix(7) {
-                        Text(id)
+        NavigationLink {
+            BuildDetails(build)
+        } label: {
+            HStack {
+                Capsule()
+                    .frame(width: 5)
+                    .frame(maxHeight: .infinity)
+                    .foregroundStyle(statusColor.gradient)
+                    .padding(.vertical, 5)
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        if let build = build.attributes?.number {
+                            Text("Build \(build)")
+                                .title3(.semibold, design: .rounded)
+                        }
+                        
+                        if let commit, let id = commit.commitSha?.prefix(7) {
+                            Text(id)
+                                .secondary()
+                                .padding(.vertical, 2)
+                                .padding(.horizontal, 8)
+                                .background(.ultraThinMaterial, in: .capsule)
+                        }
+                        
+                        
+                        if let minDiff = timeDiffISO(date1: build.attributes?.createdDate, date2: build.attributes?.startedDate) {
+                            HStack(spacing: 2) {
+                                Image(systemName: "clock")
+                                
+                                Text("\(minDiff)m")
+                            }
+                            .secondary()
+                            .padding(.vertical, 2)
+                            .padding(.horizontal, 3)
+                            .padding(.trailing, 4)
+                            .background(.ultraThinMaterial, in: .capsule)
+                        }
+                        
+                        Text(timeSinceISO(build.attributes?.createdDate))
                             .secondary()
                             .padding(.vertical, 2)
                             .padding(.horizontal, 8)
                             .background(.ultraThinMaterial, in: .capsule)
                     }
                     
+                    Text(commit?.message ?? "-")
                     
-                    if let minDiff = timeDiffISO(date1: build.attributes?.createdDate, date2: build.attributes?.startedDate) {
-                        HStack(spacing: 2) {
-                            Image(systemName: "clock")
-                            
-                            Text("\(minDiff)m")
+                    HStack {
+                        if let avatar = author?.avatarURL {
+                            KFImage(avatar)
+                                .resizable()
+                                .frame(imgSize)
+                                .clipShape(.circle)
                         }
-                        .secondary()
-                        .padding(.vertical, 2)
-                        .padding(.horizontal, 3)
-                        .padding(.trailing, 4)
-                        .background(.ultraThinMaterial, in: .capsule)
+                        
+                        Text(author?.displayName ?? "-")
                     }
-                    
-                    Text(timeSinceISO(build.attributes?.createdDate))
-                        .secondary()
-                        .padding(.vertical, 2)
-                        .padding(.horizontal, 8)
-                        .background(.ultraThinMaterial, in: .capsule)
-                }
-                
-                Text(commit?.message ?? "-")
-                
-                HStack {
-                    if let avatar = author?.avatarURL {
-                        KFImage(avatar)
-                            .resizable()
-                            .frame(imgSize)
-                            .clipShape(.circle)
-                    }
-                    
-                    Text(author?.displayName ?? "-")
                 }
             }
         }
