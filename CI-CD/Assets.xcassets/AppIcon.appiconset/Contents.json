@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "CI:CD 1024 copy.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -12,6 +13,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "CI:CD Dark 1024 copy.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
