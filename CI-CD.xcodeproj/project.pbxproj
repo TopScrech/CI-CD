@@ -10,14 +10,13 @@
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F33708B52DD93A0D006834F8 /* Home View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* Home View.swift */; };
-		F376E1432DD93C1A00D98252 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F376E1422DD93C1A00D98252 /* ScrechKit */; };
 		F376E1492DD9C2C200D98252 /* Response Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1482DD9C2C200D98252 /* Response Model.swift */; };
 		F376E14A2DD9C2C200D98252 /* App Store Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1472DD9C2C200D98252 /* App Store Auth.swift */; };
 		F376E14C2DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 in Resources */ = {isa = PBXBuildFile; fileRef = F376E1442DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 */; };
 		F376E14D2DD9C2C200D98252 /* JWT.json in Resources */ = {isa = PBXBuildFile; fileRef = F376E1452DD9C2C200D98252 /* JWT.json */; };
 		F376E1502DD9C30400D98252 /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = F376E14F2DD9C30400D98252 /* SwiftJWT */; };
-		F376E1512DD9C4E500D98252 /* ScrechKit in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F376E1422DD93C1A00D98252 /* ScrechKit */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F376E1562DD9F5D300D98252 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1552DD9F5D300D98252 /* Model.swift */; };
+		F376E1632DD9FB9100D98252 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F376E1622DD9FB9100D98252 /* ScrechKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +26,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F376E1512DD9C4E500D98252 /* ScrechKit in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,7 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F376E1502DD9C30400D98252 /* SwiftJWT in Frameworks */,
-				F376E1432DD93C1A00D98252 /* ScrechKit in Frameworks */,
+				F376E1632DD9FB9100D98252 /* ScrechKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,8 +108,8 @@
 			);
 			name = "CI-CD";
 			packageProductDependencies = (
-				F376E1422DD93C1A00D98252 /* ScrechKit */,
 				F376E14F2DD9C30400D98252 /* SwiftJWT */,
+				F376E1622DD9FB9100D98252 /* ScrechKit */,
 			);
 			productName = CD;
 			productReference = F337089F2DD93A01006834F8 /* CI-CD.app */;
@@ -142,8 +140,8 @@
 			mainGroup = F33708962DD93A01006834F8;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F376E1412DD93C1A00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */,
 				F376E14E2DD9C30400D98252 /* XCRemoteSwiftPackageReference "Swift-JWT" */,
+				F376E1612DD9FB9100D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F33708A02DD93A01006834F8 /* Products */;
@@ -402,14 +400,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F376E1412DD93C1A00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/TopScrech/ScrechKit";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		F376E14E2DD9C30400D98252 /* XCRemoteSwiftPackageReference "Swift-JWT" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Kitura/Swift-JWT.git";
@@ -418,18 +408,26 @@
 				minimumVersion = 4.0.2;
 			};
 		};
+		F376E1612DD9FB9100D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TopScrech/ScrechKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F376E1422DD93C1A00D98252 /* ScrechKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F376E1412DD93C1A00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */;
-			productName = ScrechKit;
-		};
 		F376E14F2DD9C30400D98252 /* SwiftJWT */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F376E14E2DD9C30400D98252 /* XCRemoteSwiftPackageReference "Swift-JWT" */;
 			productName = SwiftJWT;
+		};
+		F376E1622DD9FB9100D98252 /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F376E1612DD9FB9100D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

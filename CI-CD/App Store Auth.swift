@@ -1,10 +1,13 @@
 import Foundation
 import SwiftJWT
 
-struct AppStoreAuth {
+@Observable
+final class AppStoreAuth {
     private static let keyID = "3U3CPFA54N"
     private static let issuerID = "74c48f6b-b4a9-409a-8ed2-44d24a13d1c7"
     private static let audience = "appstoreconnect-v1"
+    
+    var ciProducts: [CIProduct] = []
     
     static func fetchApps() async throws -> Data? {
         let subdir = "/v1/ciProducts"
@@ -24,7 +27,6 @@ struct AppStoreAuth {
             
             if let httpResponse = response as? HTTPURLResponse {
                 print("HTTP Status Code:", httpResponse.statusCode)
-                print("Response Headers:", httpResponse.allHeaderFields)
                 
                 if httpResponse.statusCode != 200 {
                     let responseString = String(data: data, encoding: .utf8) ?? "Unable to decode response"
