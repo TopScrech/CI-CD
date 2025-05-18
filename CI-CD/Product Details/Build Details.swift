@@ -60,7 +60,7 @@ struct BuildDetails: View {
                         if let avatar = author?.avatarURL {
                             KFImage(avatar)
                                 .resizable()
-                                .frame(width: imgSize, height: imgSize)
+                                .frame(imgSize)
                                 .clipShape(.circle)
                         }
                         
