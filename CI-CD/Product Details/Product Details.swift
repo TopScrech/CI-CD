@@ -1,11 +1,12 @@
 import SwiftUI
+import AppStoreConnect_Swift_SDK
 
 struct ProductDetails: View {
-    @Environment(ProjectVM.self) private var vm
+    @Environment(ProductVM.self) private var vm
     
-    private let product: CIProduct
+    private let product: CiProduct
     
-    init(_ product: CIProduct) {
+    init(_ product: CiProduct) {
         self.product = product
     }
     
@@ -13,7 +14,11 @@ struct ProductDetails: View {
         List {
             Section {
                 ForEach(vm.builds) { build in
-                    BuildCard(build)
+                    NavigationLink {
+                        BuildDetails(build)
+                    } label: {
+                        BuildCard(build)
+                    }
                 }
             }
         }

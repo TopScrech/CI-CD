@@ -1,27 +1,28 @@
 import SwiftUI
 import Kingfisher
+import AppStoreConnect_Swift_SDK
 
 struct BuildCard: View {
-    private let build: CIBuildRun
+    private let build: CiBuildRun
     
-    init(_ build: CIBuildRun) {
+    init(_ build: CiBuildRun) {
         self.build = build
     }
     
     private var statusColor: Color {
-        switch build.attributes.completionStatus {
-        case "SUCCEEDED": .green
-        case "FAILED": .red
-        case "CANCELED": .gray
-        default: .gray
+        switch build.attributes?.completionStatus {
+        case .succeeded: .green
+        case .failed, .errored: .red
+        case .canceled, .skipped: .gray
+        default: Color(uiColor: .darkGray)
         }
     }
     
     private let imgSize = 32.0
     
     var body: some View {
-        let commit = build.attributes.sourceCommit
-        let author = commit.author
+        let commit = build.attributes?.sourceCommit
+        let author = commit?.author
         
         HStack {
             Capsule()
@@ -32,37 +33,40 @@ struct BuildCard: View {
             
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Build \(build.attributes.number)")
-                        .title3(.semibold, design: .rounded)
+                    if let build = build.attributes?.number {
+                        Text("Build \(build)")
+                            .title3(.semibold, design: .rounded)
+                    }
                     
-                    Text(commit.id)
-                        .secondary()
-                        .padding(.vertical, 2)
-                        .padding(.horizontal, 8)
-                        .background(.ultraThinMaterial, in: .capsule)
+                    if let commit, let id = commit.commitSha?.prefix(7) {
+                        Text(id)
+                            .secondary()
+                            .padding(.vertical, 2)
+                            .padding(.horizontal, 8)
+                            .background(.ultraThinMaterial, in: .capsule)
+                    }
                 }
                 
-                Text(commit.message)
-                
-                //                Text(commit.id)
-                //                    .secondary()
+                Text(commit?.message ?? "-")
                 
                 HStack {
-                    KFImage(URL(string: author.avatarUrl))
-                        .resizable()
-                        .frame(width: imgSize, height: imgSize)
-                        .clipShape(.circle)
+                    if let avatar = author?.avatarURL {
+                        KFImage(avatar)
+                            .resizable()
+                            .frame(width: imgSize, height: imgSize)
+                            .clipShape(.circle)
+                    }
                     
-                    Text(author.displayName)
+                    Text(author?.displayName ?? "-")
                 }
             }
             
             Spacer()
             
             VStack {
-                Text(timeSinceISO(build.attributes.createdDate))
+                Text(timeSinceISO(build.attributes?.createdDate))
                 
-                if let minDiff = timeDiffISO(dateString1: build.attributes.createdDate, dateString2: build.attributes.startedDate) {
+                if let minDiff = timeDiffISO(date1: build.attributes?.createdDate, date2: build.attributes?.startedDate) {
                     HStack(spacing: 2) {
                         Image(systemName: "clock")
                         Text("\(minDiff)m")
@@ -78,15 +82,8 @@ struct BuildCard: View {
         .padding(.leading, -8)
     }
     
-    private func timeDiffISO(dateString1: String?, dateString2: String?) -> Int? {
-        let formatter = ISO8601DateFormatter()
-        
-        guard
-            let dateString1,
-            let dateString2,
-            let date1 = formatter.date(from: dateString1),
-            let date2 = formatter.date(from: dateString2)
-        else {
+    private func timeDiffISO(date1: Date?, date2: Date?) -> Int? {
+        guard let date1, let date2 else {
             return nil
         }
         
@@ -97,11 +94,8 @@ struct BuildCard: View {
         return minDiff
     }
     
-#warning("Move to ScrechKit, remove from BH")
-    private func timeSinceISO(_ date: String) -> LocalizedStringKey {
-        let formatter = ISO8601DateFormatter()
-        
-        guard let date = formatter.date(from: date) else {
+    private func timeSinceISO(_ date: Date?) -> LocalizedStringKey {
+        guard let date else {
             return ""
         }
         
@@ -130,15 +124,15 @@ struct BuildCard: View {
     }
 }
 
-#Preview {
-    NavigationView {
-        List {
-            NavigationLink {
-                
-            } label: {
-                BuildCard(CIBuildRun.preview)
-            }
-        }
-    }
-    .darkSchemePreferred()
-}
+//#Preview {
+//    NavigationView {
+//        List {
+//            NavigationLink {
+//
+//            } label: {
+//                BuildCard(CIBuildRun.preview)
+//            }
+//        }
+//    }
+//    .darkSchemePreferred()
+//}
