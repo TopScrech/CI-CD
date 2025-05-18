@@ -5,9 +5,9 @@ struct HomeView: View {
     
     var body: some View {
         List {
-            ForEach(vm.ciProducts) { product in
-                ProductCard(product)
-            }
+//            ForEach(vm.ciProducts) { product in
+//                ProductCard(product)
+//            }
         }
         .navigationTitle("CI/CD")
         .refreshableTask {

@@ -14,7 +14,6 @@
 		F376E14A2DD9C2C200D98252 /* Connect VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1472DD9C2C200D98252 /* Connect VM.swift */; };
 		F376E14C2DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 in Resources */ = {isa = PBXBuildFile; fileRef = F376E1442DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 */; };
 		F376E14D2DD9C2C200D98252 /* JWT.json in Resources */ = {isa = PBXBuildFile; fileRef = F376E1452DD9C2C200D98252 /* JWT.json */; };
-		F376E1502DD9C30400D98252 /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = F376E14F2DD9C30400D98252 /* SwiftJWT */; };
 		F376E1562DD9F5D300D98252 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1552DD9F5D300D98252 /* Model.swift */; };
 		F376E1652DDA195300D98252 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* App Container.swift */; };
 		F376E1672DDA284600D98252 /* Product Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1662DDA284600D98252 /* Product Card.swift */; };
@@ -28,6 +27,7 @@
 		F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3A36EA42DDA47E200733D6D /* Kingfisher */; };
 		F3B040882DDA4CA900DD782F /* CIWorkflowsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B040872DDA4CA900DD782F /* CIWorkflowsResponse.swift */; };
 		F3E0D1AD2DDA70AC004A14C7 /* Build VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */; };
+		F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,7 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */,
-				F376E1502DD9C30400D98252 /* SwiftJWT in Frameworks */,
+				F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */,
 				F376E1942DDA47BB00D98252 /* ScrechKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,9 +148,9 @@
 			);
 			name = "CI-CD";
 			packageProductDependencies = (
-				F376E14F2DD9C30400D98252 /* SwiftJWT */,
 				F376E1932DDA47BB00D98252 /* ScrechKit */,
 				F3A36EA42DDA47E200733D6D /* Kingfisher */,
+				F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */,
 			);
 			productName = CD;
 			productReference = F337089F2DD93A01006834F8 /* CI-CD.app */;
@@ -181,9 +181,9 @@
 			mainGroup = F33708962DD93A01006834F8;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F376E14E2DD9C30400D98252 /* XCRemoteSwiftPackageReference "Swift-JWT" */,
 				F376E1922DDA47BB00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */,
 				F3A36EA32DDA47E200733D6D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F3E0D1AE2DDA778A004A14C7 /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F33708A02DD93A01006834F8 /* Products */;
@@ -452,14 +452,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F376E14E2DD9C30400D98252 /* XCRemoteSwiftPackageReference "Swift-JWT" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Kitura/Swift-JWT.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.2;
-			};
-		};
 		F376E1922DDA47BB00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TopScrech/ScrechKit";
@@ -476,14 +468,17 @@
 				minimumVersion = 8.3.2;
 			};
 		};
+		F3E0D1AE2DDA778A004A14C7 /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AvdLee/appstoreconnect-swift-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F376E14F2DD9C30400D98252 /* SwiftJWT */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F376E14E2DD9C30400D98252 /* XCRemoteSwiftPackageReference "Swift-JWT" */;
-			productName = SwiftJWT;
-		};
 		F376E1932DDA47BB00D98252 /* ScrechKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F376E1922DDA47BB00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */;
@@ -493,6 +488,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F3A36EA32DDA47E200733D6D /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3E0D1AE2DDA778A004A14C7 /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */;
+			productName = "AppStoreConnect-Swift-SDK";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
