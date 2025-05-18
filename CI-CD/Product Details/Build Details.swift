@@ -7,6 +7,7 @@ struct BuildDetails: View {
         }
     }
 }
+
 //struct CIBuildRun: Identifiable, Decodable {
 //    let type: String
 //    let attributes: CIBuildRunAttributes

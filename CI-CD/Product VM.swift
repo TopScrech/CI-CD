@@ -1,7 +1,7 @@
 import Foundation
 
 @Observable
-final class ProjectVM {
+final class ProductVM {
     private(set) var builds: [CIBuildRun] = []
     private(set) var workflows: [CIWorkflow] = []
     

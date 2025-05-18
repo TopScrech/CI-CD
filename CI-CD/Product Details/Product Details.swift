@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProductDetails: View {
-    @Environment(ProjectVM.self) private var vm
+    @Environment(ProductVM.self) private var vm
     
     private let product: CIProduct
     

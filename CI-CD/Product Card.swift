@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProductCard: View {
-    @State private var vm = ProjectVM()
+    @State private var vm = ProductVM()
     
     private let product: CIProduct
     
@@ -25,6 +25,17 @@ struct ProductCard: View {
         }
         .task {
             try? await vm.fetchWorkflows(product.id)
+        }
+        .contextMenu {
+            Menu {
+                Button {
+                    UIPasteboard.general.string = vm.workflows.first?.id
+                } label: {
+                    Label("Copy first workflow id", systemImage: "doc.on.doc")
+                }
+            } label: {
+                Label("Debug", systemImage: "hammer")
+            }
         }
     }
 }
