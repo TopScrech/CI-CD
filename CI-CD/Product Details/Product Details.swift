@@ -14,16 +14,7 @@ struct ProductDetails: View {
         List {
             Section {
                 ForEach(vm.workflows) { workflow in
-                    Text(workflow.attributes?.name ?? "")
-                        .contextMenu {
-                            Button {
-                                Task {
-                                    try await vm.startBuild(workflow.id)
-                                }
-                            } label: {
-                                Text("Start build")
-                            }
-                        }
+                    WorkflowCard(workflow)
                 }
             }
             
@@ -37,6 +28,7 @@ struct ProductDetails: View {
                 }
             }
         }
+        .environment(vm)
         .refreshableTask {
             try? await vm.fetchBuilds(product.id)
         }
