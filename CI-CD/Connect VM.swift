@@ -1,7 +1,7 @@
 import Foundation
 
 @Observable
-final class AppStoreAuth {
+final class ConnectVM {
     var ciProducts: [CIProduct] = []
     
     func fetchApps() async throws {
