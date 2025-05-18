@@ -14,7 +14,13 @@ struct BuildCard: View {
         case .succeeded: .green
         case .failed, .errored: .red
         case .canceled, .skipped: .gray
-        default: Color(uiColor: .darkGray)
+        
+        default:
+#if os(macOS)
+            Color(nsColor: .darkGray)
+#else
+            Color(uiColor: .darkGray)
+#endif
         }
     }
     
