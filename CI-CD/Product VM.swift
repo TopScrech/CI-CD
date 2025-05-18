@@ -4,10 +4,25 @@ import AppStoreConnect_Swift_SDK
 @Observable
 final class ProductVM {
     private(set) var builds: [CiBuildRun] = []
-    //    private(set) var workflows: [CIWorkflow] = []
+    private(set) var workflows: [CiWorkflow] = []
     
     func fetchWorkflows(_ id: String) async throws {
         //        let subdir = "/v1/ciProducts/\(id)/workflows"
+        do {
+            guard let provider = try await provider() else {
+                return
+            }
+            
+            let request = APIEndpoint.v1
+                .ciProducts
+                .id(id)
+                .workflows
+                .get()
+            
+            workflows = try await provider.request(request).data
+        } catch {
+            print(error)
+        }
         
     }
     

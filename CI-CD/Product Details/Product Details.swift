@@ -13,6 +13,21 @@ struct ProductDetails: View {
     var body: some View {
         List {
             Section {
+                ForEach(vm.workflows) { workflow in
+                    Text(workflow.attributes?.name ?? "")
+                        .contextMenu {
+                            Button {
+                                Task {
+                                    try await vm.startBuild(workflow.id)
+                                }
+                            } label: {
+                                Text("Start build")
+                            }
+                        }
+                }
+            }
+            
+            Section {
                 ForEach(vm.builds) { build in
                     NavigationLink {
                         BuildDetails(build)
@@ -25,19 +40,6 @@ struct ProductDetails: View {
         .refreshableTask {
             try? await vm.fetchBuilds(product.id)
         }
-//        .toolbar {
-//            Menu {
-//                Button {
-//                    Task {
-//                        try await vm.startBuild(product.id)
-//                    }
-//                } label: {
-//                    Text("Start build")
-//                }
-//            } label: {
-//                Image(systemName: "ellipsis.circle")
-//            }
-//        }
     }
 }
 
