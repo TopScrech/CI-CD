@@ -4,7 +4,7 @@ import ScrechKit
 struct CDApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            AppContainer()
         }
     }
 }

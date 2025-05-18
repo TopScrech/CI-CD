@@ -1,11 +1,11 @@
 import Foundation
 
 @Observable
-final class AppStoreAuth {
-    var ciProducts: [CIProduct] = []
+final class ProjectDetailsVM {
+    private(set) var builds: [CIBuildRun] = []
     
-    func fetchApps() async throws {
-        let subdir = "/v1/ciProducts"
+    func fetchBuilds(_ id: String) async throws {
+        let subdir = "/v1/ciProducts/\(id)/buildRuns"
         let urlString = "https://api.appstoreconnect.apple.com" + subdir
         
         let jwt = try ConnectHelper.generateJWT(subdir)
@@ -36,9 +36,9 @@ final class AppStoreAuth {
             let decoder = JSONDecoder()
             
             do {
-                let products = try decoder.decode(CIProducts.self, from: data)
+                let buildRuns = try decoder.decode(CIBuildRunsResponse.self, from: data)
                 
-                ciProducts = products.data
+                builds = buildRuns.data
             } catch {
                 print("Decoding Error:", error)
             }

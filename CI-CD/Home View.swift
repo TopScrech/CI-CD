@@ -1,19 +1,16 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var vm = AppStoreAuth()
+    
     var body: some View {
         List {
-            Button("Test2") {
-                test()
+            ForEach(vm.ciProducts) { product in
+                ProductCard(product)
             }
         }
-    }
-    
-    private func test() {
-        Task {
-            if let result = try await AppStoreAuth.fetchApps() {
-                print(String(decoding: result, as: UTF8.self))
-            }
+        .refreshableTask {
+            try? await vm.fetchApps()
         }
     }
 }
