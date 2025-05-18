@@ -1,0 +1,17 @@
+{
+    "alg": "ES256",
+    "kid": "3U3CPFA54N",
+    "typ": "JWT"
+}
+
+{
+    "iss": "74c48f6b-b4a9-409a-8ed2-44d24a13d1c7",
+    "iat": 1740312824,
+    "exp": 2740312824,
+    "aud": "appstoreconnect-v1",
+    "scope": [
+        "GET /v1/apps"
+    ]
+}
+
+// https://api.appstoreconnect.apple.com/v1/apps

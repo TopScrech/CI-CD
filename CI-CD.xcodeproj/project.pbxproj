@@ -6,23 +6,54 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXFileReference section */
-		F337089F2DD93A01006834F8 /* CD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CD.app; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
+/* Begin PBXBuildFile section */
+		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
+		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
+		F33708B52DD93A0D006834F8 /* Home View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* Home View.swift */; };
+		F376E1432DD93C1A00D98252 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F376E1422DD93C1A00D98252 /* ScrechKit */; };
+		F376E1492DD9C2C200D98252 /* Response Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1482DD9C2C200D98252 /* Response Model.swift */; };
+		F376E14A2DD9C2C200D98252 /* App Store Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1472DD9C2C200D98252 /* App Store Auth.swift */; };
+		F376E14C2DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 in Resources */ = {isa = PBXBuildFile; fileRef = F376E1442DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 */; };
+		F376E14D2DD9C2C200D98252 /* JWT.json in Resources */ = {isa = PBXBuildFile; fileRef = F376E1452DD9C2C200D98252 /* JWT.json */; };
+		F376E1502DD9C30400D98252 /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = F376E14F2DD9C30400D98252 /* SwiftJWT */; };
+		F376E1512DD9C4E500D98252 /* ScrechKit in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F376E1422DD93C1A00D98252 /* ScrechKit */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		F376E1562DD9F5D300D98252 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1552DD9F5D300D98252 /* Model.swift */; };
+/* End PBXBuildFile section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		F33708A12DD93A01006834F8 /* CD */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CD;
-			sourceTree = "<group>";
+/* Begin PBXCopyFilesBuildPhase section */
+		F376E1522DD9C4E500D98252 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F376E1512DD9C4E500D98252 /* ScrechKit in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXFileSystemSynchronizedRootGroup section */
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F337089F2DD93A01006834F8 /* CI-CD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI-CD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F33708AE2DD93A0D006834F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CI-CD.entitlements"; sourceTree = "<group>"; };
+		F33708B02DD93A0D006834F8 /* CI-CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CI-CD.swift"; sourceTree = "<group>"; };
+		F33708B12DD93A0D006834F8 /* Home View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home View.swift"; sourceTree = "<group>"; };
+		F376E1442DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 */ = {isa = PBXFileReference; lastKnownFileType = text; path = AuthKey_3U3CPFA54N.p8; sourceTree = "<group>"; };
+		F376E1452DD9C2C200D98252 /* JWT.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JWT.json; sourceTree = "<group>"; };
+		F376E1472DD9C2C200D98252 /* App Store Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Store Auth.swift"; sourceTree = "<group>"; };
+		F376E1482DD9C2C200D98252 /* Response Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response Model.swift"; sourceTree = "<group>"; };
+		F376E1552DD9F5D300D98252 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F337089C2DD93A01006834F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F376E1502DD9C30400D98252 /* SwiftJWT in Frameworks */,
+				F376E1432DD93C1A00D98252 /* ScrechKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,7 +63,7 @@
 		F33708962DD93A01006834F8 = {
 			isa = PBXGroup;
 			children = (
-				F33708A12DD93A01006834F8 /* CD */,
+				F33708B22DD93A0D006834F8 /* CI-CD */,
 				F33708A02DD93A01006834F8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,34 +71,50 @@
 		F33708A02DD93A01006834F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F337089F2DD93A01006834F8 /* CD.app */,
+				F337089F2DD93A01006834F8 /* CI-CD.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F33708B22DD93A0D006834F8 /* CI-CD */ = {
+			isa = PBXGroup;
+			children = (
+				F33708B02DD93A0D006834F8 /* CI-CD.swift */,
+				F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */,
+				F33708AE2DD93A0D006834F8 /* Assets.xcassets */,
+				F376E1442DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 */,
+				F376E1452DD9C2C200D98252 /* JWT.json */,
+				F33708B12DD93A0D006834F8 /* Home View.swift */,
+				F376E1472DD9C2C200D98252 /* App Store Auth.swift */,
+				F376E1482DD9C2C200D98252 /* Response Model.swift */,
+				F376E1552DD9F5D300D98252 /* Model.swift */,
+			);
+			path = "CI-CD";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F337089E2DD93A01006834F8 /* CD */ = {
+		F337089E2DD93A01006834F8 /* CI-CD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F33708AB2DD93A02006834F8 /* Build configuration list for PBXNativeTarget "CD" */;
+			buildConfigurationList = F33708AB2DD93A02006834F8 /* Build configuration list for PBXNativeTarget "CI-CD" */;
 			buildPhases = (
 				F337089B2DD93A01006834F8 /* Sources */,
 				F337089C2DD93A01006834F8 /* Frameworks */,
 				F337089D2DD93A01006834F8 /* Resources */,
+				F376E1522DD9C4E500D98252 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				F33708A12DD93A01006834F8 /* CD */,
-			);
-			name = CD;
+			name = "CI-CD";
 			packageProductDependencies = (
+				F376E1422DD93C1A00D98252 /* ScrechKit */,
+				F376E14F2DD9C30400D98252 /* SwiftJWT */,
 			);
 			productName = CD;
-			productReference = F337089F2DD93A01006834F8 /* CD.app */;
+			productReference = F337089F2DD93A01006834F8 /* CI-CD.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +132,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F337089A2DD93A01006834F8 /* Build configuration list for PBXProject "CD" */;
+			buildConfigurationList = F337089A2DD93A01006834F8 /* Build configuration list for PBXProject "CI-CD" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -94,12 +141,16 @@
 			);
 			mainGroup = F33708962DD93A01006834F8;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F376E1412DD93C1A00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */,
+				F376E14E2DD9C30400D98252 /* XCRemoteSwiftPackageReference "Swift-JWT" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F33708A02DD93A01006834F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F337089E2DD93A01006834F8 /* CD */,
+				F337089E2DD93A01006834F8 /* CI-CD */,
 			);
 		};
 /* End PBXProject section */
@@ -109,6 +160,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F376E14C2DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 in Resources */,
+				F376E14D2DD9C2C200D98252 /* JWT.json in Resources */,
+				F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +173,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F376E1562DD9F5D300D98252 /* Model.swift in Sources */,
+				F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */,
+				F376E1492DD9C2C200D98252 /* Response Model.swift in Sources */,
+				F376E14A2DD9C2C200D98252 /* App Store Auth.swift in Sources */,
+				F33708B52DD93A0D006834F8 /* Home View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,13 +305,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CD/CD.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "CI-CD/CI-CD.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = CI/CD;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -261,14 +321,13 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.topscrech.CD;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.CI-CD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -276,7 +335,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.5;
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
 		};
@@ -285,13 +344,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CD/CD.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "CI-CD/CI-CD.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = CI/CD;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -300,14 +360,13 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.topscrech.CD;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.CI-CD";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -315,14 +374,14 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.5;
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F337089A2DD93A01006834F8 /* Build configuration list for PBXProject "CD" */ = {
+		F337089A2DD93A01006834F8 /* Build configuration list for PBXProject "CI-CD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F33708A92DD93A02006834F8 /* Debug */,
@@ -331,7 +390,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F33708AB2DD93A02006834F8 /* Build configuration list for PBXNativeTarget "CD" */ = {
+		F33708AB2DD93A02006834F8 /* Build configuration list for PBXNativeTarget "CI-CD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F33708AC2DD93A02006834F8 /* Debug */,
@@ -341,6 +400,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F376E1412DD93C1A00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TopScrech/ScrechKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		F376E14E2DD9C30400D98252 /* XCRemoteSwiftPackageReference "Swift-JWT" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-JWT.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F376E1422DD93C1A00D98252 /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F376E1412DD93C1A00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
+		};
+		F376E14F2DD9C30400D98252 /* SwiftJWT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F376E14E2DD9C30400D98252 /* XCRemoteSwiftPackageReference "Swift-JWT" */;
+			productName = SwiftJWT;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F33708972DD93A01006834F8 /* Project object */;
 }
