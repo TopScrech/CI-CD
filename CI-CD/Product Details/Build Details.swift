@@ -1,77 +1,59 @@
-import SwiftUI
+import ScrechKit
+import AppStoreConnect_Swift_SDK
 
 struct BuildDetails: View {
+    private let build: CiBuildRun
+    
+    init(_ build: CiBuildRun) {
+        self.build = build
+    }
+    
     var body: some View {
         List {
+            Section {
+                if let startedReason = build.attributes?.startReason {
+                    ListParam("Reason", param: startedReason.rawValue.lowercased().capitalized)
+                }
+                
+                if let created = build.attributes?.createdDate {
+                    HStack {
+                        Text("Created")
+                        
+                        Spacer()
+                        
+                        Text(created, format: .dateTime)
+                    }
+                }
+                
+                if let started = build.attributes?.startedDate {
+                    HStack {
+                        Text("Started")
+                        
+                        Spacer()
+                        
+                        Text(started, format: .dateTime)
+                    }
+                }
+                
+                if let finished = build.attributes?.finishedDate {
+                    HStack {
+                        Text("Finished")
+                        
+                        Spacer()
+                        
+                        Text(finished, format: .dateTime)
+                    }
+                }
+            }
             
+            Section {
+                
+            }
         }
     }
 }
 
-//struct CIBuildRun: Identifiable, Decodable {
-//    let type: String
-//    let attributes: CIBuildRunAttributes
-//    let relationships: CIBuildRunRelationships
-//    let links: CILinks
-//}
-//
-//struct CIBuildRunAttributes: Decodable {
-//    let number: Int
-//    let createdDate: String
-//    let startedDate: String
-//    let finishedDate: String
-//    let sourceCommit: CICommit
-//    let destinationCommit: CICommit?
-//    let isPullRequestBuild: Bool
-//    let issueCounts: CIIssueCounts?
-//    let executionProgress: String
-//    let completionStatus: String
-//    let startReason: String
-//    let cancelReason: String?
-//}
-//
-//struct CICommit: Decodable {
-//    let commitSha: String
-//    let message: String
-//    let author: CIAuthor
-//    let committer: CIAuthor
-//    let webUrl: String
-//}
-//
-//struct CIAuthor: Decodable {
-//    let displayName: String
-//    let avatarUrl: String
-//}
-//
-//struct CIIssueCounts: Decodable {}
-//
-//struct CIBuildRunRelationships: Decodable {
-//    let builds: CIBuildRunRelationshipLinks
-//    let actions: CIBuildRunRelationshipLinks
-//}
-//
-//struct CIBuildRunRelationshipLinks: Decodable {
-//    let links: CILinks
-//}
-//
-//struct CILinks: Decodable {
-//    let selfLink: String
-//    let related: String?
-//
-//    private enum CodingKeys: String, CodingKey {
-//        case selfLink = "self"
-//        case related
-//    }
-//}
-//
-//struct CIMeta: Decodable {
-//    let paging: CIPaging
-//}
-//
-//struct CIPaging: Decodable {
-//    let limit: Int
-//}
-
-//#Preview {
-//    BuildDetails()
-//}
+#Preview {
+    BuildDetails(CiBuildRun.preview)
+        .darkSchemePreferred()
+}

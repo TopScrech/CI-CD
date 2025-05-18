@@ -10,7 +10,6 @@
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F33708B52DD93A0D006834F8 /* Home View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* Home View.swift */; };
-		F376E1492DD9C2C200D98252 /* Response Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1482DD9C2C200D98252 /* Response Model.swift */; };
 		F376E14A2DD9C2C200D98252 /* Connect VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1472DD9C2C200D98252 /* Connect VM.swift */; };
 		F376E14C2DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 in Resources */ = {isa = PBXBuildFile; fileRef = F376E1442DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 */; };
 		F376E14D2DD9C2C200D98252 /* JWT.json in Resources */ = {isa = PBXBuildFile; fileRef = F376E1452DD9C2C200D98252 /* JWT.json */; };
@@ -20,14 +19,14 @@
 		F376E1692DDA288200D98252 /* Product Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1682DDA288200D98252 /* Product Details.swift */; };
 		F376E16C2DDA291700D98252 /* Connect Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16B2DDA291700D98252 /* Connect Helper.swift */; };
 		F376E16E2DDA299200D98252 /* Product VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16D2DDA299200D98252 /* Product VM.swift */; };
-		F376E1702DDA2ACC00D98252 /* CI Build Runs Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16F2DDA2ACC00D98252 /* CI Build Runs Model.swift */; };
 		F376E17E2DDA31C400D98252 /* Build Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E17D2DDA31C400D98252 /* Build Card.swift */; };
 		F376E1902DDA437700D98252 /* Build Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E18F2DDA437600D98252 /* Build Details.swift */; };
 		F376E1942DDA47BB00D98252 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F376E1932DDA47BB00D98252 /* ScrechKit */; };
 		F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3A36EA42DDA47E200733D6D /* Kingfisher */; };
-		F3B040882DDA4CA900DD782F /* CIWorkflowsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B040872DDA4CA900DD782F /* CIWorkflowsResponse.swift */; };
 		F3E0D1AD2DDA70AC004A14C7 /* Build VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */; };
 		F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */; };
+		F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
+		F3E0D1C32DDA873C004A14C7 /* CiBuildRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,18 +51,17 @@
 		F376E1442DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 */ = {isa = PBXFileReference; lastKnownFileType = text; path = AuthKey_3U3CPFA54N.p8; sourceTree = "<group>"; };
 		F376E1452DD9C2C200D98252 /* JWT.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JWT.json; sourceTree = "<group>"; };
 		F376E1472DD9C2C200D98252 /* Connect VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Connect VM.swift"; sourceTree = "<group>"; };
-		F376E1482DD9C2C200D98252 /* Response Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response Model.swift"; sourceTree = "<group>"; };
 		F376E1552DD9F5D300D98252 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F376E1642DDA195300D98252 /* App Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container.swift"; sourceTree = "<group>"; };
 		F376E1662DDA284600D98252 /* Product Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product Card.swift"; sourceTree = "<group>"; };
 		F376E1682DDA288200D98252 /* Product Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product Details.swift"; sourceTree = "<group>"; };
 		F376E16B2DDA291700D98252 /* Connect Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Connect Helper.swift"; sourceTree = "<group>"; };
 		F376E16D2DDA299200D98252 /* Product VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product VM.swift"; sourceTree = "<group>"; };
-		F376E16F2DDA2ACC00D98252 /* CI Build Runs Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CI Build Runs Model.swift"; sourceTree = "<group>"; };
 		F376E17D2DDA31C400D98252 /* Build Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build Card.swift"; sourceTree = "<group>"; };
 		F376E18F2DDA437600D98252 /* Build Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build Details.swift"; sourceTree = "<group>"; };
-		F3B040872DDA4CA900DD782F /* CIWorkflowsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIWorkflowsResponse.swift; sourceTree = "<group>"; };
 		F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build VM.swift"; sourceTree = "<group>"; };
+		F3E0D1BD2DDA853C004A14C7 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiBuildRun.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,13 +103,14 @@
 				F33708AE2DD93A0D006834F8 /* Assets.xcassets */,
 				F376E1442DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 */,
 				F376E1452DD9C2C200D98252 /* JWT.json */,
-				F376E1482DD9C2C200D98252 /* Response Model.swift */,
 				F376E1552DD9F5D300D98252 /* Model.swift */,
 				F376E16B2DDA291700D98252 /* Connect Helper.swift */,
 				F33708B12DD93A0D006834F8 /* Home View.swift */,
 				F376E1472DD9C2C200D98252 /* Connect VM.swift */,
+				F3E0D1BD2DDA853C004A14C7 /* Provider.swift */,
 				F376E1662DDA284600D98252 /* Product Card.swift */,
 				F376E16D2DDA299200D98252 /* Product VM.swift */,
+				F3E0D1BF2DDA872C004A14C7 /* Preview */,
 				F376E16A2DDA28AB00D98252 /* Product Details */,
 			);
 			path = "CI-CD";
@@ -124,10 +123,16 @@
 				F376E17D2DDA31C400D98252 /* Build Card.swift */,
 				F376E18F2DDA437600D98252 /* Build Details.swift */,
 				F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */,
-				F376E16F2DDA2ACC00D98252 /* CI Build Runs Model.swift */,
-				F3B040872DDA4CA900DD782F /* CIWorkflowsResponse.swift */,
 			);
 			path = "Product Details";
+			sourceTree = "<group>";
+		};
+		F3E0D1BF2DDA872C004A14C7 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,7 +220,6 @@
 			files = (
 				F376E1562DD9F5D300D98252 /* Model.swift in Sources */,
 				F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */,
-				F376E1492DD9C2C200D98252 /* Response Model.swift in Sources */,
 				F376E14A2DD9C2C200D98252 /* Connect VM.swift in Sources */,
 				F33708B52DD93A0D006834F8 /* Home View.swift in Sources */,
 				F376E1652DDA195300D98252 /* App Container.swift in Sources */,
@@ -224,9 +228,9 @@
 				F376E16E2DDA299200D98252 /* Product VM.swift in Sources */,
 				F376E1902DDA437700D98252 /* Build Details.swift in Sources */,
 				F376E17E2DDA31C400D98252 /* Build Card.swift in Sources */,
+				F3E0D1C32DDA873C004A14C7 /* CiBuildRun.swift in Sources */,
+				F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */,
 				F376E1672DDA284600D98252 /* Product Card.swift in Sources */,
-				F3B040882DDA4CA900DD782F /* CIWorkflowsResponse.swift in Sources */,
-				F376E1702DDA2ACC00D98252 /* CI Build Runs Model.swift in Sources */,
 				F376E16C2DDA291700D98252 /* Connect Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
