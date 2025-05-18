@@ -15,19 +15,23 @@ struct CIBuildRun: Identifiable, Decodable {
 struct CIBuildRunAttributes: Decodable {
     let number: Int
     let createdDate: String
-    let startedDate: String
-    let finishedDate: String
+    let startedDate: String?
+    let finishedDate: String?
     let sourceCommit: CICommit
     let destinationCommit: CICommit?
     let isPullRequestBuild: Bool
     let issueCounts: CIIssueCounts?
     let executionProgress: String
-    let completionStatus: String
+    let completionStatus: String?
     let startReason: String
     let cancelReason: String?
 }
 
 struct CICommit: Decodable {
+    var id: String {
+        String(commitSha.prefix(7))
+    }
+    
     let commitSha: String
     let message: String
     let author: CIAuthor

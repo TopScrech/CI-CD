@@ -25,17 +25,27 @@ struct BuildCard: View {
         
         HStack {
             Capsule()
-                .frame(width: 5, height: 120)
+                .frame(width: 5)
+                .frame(maxHeight: .infinity)
                 .foregroundStyle(statusColor.gradient)
+                .padding(.vertical, 5)
             
             VStack(alignment: .leading) {
-                Text("Build \(build.attributes.number)")
-                    .title3(.semibold, design: .rounded)
+                HStack {
+                    Text("Build \(build.attributes.number)")
+                        .title3(.semibold, design: .rounded)
+                    
+                    Text(commit.id)
+                        .secondary()
+                        .padding(.vertical, 2)
+                        .padding(.horizontal, 8)
+                        .background(.ultraThinMaterial, in: .capsule)
+                }
                 
                 Text(commit.message)
                 
-                Text(commit.commitSha)
-                    .secondary()
+                //                Text(commit.id)
+                //                    .secondary()
                 
                 HStack {
                     KFImage(URL(string: author.avatarUrl))
@@ -52,32 +62,39 @@ struct BuildCard: View {
             VStack {
                 Text(timeSinceISO(build.attributes.createdDate))
                 
-                Text(timeDiffISO(
-                    dateString1: build.attributes.startedDate,
-                    dateString2: build.attributes.finishedDate
-                ))
+                if let minDiff = timeDiffISO(dateString1: build.attributes.createdDate, dateString2: build.attributes.startedDate) {
+                    HStack(spacing: 2) {
+                        Image(systemName: "clock")
+                        Text("\(minDiff)m")
+                    }
+                    .tertiary()
+                    .semibold()
+                }
             }
             .footnote()
             .secondary()
         }
+        .monospacedDigit()
         .padding(.leading, -8)
     }
     
-    private func timeDiffISO(dateString1: String, dateString2: String) -> LocalizedStringKey {
+    private func timeDiffISO(dateString1: String?, dateString2: String?) -> Int? {
         let formatter = ISO8601DateFormatter()
         
         guard
+            let dateString1,
+            let dateString2,
             let date1 = formatter.date(from: dateString1),
-            let date2 = formatter.date(from: dateString1)
+            let date2 = formatter.date(from: dateString2)
         else {
-            return "-"
+            return nil
         }
         
-        let secDiff = date1.timeIntervalSince(date2)
+        let secDiff = date2.timeIntervalSince(date1)
         let minDiff = Int(secDiff / 60)
         
-//        return "Build time: **\(minDiff)m**"
-        return "Ran for **\(minDiff)m**"
+        //        return "Build time: **\(minDiff)m**"
+        return minDiff
     }
     
 #warning("Move to ScrechKit, remove from BH")
@@ -85,7 +102,7 @@ struct BuildCard: View {
         let formatter = ISO8601DateFormatter()
         
         guard let date = formatter.date(from: date) else {
-            return "-"
+            return ""
         }
         
         let sinceNowSeconds = Int(date.timeIntervalSinceNow * -1)
@@ -95,21 +112,21 @@ struct BuildCard: View {
         }
         
         guard sinceNowSeconds > 60 else {
-            return "\(sinceNowSeconds) seconds ago"
+            return "\(sinceNowSeconds)s ago"
         }
         
         let sinceNowMinutes = sinceNowSeconds / 60
         guard sinceNowMinutes > 60 else {
-            return "\(sinceNowMinutes) minutes ago"
+            return "\(sinceNowMinutes)m ago"
         }
         
         let sinceNowHours = sinceNowMinutes / 60
         guard sinceNowHours > 24 else {
-            return "\(sinceNowHours) hours ago"
+            return "\(sinceNowHours)h ago"
         }
         
         let sinceNowDays = sinceNowHours / 24
-        return "\(sinceNowDays) days ago"
+        return "\(sinceNowDays)d ago"
     }
 }
 

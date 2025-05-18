@@ -13,7 +13,7 @@ struct ProductDetails: View {
         List {
             Section {
                 ForEach(vm.builds) { build in
-                    Text(build.attributes.number)
+                    BuildCard(build)
                 }
             }
         }
