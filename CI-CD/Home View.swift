@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 
 struct HomeView: View {
     @State private var vm = ConnectVM()
@@ -19,10 +19,8 @@ struct HomeView: View {
             
         }
         .toolbar {
-            Button {
+            SFButton("gear") {
                 sheetSettings = true
-            } label: {
-                Image(systemName: "gear")
             }
         }
     }
