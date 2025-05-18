@@ -27,6 +27,7 @@
 		F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */; };
 		F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
 		F3E0D1C32DDA873C004A14C7 /* CiBuildRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */; };
+		F3E0D1C52DDA92DD004A14C7 /* Workflow Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +63,7 @@
 		F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build VM.swift"; sourceTree = "<group>"; };
 		F3E0D1BD2DDA853C004A14C7 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiBuildRun.swift; sourceTree = "<group>"; };
+		F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workflow Card.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				F376E1682DDA288200D98252 /* Product Details.swift */,
+				F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */,
 				F376E17D2DDA31C400D98252 /* Build Card.swift */,
 				F376E18F2DDA437600D98252 /* Build Details.swift */,
 				F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */,
@@ -232,6 +235,7 @@
 				F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */,
 				F376E1672DDA284600D98252 /* Product Card.swift in Sources */,
 				F376E16C2DDA291700D98252 /* Connect Helper.swift in Sources */,
+				F3E0D1C52DDA92DD004A14C7 /* Workflow Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,6 +45,26 @@ struct BuildCard: View {
                             .padding(.horizontal, 8)
                             .background(.ultraThinMaterial, in: .capsule)
                     }
+                    
+                    
+                    if let minDiff = timeDiffISO(date1: build.attributes?.createdDate, date2: build.attributes?.startedDate) {
+                        HStack(spacing: 2) {
+                            Image(systemName: "clock")
+                            
+                            Text("\(minDiff)m")
+                        }
+                        .secondary()
+                        .padding(.vertical, 2)
+                        .padding(.horizontal, 3)
+                        .padding(.trailing, 4)
+                        .background(.ultraThinMaterial, in: .capsule)
+                    }
+                    
+                    Text(timeSinceISO(build.attributes?.createdDate))
+                        .secondary()
+                        .padding(.vertical, 2)
+                        .padding(.horizontal, 8)
+                        .background(.ultraThinMaterial, in: .capsule)
                 }
                 
                 Text(commit?.message ?? "-")
@@ -53,30 +73,13 @@ struct BuildCard: View {
                     if let avatar = author?.avatarURL {
                         KFImage(avatar)
                             .resizable()
-                            .frame(width: imgSize, height: imgSize)
+                            .frame(imgSize)
                             .clipShape(.circle)
                     }
                     
                     Text(author?.displayName ?? "-")
                 }
             }
-            
-            Spacer()
-            
-            VStack {
-                Text(timeSinceISO(build.attributes?.createdDate))
-                
-                if let minDiff = timeDiffISO(date1: build.attributes?.createdDate, date2: build.attributes?.startedDate) {
-                    HStack(spacing: 2) {
-                        Image(systemName: "clock")
-                        Text("\(minDiff)m")
-                    }
-                    .tertiary()
-                    .semibold()
-                }
-            }
-            .footnote()
-            .secondary()
         }
         .monospacedDigit()
         .padding(.leading, -8)
@@ -124,15 +127,15 @@ struct BuildCard: View {
     }
 }
 
-//#Preview {
-//    NavigationView {
-//        List {
-//            NavigationLink {
-//
-//            } label: {
-//                BuildCard(CIBuildRun.preview)
-//            }
-//        }
-//    }
-//    .darkSchemePreferred()
-//}
+#Preview {
+    NavigationView {
+        List {
+            NavigationLink {
+                
+            } label: {
+                BuildCard(CiBuildRun.preview)
+            }
+        }
+    }
+    .darkSchemePreferred()
+}

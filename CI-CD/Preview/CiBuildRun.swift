@@ -16,11 +16,11 @@ extension CiBuildRun {
                     message: "Initial commit",
                     author: CiGitUser(
                         displayName: "Jane Doe",
-                        avatarURL: URL(string: "https://example.com/avatar.png")
+                        avatarURL: URL(string: "https://avatars.githubusercontent.com/u/89252798?v=4")
                     ),
                     committer: CiGitUser(
                         displayName: "Jane Doe",
-                        avatarURL: URL(string: "https://example.com/avatar.png")
+                        avatarURL: URL(string: "https://avatars.githubusercontent.com/u/89252798?v=4")
                     ),
                     webURL: URL(string: "https://github.com/example/repo/commit/abcdef1234567890")
                 ),
@@ -29,11 +29,11 @@ extension CiBuildRun {
                     message: "Merge branch 'feature'",
                     author: CiGitUser(
                         displayName: "Jane Doe",
-                        avatarURL: URL(string: "https://example.com/avatar.png")
+                        avatarURL: URL(string: "https://avatars.githubusercontent.com/u/89252798?v=4")
                     ),
                     committer: CiGitUser(
                         displayName: "Jane Doe",
-                        avatarURL: URL(string: "https://example.com/avatar.png")
+                        avatarURL: URL(string: "https://avatars.githubusercontent.com/u/89252798?v=4")
                     ),
                     webURL: URL(string: "https://github.com/example/repo/commit/fedcba0987654321")
                 ),

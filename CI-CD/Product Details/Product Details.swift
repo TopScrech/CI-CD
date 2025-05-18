@@ -13,6 +13,12 @@ struct ProductDetails: View {
     var body: some View {
         List {
             Section {
+                ForEach(vm.workflows) { workflow in
+                    WorkflowCard(workflow)
+                }
+            }
+            
+            Section {
                 ForEach(vm.builds) { build in
                     NavigationLink {
                         BuildDetails(build)
@@ -22,6 +28,7 @@ struct ProductDetails: View {
                 }
             }
         }
+        .environment(vm)
         .refreshableTask {
             try? await vm.fetchBuilds(product.id)
         }
