@@ -25,6 +25,19 @@ struct ProductDetails: View {
         .refreshableTask {
             try? await vm.fetchBuilds(product.id)
         }
+//        .toolbar {
+//            Menu {
+//                Button {
+//                    Task {
+//                        try await vm.startBuild(product.id)
+//                    }
+//                } label: {
+//                    Text("Start build")
+//                }
+//            } label: {
+//                Image(systemName: "ellipsis.circle")
+//            }
+//        }
     }
 }
 

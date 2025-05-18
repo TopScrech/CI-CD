@@ -1,14 +1,22 @@
 import ScrechKit
 import AppStoreConnect_Swift_SDK
+import Kingfisher
 
 struct BuildDetails: View {
+//    @State private var vm = BuildVM()
+    
     private let build: CiBuildRun
     
     init(_ build: CiBuildRun) {
         self.build = build
     }
     
+    private let imgSize = 32.0
+    
     var body: some View {
+        let commit = build.attributes?.sourceCommit
+        let author = commit?.author
+        
         List {
             Section {
                 if let startedReason = build.attributes?.startReason {
@@ -47,8 +55,35 @@ struct BuildDetails: View {
             }
             
             Section {
-                
+                VStack(alignment: .leading, spacing: 16) {
+                    HStack {
+                        if let avatar = author?.avatarURL {
+                            KFImage(avatar)
+                                .resizable()
+                                .frame(width: imgSize, height: imgSize)
+                                .clipShape(.circle)
+                        }
+                        
+                        Text(author?.displayName ?? "-")
+                        
+                        Spacer()
+                        
+                        if let commit, let id = commit.commitSha?.prefix(7) {
+                            Text(id)
+                                .secondary()
+                                .padding(.vertical, 2)
+                                .padding(.horizontal, 8)
+                                .background(.ultraThinMaterial, in: .capsule)
+                        }
+                    }
+                    
+                    Text(commit?.message ?? "-")
+                }
             }
+            
+//            Section {
+//                Text(build.attributes?.)
+//            }
         }
     }
 }

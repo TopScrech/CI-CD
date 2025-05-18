@@ -20,7 +20,6 @@ final class ConnectVM {
                 ))
             
             products = try await provider.request(request).data
-            print(products)
         } catch {
             print(error)
         }
