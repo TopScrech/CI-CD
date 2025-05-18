@@ -13,7 +13,6 @@ struct ProductCard: View {
         } label: {
             VStack(alignment: .leading) {
                 Text(product.attributes.name)
-                Text(product.attributes.productType)
                 Text(product.attributes.createdDate)
             }
         }
