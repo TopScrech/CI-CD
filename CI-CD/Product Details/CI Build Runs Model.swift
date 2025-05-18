@@ -68,3 +68,66 @@ struct CIMeta: Decodable {
 struct CIPaging: Decodable {
     let limit: Int
 }
+
+extension CIBuildRun {
+    static let preview = CIBuildRun(
+        id: "buildrun-123",
+        type: "buildRuns",
+        attributes: CIBuildRunAttributes(
+            number: 42,
+            createdDate: "2024-05-18T12:34:56Z",
+            startedDate: "2024-05-18T12:35:00Z",
+            finishedDate: "2024-05-18T12:45:00Z",
+            sourceCommit: CICommit(
+                commitSha: "abcdef1234567890",
+                message: "Fix critical bug",
+                author: CIAuthor(
+                    displayName: "Jane Doe",
+                    avatarUrl: "https://avatars.githubusercontent.com/u/89252798?s=96&v=4"
+                ),
+                committer: CIAuthor(
+                    displayName: "John Smith",
+                    avatarUrl: "https://avatars.githubusercontent.com/u/89252798?s=96&v=4"
+                ),
+                webUrl: "https://github.com/example/repo/commit/abcdef1234567890"
+            ),
+            destinationCommit: CICommit(
+                commitSha: "fedcba0987654321",
+                message: "Merge branch 'feature'",
+                author: CIAuthor(
+                    displayName: "Alice Example",
+                    avatarUrl: "https://example.com/avatar/alice.png"
+                ),
+                committer: CIAuthor(
+                    displayName: "Bob Example",
+                    avatarUrl: "https://example.com/avatar/bob.png"
+                ),
+                webUrl: "https://github.com/example/repo/commit/fedcba0987654321"
+            ),
+            isPullRequestBuild: true,
+            issueCounts: nil, // or CIIssueCounts() if you want to provide an empty instance
+            executionProgress: "completed",
+            completionStatus: "SUCCEEDED",
+            startReason: "commit",
+            cancelReason: nil
+        ),
+        relationships: CIBuildRunRelationships(
+            builds: CIBuildRunRelationshipLinks(
+                links: CILinks(
+                    selfLink: "https://api.example.com/builds/123",
+                    related: "https://api.example.com/builds/related"
+                )
+            ),
+            actions: CIBuildRunRelationshipLinks(
+                links: CILinks(
+                    selfLink: "https://api.example.com/actions/123",
+                    related: nil
+                )
+            )
+        ),
+        links: CILinks(
+            selfLink: "https://api.example.com/buildRuns/123",
+            related: nil
+        )
+    )
+}
