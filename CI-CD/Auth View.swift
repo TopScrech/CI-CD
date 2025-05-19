@@ -39,12 +39,16 @@ struct AuthView: View {
                     .autocorrectionDisabled()
                     .autocapitalization(.none)
                 
-                Button("Import from Files") {
+                Button {
                     showPicker = true
+                } label: {
+                    Label("Import from Files", systemImage: "document.badge.plus")
                 }
             }
             
             Section {
+                Toggle("Demo Mode", isOn: $store.demoMode)
+                
                 Button("Authorize") {
                     store.isAuthorized = true
                 }
