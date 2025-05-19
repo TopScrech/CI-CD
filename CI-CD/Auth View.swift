@@ -7,42 +7,48 @@ struct AuthView: View {
     @State private var showPicker = false
     
     private var disabled: Bool {
-        store.issuer.isEmpty || store.privateKey.isEmpty || store.privateKeyId.isEmpty
+        if store.demoMode {
+            false
+        } else {
+            store.issuer.isEmpty || store.privateKey.isEmpty || store.privateKeyId.isEmpty
+        }
     }
     
     var body: some View {
         List {
-            Section {
-                HStack {
-                    TextField("Issuer ID", text: $store.issuer)
+            if !store.demoMode {
+                Section {
+                    HStack {
+                        TextField("Issuer ID", text: $store.issuer)
+                            .autocorrectionDisabled()
+                            .autocapitalization(.none)
+                        
+                        PasteButton(payloadType: String.self) { paste in
+                            if let issuer = paste.first, issuer.count == 36 {
+                                store.issuer = issuer
+                            }
+                        }
+                    }
+                } header: {
+                    Text("Issuer ID")
+                } footer: {
+                    Text("You need an API key with the 'Admin' role from App Store Connect to start builds with external deployments. API keys with the 'Developer' role cannot be used for this")
+                }
+                
+                Section("Private Key") {
+                    TextEditor(text: $store.privateKey)
                         .autocorrectionDisabled()
                         .autocapitalization(.none)
                     
-                    PasteButton(payloadType: String.self) { paste in
-                        if let issuer = paste.first, issuer.count == 36 {
-                            store.issuer = issuer
-                        }
+                    TextField("Private Key ID", text: $store.privateKeyId)
+                        .autocorrectionDisabled()
+                        .autocapitalization(.none)
+                    
+                    Button {
+                        showPicker = true
+                    } label: {
+                        Label("Import from Files", systemImage: "document.badge.plus")
                     }
-                }
-            } header: {
-                Text("Issuer ID")
-            } footer: {
-                Text("You need an API key with the 'Admin' role from App Store Connect to start builds with external deployments. API keys with the 'Developer' role cannot be used for this")
-            }
-            
-            Section("Private Key") {
-                TextEditor(text: $store.privateKey)
-                    .autocorrectionDisabled()
-                    .autocapitalization(.none)
-                
-                TextField("Private Key ID", text: $store.privateKeyId)
-                    .autocorrectionDisabled()
-                    .autocapitalization(.none)
-                
-                Button {
-                    showPicker = true
-                } label: {
-                    Label("Import from Files", systemImage: "document.badge.plus")
                 }
             }
             
@@ -55,6 +61,7 @@ struct AuthView: View {
                 .disabled(disabled)
             }
         }
+        .animation(.default, value: store.demoMode)
         .fileImporter(
             isPresented: $showPicker,
             allowedContentTypes: [UTType(filenameExtension: "p8")!],
