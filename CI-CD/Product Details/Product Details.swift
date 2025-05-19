@@ -25,6 +25,7 @@ struct ProductDetails: View {
                 .animation(.default, value: vm.builds.count)
             }
         }
+        .navigationTitle(product.attributes?.name ?? "")
         .environment(vm)
         .refreshableTask {
             try? await vm.fetchBuilds(product.id)

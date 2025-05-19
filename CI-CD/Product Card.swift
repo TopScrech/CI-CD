@@ -28,6 +28,7 @@ struct ProductCard: View {
                         .secondary()
                         .footnote()
                 }
+                .animation(.default, value: vm.workflows.count)
             }
         }
         .task {
