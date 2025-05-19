@@ -28,6 +28,7 @@
 		F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
 		F3E0D1C32DDA873C004A14C7 /* CiBuildRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */; };
 		F3E0D1C52DDA92DD004A14C7 /* Workflow Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */; };
+		F3E0D1C72DDB1420004A14C7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,6 +65,7 @@
 		F3E0D1BD2DDA853C004A14C7 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiBuildRun.swift; sourceTree = "<group>"; };
 		F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workflow Card.swift"; sourceTree = "<group>"; };
+		F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */,
 				F33708AE2DD93A0D006834F8 /* Assets.xcassets */,
 				F376E1442DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 */,
+				F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */,
 				F376E1452DD9C2C200D98252 /* JWT.json */,
 				F376E1552DD9F5D300D98252 /* Model.swift */,
 				F376E16B2DDA291700D98252 /* Connect Helper.swift */,
@@ -185,6 +188,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = F33708962DD93A01006834F8;
 			minimizedProjectReferenceProxies = 1;
@@ -210,6 +214,7 @@
 			files = (
 				F376E14C2DD9C2C200D98252 /* AuthKey_3U3CPFA54N.p8 in Resources */,
 				F376E14D2DD9C2C200D98252 /* JWT.json in Resources */,
+				F3E0D1C72DDB1420004A14C7 /* Localizable.xcstrings in Resources */,
 				F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +305,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -355,6 +361,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};

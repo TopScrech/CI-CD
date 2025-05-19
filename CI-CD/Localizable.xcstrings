@@ -1,0 +1,100 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%lldd ago" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldд назад"
+          }
+        }
+      }
+    },
+    "%lldh ago" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldч назад"
+          }
+        }
+      }
+    },
+    "%lldm" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldм"
+          }
+        }
+      }
+    },
+    "%lldm ago" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldм назад"
+          }
+        }
+      }
+    },
+    "%llds ago" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldс назад"
+          }
+        }
+      }
+    },
+    "Build %lld" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Билд %lld"
+          }
+        }
+      }
+    },
+    "CI/CD" : {
+      "shouldTranslate" : false
+    },
+    "Created" : {
+
+    },
+    "Finished" : {
+
+    },
+    "Now" : {
+
+    },
+    "Open on GitHub" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть на GitHub"
+          }
+        }
+      }
+    },
+    "Reason" : {
+
+    },
+    "Start build" : {
+
+    },
+    "Started" : {
+
+    }
+  },
+  "version" : "1.0"
+}

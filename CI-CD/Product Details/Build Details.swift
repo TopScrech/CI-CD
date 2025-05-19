@@ -3,7 +3,9 @@ import AppStoreConnect_Swift_SDK
 import Kingfisher
 
 struct BuildDetails: View {
-//    @State private var vm = BuildVM()
+    @Environment(\.openURL) private var openUrl
+    
+    //    @State private var vm = BuildVM()
     
     private let build: CiBuildRun
     
@@ -79,11 +81,19 @@ struct BuildDetails: View {
                     
                     Text(commit?.message ?? "-")
                 }
+                
+                if let commit, let url = commit.webURL {
+                    Button {
+                        openUrl(url)
+                    } label: {
+                        Label("Open on GitHub", systemImage: "hammer")
+                    }
+                }
             }
             
-//            Section {
-//                Text(build.attributes?.)
-//            }
+            //            Section {
+            //                Text(build.attributes?.)
+            //            }
         }
     }
 }
