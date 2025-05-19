@@ -10,7 +10,7 @@ struct WorkflowCard: View {
         self.workflow = workflow
     }
     
-    private var color: Color {
+    private var iconColor: Color {
         if let isEnabled = workflow.attributes?.isEnabled {
             isEnabled ? .green : .red
         } else {
@@ -29,7 +29,7 @@ struct WorkflowCard: View {
             } icon: {
                 Image(systemName: "server.rack")
                     .bold()
-                    .foregroundStyle(color)
+                    .foregroundStyle(iconColor)
             }
             .foregroundStyle(.foreground)
         }
