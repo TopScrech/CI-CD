@@ -10,22 +10,38 @@ struct WorkflowCard: View {
         self.workflow = workflow
     }
     
+    private var color: Color {
+        if let isEnabled = workflow.attributes?.isEnabled {
+            isEnabled ? .green : .red
+        } else {
+            .gray
+        }
+    }
+    
     var body: some View {
-        Menu {
-            Button {
-                Task {
-                    try await vm.startBuild(workflow.id)
-                }
-            } label: {
-                Label("Start build", systemImage: "play")
+        Button {
+            Task {
+                try await vm.startBuild(workflow.id)
             }
         } label: {
-            Label(workflow.attributes?.name ?? "", systemImage: "server.rack")
-                .foregroundStyle(.foreground)
+            Label {
+                Text(workflow.attributes?.name ?? "")
+            } icon: {
+                Image(systemName: "server.rack")
+                    .bold()
+                    .foregroundStyle(color)
+            }
+            .foregroundStyle(.foreground)
+        }
+        .contextMenu {
+            Label("Start build", systemImage: "play")
         }
     }
 }
 
-//#Preview {
-//    WorkflowCard()
-//}
+#Preview {
+    List {
+        WorkflowCard(CiWorkflow.preview)
+    }
+    .environment(ProductVM())
+}
