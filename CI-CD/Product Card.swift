@@ -34,15 +34,30 @@ struct ProductCard: View {
         .task {
             try? await vm.fetchWorkflows(product.id)
         }
-        //        .contextMenu {
-        //            Button {
-        //                Task {
-        //                    try await vm.startBuild(product.id)
-        //                }
-        //            } label: {
-        //                Label("Start build", systemImage: "play")
-        //            }
-        //        }
+        .contextMenu {
+            ForEach(vm.workflows) { workflow in
+                if let name = workflow.attributes?.name {
+                    Button {
+                        Task {
+                            try await vm.startBuild(workflow.id)
+                        }
+                    } label: {
+                        Text("Start build")
+                        
+                        Text(name)
+                        
+                        Image(systemName: "play")
+                    }
+                }
+            }
+            //            Button {
+            //                Task {
+            //                    try await vm.startBuild(product.id)
+            //                }
+            //            } label: {
+            //                Label("Start build", systemImage: "play")
+            //            }
+        }
     }
 }
 

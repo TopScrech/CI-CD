@@ -13,11 +13,14 @@ struct HomeView: View {
             .animation(.default, value: vm.products.count)
         }
         .navigationTitle("CI/CD")
+        .scrollIndicators(.never)
         .refreshableTask {
             try? await vm.fetchProducts()
         }
         .sheet($sheetSettings) {
-            
+            NavigationView {
+                AppSettings()
+            }
         }
         .toolbar {
             SFButton("gear") {

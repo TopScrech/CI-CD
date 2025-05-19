@@ -80,6 +80,7 @@ struct BuildDetails: View {
                     }
                     
                     Text(commit?.message ?? "-")
+                        .monospaced()
                 }
                 
                 if let commit, let url = commit.webURL {
@@ -91,9 +92,42 @@ struct BuildDetails: View {
                 }
             }
             
-            //            Section {
-            //                Text(build.attributes?.)
-            //            }
+            if let issues = build.attributes?.issueCounts {
+                Section {
+                    HStack {
+                        Text("Analyzer Warnings")
+                        
+                        Spacer()
+                        
+                        Text(issues.analyzerWarnings?.description ?? "-")
+                    }
+                    
+                    HStack {
+                        Text("Errors")
+                        
+                        Spacer()
+                        
+                        Text(issues.errors?.description ?? "-")
+                    }
+                    
+                    HStack {
+                        Text("Test Failures")
+                        
+                        Spacer()
+                        
+                        Text(issues.testFailures?.description ?? "-")
+                    }
+                    
+                    HStack {
+                        Text("Warnings")
+                        
+                        Spacer()
+                        
+                        Text(issues.warnings?.description ?? "-")
+                    }
+                    
+                }
+            }
         }
     }
 }

@@ -54,6 +54,9 @@
         }
       }
     },
+    "Analyzer Warnings" : {
+
+    },
     "Build %lld" : {
       "localizations" : {
         "ru" : {
@@ -70,7 +73,13 @@
     "Created" : {
 
     },
+    "Errors" : {
+
+    },
     "Finished" : {
+
+    },
+    "Hello, World!" : {
 
     },
     "Now" : {
@@ -89,10 +98,19 @@
     "Reason" : {
 
     },
+    "Settings" : {
+
+    },
     "Start build" : {
 
     },
     "Started" : {
+
+    },
+    "Test Failures" : {
+
+    },
+    "Warnings" : {
 
     }
   },

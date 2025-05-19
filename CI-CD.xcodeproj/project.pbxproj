@@ -29,6 +29,7 @@
 		F3E0D1C32DDA873C004A14C7 /* CiBuildRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */; };
 		F3E0D1C52DDA92DD004A14C7 /* Workflow Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */; };
 		F3E0D1C72DDB1420004A14C7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */; };
+		F3E0D1C92DDB18AC004A14C7 /* App Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C82DDB18AC004A14C7 /* App Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,6 +67,7 @@
 		F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiBuildRun.swift; sourceTree = "<group>"; };
 		F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workflow Card.swift"; sourceTree = "<group>"; };
 		F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		F3E0D1C82DDB18AC004A14C7 /* App Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Settings.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				F376E16D2DDA299200D98252 /* Product VM.swift */,
 				F3E0D1BF2DDA872C004A14C7 /* Preview */,
 				F376E16A2DDA28AB00D98252 /* Product Details */,
+				F3E0D1CA2DDB18B3004A14C7 /* Settings */,
 			);
 			path = "CI-CD";
 			sourceTree = "<group>";
@@ -139,6 +142,14 @@
 				F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */,
 			);
 			path = Preview;
+			sourceTree = "<group>";
+		};
+		F3E0D1CA2DDB18B3004A14C7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F3E0D1C82DDB18AC004A14C7 /* App Settings.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +251,7 @@
 				F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */,
 				F376E1672DDA284600D98252 /* Product Card.swift in Sources */,
 				F376E16C2DDA291700D98252 /* Connect Helper.swift in Sources */,
+				F3E0D1C92DDB18AC004A14C7 /* App Settings.swift in Sources */,
 				F3E0D1C52DDA92DD004A14C7 /* Workflow Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
