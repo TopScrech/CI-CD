@@ -1,10 +1,17 @@
 import SwiftUI
 
 struct AppContainer: View {
+    @StateObject private var store = ValueStore()
+    
     var body: some View {
         NavigationStack {
-            HomeView()
+            if store.isAuthorized {
+                HomeView()
+            } else {
+                AuthView()
+            }
         }
+        .environmentObject(store)
     }
 }
 

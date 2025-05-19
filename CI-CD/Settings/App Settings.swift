@@ -1,9 +1,17 @@
 import SwiftUI
 
 struct AppSettings: View {
+    @EnvironmentObject private var store: ValueStore
+    
     var body: some View {
         List {
-            Text("Hello, World!")
+#if DEBUG
+            Section {
+                Button("Deauthorize") {
+                    store.isAuthorized = false
+                }
+            }
+#endif
         }
         .navigationTitle("Settings")
     }
@@ -11,4 +19,5 @@ struct AppSettings: View {
 
 #Preview {
     AppSettings()
+        .environmentObject(ValueStore())
 }

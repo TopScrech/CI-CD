@@ -57,6 +57,9 @@
     "Analyzer Warnings" : {
 
     },
+    "Authorize" : {
+
+    },
     "Build %lld" : {
       "localizations" : {
         "ru" : {
@@ -73,13 +76,19 @@
     "Created" : {
 
     },
+    "Deauthorize" : {
+
+    },
     "Errors" : {
+
+    },
+    "File Picket" : {
 
     },
     "Finished" : {
 
     },
-    "Hello, World!" : {
+    "Issuer" : {
 
     },
     "Now" : {
@@ -94,6 +103,12 @@
           }
         }
       }
+    },
+    "Private Key" : {
+
+    },
+    "Private Key ID" : {
+
     },
     "Reason" : {
 
