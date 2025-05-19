@@ -33,6 +33,7 @@
 		F3E0D1CE2DDB1A96004A14C7 /* Auth View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* Auth View.swift */; };
 		F3E0D1D02DDB36C1004A14C7 /* CiProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */; };
 		F3E0D1D22DDB370E004A14C7 /* CiWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */; };
+		F3E0D1D52DDB3B51004A14C7 /* MailCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1D42DDB3B51004A14C7 /* MailCover */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +85,7 @@
 				F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */,
 				F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */,
 				F376E1942DDA47BB00D98252 /* ScrechKit in Frameworks */,
+				F3E0D1D52DDB3B51004A14C7 /* MailCover in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +184,7 @@
 				F376E1932DDA47BB00D98252 /* ScrechKit */,
 				F3A36EA42DDA47E200733D6D /* Kingfisher */,
 				F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */,
+				F3E0D1D42DDB3B51004A14C7 /* MailCover */,
 			);
 			productName = CD;
 			productReference = F337089F2DD93A01006834F8 /* CI-CD.app */;
@@ -216,6 +219,7 @@
 				F376E1922DDA47BB00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */,
 				F3A36EA32DDA47E200733D6D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F3E0D1AE2DDA778A004A14C7 /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */,
+				F3E0D1D32DDB3B51004A14C7 /* XCRemoteSwiftPackageReference "MailCover" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F33708A02DD93A01006834F8 /* Products */;
@@ -517,6 +521,14 @@
 				minimumVersion = 3.7.1;
 			};
 		};
+		F3E0D1D32DDB3B51004A14C7 /* XCRemoteSwiftPackageReference "MailCover" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TopScrech/MailCover";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -534,6 +546,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F3E0D1AE2DDA778A004A14C7 /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */;
 			productName = "AppStoreConnect-Swift-SDK";
+		};
+		F3E0D1D42DDB3B51004A14C7 /* MailCover */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3E0D1D32DDB3B51004A14C7 /* XCRemoteSwiftPackageReference "MailCover" */;
+			productName = MailCover;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

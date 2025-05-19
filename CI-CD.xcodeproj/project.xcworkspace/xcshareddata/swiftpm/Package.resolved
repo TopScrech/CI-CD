@@ -1,5 +1,5 @@
 {
-  "originHash" : "53ce08b370c645a459694e3277b4f8584134606ba5a5f13eaf786eb7b4f9b39d",
+  "originHash" : "4776ac1d3f28c2ac26848ee6c430452c9620d6a9e876792af96a99a293305028",
   "pins" : [
     {
       "identity" : "appstoreconnect-swift-sdk",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "7deda23bbdca612076c5c315003d8638a08ed0f1",
         "version" : "8.3.2"
+      }
+    },
+    {
+      "identity" : "mailcover",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TopScrech/MailCover",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c33771592360b836f114ebe32ad660590c7afc28"
       }
     },
     {

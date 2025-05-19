@@ -1,7 +1,10 @@
 import SwiftUI
+import MailCover
 
 struct AppSettings: View {
     @EnvironmentObject private var store: ValueStore
+    
+    @State private var mailCover = false
     
     var body: some View {
         List {
@@ -15,8 +18,18 @@ struct AppSettings: View {
                 }
             }
 #endif
+            
+            Section {
+                Button {
+                    mailCover = true
+                } label: {
+                    Label("Feedback", systemImage: "envelope")
+                }
+            }
         }
         .navigationTitle("Settings")
+        .mailCover($mailCover, subject: "CI/CD Feedback", recipients: ["topscrech@icloud.com"])
+        .foregroundStyle(.foreground)
     }
 }
 
