@@ -10,7 +10,9 @@ struct AuthView: View {
         if store.demoMode {
             false
         } else {
-            store.issuer.isEmpty || store.privateKey.isEmpty || store.privateKeyId.isEmpty
+            store.issuer.isEmpty ||
+            store.privateKey.isEmpty ||
+            store.privateKeyId.isEmpty
         }
     }
     
