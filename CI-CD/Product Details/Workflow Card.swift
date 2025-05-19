@@ -11,16 +11,18 @@ struct WorkflowCard: View {
     }
     
     var body: some View {
-        Label(workflow.attributes?.name ?? "", systemImage: "server.rack")
-            .contextMenu {
-                Button {
-                    Task {
-                        try await vm.startBuild(workflow.id)
-                    }
-                } label: {
-                    Label("Start build", systemImage: "play")
+        Menu {
+            Button {
+                Task {
+                    try await vm.startBuild(workflow.id)
                 }
+            } label: {
+                Label("Start build", systemImage: "play")
             }
+        } label: {
+            Label(workflow.attributes?.name ?? "", systemImage: "server.rack")
+                .foregroundStyle(.foreground)
+        }
     }
 }
 
