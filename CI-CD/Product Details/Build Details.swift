@@ -96,38 +96,45 @@ struct BuildDetails: View {
             
             if let issues = build.attributes?.issueCounts {
                 Section {
-                    HStack {
-                        Text("Analyzer Warnings")
-                        
-                        Spacer()
-                        
-                        Text(issues.analyzerWarnings?.description ?? "-")
+                    if let errors = issues.errors, errors > 0 {
+                        HStack {
+                            Text("⛔️ Errors")
+                            
+                            Spacer()
+                            
+                            Text(errors)
+                        }
                     }
                     
-                    HStack {
-                        Text("Errors")
-                        
-                        Spacer()
-                        
-                        Text(issues.errors?.description ?? "-")
+                    if let warnings = issues.warnings, warnings > 0 {
+                        HStack {
+                            Text("⚠️ Warnings")
+                            
+                            Spacer()
+                            
+                            Text(warnings)
+                        }
                     }
                     
-                    HStack {
-                        Text("Test Failures")
-                        
-                        Spacer()
-                        
-                        Text(issues.testFailures?.description ?? "-")
+                    if let analyzerWarnings = issues.analyzerWarnings, analyzerWarnings > 0 {
+                        HStack {
+                            Text("⚠️ Analyzer Warnings")
+                            
+                            Spacer()
+                            
+                            Text(analyzerWarnings)
+                        }
                     }
                     
-                    HStack {
-                        Text("Warnings")
-                        
-                        Spacer()
-                        
-                        Text(issues.warnings?.description ?? "-")
+                    if let testFailures = issues.testFailures, testFailures > 0 {
+                        HStack {
+                            Text("⛔️ Test Failures")
+                            
+                            Spacer()
+                            
+                            Text(testFailures)
+                        }
                     }
-                    
                 }
             }
         }
