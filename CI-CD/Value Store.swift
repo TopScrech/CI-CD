@@ -5,4 +5,6 @@ final class ValueStore: ObservableObject {
     @AppStorage("issuer") var issuer = ""
     @AppStorage("private_key") var privateKey = ""
     @AppStorage("private_key_id") var privateKeyId = ""
+    
+    @AppStorage("demo_mode") var demoMode = false
 }

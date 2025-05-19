@@ -103,8 +103,7 @@ struct BuildCard: View {
         let secDiff = date2.timeIntervalSince(date1)
         let minDiff = Int(secDiff / 60)
         
-        //        return "Build time: **\(minDiff)m**"
-        return minDiff
+        return minDiff < 0 ? minDiff * -1 : minDiff
     }
     
     private func timeSinceISO(_ date: Date?) -> LocalizedStringKey {

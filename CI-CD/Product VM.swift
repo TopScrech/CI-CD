@@ -3,8 +3,8 @@ import AppStoreConnect_Swift_SDK
 
 @Observable
 final class ProductVM {
-    private(set) var builds: [CiBuildRun] = []
-    private(set) var workflows: [CiWorkflow] = []
+    var builds: [CiBuildRun] = []
+    var workflows: [CiWorkflow] = []
     
     func fetchWorkflows(_ id: String) async throws {
         //        let subdir = "/v1/ciProducts/\(id)/workflows"

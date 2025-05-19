@@ -5,6 +5,9 @@ struct AppSettings: View {
     
     var body: some View {
         List {
+            Section {
+                Toggle("Demo Mode", isOn: $store.demoMode)
+            }
 #if DEBUG
             Section {
                 Button("Deauthorize") {

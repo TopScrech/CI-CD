@@ -3,6 +3,7 @@ import AppStoreConnect_Swift_SDK
 
 struct ProductCard: View {
     @State private var vm = ProductVM()
+    @EnvironmentObject private var store: ValueStore
     
     private let product: CiProduct
     
@@ -32,7 +33,11 @@ struct ProductCard: View {
             }
         }
         .task {
-            try? await vm.fetchWorkflows(product.id)
+            if store.demoMode {
+                vm.workflows = [CiWorkflow.preview]
+            } else {
+                try? await vm.fetchWorkflows(product.id)
+            }
         }
         .contextMenu {
             ForEach(vm.workflows) { workflow in
@@ -61,6 +66,7 @@ struct ProductCard: View {
     }
 }
 
-//#Preview {
-//    ProductCard()
-//}
+#Preview {
+    ProductCard(CiProduct.preview)
+        .environmentObject(ValueStore())
+}

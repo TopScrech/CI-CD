@@ -3,6 +3,7 @@ import AppStoreConnect_Swift_SDK
 
 struct ProductDetails: View {
     @Environment(ProductVM.self) private var vm
+    @EnvironmentObject private var store: ValueStore
     
     private let product: CiProduct
     
@@ -28,11 +29,16 @@ struct ProductDetails: View {
         .navigationTitle(product.attributes?.name ?? "")
         .environment(vm)
         .refreshableTask {
-            try? await vm.fetchBuilds(product.id)
+            if store.demoMode {
+                vm.builds = [CiBuildRun.preview]
+            } else {
+                try? await vm.fetchBuilds(product.id)
+            }
         }
     }
 }
 
-//#Preview {
-//    ProductDetails()
-//}
+#Preview {
+    ProductDetails(CiProduct.preview)
+        .environmentObject(ValueStore())
+}

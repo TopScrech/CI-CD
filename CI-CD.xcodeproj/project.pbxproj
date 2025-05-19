@@ -31,6 +31,8 @@
 		F3E0D1C92DDB18AC004A14C7 /* App Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C82DDB18AC004A14C7 /* App Settings.swift */; };
 		F3E0D1CC2DDB19D3004A14C7 /* Value Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CB2DDB19D3004A14C7 /* Value Store.swift */; };
 		F3E0D1CE2DDB1A96004A14C7 /* Auth View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* Auth View.swift */; };
+		F3E0D1D02DDB36C1004A14C7 /* CiProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */; };
+		F3E0D1D22DDB370E004A14C7 /* CiWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +72,8 @@
 		F3E0D1C82DDB18AC004A14C7 /* App Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Settings.swift"; sourceTree = "<group>"; };
 		F3E0D1CB2DDB19D3004A14C7 /* Value Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Value Store.swift"; sourceTree = "<group>"; };
 		F3E0D1CD2DDB1A96004A14C7 /* Auth View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Auth View.swift"; sourceTree = "<group>"; };
+		F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiProduct.swift; sourceTree = "<group>"; };
+		F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiWorkflow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */,
+				F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */,
+				F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -245,9 +251,11 @@
 				F33708B52DD93A0D006834F8 /* Home View.swift in Sources */,
 				F376E1652DDA195300D98252 /* App Container.swift in Sources */,
 				F376E1692DDA288200D98252 /* Product Details.swift in Sources */,
+				F3E0D1D22DDB370E004A14C7 /* CiWorkflow.swift in Sources */,
 				F3E0D1AD2DDA70AC004A14C7 /* Build VM.swift in Sources */,
 				F376E16E2DDA299200D98252 /* Product VM.swift in Sources */,
 				F3E0D1CE2DDB1A96004A14C7 /* Auth View.swift in Sources */,
+				F3E0D1D02DDB36C1004A14C7 /* CiProduct.swift in Sources */,
 				F376E1902DDA437700D98252 /* Build Details.swift in Sources */,
 				F376E17E2DDA31C400D98252 /* Build Card.swift in Sources */,
 				F3E0D1C32DDA873C004A14C7 /* CiBuildRun.swift in Sources */,

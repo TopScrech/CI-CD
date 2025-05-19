@@ -1,7 +1,9 @@
 import ScrechKit
+import AppStoreConnect_Swift_SDK
 
 struct HomeView: View {
     @State private var vm = ConnectVM()
+    @EnvironmentObject private var store: ValueStore
     
     @State private var sheetSettings = false
     
@@ -15,7 +17,11 @@ struct HomeView: View {
         .navigationTitle("CI/CD")
         .scrollIndicators(.never)
         .refreshableTask {
-            try? await vm.fetchProducts()
+            if store.demoMode {
+                vm.products = [CiProduct.preview]
+            } else {
+                try? await vm.fetchProducts()
+            }
         }
         .sheet($sheetSettings) {
             NavigationView {
@@ -32,4 +38,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environmentObject(ValueStore())
 }
