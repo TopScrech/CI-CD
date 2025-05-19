@@ -18,7 +18,6 @@ struct AppSettings: View {
                 }
             }
 #endif
-            
             Section {
                 Button {
                     mailCover = true
