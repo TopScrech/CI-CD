@@ -86,7 +86,7 @@ struct BuildDetails: View {
                     Button {
                         openUrl(url)
                     } label: {
-                        Label("Open on GitHub", systemImage: "hammer")
+                        Label("Open on GitHub", systemImage: "link")
                     }
                 }
             }
