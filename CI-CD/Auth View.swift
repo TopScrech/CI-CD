@@ -12,16 +12,22 @@ struct AuthView: View {
     
     var body: some View {
         List {
-            HStack {
-                TextField("Issuer", text: $store.issuer)
-                    .autocorrectionDisabled()
-                    .autocapitalization(.none)
-                
-                PasteButton(payloadType: String.self) { paste in
-                    if let issuer = paste.first, issuer.count == 36 {
-                        store.issuer = issuer
+            Section {
+                HStack {
+                    TextField("Issuer ID", text: $store.issuer)
+                        .autocorrectionDisabled()
+                        .autocapitalization(.none)
+                    
+                    PasteButton(payloadType: String.self) { paste in
+                        if let issuer = paste.first, issuer.count == 36 {
+                            store.issuer = issuer
+                        }
                     }
                 }
+            } header: {
+                Text("Issuer ID")
+            } footer: {
+                Text("You need an API key with the 'Admin' role from App Store Connect to start builds with external deployments. API keys with the 'Developer' role cannot be used for this")
             }
             
             Section("Private Key") {
@@ -33,7 +39,7 @@ struct AuthView: View {
                     .autocorrectionDisabled()
                     .autocapitalization(.none)
                 
-                Button("File Picket") {
+                Button("Import from Files") {
                     showPicker = true
                 }
             }
