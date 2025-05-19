@@ -89,6 +89,8 @@ struct BuildDetails: View {
                     } label: {
                         Label("Open on GitHub", systemImage: "link")
                     }
+                    
+                    ShareLink(item: url)
                 }
             }
             
@@ -129,6 +131,7 @@ struct BuildDetails: View {
                 }
             }
         }
+        .navigationTitle("Build \(build.attributes?.number?.description ?? "")")
     }
 }
 

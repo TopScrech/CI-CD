@@ -60,6 +60,9 @@
     "Authorize" : {
 
     },
+    "Build %@" : {
+
+    },
     "Build %lld" : {
       "localizations" : {
         "ru" : {
