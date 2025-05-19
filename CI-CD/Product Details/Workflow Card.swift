@@ -24,18 +24,36 @@ struct WorkflowCard: View {
                 try await vm.startBuild(workflow.id)
             }
         } label: {
-            Label {
-                Text(workflow.attributes?.name ?? "")
-            } icon: {
-                Image(systemName: "server.rack")
-                    .bold()
-                    .foregroundStyle(iconColor)
+            VStack(alignment: .leading) {
+                Label {
+                    Text(workflow.attributes?.name ?? "")
+                } icon: {
+                    Image(systemName: "server.rack")
+                        .bold()
+                        .foregroundStyle(iconColor)
+                }
+                .foregroundStyle(.foreground)
+                
+                //                if let actions = workflow.attributes?.actions {
+                //                    Divider()
+                //
+                //                    ForEach(actions) { action in
+                //                        Text(action.name ?? "-")
+                //
+                //                        Text(action.platform?.rawValue ?? "-")
+                //                    }
+                //                }
             }
-            .foregroundStyle(.foreground)
         }
         .contextMenu {
             Label("Start build", systemImage: "play")
         }
+    }
+}
+
+extension CiAction: @retroactive Identifiable {
+    public var id: UUID {
+        UUID()
     }
 }
 

@@ -16,7 +16,43 @@ extension CiWorkflow {
                 manualBranchStartCondition: nil,
                 manualTagStartCondition: nil,
                 manualPullRequestStartCondition: nil,
-                actions: [],
+                actions: [
+                    CiAction(
+                        name: "Checkout Source",
+                        actionType: .build,
+                        platform: .ios,
+                        isRequiredToPass: true
+                    ),
+                    CiAction(
+                        name: "Build App",
+                        actionType: .build,
+                        destination: .anyIosSimulator,
+                        scheme: "MyApp",
+                        platform: .ios,
+                        isRequiredToPass: true
+                    ),
+                    CiAction(
+                        name: "Run Unit Tests",
+                        actionType: .test,
+                        destination: .anyIosSimulator,
+                        testConfiguration: .init(
+                            kind: .useSchemeSettings,
+                            testPlanName: nil,
+                            testDestinations: nil
+                        ),
+                        scheme: "MyApp",
+                        platform: .ios,
+                        isRequiredToPass: true
+                    ),
+                    CiAction(
+                        name: "Archive",
+                        actionType: .archive,
+                        destination: .anyIosDevice,
+                        scheme: "MyApp",
+                        platform: .ios,
+                        isRequiredToPass: true
+                    )
+                ],
                 isEnabled: true,
                 isLockedForEditing: false,
                 isClean: true,
