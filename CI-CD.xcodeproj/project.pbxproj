@@ -515,10 +515,10 @@
 		};
 		F3E0D1AE2DDA778A004A14C7 /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AvdLee/appstoreconnect-swift-sdk";
+			repositoryURL = "https://github.com/TopScrech/appstoreconnect-swift-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.7.1;
+				branch = master;
+				kind = branch;
 			};
 		};
 		F3E0D1D32DDB3B51004A14C7 /* XCRemoteSwiftPackageReference "MailCover" */ = {

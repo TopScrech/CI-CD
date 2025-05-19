@@ -11,6 +11,22 @@ struct ProductDetails: View {
         self.product = product
     }
     
+    private var authors: [CiGitUser] {
+        Array(Set(vm.builds.compactMap(\.attributes?.sourceCommit?.author)))
+    }
+    
+    private var filteredBuilds: [CiBuildRun] {
+        if let selectedAuthor {
+            vm.builds.filter {
+                $0.attributes?.sourceCommit?.author?.displayName == selectedAuthor.displayName
+            }
+        } else {
+            vm.builds
+        }
+    }
+    
+    @State private var selectedAuthor: CiGitUser?
+    
     var body: some View {
         List {
             Section {
@@ -20,14 +36,34 @@ struct ProductDetails: View {
             }
             
             Section {
-                ForEach(vm.builds.reversed()) { build in
+                ForEach(filteredBuilds.reversed()) { build in
                     BuildCard(build)
                 }
-                .animation(.default, value: vm.builds.count)
+                .animation(.default, value: selectedAuthor)
             }
         }
         .navigationTitle(product.attributes?.name ?? "")
         .environment(vm)
+        .toolbar {
+            Menu {
+                Section {
+                    Button("All") {
+                        selectedAuthor = nil
+                    }
+                }
+                
+                ForEach(authors, id: \.self) { author in
+                    Button {
+                        selectedAuthor = author
+                    } label: {
+                        Text(author.displayName ?? "Unknown Author")
+                    }
+                }
+            } label: {
+                Image(systemName: "line.3.horizontal.decrease.circle")
+                    .symbolVariant(selectedAuthor == nil ? .none : .fill)
+            }
+        }
         .refreshableTask {
             if store.demoMode {
                 vm.builds = [CiBuildRun.preview]
