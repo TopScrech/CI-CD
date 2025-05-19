@@ -39,9 +39,10 @@ struct ProductDetails: View {
                 ForEach(filteredBuilds.reversed()) { build in
                     BuildCard(build)
                 }
-                .animation(.default, value: selectedAuthor)
             }
         }
+        .animation(.default, value: selectedAuthor)
+        .animation(.default, value: filteredBuilds.count)
         .navigationTitle(product.attributes?.name ?? "")
         .environment(vm)
         .toolbar {

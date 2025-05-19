@@ -12,8 +12,8 @@ struct HomeView: View {
             ForEach(vm.products) { product in
                 ProductCard(product)
             }
-            .animation(.default, value: vm.products.count)
         }
+        .animation(.default, value: vm.products.count)
         .navigationTitle("CI/CD")
         .scrollIndicators(.never)
         .refreshableTask {
