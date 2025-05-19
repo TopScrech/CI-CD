@@ -22,6 +22,7 @@ struct ProductDetails: View {
                 ForEach(vm.builds.reversed()) { build in
                     BuildCard(build)
                 }
+                .animation(.default, value: vm.builds.count)
             }
         }
         .environment(vm)

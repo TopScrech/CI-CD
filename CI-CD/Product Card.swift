@@ -15,15 +15,19 @@ struct ProductCard: View {
             ProductDetails(product)
                 .environment(vm)
         } label: {
-            VStack(alignment: .leading) {
+            HStack {
                 if let attributes = product.attributes, let name = attributes.name {
                     Text(name)
                         .title3()
                 }
                 
-                //Text("Workflows: \(vm.workflows.map(\.attributes.name))")
-                //    .secondary()
-                //    .footnote()
+                Spacer()
+                
+                ForEach(vm.workflows) { workflow in
+                    Text(workflow.attributes?.name ?? "")
+                        .secondary()
+                        .footnote()
+                }
             }
         }
         .task {
