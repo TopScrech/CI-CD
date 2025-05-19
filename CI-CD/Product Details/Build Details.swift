@@ -139,6 +139,7 @@ struct BuildDetails: View {
             }
         }
         .navigationTitle("Build \(build.attributes?.number?.description ?? "")")
+        .foregroundStyle(.foreground)
     }
 }
 
