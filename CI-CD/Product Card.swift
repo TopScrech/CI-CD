@@ -1,6 +1,5 @@
 import SwiftUI
 import AppStoreConnect_Swift_SDK
-import Kingfisher
 
 struct ProductCard: View {
     @State private var vm = ProductVM()
@@ -12,20 +11,12 @@ struct ProductCard: View {
         self.product = product
     }
     
-    @State private var iconUrl: URL?
-    
     var body: some View {
         NavigationLink {
             ProductDetails(product)
-                .environment(vm)
         } label: {
             HStack {
-                if let iconUrl {
-                    KFImage(iconUrl)
-                        .resizable()
-                        .frame(32)
-                        .clipShape(.rect(cornerRadius: 8))
-                }
+                ProductCardImage(product.relationships?.bundleID?.data?.id)
                 
                 VStack(alignment: .leading) {
                     if let attributes = product.attributes, let name = attributes.name {
@@ -50,11 +41,8 @@ struct ProductCard: View {
                 }
             }
         }
+        .environment(vm)
         .task {
-            if iconUrl == nil {
-                iconUrl = try? await vm.fetchIconUrl(product.relationships?.bundleID?.data?.id)
-            }
-            
             if store.demoMode {
                 vm.workflows = [CiWorkflow.preview]
             } else {
