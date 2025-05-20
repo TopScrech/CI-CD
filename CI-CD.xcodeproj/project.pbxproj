@@ -144,8 +144,8 @@
 				F30246292DDC680400999146 /* Product Card Image.swift */,
 				F376E16D2DDA299200D98252 /* Product VM.swift */,
 				F30246272DDC609500999146 /* App Store Model.swift */,
-				F3E0D1BF2DDA872C004A14C7 /* Preview */,
 				F376E16A2DDA28AB00D98252 /* Product Details */,
+				F3E0D1BF2DDA872C004A14C7 /* Preview */,
 				F3E0D1CA2DDB18B3004A14C7 /* Settings */,
 			);
 			path = "CI-CD";
