@@ -88,6 +88,9 @@
     "CI/CD" : {
       "shouldTranslate" : false
     },
+    "Completion status" : {
+
+    },
     "Created" : {
 
     },
@@ -95,6 +98,9 @@
 
     },
     "Demo Mode" : {
+
+    },
+    "Execution progress" : {
 
     },
     "Feedback" : {

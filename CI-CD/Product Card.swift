@@ -14,9 +14,11 @@ struct ProductCard: View {
     var body: some View {
         NavigationLink {
             ProductDetails(product)
+                .environment(vm)
         } label: {
             HStack {
                 ProductCardImage(product.relationships?.bundleID?.data?.id)
+                    .environment(vm)
                 
                 VStack(alignment: .leading) {
                     if let attributes = product.attributes, let name = attributes.name {
@@ -41,7 +43,6 @@ struct ProductCard: View {
                 }
             }
         }
-        .environment(vm)
         .task {
             if store.demoMode {
                 vm.workflows = [CiWorkflow.preview]
