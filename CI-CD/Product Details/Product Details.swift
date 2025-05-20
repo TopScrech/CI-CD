@@ -78,4 +78,6 @@ struct ProductDetails: View {
 #Preview {
     ProductDetails(CiProduct.preview)
         .environmentObject(ValueStore())
+        .environment(ProductVM())
+        .darkSchemePreferred()
 }
