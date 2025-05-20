@@ -19,6 +19,12 @@ struct BuildDetails: View {
         let author = commit?.author
         
         List {
+            Button("Build actions") {
+                Task {
+                    try await vm.buildActions(build.id)
+                }
+            }
+            
             BuildDetailsProgress(build)
             
             Section {
@@ -98,52 +104,17 @@ struct BuildDetails: View {
                 }
             }
             
-            if let issues = build.attributes?.issueCounts {
-                Section {
-                    if let errors = issues.errors, errors > 0 {
-                        HStack {
-                            Text("⛔️ Errors")
-                            
-                            Spacer()
-                            
-                            Text(errors)
-                        }
-                    }
-                    
-                    if let warnings = issues.warnings, warnings > 0 {
-                        HStack {
-                            Text("⚠️ Warnings")
-                            
-                            Spacer()
-                            
-                            Text(warnings)
-                        }
-                    }
-                    
-                    if let analyzerWarnings = issues.analyzerWarnings, analyzerWarnings > 0 {
-                        HStack {
-                            Text("⚠️ Analyzer Warnings")
-                            
-                            Spacer()
-                            
-                            Text(analyzerWarnings)
-                        }
-                    }
-                    
-                    if let testFailures = issues.testFailures, testFailures > 0 {
-                        HStack {
-                            Text("⛔️ Test Failures")
-                            
-                            Spacer()
-                            
-                            Text(testFailures)
-                        }
-                    }
+            Section("Build actions") {
+                ForEach(vm.actions) { action in
+                    ActionCard(action)
                 }
             }
         }
         .navigationTitle("Build \(build.attributes?.number?.description ?? "")")
         .foregroundStyle(.foreground)
+        .task {
+            try? await vm.buildActions(build.id)
+        }
     }
 }
 

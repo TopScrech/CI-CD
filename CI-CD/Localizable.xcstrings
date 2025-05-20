@@ -88,10 +88,19 @@
         }
       }
     },
+    "Build actions" : {
+
+    },
     "CI/CD" : {
       "shouldTranslate" : false
     },
     "Completion status" : {
+
+    },
+    "Copy" : {
+
+    },
+    "Copy action id" : {
 
     },
     "Copy build id" : {
@@ -118,7 +127,16 @@
     "Import from Files" : {
 
     },
+    "in" : {
+
+    },
     "Issuer ID" : {
+
+    },
+    "Issues" : {
+
+    },
+    "Line" : {
 
     },
     "Now" : {
