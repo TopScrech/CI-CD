@@ -14,12 +14,12 @@ struct ProductCardImage: View {
     
     var body: some View {
         VStack {
-            if let iconUrl {
-                KFImage(iconUrl)
-                    .resizable()
-                    .frame(32)
-                    .clipShape(.rect(cornerRadius: 8))
-            }
+                if let iconUrl {
+                    KFImage(iconUrl)
+                        .resizable()
+                        .frame(32)
+                        .clipShape(.rect(cornerRadius: 8))
+                }
         }
         .task {
             if iconUrl == nil {
@@ -30,6 +30,6 @@ struct ProductCardImage: View {
 }
 
 #Preview {
-    ProductCardImage("host.bisquit.Bisquit-Host")
+    ProductCardImage("host.bisquit.Bisquit-host")
         .environment(ProductVM())
 }
