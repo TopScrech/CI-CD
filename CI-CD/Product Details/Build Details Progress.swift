@@ -30,6 +30,12 @@ struct BuildDetailsProgress: View {
                     
                     Text(executionProgress.rawValue.lowercased().capitalized)
                         .secondary()
+                    
+                    if executionProgress == .running {
+                        ProgressView()
+                    } else if executionProgress == .pending {
+                        Image(systemName: "clock")
+                    }
                 }
             }
             
