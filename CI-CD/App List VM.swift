@@ -6,19 +6,19 @@ final class AppListVM {
     var products: [CiProduct] = []
     
     func fetchProducts() async throws {
+        guard let provider = try await provider() else {
+            return
+        }
+        
+        let request = APIEndpoint
+            .v1
+            .ciProducts
+            .get(parameters: .init(
+                //                    sort: [.name],
+                fieldsApps: [.ciProduct]
+            ))
+        
         do {
-            guard let provider = try await provider() else {
-                return
-            }
-            
-            let request = APIEndpoint
-                .v1
-                .ciProducts
-                .get(parameters: .init(
-//                    sort: [.name],
-                    fieldsApps: [.ciProduct]
-                ))
-            
             products = try await provider.request(request).data
         } catch {
             print(error)
