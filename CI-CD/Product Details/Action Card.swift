@@ -12,11 +12,21 @@ struct ActionCard: View {
     
     var body: some View {
         NavigationLink {
-            IssueList()
+            ActionDetails()
                 .environment(vm)
         } label: {
             VStack(alignment: .leading) {
                 Text(action.attributes?.name ?? "-")
+                
+                if vm.artifacts.count > 0 {
+                    HStack {
+                        Text("📁 Artifacts")
+                        
+                        Spacer()
+                        
+                        Text(vm.artifacts.count)
+                    }
+                }
                 
                 if let errors = vm.errorCount, errors > 0 {
                     HStack {
@@ -65,6 +75,7 @@ struct ActionCard: View {
         }
         .task {
             try? await vm.buildIssues(action.id)
+            try? await vm.buildArtifacts(action.id)
         }
         .contextMenu {
             Button {

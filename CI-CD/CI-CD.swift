@@ -1,4 +1,5 @@
 import ScrechKit
+import SafariCover
 
 @main
 struct CDApp: App {

@@ -4,6 +4,7 @@ import AppStoreConnect_Swift_SDK
 @Observable
 final class ActionVM {
     var issues: [CiIssue] = []
+    var artifacts: [CiArtifact] = []
     
     var warningCount: Int? {
         issues.filter {
@@ -43,6 +44,25 @@ final class ActionVM {
         
         do {
             issues = try await provider.request(request).data
+        } catch {
+            print(error)
+        }
+    }
+    
+    func buildArtifacts(_ actionId: String) async throws {
+        guard let provider = try await provider() else {
+            return
+        }
+        
+        let request = APIEndpoint
+            .v1
+            .ciBuildActions
+            .id(actionId)
+            .artifacts
+            .get()
+        
+        do {
+            artifacts = try await provider.request(request).data
         } catch {
             print(error)
         }

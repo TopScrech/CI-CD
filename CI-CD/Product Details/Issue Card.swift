@@ -40,7 +40,7 @@ struct IssueCard: View {
             }
         } footer: {
             if let source = issue.attributes?.fileSource, let line = source.lineNumber, let path = source.path {
-                HStack(spacing: 4) {
+                HStack(alignment: .top, spacing: 4) {
                     Text("Line")
                         .opacity(0.8)
                     

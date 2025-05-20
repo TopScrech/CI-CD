@@ -66,10 +66,16 @@
     "⛔️ Test Failures" : {
 
     },
+    "📁 Artifacts" : {
+
+    },
     "All" : {
 
     },
     "Archive" : {
+
+    },
+    "Artifacts" : {
 
     },
     "Authorize" : {
@@ -103,7 +109,13 @@
     "Copy action id" : {
 
     },
+    "Copy artifact id" : {
+
+    },
     "Copy build id" : {
+
+    },
+    "Copy download url" : {
 
     },
     "Created" : {

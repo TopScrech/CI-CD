@@ -12,10 +12,13 @@
 		F302462C2DDC6AAE00999146 /* User Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* User Defaults.swift */; };
 		F31D32112DDD081E00E7B121 /* Build Details Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32102DDD081E00E7B121 /* Build Details Progress.swift */; };
 		F31D32132DDD13FE00E7B121 /* Action Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32122DDD13FE00E7B121 /* Action Card.swift */; };
-		F31D32152DDD17C600E7B121 /* Issue List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32142DDD17C600E7B121 /* Issue List.swift */; };
+		F31D32152DDD17C600E7B121 /* Action Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32142DDD17C600E7B121 /* Action Details.swift */; };
 		F31D32172DDD18A200E7B121 /* Issue Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32162DDD18A200E7B121 /* Issue Card.swift */; };
 		F31D321B2DDD1AA300E7B121 /* CiIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321A2DDD1AA300E7B121 /* CiIssue.swift */; };
 		F31D321D2DDD20F100E7B121 /* Action VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321C2DDD20F100E7B121 /* Action VM.swift */; };
+		F31D321F2DDD242600E7B121 /* Artifact Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321E2DDD242600E7B121 /* Artifact Card.swift */; };
+		F31D32212DDD245F00E7B121 /* CiArtifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32202DDD245F00E7B121 /* CiArtifact.swift */; };
+		F31D32242DDD265A00E7B121 /* SafariCover in Frameworks */ = {isa = PBXBuildFile; productRef = F31D32232DDD265A00E7B121 /* SafariCover */; };
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F33708B52DD93A0D006834F8 /* App List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* App List.swift */; };
@@ -61,10 +64,12 @@
 		F302462B2DDC6AAE00999146 /* User Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User Defaults.swift"; sourceTree = "<group>"; };
 		F31D32102DDD081E00E7B121 /* Build Details Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build Details Progress.swift"; sourceTree = "<group>"; };
 		F31D32122DDD13FE00E7B121 /* Action Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action Card.swift"; sourceTree = "<group>"; };
-		F31D32142DDD17C600E7B121 /* Issue List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue List.swift"; sourceTree = "<group>"; };
+		F31D32142DDD17C600E7B121 /* Action Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action Details.swift"; sourceTree = "<group>"; };
 		F31D32162DDD18A200E7B121 /* Issue Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue Card.swift"; sourceTree = "<group>"; };
 		F31D321A2DDD1AA300E7B121 /* CiIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiIssue.swift; sourceTree = "<group>"; };
 		F31D321C2DDD20F100E7B121 /* Action VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action VM.swift"; sourceTree = "<group>"; };
+		F31D321E2DDD242600E7B121 /* Artifact Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artifact Card.swift"; sourceTree = "<group>"; };
+		F31D32202DDD245F00E7B121 /* CiArtifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiArtifact.swift; sourceTree = "<group>"; };
 		F337089F2DD93A01006834F8 /* CI-CD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI-CD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33708AE2DD93A0D006834F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CI-CD.entitlements"; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 			files = (
 				F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */,
 				F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */,
+				F31D32242DDD265A00E7B121 /* SafariCover in Frameworks */,
 				F376E1942DDA47BB00D98252 /* ScrechKit in Frameworks */,
 				F3E0D1D52DDB3B51004A14C7 /* MailCover in Frameworks */,
 			);
@@ -154,7 +160,8 @@
 				F376E18F2DDA437600D98252 /* Build Details.swift */,
 				F31D32122DDD13FE00E7B121 /* Action Card.swift */,
 				F31D321C2DDD20F100E7B121 /* Action VM.swift */,
-				F31D32142DDD17C600E7B121 /* Issue List.swift */,
+				F31D32142DDD17C600E7B121 /* Action Details.swift */,
+				F31D321E2DDD242600E7B121 /* Artifact Card.swift */,
 				F31D32162DDD18A200E7B121 /* Issue Card.swift */,
 				F31D32102DDD081E00E7B121 /* Build Details Progress.swift */,
 				F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */,
@@ -169,6 +176,7 @@
 				F31D321A2DDD1AA300E7B121 /* CiIssue.swift */,
 				F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */,
 				F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */,
+				F31D32202DDD245F00E7B121 /* CiArtifact.swift */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -203,6 +211,7 @@
 				F3A36EA42DDA47E200733D6D /* Kingfisher */,
 				F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */,
 				F3E0D1D42DDB3B51004A14C7 /* MailCover */,
+				F31D32232DDD265A00E7B121 /* SafariCover */,
 			);
 			productName = CD;
 			productReference = F337089F2DD93A01006834F8 /* CI-CD.app */;
@@ -238,6 +247,7 @@
 				F3A36EA32DDA47E200733D6D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F3E0D1AE2DDA778A004A14C7 /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */,
 				F3E0D1D32DDB3B51004A14C7 /* XCRemoteSwiftPackageReference "MailCover" */,
+				F31D32222DDD265A00E7B121 /* XCRemoteSwiftPackageReference "SafariCover" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F33708A02DD93A01006834F8 /* Products */;
@@ -282,16 +292,18 @@
 				F376E17E2DDA31C400D98252 /* Build Card.swift in Sources */,
 				F3E0D1C32DDA873C004A14C7 /* CiBuildRun.swift in Sources */,
 				F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */,
-				F31D32152DDD17C600E7B121 /* Issue List.swift in Sources */,
+				F31D32152DDD17C600E7B121 /* Action Details.swift in Sources */,
 				F31D321B2DDD1AA300E7B121 /* CiIssue.swift in Sources */,
 				F302462A2DDC680400999146 /* Product Card Image.swift in Sources */,
 				F31D32112DDD081E00E7B121 /* Build Details Progress.swift in Sources */,
 				F31D32132DDD13FE00E7B121 /* Action Card.swift in Sources */,
+				F31D321F2DDD242600E7B121 /* Artifact Card.swift in Sources */,
 				F302462C2DDC6AAE00999146 /* User Defaults.swift in Sources */,
 				F376E1672DDA284600D98252 /* Product Card.swift in Sources */,
 				F3E0D1CC2DDB19D3004A14C7 /* Value Store.swift in Sources */,
 				F31D32172DDD18A200E7B121 /* Issue Card.swift in Sources */,
 				F3E0D1C92DDB18AC004A14C7 /* App Settings.swift in Sources */,
+				F31D32212DDD245F00E7B121 /* CiArtifact.swift in Sources */,
 				F3E0D1C52DDA92DD004A14C7 /* Workflow Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,6 +535,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F31D32222DDD265A00E7B121 /* XCRemoteSwiftPackageReference "SafariCover" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TopScrech/SafariCover";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		F376E1922DDA47BB00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TopScrech/ScrechKit";
@@ -558,6 +578,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F31D32232DDD265A00E7B121 /* SafariCover */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F31D32222DDD265A00E7B121 /* XCRemoteSwiftPackageReference "SafariCover" */;
+			productName = SafariCover;
+		};
 		F376E1932DDA47BB00D98252 /* ScrechKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F376E1922DDA47BB00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */;
