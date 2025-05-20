@@ -15,6 +15,7 @@
 		F31D32152DDD17C600E7B121 /* Issue List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32142DDD17C600E7B121 /* Issue List.swift */; };
 		F31D32172DDD18A200E7B121 /* Issue Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32162DDD18A200E7B121 /* Issue Card.swift */; };
 		F31D321B2DDD1AA300E7B121 /* CiIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321A2DDD1AA300E7B121 /* CiIssue.swift */; };
+		F31D321D2DDD20F100E7B121 /* Action VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321C2DDD20F100E7B121 /* Action VM.swift */; };
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F33708B52DD93A0D006834F8 /* App List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* App List.swift */; };
@@ -63,6 +64,7 @@
 		F31D32142DDD17C600E7B121 /* Issue List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue List.swift"; sourceTree = "<group>"; };
 		F31D32162DDD18A200E7B121 /* Issue Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue Card.swift"; sourceTree = "<group>"; };
 		F31D321A2DDD1AA300E7B121 /* CiIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiIssue.swift; sourceTree = "<group>"; };
+		F31D321C2DDD20F100E7B121 /* Action VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action VM.swift"; sourceTree = "<group>"; };
 		F337089F2DD93A01006834F8 /* CI-CD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI-CD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33708AE2DD93A0D006834F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CI-CD.entitlements"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				F376E17D2DDA31C400D98252 /* Build Card.swift */,
 				F376E18F2DDA437600D98252 /* Build Details.swift */,
 				F31D32122DDD13FE00E7B121 /* Action Card.swift */,
+				F31D321C2DDD20F100E7B121 /* Action VM.swift */,
 				F31D32142DDD17C600E7B121 /* Issue List.swift */,
 				F31D32162DDD18A200E7B121 /* Issue Card.swift */,
 				F31D32102DDD081E00E7B121 /* Build Details Progress.swift */,
@@ -270,6 +273,7 @@
 				F376E1692DDA288200D98252 /* Product Details.swift in Sources */,
 				F3E0D1D22DDB370E004A14C7 /* CiWorkflow.swift in Sources */,
 				F3E0D1AD2DDA70AC004A14C7 /* Build VM.swift in Sources */,
+				F31D321D2DDD20F100E7B121 /* Action VM.swift in Sources */,
 				F376E16E2DDA299200D98252 /* Product VM.swift in Sources */,
 				F3E0D1CE2DDB1A96004A14C7 /* Auth View.swift in Sources */,
 				F30246282DDC609500999146 /* App Store Model.swift in Sources */,
