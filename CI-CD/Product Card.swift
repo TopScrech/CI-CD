@@ -36,10 +36,12 @@ struct ProductCard: View {
                 
                 Spacer()
                 
-                ForEach(vm.workflows) { workflow in
-                    Text(workflow.attributes?.name ?? "")
-                        .secondary()
-                        .footnote()
+                VStack(alignment: .trailing, spacing: 0) {
+                    ForEach(vm.workflows) { workflow in
+                        Text(workflow.attributes?.name ?? "")
+                            .secondary()
+                            .footnote()
+                    }
                 }
             }
         }

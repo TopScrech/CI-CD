@@ -24,7 +24,7 @@ struct WorkflowCard: View {
                 try await vm.startBuild(workflow.id)
             }
         } label: {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 12) {
                 Label {
                     Text(workflow.attributes?.name ?? "")
                     
@@ -37,20 +37,49 @@ struct WorkflowCard: View {
                     Image(systemName: "server.rack")
                         .bold()
                         .foregroundStyle(iconColor)
+                        .frame(width: 30)
                 }
                 .foregroundStyle(.foreground)
                 
-                //                if let actions = workflow.attributes?.actions {
-                //                    Divider()
-                //
-                //                    ForEach(actions) { action in
-                //                        Text(action.name ?? "-")
-                //
-                //                        Text(action.platform?.rawValue ?? "-")
-                //                    }
-                //                }
+                if let actions = workflow.attributes?.actions {
+                    ForEach(actions) { action in
+                        HStack {
+                            if let type = action.actionType {
+                                Group {
+                                    switch type {
+                                    case .analyze:
+                                        Image(systemName: "magnifyingglass")
+                                        
+                                    case .archive:
+                                        Image(systemName: "archivebox")
+                                        
+                                    case .build:
+                                        Image(systemName: "hammer")
+                                        
+                                    case .test:
+                                        Image(systemName: "checkmark.seal")
+                                    }
+                                }
+                                .title3()
+                                .secondary()
+                                .frame(width: 30)
+                            }
+                            
+                            VStack(alignment: .leading) {
+                                Text(action.name ?? "-")
+                                
+                                if let scheme = action.scheme, !scheme.isEmpty {
+                                    Text(scheme)
+                                        .secondary()
+                                }
+                            }
+                        }
+                        .footnote()
+                    }
+                }
             }
         }
+        .foregroundStyle(.foreground)
         .contextMenu {
             Label("Start build", systemImage: "play")
         }
