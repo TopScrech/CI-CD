@@ -27,6 +27,12 @@ struct WorkflowCard: View {
             VStack(alignment: .leading) {
                 Label {
                     Text(workflow.attributes?.name ?? "")
+                    
+                    if let description = workflow.attributes?.description, !description.isEmpty {
+                        Text(description)
+                            .secondary()
+                            .footnote()
+                    }
                 } icon: {
                     Image(systemName: "server.rack")
                         .bold()
