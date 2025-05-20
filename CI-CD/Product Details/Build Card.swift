@@ -14,7 +14,7 @@ struct BuildCard: View {
         case .succeeded: .green
         case .failed, .errored: .red
         case .canceled, .skipped: .gray
-        
+            
         default:
 #if os(macOS)
             Color(nsColor: .darkGray)
@@ -93,6 +93,13 @@ struct BuildCard: View {
         }
         .monospacedDigit()
         .padding(.leading, -8)
+#if DEBUG
+        .contextMenu {
+            Button("Print issues") {
+                print(build.attributes?.issueCounts)
+            }
+        }
+#endif
     }
     
     private func timeDiffISO(date1: Date?, date2: Date?) -> Int? {
