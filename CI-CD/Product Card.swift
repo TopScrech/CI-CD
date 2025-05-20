@@ -33,7 +33,11 @@ struct ProductCard: View {
                             .title3()
                     }
 #if DEBUG
-                    Text(product.relationships?.bundleID?.data?.id ?? "")
+                    if let bundleId = product.relationships?.bundleID?.data?.id {
+                        Text(bundleId)
+                            .secondary()
+                            .footnote()
+                    }
 #endif
                 }
                 
