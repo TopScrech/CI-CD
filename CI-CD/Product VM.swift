@@ -5,6 +5,8 @@ import AppStoreConnect_Swift_SDK
 final class ProductVM {
     var builds: [CiBuildRun] = []
     var workflows: [CiWorkflow] = []
+    var primaryRepos: [ScmRepository] = []
+    var additionalRepos: [ScmRepository] = []
     
     func fetchIconUrl(_ bundleId: String?) async throws -> URL? {
         guard let bundleId else {
@@ -92,6 +94,42 @@ final class ProductVM {
         do {
             let build = try await provider.request(request).data
             builds.append(build)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func primaryRepositories(_ productId: String) async throws {
+        guard let provider = try await provider() else {
+            return
+        }
+        
+        let request = APIEndpoint.v1
+            .ciProducts
+            .id(productId)
+            .primaryRepositories
+            .get()
+        
+        do {
+            primaryRepos = try await provider.request(request).data
+        } catch {
+            print(error)
+        }
+    }
+    
+    func additionalRepositories(_ productId: String) async throws {
+        guard let provider = try await provider() else {
+            return
+        }
+        
+        let request = APIEndpoint.v1
+            .ciProducts
+            .id(productId)
+            .additionalRepositories
+            .get()
+        
+        do {
+            additionalRepos = try await provider.request(request).data
         } catch {
             print(error)
         }

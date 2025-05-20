@@ -68,7 +68,19 @@ struct ProductCard: View {
                     }
                 }
             }
-            
+#if DEBUG
+            Section {
+                Button {
+                    UIPasteboard.general.string = product.id
+                } label: {
+                    Text("Copy product id")
+                    
+                    Text(product.id)
+                    
+                    Image(systemName: "doc.on.doc")
+                }
+            }
+#endif
             //            Button {
             //                Task {
             //                    try await vm.startBuild(product.id)

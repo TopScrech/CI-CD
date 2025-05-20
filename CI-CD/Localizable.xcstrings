@@ -69,6 +69,9 @@
     "📁 Artifacts" : {
 
     },
+    "Additional repositories" : {
+
+    },
     "All" : {
 
     },
@@ -118,6 +121,12 @@
     "Copy download url" : {
 
     },
+    "Copy product id" : {
+
+    },
+    "Copy repository url" : {
+
+    },
     "Created" : {
 
     },
@@ -163,6 +172,9 @@
           }
         }
       }
+    },
+    "Primary repositories" : {
+
     },
     "Print workflow id" : {
 

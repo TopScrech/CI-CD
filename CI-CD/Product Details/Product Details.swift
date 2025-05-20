@@ -35,6 +35,22 @@ struct ProductDetails: View {
                 }
             }
             
+            if vm.primaryRepos.count > 0 {
+                Section("Primary repositories") {
+                    ForEach(vm.primaryRepos) { repo in
+                        RepoCard(repo)
+                    }
+                }
+            }
+            
+            if vm.additionalRepos.count > 0 {
+                Section("Additional repositories") {
+                    ForEach(vm.additionalRepos) { repo in
+                        RepoCard(repo)
+                    }
+                }
+            }
+            
             Section {
                 ForEach(filteredBuilds.reversed()) { build in
                     BuildCard(build)
@@ -69,7 +85,12 @@ struct ProductDetails: View {
             if store.demoMode {
                 vm.builds = [CiBuildRun.preview]
             } else {
-                try? await vm.fetchBuilds(product.id)
+                async let builds: () = vm.fetchBuilds(product.id)
+                async let primary: () = vm.primaryRepositories(product.id)
+                async let additional: () = vm.additionalRepositories(product.id)
+                
+                // Parallel
+                _ = try? await (builds, primary, additional)
             }
         }
     }

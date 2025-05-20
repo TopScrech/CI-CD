@@ -19,6 +19,8 @@
 		F31D321F2DDD242600E7B121 /* Artifact Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321E2DDD242600E7B121 /* Artifact Card.swift */; };
 		F31D32212DDD245F00E7B121 /* CiArtifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32202DDD245F00E7B121 /* CiArtifact.swift */; };
 		F31D32242DDD265A00E7B121 /* SafariCover in Frameworks */ = {isa = PBXBuildFile; productRef = F31D32232DDD265A00E7B121 /* SafariCover */; };
+		F31D32262DDD435A00E7B121 /* Repo Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32252DDD435A00E7B121 /* Repo Card.swift */; };
+		F31D32282DDD439700E7B121 /* ScmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32272DDD439700E7B121 /* ScmRepository.swift */; };
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F33708B52DD93A0D006834F8 /* App List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* App List.swift */; };
@@ -70,6 +72,8 @@
 		F31D321C2DDD20F100E7B121 /* Action VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action VM.swift"; sourceTree = "<group>"; };
 		F31D321E2DDD242600E7B121 /* Artifact Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artifact Card.swift"; sourceTree = "<group>"; };
 		F31D32202DDD245F00E7B121 /* CiArtifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiArtifact.swift; sourceTree = "<group>"; };
+		F31D32252DDD435A00E7B121 /* Repo Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repo Card.swift"; sourceTree = "<group>"; };
+		F31D32272DDD439700E7B121 /* ScmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScmRepository.swift; sourceTree = "<group>"; };
 		F337089F2DD93A01006834F8 /* CI-CD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI-CD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33708AE2DD93A0D006834F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CI-CD.entitlements"; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				F376E1682DDA288200D98252 /* Product Details.swift */,
+				F31D32252DDD435A00E7B121 /* Repo Card.swift */,
 				F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */,
 				F376E17D2DDA31C400D98252 /* Build Card.swift */,
 				F376E18F2DDA437600D98252 /* Build Details.swift */,
@@ -177,6 +182,7 @@
 				F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */,
 				F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */,
 				F31D32202DDD245F00E7B121 /* CiArtifact.swift */,
+				F31D32272DDD439700E7B121 /* ScmRepository.swift */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -297,10 +303,12 @@
 				F302462A2DDC680400999146 /* Product Card Image.swift in Sources */,
 				F31D32112DDD081E00E7B121 /* Build Details Progress.swift in Sources */,
 				F31D32132DDD13FE00E7B121 /* Action Card.swift in Sources */,
+				F31D32282DDD439700E7B121 /* ScmRepository.swift in Sources */,
 				F31D321F2DDD242600E7B121 /* Artifact Card.swift in Sources */,
 				F302462C2DDC6AAE00999146 /* User Defaults.swift in Sources */,
 				F376E1672DDA284600D98252 /* Product Card.swift in Sources */,
 				F3E0D1CC2DDB19D3004A14C7 /* Value Store.swift in Sources */,
+				F31D32262DDD435A00E7B121 /* Repo Card.swift in Sources */,
 				F31D32172DDD18A200E7B121 /* Issue Card.swift in Sources */,
 				F3E0D1C92DDB18AC004A14C7 /* App Settings.swift in Sources */,
 				F31D32212DDD245F00E7B121 /* CiArtifact.swift in Sources */,

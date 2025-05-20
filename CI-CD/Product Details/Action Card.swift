@@ -74,8 +74,10 @@ struct ActionCard: View {
             .animation(.default, value: vm.testFailureCount)
         }
         .task {
-            try? await vm.buildIssues(action.id)
-            try? await vm.buildArtifacts(action.id)
+            async let issues: () = vm.buildIssues(action.id)
+            async let artifacts: () = vm.buildArtifacts(action.id)
+            
+            _ = try? await (issues, artifacts)
         }
         .contextMenu {
             Button {
