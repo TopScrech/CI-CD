@@ -93,13 +93,6 @@ struct BuildCard: View {
         }
         .monospacedDigit()
         .padding(.leading, -8)
-#if DEBUG
-        .contextMenu {
-            Button("Print issues") {
-                print(build.attributes?.issueCounts)
-            }
-        }
-#endif
     }
     
     private func timeDiffISO(date1: Date?, date2: Date?) -> Int? {
