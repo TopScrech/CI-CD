@@ -90,8 +90,8 @@ final class ProductVM {
             )
         
         do {
-            let response = try await provider.request(request).data
-            print(response)
+            let build = try await provider.request(request).data
+            builds.append(build)
         } catch {
             print(error)
         }

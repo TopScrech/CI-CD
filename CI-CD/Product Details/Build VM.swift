@@ -28,8 +28,8 @@ final class BuildVM {
             )
         
         do {
-            let response = try await provider.request(request).data
-            print(response)
+            let build = try await provider.request(request).data
+            print(build)
         } catch {
             print(error)
         }
