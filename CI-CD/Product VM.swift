@@ -22,7 +22,6 @@ final class ProductVM {
         } catch {
             print(error)
         }
-        
     }
     
     func fetchBuilds(_ id: String) async throws {
