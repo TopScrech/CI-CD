@@ -6,6 +6,10 @@ final class AppListVM {
     var products: [CiProduct] = []
     
     func fetchProducts() async throws {
+        if let cachedProducts = UserDefaults().loadProducts() {
+            products = cachedProducts
+        }
+        
         guard let provider = try await provider() else {
             return
         }
@@ -20,6 +24,7 @@ final class AppListVM {
         
         do {
             products = try await provider.request(request).data
+            UserDefaults().saveProducts(products)
         } catch {
             print(error)
         }
