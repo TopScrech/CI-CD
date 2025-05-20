@@ -21,9 +21,9 @@ struct BuildDetails: View {
         
         List {
             Section {
-                Text(build.attributes?.executionProgress?.rawValue ?? "-")
+                ListParam("Execution progress", param: build.attributes?.executionProgress?.rawValue ?? "-")
                 
-                Text(build.attributes?.completionStatus?.rawValue ?? "-")
+                ListParam("Completion status", param: build.attributes?.completionStatus?.rawValue ?? "-")
             }
             
             Section {
