@@ -62,6 +62,7 @@ final class ProductVM {
         //.get(parameters: .init(
         //    fieldsCiBuildRuns: [.issueCounts], include: [.builds]
         //))
+        
         do {
             builds = try await provider.request(request).data
         } catch {
