@@ -19,11 +19,7 @@ struct BuildDetails: View {
         let author = commit?.author
         
         List {
-            Section {
-                ListParam("Execution progress", param: build.attributes?.executionProgress?.rawValue ?? "-")
-                
-                ListParam("Completion status", param: build.attributes?.completionStatus?.rawValue ?? "-")
-            }
+            BuildDetailsProgress(build)
             
             Section {
                 if let startedReason = build.attributes?.startReason {
