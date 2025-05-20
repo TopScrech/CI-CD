@@ -56,6 +56,7 @@ struct AuthView: View {
                         showPicker = true
                     } label: {
                         Label("Import from Files", systemImage: "document.badge.plus")
+                            .foregroundStyle(.foreground)
                     }
                 }
             }
