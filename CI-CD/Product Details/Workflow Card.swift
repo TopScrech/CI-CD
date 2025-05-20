@@ -81,7 +81,20 @@ struct WorkflowCard: View {
         }
         .foregroundStyle(.foreground)
         .contextMenu {
-            Label("Start build", systemImage: "play")
+#if DEBUG
+            Button {
+                print(workflow.attributes?.actions?.first?.id.uuidString ?? "Workflow id not found")
+            } label: {
+                Label("Print workflow id", systemImage: "hammer")
+            }
+#endif
+            Button {
+                Task {
+                    try await vm.startBuild(workflow.id)
+                }
+            } label: {
+                Label("Start build", systemImage: "play")
+            }
         }
     }
 }

@@ -3,9 +3,8 @@ import AppStoreConnect_Swift_SDK
 import Kingfisher
 
 struct BuildDetails: View {
+    @State private var vm = BuildVM()
     @Environment(\.openURL) private var openUrl
-    
-    //    @State private var vm = BuildVM()
     
     private let build: CiBuildRun
     
@@ -19,7 +18,7 @@ struct BuildDetails: View {
         let commit = build.attributes?.sourceCommit
         let author = commit?.author
         
-        List {
+        List {                        
             Section {
                 ListParam("Execution progress", param: build.attributes?.executionProgress?.rawValue ?? "-")
                 

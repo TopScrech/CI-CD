@@ -70,7 +70,7 @@ final class ProductVM {
         }
     }
     
-    func startBuild(_ id: String) async throws {
+    func startBuild(_ workflowId: String) async throws {
         guard let provider = try await provider() else {
             return
         }
@@ -85,7 +85,7 @@ final class ProductVM {
                         workflow: .init(
                             data: .init(
                                 type: .ciWorkflows,
-                                id: id
+                                id: workflowId
                             )
                         )
                     )
