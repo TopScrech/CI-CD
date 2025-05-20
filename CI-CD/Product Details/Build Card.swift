@@ -95,6 +95,19 @@ struct BuildCard: View {
         }
         .monospacedDigit()
         .padding(.leading, -8)
+#if DEBUG
+        .contextMenu {
+            Button {
+                UIPasteboard.general.string = build.id
+            } label: {
+                Text("Copy build id")
+                
+                Text(build.id)
+                
+                Image(systemName: "hammer")
+            }
+        }
+#endif
     }
     
     private func timeDiffISO(date1: Date?, date2: Date?) -> Int? {
