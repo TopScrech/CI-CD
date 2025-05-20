@@ -2,7 +2,7 @@ import Foundation
 import AppStoreConnect_Swift_SDK
 
 @Observable
-final class ConnectVM {
+final class AppListVM {
     var products: [CiProduct] = []
     
     func fetchProducts() async throws {

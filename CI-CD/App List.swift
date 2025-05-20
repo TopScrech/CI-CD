@@ -1,8 +1,8 @@
 import ScrechKit
 import AppStoreConnect_Swift_SDK
 
-struct HomeView: View {
-    @State private var vm = ConnectVM()
+struct AppListView: View {
+    @State private var vm = AppListVM()
     @EnvironmentObject private var store: ValueStore
     
     @State private var sheetSettings = false
@@ -37,6 +37,6 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    AppListView()
         .environmentObject(ValueStore())
 }
