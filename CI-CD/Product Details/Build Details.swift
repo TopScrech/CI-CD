@@ -21,6 +21,12 @@ struct BuildDetails: View {
         
         List {
             Section {
+                Text(build.attributes?.executionProgress?.rawValue ?? "-")
+                
+                Text(build.attributes?.completionStatus?.rawValue ?? "-")
+            }
+            
+            Section {
                 if let startedReason = build.attributes?.startReason {
                     ListParam("Reason", param: startedReason.rawValue.lowercased().capitalized)
                 }
