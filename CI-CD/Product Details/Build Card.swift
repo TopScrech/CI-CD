@@ -76,7 +76,9 @@ struct BuildCard: View {
                             .background(.ultraThinMaterial, in: .capsule)
                     }
                     
-                    Text(commit?.message ?? "-")
+                    if let message = commit?.message {
+                        Text(message)
+                    }
                     
                     HStack {
                         if let avatar = author?.avatarURL {
