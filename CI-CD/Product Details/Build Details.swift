@@ -18,7 +18,7 @@ struct BuildDetails: View {
         let commit = build.attributes?.sourceCommit
         let author = commit?.author
         
-        List {                        
+        List {
             Section {
                 ListParam("Execution progress", param: build.attributes?.executionProgress?.rawValue ?? "-")
                 
@@ -37,6 +37,7 @@ struct BuildDetails: View {
                         Spacer()
                         
                         Text(created, format: .dateTime)
+                            .secondary()
                     }
                 }
                 
@@ -47,6 +48,7 @@ struct BuildDetails: View {
                         Spacer()
                         
                         Text(started, format: .dateTime)
+                            .secondary()
                     }
                 }
                 
@@ -57,6 +59,7 @@ struct BuildDetails: View {
                         Spacer()
                         
                         Text(finished, format: .dateTime)
+                            .secondary()
                     }
                 }
             }
