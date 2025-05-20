@@ -6,6 +6,31 @@ final class ProductVM {
     var builds: [CiBuildRun] = []
     var workflows: [CiWorkflow] = []
     
+    func fetchIconUrl(_ bundleId: String?) async throws -> URL? {
+        guard let bundleId else {
+            return nil
+        }
+        
+        let urlString = "https://itunes.apple.com/lookup?bundleId=" + bundleId
+        
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL:", urlString)
+            throw URLError(.badURL)
+        }
+        
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let result = try JSONDecoder().decode(Welcome.self, from: data)
+        
+        guard
+            let resultUrlString = result.results.first?.artworkUrl512
+        else {
+            print("No artworkUrl512 found for", bundleId)
+            return nil
+        }
+        
+        return URL(string: resultUrlString)
+    }
+    
     func fetchWorkflows(_ id: String) async throws {
         guard let provider = try await provider() else {
             return

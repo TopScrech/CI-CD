@@ -23,7 +23,9 @@ struct AuthView: View {
                     HStack {
                         TextField("Issuer ID", text: $store.issuer)
                             .autocorrectionDisabled()
-                            .autocapitalization(.none)
+#if !os(macOS)
+                            .textInputAutocapitalization(.none)
+#endif
                         
                         PasteButton(payloadType: String.self) { paste in
                             if let issuer = paste.first, issuer.count == 36 {
@@ -40,11 +42,15 @@ struct AuthView: View {
                 Section("Private Key") {
                     TextEditor(text: $store.privateKey)
                         .autocorrectionDisabled()
-                        .autocapitalization(.none)
+#if !os(macOS)
+                        .textInputAutocapitalization(.none)
+#endif
                     
                     TextField("Private Key ID", text: $store.privateKeyId)
                         .autocorrectionDisabled()
-                        .autocapitalization(.none)
+#if !os(macOS)
+                        .textInputAutocapitalization(.none)
+#endif
                     
                     Button {
                         showPicker = true

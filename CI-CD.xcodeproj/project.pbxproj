@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30246282DDC609500999146 /* App Store Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246272DDC609500999146 /* App Store Model.swift */; };
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F33708B52DD93A0D006834F8 /* App List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* App List.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F30246272DDC609500999146 /* App Store Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Store Model.swift"; sourceTree = "<group>"; };
 		F337089F2DD93A01006834F8 /* CI-CD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI-CD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33708AE2DD93A0D006834F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CI-CD.entitlements"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				F376E1472DD9C2C200D98252 /* App List VM.swift */,
 				F376E1662DDA284600D98252 /* Product Card.swift */,
 				F376E16D2DDA299200D98252 /* Product VM.swift */,
+				F30246272DDC609500999146 /* App Store Model.swift */,
 				F3E0D1BF2DDA872C004A14C7 /* Preview */,
 				F376E16A2DDA28AB00D98252 /* Product Details */,
 				F3E0D1CA2DDB18B3004A14C7 /* Settings */,
@@ -248,6 +251,7 @@
 				F3E0D1AD2DDA70AC004A14C7 /* Build VM.swift in Sources */,
 				F376E16E2DDA299200D98252 /* Product VM.swift in Sources */,
 				F3E0D1CE2DDB1A96004A14C7 /* Auth View.swift in Sources */,
+				F30246282DDC609500999146 /* App Store Model.swift in Sources */,
 				F3E0D1D02DDB36C1004A14C7 /* CiProduct.swift in Sources */,
 				F376E1902DDA437700D98252 /* Build Details.swift in Sources */,
 				F376E17E2DDA31C400D98252 /* Build Card.swift in Sources */,

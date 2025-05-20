@@ -9,12 +9,20 @@ struct AppListView: View {
     
     var body: some View {
         List {
+//            Section {
+//                Button("Test") {
+//                    Task {
+//                        try await vm.fetchApps()
+//                    }
+//                }
+//            }
+            
             ForEach(vm.products) { product in
                 ProductCard(product)
             }
         }
-        .animation(.default, value: vm.products.count)
         .navigationTitle("CI/CD")
+        .animation(.default, value: vm.products.count)
         .scrollIndicators(.never)
         .refreshableTask {
             if store.demoMode {

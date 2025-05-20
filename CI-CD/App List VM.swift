@@ -15,7 +15,7 @@ final class AppListVM {
             .ciProducts
             .get(parameters: .init(
                 //                    sort: [.name],
-                fieldsApps: [.ciProduct]
+                fieldsApps: [.ciProduct], include: [.bundleID]
             ))
         
         do {
