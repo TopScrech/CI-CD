@@ -7,7 +7,6 @@ final class ProductVM {
     var workflows: [CiWorkflow] = []
     
     func fetchWorkflows(_ id: String) async throws {
-        //        let subdir = "/v1/ciProducts/\(id)/workflows"
         do {
             guard let provider = try await provider() else {
                 return
