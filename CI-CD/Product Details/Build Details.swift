@@ -91,6 +91,7 @@ struct BuildDetails: View {
                         }
                         
                         Text(author?.displayName ?? "-")
+                            .semibold()
                         
                         Spacer()
                         

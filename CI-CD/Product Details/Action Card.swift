@@ -15,8 +15,10 @@ struct ActionCard: View {
             ActionDetails()
                 .environment(vm)
         } label: {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 5) {
                 Text(action.attributes?.name ?? "-")
+                    .semibold()
+                    .padding(.bottom, 2)
                 
                 if vm.artifacts.count > 0 {
                     Text("📁 \(vm.artifacts.count)x Artifacts")
