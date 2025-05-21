@@ -118,9 +118,11 @@ struct BuildDetails: View {
                 }
             }
             
-            Section("Build actions") {
-                ForEach(vm.actions) { action in
-                    ActionCard(action)
+            if !vm.actions.isEmpty {
+                Section("Build actions") {
+                    ForEach(vm.actions) { action in
+                        ActionCard(action)
+                    }
                 }
             }
         }
