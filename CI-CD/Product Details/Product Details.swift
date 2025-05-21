@@ -51,9 +51,13 @@ struct ProductDetails: View {
                 }
             }
             
-            Section {
-                ForEach(filteredBuilds.reversed()) { build in
-                    BuildCard(build)
+            if vm.builds.isEmpty {
+                ContentUnavailableView("No builds found", systemImage: "exclamationmark.triangle", description: Text("This could happen due to an error"))
+            } else {
+                Section {
+                    ForEach(filteredBuilds.reversed()) { build in
+                        BuildCard(build)
+                    }
                 }
             }
         }
