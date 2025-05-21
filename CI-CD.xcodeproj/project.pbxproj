@@ -26,7 +26,6 @@
 		F31D322F2DDD5A9600E7B121 /* Artifact List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322E2DDD5A9600E7B121 /* Artifact List.swift */; };
 		F31D32312DDD5E8200E7B121 /* Transparent List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32302DDD5E8200E7B121 /* Transparent List.swift */; };
 		F31D32332DDD614400E7B121 /* Build Commit Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32322DDD614400E7B121 /* Build Commit Details.swift */; };
-		F32429EC2DDDD018000A16E8 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = F32429EB2DDDD018000A16E8 /* RealityKitContent */; };
 		F32429FD2DDDD038000A16E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32429F82DDDD038000A16E8 /* Assets.xcassets */; };
 		F3242A012DDDD06E000A16E8 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* App Container.swift */; };
 		F3242A022DDDD06E000A16E8 /* Auth View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* Auth View.swift */; };
@@ -64,6 +63,11 @@
 		F3242A222DDDD083000A16E8 /* ScmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32272DDD439700E7B121 /* ScmRepository.swift */; };
 		F3242A232DDDD083000A16E8 /* CiArtifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32202DDD245F00E7B121 /* CiArtifact.swift */; };
 		F3242A242DDDD090000A16E8 /* App Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C82DDB18AC004A14C7 /* App Settings.swift */; };
+		F3242A272DDDD1FB000A16E8 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A262DDDD1FB000A16E8 /* ScrechKit */; };
+		F3242A292DDDD201000A16E8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A282DDDD201000A16E8 /* Kingfisher */; };
+		F3242A2B2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2A2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK */; };
+		F3242A2D2DDDD22C000A16E8 /* MailCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2C2DDDD22C000A16E8 /* MailCover */; };
+		F3242A2F2DDDD239000A16E8 /* SafariCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2E2DDDD239000A16E8 /* SafariCover */; };
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F33708B52DD93A0D006834F8 /* App List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* App List.swift */; };
@@ -151,7 +155,11 @@
 		F32429E42DDDD018000A16E8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
-				F32429EC2DDDD018000A16E8 /* RealityKitContent in Frameworks */,
+				F3242A292DDDD201000A16E8 /* Kingfisher in Frameworks */,
+				F3242A272DDDD1FB000A16E8 /* ScrechKit in Frameworks */,
+				F3242A2F2DDDD239000A16E8 /* SafariCover in Frameworks */,
+				F3242A2B2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK in Frameworks */,
+				F3242A2D2DDDD22C000A16E8 /* MailCover in Frameworks */,
 			);
 		};
 		F337089C2DD93A01006834F8 /* Frameworks */ = {
@@ -188,11 +196,19 @@
 			path = visionOS;
 			sourceTree = "<group>";
 		};
+		F3242A252DDDD1FB000A16E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F33708962DD93A01006834F8 = {
 			isa = PBXGroup;
 			children = (
 				F33708B22DD93A0D006834F8 /* CI-CD */,
 				F32429FC2DDDD038000A16E8 /* visionOS */,
+				F3242A252DDDD1FB000A16E8 /* Frameworks */,
 				F33708A02DD93A01006834F8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -287,7 +303,11 @@
 			);
 			name = visionOS;
 			packageProductDependencies = (
-				F32429EB2DDDD018000A16E8 /* RealityKitContent */,
+				F3242A262DDDD1FB000A16E8 /* ScrechKit */,
+				F3242A282DDDD201000A16E8 /* Kingfisher */,
+				F3242A2A2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK */,
+				F3242A2C2DDDD22C000A16E8 /* MailCover */,
+				F3242A2E2DDDD239000A16E8 /* SafariCover */,
 			);
 			productName = visionOS;
 			productReference = F32429E72DDDD018000A16E8 /* visionOS.app */;
@@ -669,11 +689,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,7";
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
@@ -708,11 +728,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,7";
+				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
@@ -795,9 +815,30 @@
 			package = F31D32222DDD265A00E7B121 /* XCRemoteSwiftPackageReference "SafariCover" */;
 			productName = SafariCover;
 		};
-		F32429EB2DDDD018000A16E8 /* RealityKitContent */ = {
+		F3242A262DDDD1FB000A16E8 /* ScrechKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = RealityKitContent;
+			package = F376E1922DDA47BB00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
+		};
+		F3242A282DDDD201000A16E8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3A36EA32DDA47E200733D6D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		F3242A2A2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3E0D1AE2DDA778A004A14C7 /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */;
+			productName = "AppStoreConnect-Swift-SDK";
+		};
+		F3242A2C2DDDD22C000A16E8 /* MailCover */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3E0D1D32DDB3B51004A14C7 /* XCRemoteSwiftPackageReference "MailCover" */;
+			productName = MailCover;
+		};
+		F3242A2E2DDDD239000A16E8 /* SafariCover */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F31D32222DDD265A00E7B121 /* XCRemoteSwiftPackageReference "SafariCover" */;
+			productName = SafariCover;
 		};
 		F376E1932DDA47BB00D98252 /* ScrechKit */ = {
 			isa = XCSwiftPackageProductDependency;
