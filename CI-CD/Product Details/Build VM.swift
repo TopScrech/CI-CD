@@ -48,7 +48,6 @@ final class BuildVM {
             return
         }
         
-        // https://api.appstoreconnect.apple.com/v1/ciBuildRuns/593f017b-315f-4660-80d1-5e7f1199b9c1/relationships/actions
         let request = APIEndpoint
             .v1
             .ciBuildRuns

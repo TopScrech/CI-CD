@@ -26,7 +26,6 @@ struct AuthView: View {
 #if !os(macOS)
                             .textInputAutocapitalization(.none)
 #endif
-                        
                         PasteButton(payloadType: String.self) { paste in
                             if let issuer = paste.first, issuer.count == 36 {
                                 store.issuer = issuer

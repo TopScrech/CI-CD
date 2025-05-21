@@ -2,7 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "shouldTranslate" : false
     },
     "%lldd ago" : {
       "localizations" : {
@@ -55,22 +55,64 @@
       }
     },
     "⚠️ %lldx Analyzer Warnings" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️ %lldx Предупреждения Анализатора"
+          }
+        }
+      }
     },
     "⚠️ %lldx Warnings" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️ %lldx Предупреждения"
+          }
+        }
+      }
     },
     "⛔️ %lldx Errors" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⛔️ %lldx Ошибки"
+          }
+        }
+      }
     },
     "⛔️ %lldx Test Failures" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⛔️ %lldx Сбои Тестов"
+          }
+        }
+      }
     },
     "📁 %lldx Artifacts" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "📁 %lldx Артифакты"
+          }
+        }
+      }
     },
     "Additional repositories" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дополнительные репозитории"
+          }
+        }
+      }
     },
     "All" : {
 
@@ -79,13 +121,34 @@
 
     },
     "Artifacts" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Артифакты"
+          }
+        }
+      }
     },
     "Authorize" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Авторизоваться"
+          }
+        }
+      }
     },
     "Build %@" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Билд %@"
+          }
+        }
+      }
     },
     "Build %lld" : {
       "localizations" : {
@@ -98,37 +161,110 @@
       }
     },
     "Build actions" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Действия сборки"
+          }
+        }
+      }
     },
     "CI/CD" : {
       "shouldTranslate" : false
     },
     "Completion status" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статус выполнения"
+          }
+        }
+      }
     },
     "Copy" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать"
+          }
+        }
+      }
     },
     "Copy action id" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать идентификатор действия"
+          }
+        }
+      }
+    },
+    "Copy app id" : {
 
     },
     "Copy artifact id" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать идентификатор артифакта"
+          }
+        }
+      }
     },
     "Copy build id" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать идентификатор сборки"
+          }
+        }
+      }
     },
     "Copy download url" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать ссылку для скачивания"
+          }
+        }
+      }
     },
     "Copy product id" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать идентификатор продукта"
+          }
+        }
+      }
     },
     "Copy repository url" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать ссылку репозитория"
+          }
+        }
+      }
     },
     "Copy workflow id" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать идентификатор рабочего процесса"
+          }
+        }
+      }
     },
     "Created" : {
 
@@ -137,7 +273,14 @@
 
     },
     "Demo Mode" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Демо-режим"
+          }
+        }
+      }
     },
     "Execution progress" : {
 
@@ -186,10 +329,24 @@
       }
     },
     "Primary repositories" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основные репозитории"
+          }
+        }
+      }
     },
     "Private Key" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Приватный Ключ"
+          }
+        }
+      }
     },
     "Private Key ID" : {
 
@@ -198,34 +355,83 @@
 
     },
     "Rebuild" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пересобрать"
+          }
+        }
+      }
     },
     "Rebuild clean" : {
 
     },
     "Settings" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
+          }
+        }
+      }
     },
     "Start build" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начать билд"
+          }
+        }
+      }
     },
     "Start clean build" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начать чистый билд"
+          }
+        }
+      }
     },
     "Started" : {
 
     },
     "This could happen due to an error" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Это могло произойти из-за ошибки"
+          }
+        }
+      }
     },
     "Workflows" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рабочие процессы"
+          }
+        }
+      }
     },
     "You need an API key with the 'Admin' role from App Store Connect to start builds with external deployments. API keys with the 'Developer' role cannot be used for this" : {
 
     },
     "Your code is great!" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отличный код!"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

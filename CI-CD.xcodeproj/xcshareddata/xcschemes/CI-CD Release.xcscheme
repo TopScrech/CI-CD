@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F337089E2DD93A01006834F8"
-               BuildableName = "CI-CD.app"
-               BlueprintName = "CI-CD"
+               BuildableName = "iOS.app"
+               BlueprintName = "iOS"
                ReferencedContainer = "container:CI-CD.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F337089E2DD93A01006834F8"
-            BuildableName = "CI-CD.app"
-            BlueprintName = "CI-CD"
+            BuildableName = "iOS.app"
+            BlueprintName = "iOS"
             ReferencedContainer = "container:CI-CD.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F337089E2DD93A01006834F8"
-            BuildableName = "CI-CD.app"
-            BlueprintName = "CI-CD"
+            BuildableName = "iOS.app"
+            BlueprintName = "iOS"
             ReferencedContainer = "container:CI-CD.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
