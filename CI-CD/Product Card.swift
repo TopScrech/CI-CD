@@ -17,7 +17,7 @@ struct ProductCard: View {
                 .environment(vm)
         } label: {
             HStack {
-                ProductCardImage(product.relationships?.bundleID?.data?.id)
+                ProductCardImage(product)
                     .environment(vm)
                 
                 VStack(alignment: .leading) {

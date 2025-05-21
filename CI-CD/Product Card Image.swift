@@ -1,35 +1,34 @@
 import SwiftUI
+import AppStoreConnect_Swift_SDK
 import Kingfisher
 
 struct ProductCardImage: View {
     @Environment(ProductVM.self) private var vm
     
-    private let bundleId: String?
+    private let product: CiProduct
     
-    init(_ bundleId: String?) {
-        self.bundleId = bundleId
+    init(_ product: CiProduct) {
+        self.product = product
     }
-    
-    @State private var iconUrl: URL?
     
     var body: some View {
         VStack {
-            if let iconUrl {
-                KFImage(iconUrl)
+            if let urlStrting = vm.iconUrl, let url = URL(string: urlStrting) {
+                KFImage(url)
                     .resizable()
                     .frame(32)
                     .clipShape(.rect(cornerRadius: 8))
             }
         }
         .task {
-            if iconUrl == nil {
-                iconUrl = try? await vm.fetchIconUrl(bundleId)
+            if let appId = product.relationships?.app?.data?.id {
+                try? await vm.appBuilds(appId)
             }
         }
     }
 }
 
 #Preview {
-    ProductCardImage("host.bisquit.Bisquit-host")
+    ProductCardImage(CiProduct.preview)
         .environment(ProductVM())
 }

@@ -8,30 +8,86 @@ final class ProductVM {
     var primaryRepos: [ScmRepository] = []
     var additionalRepos: [ScmRepository] = []
     
-    func fetchIconUrl(_ bundleId: String?) async throws -> URL? {
-        guard let bundleId else {
-            return nil
+    var iconUrl: String?
+    
+    func appBuilds(_ appId: String) async throws {
+        guard let provider = try await provider() else {
+            return
         }
         
-        let urlString = "https://itunes.apple.com/lookup?bundleId=" + bundleId
+        let request = APIEndpoint
+            .v1
+            .apps
+            .id(appId)
+            .builds
+            .get()
         
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL:", urlString)
-            throw URLError(.badURL)
+        do {
+            let builds = try await provider.request(request).data
+            
+            if let buildId = builds.first?.id {
+                try await appBuildIcon(buildId)
+            }
+        } catch {
+            print(error)
         }
-        
-        let (data, _) = try await URLSession.shared.data(from: url)
-        let result = try JSONDecoder().decode(Welcome.self, from: data)
-        
-        guard
-            let resultUrlString = result.results.first?.artworkUrl512
-        else {
-            print("No artworkUrl512 found for", bundleId)
-            return nil
-        }
-        
-        return URL(string: resultUrlString)
     }
+    
+    private func appBuildIcon(_ buildId: String) async throws {
+        guard let provider = try await provider() else {
+            return
+        }
+        
+        let request = APIEndpoint
+            .v1
+            .builds
+            .id(buildId)
+            .icons
+            .get()
+        
+        do {
+            let icons = try await provider.request(request).data
+            
+            if let appStoreIcon = icons.first(where: { $0.attributes?.iconType == .appStore }) {
+                if let urlTemplate = appStoreIcon.attributes?.iconAsset?.templateURL {
+                    let url = urlTemplate
+                        .replacingOccurrences(of: "{w}", with: "1024")
+                        .replacingOccurrences(of: "{h}", with: "1024")
+                        .replacingOccurrences(of: "{f}", with: "png")
+                    
+                    iconUrl = url
+                    print("App Store Icon URL:", url)
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+//    func fetchIconUrl(_ bundleId: String?) async throws -> URL? {
+//        guard let bundleId else {
+//            return nil
+//        }
+//        
+//        let urlString = "https://itunes.apple.com/lookup?bundleId=" + bundleId
+//        
+//        guard let url = URL(string: urlString) else {
+//            print("Invalid URL:", urlString)
+//            throw URLError(.badURL)
+//        }
+//        
+//        let (data, _) = try await URLSession.shared.data(from: url)
+//        let result = try JSONDecoder().decode(Welcome.self, from: data)
+//        
+//        guard
+//            let resultUrlString = result.results.first?.artworkUrl512
+//        else {
+//            print("No artworkUrl512 found for", bundleId)
+//            return nil
+//        }
+//        
+//        return URL(string: resultUrlString)
+//    }
     
     func fetchWorkflows(_ id: String) async throws {
         guard let provider = try await provider() else {
