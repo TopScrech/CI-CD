@@ -49,7 +49,12 @@ struct ProductCard: View {
             if store.demoMode {
                 vm.workflows = [CiWorkflow.preview]
             } else {
-                try? await vm.fetchWorkflows(product.id)
+                async let workflows: () = vm.fetchWorkflows(product.id)
+                async let builds: () = vm.fetchBuilds(product.id)
+                async let primaryRepos: () = vm.primaryRepositories(product.id)
+                async let additionalRepos: () = vm.additionalRepositories(product.id)
+                
+                _ = try? await (workflows, builds, additionalRepos, primaryRepos)
             }
         }
         .contextMenu {
