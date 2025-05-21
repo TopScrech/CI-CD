@@ -98,15 +98,20 @@ struct ProductCard: View {
                     
                     Image(systemName: "doc.on.doc")
                 }
+                
+                if let appId = product.relationships?.app?.data?.id {
+                    Button {
+                        UIPasteboard.general.string = appId
+                    } label: {
+                        Text("Copy app id")
+                        
+                        Text(appId)
+                        
+                        Image(systemName: "doc.on.doc")
+                    }
+                }
             }
 #endif
-            //            Button {
-            //                Task {
-            //                    try await vm.startBuild(product.id)
-            //                }
-            //            } label: {
-            //                Label("Start build", systemImage: "play")
-            //            }
         }
     }
 }
