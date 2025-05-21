@@ -29,26 +29,55 @@ struct ProductDetails: View {
     
     var body: some View {
         List {
-            Section {
-                ForEach(vm.workflows) { workflow in
-                    WorkflowCard(workflow)
+            if !vm.workflows.isEmpty {
+                Section("Workflows") {
+                    ForEach(vm.workflows) { workflow in
+                        WorkflowCard(workflow)
+                    }
                 }
             }
             
-            Section {
-                ForEach(filteredBuilds.reversed()) { build in
-                    BuildCard(build)
+            if vm.primaryRepos.count > 0 {
+                Section("Primary repositories") {
+                    ForEach(vm.primaryRepos) { repo in
+                        RepoCard(repo)
+                    }
                 }
-                .animation(.default, value: selectedAuthor)
+            }
+            
+            if vm.additionalRepos.count > 0 {
+                Section("Additional repositories") {
+                    ForEach(vm.additionalRepos) { repo in
+                        RepoCard(repo)
+                    }
+                }
+            }
+            
+            if vm.builds.isEmpty {
+                ContentUnavailableView("No builds found", systemImage: "exclamationmark.triangle", description: Text("This could happen due to an error"))
+            } else {
+                Section {
+                    ForEach(filteredBuilds.reversed()) { build in
+                        BuildCard(build)
+                    }
+                }
             }
         }
+        .animation(.default, value: selectedAuthor)
+        .animation(.default, value: filteredBuilds.count)
         .navigationTitle(product.attributes?.name ?? "")
         .environment(vm)
         .toolbar {
             Menu {
                 Section {
-                    Button("All") {
+                    Button {
                         selectedAuthor = nil
+                    } label: {
+                        Text("All")
+                        
+                        if selectedAuthor == nil {
+                            Image(systemName: "checkmark")
+                        }
                     }
                 }
                 
@@ -57,6 +86,10 @@ struct ProductDetails: View {
                         selectedAuthor = author
                     } label: {
                         Text(author.displayName ?? "Unknown Author")
+                        
+                        if selectedAuthor == author {
+                            Image(systemName: "checkmark")
+                        }
                     }
                 }
             } label: {
@@ -68,7 +101,12 @@ struct ProductDetails: View {
             if store.demoMode {
                 vm.builds = [CiBuildRun.preview]
             } else {
-                try? await vm.fetchBuilds(product.id)
+                async let builds: () = vm.fetchBuilds(product.id)
+                async let primary: () = vm.primaryRepositories(product.id)
+                async let additional: () = vm.additionalRepositories(product.id)
+                
+                // Parallel
+                _ = try? await (builds, primary, additional)
             }
         }
     }
@@ -77,4 +115,6 @@ struct ProductDetails: View {
 #Preview {
     ProductDetails(CiProduct.preview)
         .environmentObject(ValueStore())
+        .environment(ProductVM())
+        .darkSchemePreferred()
 }

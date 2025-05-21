@@ -54,19 +54,31 @@
         }
       }
     },
-    "⚠️ Analyzer Warnings" : {
+    "⚠️ %lldx Analyzer Warnings" : {
 
     },
-    "⚠️ Warnings" : {
+    "⚠️ %lldx Warnings" : {
 
     },
-    "⛔️ Errors" : {
+    "⛔️ %lldx Errors" : {
 
     },
-    "⛔️ Test Failures" : {
+    "⛔️ %lldx Test Failures" : {
+
+    },
+    "📁 %lldx Artifacts" : {
+
+    },
+    "Additional repositories" : {
 
     },
     "All" : {
+
+    },
+    "Archive" : {
+
+    },
+    "Artifacts" : {
 
     },
     "Authorize" : {
@@ -85,8 +97,38 @@
         }
       }
     },
+    "Build actions" : {
+
+    },
     "CI/CD" : {
       "shouldTranslate" : false
+    },
+    "Completion status" : {
+
+    },
+    "Copy" : {
+
+    },
+    "Copy action id" : {
+
+    },
+    "Copy artifact id" : {
+
+    },
+    "Copy build id" : {
+
+    },
+    "Copy download url" : {
+
+    },
+    "Copy product id" : {
+
+    },
+    "Copy repository url" : {
+
+    },
+    "Copy workflow id" : {
+
     },
     "Created" : {
 
@@ -95,6 +137,9 @@
 
     },
     "Demo Mode" : {
+
+    },
+    "Execution progress" : {
 
     },
     "Feedback" : {
@@ -106,7 +151,25 @@
     "Import from Files" : {
 
     },
+    "in" : {
+
+    },
     "Issuer ID" : {
+
+    },
+    "Issues" : {
+
+    },
+    "Line" : {
+
+    },
+    "No artifacts found" : {
+
+    },
+    "No builds found" : {
+
+    },
+    "No issues found" : {
 
     },
     "Now" : {
@@ -122,6 +185,9 @@
         }
       }
     },
+    "Primary repositories" : {
+
+    },
     "Private Key" : {
 
     },
@@ -131,16 +197,34 @@
     "Reason" : {
 
     },
+    "Rebuild" : {
+
+    },
+    "Rebuild clean" : {
+
+    },
     "Settings" : {
 
     },
     "Start build" : {
 
     },
+    "Start clean build" : {
+
+    },
     "Started" : {
 
     },
+    "This could happen due to an error" : {
+
+    },
+    "Workflows" : {
+
+    },
     "You need an API key with the 'Admin' role from App Store Connect to start builds with external deployments. API keys with the 'Developer' role cannot be used for this" : {
+
+    },
+    "Your code is great!" : {
 
     }
   },

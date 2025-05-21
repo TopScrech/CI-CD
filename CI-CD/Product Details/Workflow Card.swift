@@ -19,35 +19,59 @@ struct WorkflowCard: View {
     }
     
     var body: some View {
-        Button {
-            Task {
-                try await vm.startBuild(workflow.id)
+        Menu {
+#if DEBUG
+            Button {
+                UIPasteboard.general.string = workflow.id
+            } label: {
+                Text("Copy workflow id")
+                
+                Text(workflow.id)
+                
+                Image(systemName: "doc.on.doc")
+            }
+#endif
+            Button {
+                Task {
+                    try await vm.startBuild(workflow.id)
+                }
+            } label: {
+                Label("Start build", systemImage: "play")
+            }
+            
+            Button {
+                Task {
+                    try await vm.startBuild(workflow.id, clean: true)
+                }
+            } label: {
+                Label("Start clean build", systemImage: "play")
             }
         } label: {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 12) {
                 Label {
                     Text(workflow.attributes?.name ?? "")
+                    
+                    if let description = workflow.attributes?.description, !description.isEmpty {
+                        Text(description)
+                            .secondary()
+                            .footnote()
+                    }
                 } icon: {
                     Image(systemName: "server.rack")
                         .bold()
                         .foregroundStyle(iconColor)
+                        .frame(width: 30)
                 }
                 .foregroundStyle(.foreground)
                 
-                //                if let actions = workflow.attributes?.actions {
-                //                    Divider()
-                //
-                //                    ForEach(actions) { action in
-                //                        Text(action.name ?? "-")
-                //
-                //                        Text(action.platform?.rawValue ?? "-")
-                //                    }
-                //                }
+                if let actions = workflow.attributes?.actions {
+                    ForEach(actions) { action in
+                        WorkflowActionCard(action)
+                    }
+                }
             }
         }
-        .contextMenu {
-            Label("Start build", systemImage: "play")
-        }
+        .foregroundStyle(.foreground)
     }
 }
 

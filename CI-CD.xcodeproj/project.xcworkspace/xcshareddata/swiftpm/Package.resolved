@@ -1,5 +1,5 @@
 {
-  "originHash" : "c3d39d48e3d247fb7d9770a22a85c22071523870a1375cdd1986d1f2f17beac1",
+  "originHash" : "0b93ca27a1ba8352ef7e63aaf49f85f611bf173287287df07d71c1a000a39b2c",
   "pins" : [
     {
       "identity" : "appstoreconnect-swift-sdk",
@@ -26,6 +26,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "c33771592360b836f114ebe32ad660590c7afc28"
+      }
+    },
+    {
+      "identity" : "safaricover",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TopScrech/SafariCover",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6846539c6cf560373fa357fc8df82896705d390c"
       }
     },
     {

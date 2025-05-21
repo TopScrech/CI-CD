@@ -1,11 +1,8 @@
 import ScrechKit
 import AppStoreConnect_Swift_SDK
-import Kingfisher
 
 struct BuildDetails: View {
-    @Environment(\.openURL) private var openUrl
-    
-    //    @State private var vm = BuildVM()
+    @Environment(BuildVM.self) private var vm
     
     private let build: CiBuildRun
     
@@ -13,13 +10,30 @@ struct BuildDetails: View {
         self.build = build
     }
     
-    private let imgSize = 32.0
-    
-    var body: some View {
-        let commit = build.attributes?.sourceCommit
-        let author = commit?.author
-        
+    var body: some View {        
         List {
+            Section {
+                if let workflow = build.relationships?.workflow?.data {
+                    Button {
+                        Task {
+                            try await vm.startRebuild(of: build.id, in: workflow.id)
+                        }
+                    } label: {
+                        Label("Rebuild", systemImage: "hammer")
+                    }
+                    
+                    Button {
+                        Task {
+                            try await vm.startRebuild(of: build.id, in: workflow.id, clean: true)
+                        }
+                    } label: {
+                        Label("Rebuild clean", systemImage: "hammer")
+                    }
+                }
+            }
+            
+            BuildDetailsProgress(build)
+            
             Section {
                 if let startedReason = build.attributes?.startReason {
                     ListParam("Reason", param: startedReason.rawValue.lowercased().capitalized)
@@ -32,6 +46,7 @@ struct BuildDetails: View {
                         Spacer()
                         
                         Text(created, format: .dateTime)
+                            .secondary()
                     }
                 }
                 
@@ -42,6 +57,7 @@ struct BuildDetails: View {
                         Spacer()
                         
                         Text(started, format: .dateTime)
+                            .secondary()
                     }
                 }
                 
@@ -52,98 +68,32 @@ struct BuildDetails: View {
                         Spacer()
                         
                         Text(finished, format: .dateTime)
+                            .secondary()
                     }
                 }
             }
             
-            Section {
-                VStack(alignment: .leading, spacing: 16) {
-                    HStack {
-                        if let avatar = author?.avatarURL {
-                            KFImage(avatar)
-                                .resizable()
-                                .frame(imgSize)
-                                .clipShape(.circle)
-                        }
-                        
-                        Text(author?.displayName ?? "-")
-                        
-                        Spacer()
-                        
-                        if let commit, let id = commit.commitSha?.prefix(7) {
-                            Text(id)
-                                .secondary()
-                                .padding(.vertical, 2)
-                                .padding(.horizontal, 8)
-                                .background(.ultraThinMaterial, in: .capsule)
-                        }
-                    }
-                    
-                    Text(commit?.message ?? "-")
-                        .monospaced()
-                }
-                
-                if let commit, let url = commit.webURL {
-                    Button {
-                        openUrl(url)
-                    } label: {
-                        Label("Open on GitHub", systemImage: "link")
-                    }
-                    
-                    ShareLink(item: url)
-                }
-            }
+            BuildCommitDetails(build)
             
-            if let issues = build.attributes?.issueCounts {
-                Section {
-                    if let errors = issues.errors, errors > 0 {
-                        HStack {
-                            Text("⛔️ Errors")
-                            
-                            Spacer()
-                            
-                            Text(errors)
-                        }
-                    }
-                    
-                    if let warnings = issues.warnings, warnings > 0 {
-                        HStack {
-                            Text("⚠️ Warnings")
-                            
-                            Spacer()
-                            
-                            Text(warnings)
-                        }
-                    }
-                    
-                    if let analyzerWarnings = issues.analyzerWarnings, analyzerWarnings > 0 {
-                        HStack {
-                            Text("⚠️ Analyzer Warnings")
-                            
-                            Spacer()
-                            
-                            Text(analyzerWarnings)
-                        }
-                    }
-                    
-                    if let testFailures = issues.testFailures, testFailures > 0 {
-                        HStack {
-                            Text("⛔️ Test Failures")
-                            
-                            Spacer()
-                            
-                            Text(testFailures)
-                        }
+            if !vm.actions.isEmpty {
+                Section("Build actions") {
+                    ForEach(vm.actions) { action in
+                        ActionCard(action)
                     }
                 }
             }
         }
         .navigationTitle("Build \(build.attributes?.number?.description ?? "")")
         .foregroundStyle(.foreground)
+        .scrollIndicators(.never)
+        .task {
+            try? await vm.buildActions(build.id)
+        }
     }
 }
 
 #Preview {
     BuildDetails(CiBuildRun.preview)
+        .environment(BuildVM())
         .darkSchemePreferred()
 }

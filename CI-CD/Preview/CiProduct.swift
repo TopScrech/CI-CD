@@ -17,7 +17,7 @@ extension CiProduct {
                     data: .init(type: .apps, id: "app-1")
                 ),
                 bundleID: .init(
-                    data: .init(type: .bundleIDs, id: "bundle-1")
+                    data: .init(type: .bundleIDs, id: "host.bisquit.Bisquit-host")
                 ),
                 workflows: .init(links: nil),
                 primaryRepositories: .init(

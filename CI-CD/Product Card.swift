@@ -17,44 +17,89 @@ struct ProductCard: View {
                 .environment(vm)
         } label: {
             HStack {
-                if let attributes = product.attributes, let name = attributes.name {
-                    Text(name)
-                        .title3()
+                ProductCardImage(product.relationships?.bundleID?.data?.id)
+                    .environment(vm)
+                
+                VStack(alignment: .leading) {
+                    if let attributes = product.attributes, let name = attributes.name {
+                        Text(name)
+                            .title3()
+                    }
+#if DEBUG
+                    if let bundleId = product.relationships?.bundleID?.data?.id {
+                        Text(bundleId)
+                            .secondary()
+                            .footnote()
+                    }
+#endif
                 }
                 
                 Spacer()
                 
-                ForEach(vm.workflows) { workflow in
-                    Text(workflow.attributes?.name ?? "")
-                        .secondary()
-                        .footnote()
+                VStack(alignment: .trailing, spacing: 0) {
+                    ForEach(vm.workflows) { workflow in
+                        Text(workflow.attributes?.name ?? "")
+                            .secondary()
+                            .footnote()
+                    }
                 }
-                .animation(.default, value: vm.workflows.count)
             }
         }
         .task {
             if store.demoMode {
                 vm.workflows = [CiWorkflow.preview]
             } else {
-                try? await vm.fetchWorkflows(product.id)
+                async let workflows: () = vm.fetchWorkflows(product.id)
+                async let builds: () = vm.fetchBuilds(product.id)
+                async let primaryRepos: () = vm.primaryRepositories(product.id)
+                async let additionalRepos: () = vm.additionalRepositories(product.id)
+                
+                _ = try? await (workflows, builds, additionalRepos, primaryRepos)
             }
         }
         .contextMenu {
             ForEach(vm.workflows) { workflow in
                 if let name = workflow.attributes?.name {
-                    Button {
-                        Task {
-                            try await vm.startBuild(workflow.id)
+                    Section {
+                        Button {
+                            Task {
+                                try await vm.startBuild(workflow.id)
+                            }
+                        } label: {
+                            Text("Start build")
+                            
+                            Text(name)
+                            
+                            Image(systemName: "play")
                         }
-                    } label: {
-                        Text("Start build")
                         
-                        Text(name)
-                        
-                        Image(systemName: "play")
+                        Button {
+                            Task {
+                                try await vm.startBuild(workflow.id, clean: true)
+                            }
+                        } label: {
+                            Text("Start clean build")
+                            
+                            Text(name)
+                            
+                            Image(systemName: "play")
+                        }
                     }
                 }
             }
+#if DEBUG
+            Section {
+                Button {
+                    UIPasteboard.general.string = product.id
+                } label: {
+                    Text("Copy product id")
+                    
+                    Text(product.id)
+                    
+                    Image(systemName: "doc.on.doc")
+                }
+            }
+#endif
             //            Button {
             //                Task {
             //                    try await vm.startBuild(product.id)

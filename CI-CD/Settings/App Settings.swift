@@ -13,8 +13,17 @@ struct AppSettings: View {
             }
 #if DEBUG
             Section {
-                Button("Deauthorize") {
+                Button {
                     store.isAuthorized = false
+                } label: {
+                    HStack {
+                        Text("Deauthorize")
+                        
+                        Spacer()
+                        
+                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                            .secondary()
+                    }
                 }
             }
 #endif
@@ -22,11 +31,19 @@ struct AppSettings: View {
                 Button {
                     mailCover = true
                 } label: {
-                    Label("Feedback", systemImage: "envelope")
+                    HStack {
+                        Text("Feedback")
+                        
+                        Spacer()
+                        
+                        Image(systemName: "envelope")
+                            .secondary()
+                    }
                 }
             }
         }
         .navigationTitle("Settings")
+        .transparentList()
         .mailCover($mailCover, subject: "CI/CD Feedback", recipients: ["topscrech@icloud.com"])
         .foregroundStyle(.foreground)
     }
