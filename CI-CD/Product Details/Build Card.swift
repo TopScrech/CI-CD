@@ -4,6 +4,8 @@ import AppStoreConnect_Swift_SDK
 
 struct BuildCard: View {
     @State private var vm = BuildVM()
+    @Environment(ProductVM.self) private var productVM
+    @EnvironmentObject private var store: ValueStore
     
     private let build: CiBuildRun
     
@@ -101,16 +103,32 @@ struct BuildCard: View {
         .contextMenu {
             if let workflow = build.relationships?.workflow?.data {
                 Button {
-                    Task {
-                        try await vm.startRebuild(of: build.id, in: workflow.id)
+                    if store.demoMode {
+                        if let build = productVM.builds.first {
+                            productVM.builds.append(build)
+                        }
+                    } else {
+                        Task {
+                            try await vm.startRebuild(of: build.id, in: workflow.id)
+                        }
                     }
                 } label: {
                     Label("Rebuild", systemImage: "hammer")
                 }
                 
                 Button {
-                    Task {
-                        try await vm.startRebuild(of: build.id, in: workflow.id, clean: true)
+                    if store.demoMode {
+                        if let build = productVM.builds.first {
+                            productVM.builds.append(build)
+                        }
+                    } else {
+                        Task {
+                            try await vm.startRebuild(
+                                of: build.id,
+                                in: workflow.id,
+                                clean: true
+                            )
+                        }
                     }
                 } label: {
                     Label("Rebuild clean", systemImage: "hammer")

@@ -3,6 +3,7 @@ import AppStoreConnect_Swift_SDK
 
 struct WorkflowCard: View {
     @Environment(ProductVM.self) private var vm
+    @EnvironmentObject private var store: ValueStore
     
     private let workflow: CiWorkflow
     
@@ -62,16 +63,28 @@ struct WorkflowCard: View {
             }
 #endif
             Button {
-                Task {
-                    try await vm.startBuild(workflow.id)
+                if store.demoMode {
+                    if let build = vm.builds.first {
+                        vm.builds.append(build)
+                    }
+                } else {
+                    Task {
+                        try await vm.startBuild(workflow.id)
+                    }
                 }
             } label: {
                 Label("Start build", systemImage: "play")
             }
             
             Button {
-                Task {
-                    try await vm.startBuild(workflow.id, clean: true)
+                if store.demoMode {
+                    if let build = vm.builds.first {
+                        vm.builds.append(build)
+                    }
+                } else {
+                    Task {
+                        try await vm.startBuild(workflow.id, clean: true)
+                    }
                 }
             } label: {
                 Label("Start clean build", systemImage: "play")
@@ -91,4 +104,5 @@ extension CiAction: @retroactive Identifiable {
         WorkflowCard(CiWorkflow.preview)
     }
     .environment(ProductVM())
+    .environmentObject(ValueStore())
 }
