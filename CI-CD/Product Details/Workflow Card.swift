@@ -19,7 +19,35 @@ struct WorkflowCard: View {
     }
     
     var body: some View {
-        Menu {
+        Button {
+            
+        } label: {
+            VStack(alignment: .leading, spacing: 12) {
+                Label {
+                    Text(workflow.attributes?.name ?? "")
+                    
+                    if let description = workflow.attributes?.description, !description.isEmpty {
+                        Text(description)
+                            .secondary()
+                            .footnote()
+                    }
+                } icon: {
+                    Image(systemName: "server.rack")
+                        .bold()
+                        .foregroundStyle(iconColor)
+                        .frame(width: 30)
+                }
+                .foregroundStyle(.foreground)
+                
+                if let actions = workflow.attributes?.actions {
+                    ForEach(actions) { action in
+                        WorkflowActionCard(action)
+                    }
+                }
+            }
+        }
+        .foregroundStyle(.foreground)
+        .contextMenu {
 #if DEBUG
             Section {
                 Button {
@@ -48,32 +76,7 @@ struct WorkflowCard: View {
             } label: {
                 Label("Start clean build", systemImage: "play")
             }
-        } label: {
-            VStack(alignment: .leading, spacing: 12) {
-                Label {
-                    Text(workflow.attributes?.name ?? "")
-                    
-                    if let description = workflow.attributes?.description, !description.isEmpty {
-                        Text(description)
-                            .secondary()
-                            .footnote()
-                    }
-                } icon: {
-                    Image(systemName: "server.rack")
-                        .bold()
-                        .foregroundStyle(iconColor)
-                        .frame(width: 30)
-                }
-                .foregroundStyle(.foreground)
-                
-                if let actions = workflow.attributes?.actions {
-                    ForEach(actions) { action in
-                        WorkflowActionCard(action)
-                    }
-                }
-            }
         }
-        .foregroundStyle(.foreground)
     }
 }
 
