@@ -26,6 +26,44 @@
 		F31D322F2DDD5A9600E7B121 /* Artifact List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322E2DDD5A9600E7B121 /* Artifact List.swift */; };
 		F31D32312DDD5E8200E7B121 /* Transparent List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32302DDD5E8200E7B121 /* Transparent List.swift */; };
 		F31D32332DDD614400E7B121 /* Build Commit Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32322DDD614400E7B121 /* Build Commit Details.swift */; };
+		F32429EC2DDDD018000A16E8 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = F32429EB2DDDD018000A16E8 /* RealityKitContent */; };
+		F32429FD2DDDD038000A16E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32429F82DDDD038000A16E8 /* Assets.xcassets */; };
+		F3242A012DDDD06E000A16E8 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* App Container.swift */; };
+		F3242A022DDDD06E000A16E8 /* Auth View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* Auth View.swift */; };
+		F3242A032DDDD06E000A16E8 /* Value Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CB2DDB19D3004A14C7 /* Value Store.swift */; };
+		F3242A042DDDD06E000A16E8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
+		F3242A052DDDD075000A16E8 /* Transparent List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32302DDD5E8200E7B121 /* Transparent List.swift */; };
+		F3242A062DDDD075000A16E8 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
+		F3242A072DDDD075000A16E8 /* App List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* App List.swift */; };
+		F3242A082DDDD075000A16E8 /* User Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* User Defaults.swift */; };
+		F3242A092DDDD075000A16E8 /* Product Card Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246292DDC680400999146 /* Product Card Image.swift */; };
+		F3242A0A2DDDD075000A16E8 /* Product VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16D2DDA299200D98252 /* Product VM.swift */; };
+		F3242A0B2DDDD075000A16E8 /* App Store Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246272DDC609500999146 /* App Store Model.swift */; };
+		F3242A0C2DDDD075000A16E8 /* App List VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1472DD9C2C200D98252 /* App List VM.swift */; };
+		F3242A0D2DDDD075000A16E8 /* Product Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1662DDA284600D98252 /* Product Card.swift */; };
+		F3242A0E2DDDD07A000A16E8 /* Workflow Action Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322A2DDD572E00E7B121 /* Workflow Action Card.swift */; };
+		F3242A0F2DDDD07A000A16E8 /* Action VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321C2DDD20F100E7B121 /* Action VM.swift */; };
+		F3242A102DDDD07A000A16E8 /* Build Commit Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32322DDD614400E7B121 /* Build Commit Details.swift */; };
+		F3242A112DDDD07A000A16E8 /* Repo Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32252DDD435A00E7B121 /* Repo Card.swift */; };
+		F3242A122DDDD07A000A16E8 /* Workflow Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */; };
+		F3242A132DDDD07A000A16E8 /* Build Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E17D2DDA31C400D98252 /* Build Card.swift */; };
+		F3242A142DDDD07A000A16E8 /* Product Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1682DDA288200D98252 /* Product Details.swift */; };
+		F3242A152DDDD07A000A16E8 /* Action Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32122DDD13FE00E7B121 /* Action Card.swift */; };
+		F3242A162DDDD07A000A16E8 /* Build Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E18F2DDA437600D98252 /* Build Details.swift */; };
+		F3242A172DDDD07E000A16E8 /* Action Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32142DDD17C600E7B121 /* Action Details.swift */; };
+		F3242A182DDDD07E000A16E8 /* Artifact Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321E2DDD242600E7B121 /* Artifact Card.swift */; };
+		F3242A192DDDD07E000A16E8 /* Issue List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322C2DDD5A6500E7B121 /* Issue List.swift */; };
+		F3242A1A2DDDD07E000A16E8 /* Issue Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32162DDD18A200E7B121 /* Issue Card.swift */; };
+		F3242A1B2DDDD07E000A16E8 /* Artifact List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322E2DDD5A9600E7B121 /* Artifact List.swift */; };
+		F3242A1C2DDDD07E000A16E8 /* Build Details Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32102DDD081E00E7B121 /* Build Details Progress.swift */; };
+		F3242A1D2DDDD07E000A16E8 /* Build VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */; };
+		F3242A1E2DDDD083000A16E8 /* CiProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */; };
+		F3242A1F2DDDD083000A16E8 /* CiBuildRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */; };
+		F3242A202DDDD083000A16E8 /* CiWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */; };
+		F3242A212DDDD083000A16E8 /* CiIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321A2DDD1AA300E7B121 /* CiIssue.swift */; };
+		F3242A222DDDD083000A16E8 /* ScmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32272DDD439700E7B121 /* ScmRepository.swift */; };
+		F3242A232DDDD083000A16E8 /* CiArtifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32202DDD245F00E7B121 /* CiArtifact.swift */; };
+		F3242A242DDDD090000A16E8 /* App Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C82DDB18AC004A14C7 /* App Settings.swift */; };
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F33708B52DD93A0D006834F8 /* App List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* App List.swift */; };
@@ -84,6 +122,9 @@
 		F31D322E2DDD5A9600E7B121 /* Artifact List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artifact List.swift"; sourceTree = "<group>"; };
 		F31D32302DDD5E8200E7B121 /* Transparent List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transparent List.swift"; sourceTree = "<group>"; };
 		F31D32322DDD614400E7B121 /* Build Commit Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build Commit Details.swift"; sourceTree = "<group>"; };
+		F32429E72DDDD018000A16E8 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F32429F82DDDD038000A16E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F32429FA2DDDD038000A16E8 /* visionOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = visionOS.plist; sourceTree = "<group>"; };
 		F337089F2DD93A01006834F8 /* CI-CD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI-CD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33708AE2DD93A0D006834F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CI-CD.entitlements"; sourceTree = "<group>"; };
@@ -109,6 +150,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F32429E42DDDD018000A16E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32429EC2DDDD018000A16E8 /* RealityKitContent in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F337089C2DD93A01006834F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,10 +185,20 @@
 			path = "Action Details";
 			sourceTree = "<group>";
 		};
+		F32429FC2DDDD038000A16E8 /* visionOS */ = {
+			isa = PBXGroup;
+			children = (
+				F32429FA2DDDD038000A16E8 /* visionOS.plist */,
+				F32429F82DDDD038000A16E8 /* Assets.xcassets */,
+			);
+			path = visionOS;
+			sourceTree = "<group>";
+		};
 		F33708962DD93A01006834F8 = {
 			isa = PBXGroup;
 			children = (
 				F33708B22DD93A0D006834F8 /* CI-CD */,
+				F32429FC2DDDD038000A16E8 /* visionOS */,
 				F33708A02DD93A01006834F8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -148,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				F337089F2DD93A01006834F8 /* CI-CD.app */,
+				F32429E72DDDD018000A16E8 /* visionOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,6 +281,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F32429E62DDDD018000A16E8 /* visionOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F32429F72DDDD019000A16E8 /* Build configuration list for PBXNativeTarget "visionOS" */;
+			buildPhases = (
+				F32429E32DDDD018000A16E8 /* Sources */,
+				F32429E42DDDD018000A16E8 /* Frameworks */,
+				F32429E52DDDD018000A16E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = visionOS;
+			packageProductDependencies = (
+				F32429EB2DDDD018000A16E8 /* RealityKitContent */,
+			);
+			productName = visionOS;
+			productReference = F32429E72DDDD018000A16E8 /* visionOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F337089E2DD93A01006834F8 /* CI-CD */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F33708AB2DD93A02006834F8 /* Build configuration list for PBXNativeTarget "CI-CD" */;
@@ -256,6 +336,9 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					F32429E62DDDD018000A16E8 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					F337089E2DD93A01006834F8 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -284,11 +367,20 @@
 			projectRoot = "";
 			targets = (
 				F337089E2DD93A01006834F8 /* CI-CD */,
+				F32429E62DDDD018000A16E8 /* visionOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F32429E52DDDD018000A16E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32429FD2DDDD038000A16E8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F337089D2DD93A01006834F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,6 +393,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F32429E32DDDD018000A16E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3242A012DDDD06E000A16E8 /* App Container.swift in Sources */,
+				F3242A022DDDD06E000A16E8 /* Auth View.swift in Sources */,
+				F3242A032DDDD06E000A16E8 /* Value Store.swift in Sources */,
+				F3242A052DDDD075000A16E8 /* Transparent List.swift in Sources */,
+				F3242A0E2DDDD07A000A16E8 /* Workflow Action Card.swift in Sources */,
+				F3242A0F2DDDD07A000A16E8 /* Action VM.swift in Sources */,
+				F3242A102DDDD07A000A16E8 /* Build Commit Details.swift in Sources */,
+				F3242A112DDDD07A000A16E8 /* Repo Card.swift in Sources */,
+				F3242A122DDDD07A000A16E8 /* Workflow Card.swift in Sources */,
+				F3242A132DDDD07A000A16E8 /* Build Card.swift in Sources */,
+				F3242A142DDDD07A000A16E8 /* Product Details.swift in Sources */,
+				F3242A242DDDD090000A16E8 /* App Settings.swift in Sources */,
+				F3242A152DDDD07A000A16E8 /* Action Card.swift in Sources */,
+				F3242A162DDDD07A000A16E8 /* Build Details.swift in Sources */,
+				F3242A172DDDD07E000A16E8 /* Action Details.swift in Sources */,
+				F3242A182DDDD07E000A16E8 /* Artifact Card.swift in Sources */,
+				F3242A192DDDD07E000A16E8 /* Issue List.swift in Sources */,
+				F3242A1E2DDDD083000A16E8 /* CiProduct.swift in Sources */,
+				F3242A1F2DDDD083000A16E8 /* CiBuildRun.swift in Sources */,
+				F3242A202DDDD083000A16E8 /* CiWorkflow.swift in Sources */,
+				F3242A212DDDD083000A16E8 /* CiIssue.swift in Sources */,
+				F3242A222DDDD083000A16E8 /* ScmRepository.swift in Sources */,
+				F3242A232DDDD083000A16E8 /* CiArtifact.swift in Sources */,
+				F3242A1A2DDDD07E000A16E8 /* Issue Card.swift in Sources */,
+				F3242A1B2DDDD07E000A16E8 /* Artifact List.swift in Sources */,
+				F3242A1C2DDDD07E000A16E8 /* Build Details Progress.swift in Sources */,
+				F3242A1D2DDDD07E000A16E8 /* Build VM.swift in Sources */,
+				F3242A062DDDD075000A16E8 /* Provider.swift in Sources */,
+				F3242A072DDDD075000A16E8 /* App List.swift in Sources */,
+				F3242A082DDDD075000A16E8 /* User Defaults.swift in Sources */,
+				F3242A092DDDD075000A16E8 /* Product Card Image.swift in Sources */,
+				F3242A0A2DDDD075000A16E8 /* Product VM.swift in Sources */,
+				F3242A0B2DDDD075000A16E8 /* App Store Model.swift in Sources */,
+				F3242A0C2DDDD075000A16E8 /* App List VM.swift in Sources */,
+				F3242A0D2DDDD075000A16E8 /* Product Card.swift in Sources */,
+				F3242A042DDDD06E000A16E8 /* CI-CD.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F337089B2DD93A01006834F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,6 +482,59 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		F32429F42DDDD019000A16E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/visionOS.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = CI/CD;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.topscrech.visionOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Debug;
+		};
+		F32429F52DDDD019000A16E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/visionOS.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = CI/CD;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.topscrech.visionOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Release;
+		};
 		F33708A92DD93A02006834F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -550,6 +738,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F32429F72DDDD019000A16E8 /* Build configuration list for PBXNativeTarget "visionOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F32429F42DDDD019000A16E8 /* Debug */,
+				F32429F52DDDD019000A16E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F337089A2DD93A01006834F8 /* Build configuration list for PBXProject "CI-CD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -618,6 +815,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F31D32222DDD265A00E7B121 /* XCRemoteSwiftPackageReference "SafariCover" */;
 			productName = SafariCover;
+		};
+		F32429EB2DDDD018000A16E8 /* RealityKitContent */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RealityKitContent;
 		};
 		F376E1932DDA47BB00D98252 /* ScrechKit */ = {
 			isa = XCSwiftPackageProductDependency;
