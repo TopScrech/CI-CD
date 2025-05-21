@@ -232,7 +232,6 @@
 				F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */,
 				F33708AE2DD93A0D006834F8 /* Assets.xcassets */,
 				F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */,
-				F31D32302DDD5E8200E7B121 /* Transparent List.swift */,
 				F3E0D1BD2DDA853C004A14C7 /* Provider.swift */,
 				F33708B12DD93A0D006834F8 /* App List.swift */,
 				F376E1472DD9C2C200D98252 /* App List VM.swift */,
@@ -284,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				F3E0D1C82DDB18AC004A14C7 /* App Settings.swift */,
+				F31D32302DDD5E8200E7B121 /* Transparent List.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
