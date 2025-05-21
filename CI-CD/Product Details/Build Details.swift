@@ -3,6 +3,7 @@ import AppStoreConnect_Swift_SDK
 
 struct BuildDetails: View {
     @Environment(BuildVM.self) private var vm
+    @EnvironmentObject private var store: ValueStore
     
     private let build: CiBuildRun
     
@@ -10,10 +11,10 @@ struct BuildDetails: View {
         self.build = build
     }
     
-    var body: some View {        
+    var body: some View {
         List {
             Section {
-                if let workflow = build.relationships?.workflow?.data {
+                if !store.demoMode, let workflow = build.relationships?.workflow?.data {
                     Button {
                         Task {
                             try await vm.startRebuild(of: build.id, in: workflow.id)

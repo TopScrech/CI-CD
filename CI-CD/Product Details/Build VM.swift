@@ -5,7 +5,11 @@ import AppStoreConnect_Swift_SDK
 final class BuildVM {
     var actions: [CiBuildAction] = []
     
-    func startRebuild(of buildId: String, in workflowId: String, clean: Bool = false) async throws {
+    func startRebuild(
+        of buildId: String,
+        in workflowId: String,
+        clean: Bool = false
+    ) async throws {
         guard let provider = try await provider() else {
             return
         }
