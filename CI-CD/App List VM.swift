@@ -19,7 +19,7 @@ final class AppListVM {
             .ciProducts
             .get(parameters: .init(
                 fieldsApps: [.ciProduct],
-                include: [.bundleID]
+                include: [.bundleID, .app]
             ))
         
         do {

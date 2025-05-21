@@ -203,6 +203,9 @@
         }
       }
     },
+    "Copy app id" : {
+
+    },
     "Copy artifact id" : {
       "localizations" : {
         "ru" : {
