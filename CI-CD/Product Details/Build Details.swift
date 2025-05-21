@@ -3,7 +3,7 @@ import AppStoreConnect_Swift_SDK
 import Kingfisher
 
 struct BuildDetails: View {
-    @State private var vm = BuildVM()
+    @Environment(BuildVM.self) private var vm
     @Environment(\.openURL) private var openUrl
     
     private let build: CiBuildRun
@@ -19,9 +19,23 @@ struct BuildDetails: View {
         let author = commit?.author
         
         List {
-            Button("Build actions") {
-                Task {
-                    try await vm.buildActions(build.id)
+            Section {
+                if let workflow = build.relationships?.workflow?.data {
+                    Button {
+                        Task {
+                            try await vm.startRebuild(of: build.id, in: workflow.id)
+                        }
+                    } label: {
+                        Label("Rebuild", systemImage: "hammer")
+                    }
+                    
+                    Button {
+                        Task {
+                            try await vm.startRebuild(of: build.id, in: workflow.id, clean: true)
+                        }
+                    } label: {
+                        Label("Rebuild clean", systemImage: "hammer")
+                    }
                 }
             }
             
@@ -112,6 +126,7 @@ struct BuildDetails: View {
         }
         .navigationTitle("Build \(build.attributes?.number?.description ?? "")")
         .foregroundStyle(.foreground)
+        .scrollIndicators(.never)
         .task {
             try? await vm.buildActions(build.id)
         }
@@ -120,5 +135,6 @@ struct BuildDetails: View {
 
 #Preview {
     BuildDetails(CiBuildRun.preview)
+        .environment(BuildVM())
         .darkSchemePreferred()
 }

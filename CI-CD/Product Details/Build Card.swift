@@ -3,6 +3,8 @@ import Kingfisher
 import AppStoreConnect_Swift_SDK
 
 struct BuildCard: View {
+    @State private var vm = BuildVM()
+    
     private let build: CiBuildRun
     
     init(_ build: CiBuildRun) {
@@ -32,6 +34,7 @@ struct BuildCard: View {
         
         NavigationLink {
             BuildDetails(build)
+                .environment(vm)
         } label: {
             HStack {
                 Capsule()
@@ -95,19 +98,38 @@ struct BuildCard: View {
         }
         .monospacedDigit()
         .padding(.leading, -8)
-#if DEBUG
         .contextMenu {
-            Button {
-                UIPasteboard.general.string = build.id
-            } label: {
-                Text("Copy build id")
+            if let workflow = build.relationships?.workflow?.data {
+                Button {
+                    Task {
+                        try await vm.startRebuild(of: build.id, in: workflow.id)
+                    }
+                } label: {
+                    Label("Rebuild", systemImage: "hammer")
+                }
                 
-                Text(build.id)
-                
-                Image(systemName: "hammer")
+                Button {
+                    Task {
+                        try await vm.startRebuild(of: build.id, in: workflow.id, clean: true)
+                    }
+                } label: {
+                    Label("Rebuild clean", systemImage: "hammer")
+                }
             }
-        }
+#if DEBUG
+            Section {
+                Button {
+                    UIPasteboard.general.string = build.id
+                } label: {
+                    Text("Copy build id")
+                    
+                    Text(build.id)
+                    
+                    Image(systemName: "hammer")
+                }
+            }
 #endif
+        }
     }
     
     private func timeDiffISO(date1: Date?, date2: Date?) -> Int? {

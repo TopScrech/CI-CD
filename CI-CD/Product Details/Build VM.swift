@@ -5,7 +5,7 @@ import AppStoreConnect_Swift_SDK
 final class BuildVM {
     var actions: [CiBuildAction] = []
     
-    func startBuild(_ workflowId: String) async throws {
+    func startRebuild(of buildId: String, in workflowId: String, clean: Bool = false) async throws {
         guard let provider = try await provider() else {
             return
         }
@@ -16,7 +16,15 @@ final class BuildVM {
             .post(
                 .init(data: .init(
                     type: .ciBuildRuns,
+                    attributes: .init(
+                        isClean: clean
+                    ),
                     relationships: .init(
+                        buildRun: .init(
+                            data: .init(
+                                type: .ciBuildRuns, id: buildId
+                            )
+                        ),
                         workflow: .init(
                             data: .init(
                                 type: .ciWorkflows,

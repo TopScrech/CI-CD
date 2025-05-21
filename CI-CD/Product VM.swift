@@ -60,7 +60,9 @@ final class ProductVM {
             .ciProducts
             .id(id)
             .buildRuns
-            .get()
+            .get(
+                parameters: .init(include: [.workflow])
+            )
         
         do {
             builds = try await provider.request(request).data
@@ -69,7 +71,7 @@ final class ProductVM {
         }
     }
     
-    func startBuild(_ workflowId: String) async throws {
+    func startBuild(_ workflowId: String, clean: Bool = false) async throws {
         guard let provider = try await provider() else {
             return
         }
@@ -80,6 +82,9 @@ final class ProductVM {
             .post(
                 .init(data: .init(
                     type: .ciBuildRuns,
+                    attributes: .init(
+                        isClean: clean
+                    ),
                     relationships: .init(
                         workflow: .init(
                             data: .init(
