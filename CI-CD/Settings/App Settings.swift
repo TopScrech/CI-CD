@@ -44,6 +44,7 @@ struct AppSettings: View {
         }
         .navigationTitle("Settings")
         .transparentList()
+        .ornamentDismissButton()
         .mailCover($mailCover, subject: "CI/CD Feedback", recipients: ["topscrech@icloud.com"])
         .foregroundStyle(.foreground)
     }
