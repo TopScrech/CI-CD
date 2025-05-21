@@ -21,14 +21,16 @@ struct WorkflowCard: View {
     var body: some View {
         Menu {
 #if DEBUG
-            Button {
-                UIPasteboard.general.string = workflow.id
-            } label: {
-                Text("Copy workflow id")
-                
-                Text(workflow.id)
-                
-                Image(systemName: "doc.on.doc")
+            Section {
+                Button {
+                    UIPasteboard.general.string = workflow.id
+                } label: {
+                    Text("Copy workflow id")
+                    
+                    Text(workflow.id)
+                    
+                    Image(systemName: "doc.on.doc")
+                }
             }
 #endif
             Button {
