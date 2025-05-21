@@ -55,28 +55,30 @@ struct ProductCard: View {
         .contextMenu {
             ForEach(vm.workflows) { workflow in
                 if let name = workflow.attributes?.name {
-                    Button {
-                        Task {
-                            try await vm.startBuild(workflow.id)
+                    Section {
+                        Button {
+                            Task {
+                                try await vm.startBuild(workflow.id)
+                            }
+                        } label: {
+                            Text("Start build")
+                            
+                            Text(name)
+                            
+                            Image(systemName: "play")
                         }
-                    } label: {
-                        Text("Start build")
                         
-                        Text(name)
-                        
-                        Image(systemName: "play")
-                    }
-                    
-                    Button {
-                        Task {
-                            try await vm.startBuild(workflow.id, clean: true)
+                        Button {
+                            Task {
+                                try await vm.startBuild(workflow.id, clean: true)
+                            }
+                        } label: {
+                            Text("Start clean build")
+                            
+                            Text(name)
+                            
+                            Image(systemName: "play")
                         }
-                    } label: {
-                        Text("Start clean build")
-                        
-                        Text(name)
-                        
-                        Image(systemName: "play")
                     }
                 }
             }
