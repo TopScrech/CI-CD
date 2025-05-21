@@ -29,9 +29,11 @@ struct ProductDetails: View {
     
     var body: some View {
         List {
-            Section("Workflows") {
-                ForEach(vm.workflows) { workflow in
-                    WorkflowCard(workflow)
+            if !vm.workflows.isEmpty {
+                Section("Workflows") {
+                    ForEach(vm.workflows) { workflow in
+                        WorkflowCard(workflow)
+                    }
                 }
             }
             
