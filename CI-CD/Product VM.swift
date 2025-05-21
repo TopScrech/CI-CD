@@ -23,9 +23,9 @@ final class ProductVM {
             .get()
         
         do {
-            let builds = try await provider.request(request).data
+            let builds = try await provider.request(request)
             
-            if let buildId = builds.first?.id {
+            if let buildId = builds.data.first?.id {
                 try await appBuildIcon(buildId)
             }
         } catch {
