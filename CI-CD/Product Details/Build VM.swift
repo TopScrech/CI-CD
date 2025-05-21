@@ -57,7 +57,9 @@ final class BuildVM {
             .get()
         
         do {
-            actions = try await provider.request(request).data
+            actions = try await provider.request(request).data.sorted {
+                $0.attributes?.name ?? "" < $1.attributes?.name ?? ""
+            }
         } catch {
             print(error)
         }

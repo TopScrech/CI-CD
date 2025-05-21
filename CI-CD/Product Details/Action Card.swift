@@ -19,53 +19,23 @@ struct ActionCard: View {
                 Text(action.attributes?.name ?? "-")
                 
                 if vm.artifacts.count > 0 {
-                    HStack {
-                        Text("📁 Artifacts")
-                        
-                        Spacer()
-                        
-                        Text(vm.artifacts.count)
-                    }
+                    Text("📁 \(vm.artifacts.count)x Artifacts")
                 }
                 
                 if let errors = vm.errorCount, errors > 0 {
-                    HStack {
-                        Text("⛔️ Errors")
-                        
-                        Spacer()
-                        
-                        Text(errors)
-                    }
+                    Text("⛔️ \(errors)x Errors")
                 }
                 
                 if let warnings = vm.warningCount, warnings > 0 {
-                    HStack {
-                        Text("⚠️ Warnings")
-                        
-                        Spacer()
-                        
-                        Text(warnings)
-                    }
+                    Text("⚠️ \(warnings)x Warnings")
                 }
                 
                 if let analyzerWarnings = vm.analyzerWarningCount, analyzerWarnings > 0 {
-                    HStack {
-                        Text("⚠️ Analyzer Warnings")
-                        
-                        Spacer()
-                        
-                        Text(analyzerWarnings)
-                    }
+                    Text("⚠️ \(analyzerWarnings)x Analyzer Warnings")
                 }
                 
                 if let testFailures = vm.testFailureCount, testFailures > 0 {
-                    HStack {
-                        Text("⛔️ Test Failures")
-                        
-                        Spacer()
-                        
-                        Text(testFailures)
-                    }
+                    Text("⛔️ \(testFailures)x Test Failures")
                 }
             }
             .animation(.default, value: vm.errorCount)

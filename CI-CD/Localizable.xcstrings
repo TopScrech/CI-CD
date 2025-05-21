@@ -54,19 +54,19 @@
         }
       }
     },
-    "⚠️ Analyzer Warnings" : {
+    "⚠️ %lldx Analyzer Warnings" : {
 
     },
-    "⚠️ Warnings" : {
+    "⚠️ %lldx Warnings" : {
 
     },
-    "⛔️ Errors" : {
+    "⛔️ %lldx Errors" : {
 
     },
-    "⛔️ Test Failures" : {
+    "⛔️ %lldx Test Failures" : {
 
     },
-    "📁 Artifacts" : {
+    "📁 %lldx Artifacts" : {
 
     },
     "Additional repositories" : {
