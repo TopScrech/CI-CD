@@ -64,8 +64,14 @@ struct ProductDetails: View {
         .toolbar {
             Menu {
                 Section {
-                    Button("All") {
+                    Button {
                         selectedAuthor = nil
+                    } label: {
+                        Text("All")
+                        
+                        if selectedAuthor == nil {
+                            Image(systemName: "checkmark")
+                        }
                     }
                 }
                 
@@ -74,6 +80,10 @@ struct ProductDetails: View {
                         selectedAuthor = author
                     } label: {
                         Text(author.displayName ?? "Unknown Author")
+                        
+                        if selectedAuthor == author {
+                            Image(systemName: "checkmark")
+                        }
                     }
                 }
             } label: {
