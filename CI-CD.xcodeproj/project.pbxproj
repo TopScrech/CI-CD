@@ -21,6 +21,7 @@
 		F31D32242DDD265A00E7B121 /* SafariCover in Frameworks */ = {isa = PBXBuildFile; productRef = F31D32232DDD265A00E7B121 /* SafariCover */; };
 		F31D32262DDD435A00E7B121 /* Repo Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32252DDD435A00E7B121 /* Repo Card.swift */; };
 		F31D32282DDD439700E7B121 /* ScmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32272DDD439700E7B121 /* ScmRepository.swift */; };
+		F31D322B2DDD572E00E7B121 /* Workflow Action Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322A2DDD572E00E7B121 /* Workflow Action Card.swift */; };
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F33708B52DD93A0D006834F8 /* App List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* App List.swift */; };
@@ -74,6 +75,7 @@
 		F31D32202DDD245F00E7B121 /* CiArtifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiArtifact.swift; sourceTree = "<group>"; };
 		F31D32252DDD435A00E7B121 /* Repo Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repo Card.swift"; sourceTree = "<group>"; };
 		F31D32272DDD439700E7B121 /* ScmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScmRepository.swift; sourceTree = "<group>"; };
+		F31D322A2DDD572E00E7B121 /* Workflow Action Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workflow Action Card.swift"; sourceTree = "<group>"; };
 		F337089F2DD93A01006834F8 /* CI-CD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI-CD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33708AE2DD93A0D006834F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CI-CD.entitlements"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				F376E1682DDA288200D98252 /* Product Details.swift */,
 				F31D32252DDD435A00E7B121 /* Repo Card.swift */,
 				F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */,
+				F31D322A2DDD572E00E7B121 /* Workflow Action Card.swift */,
 				F376E17D2DDA31C400D98252 /* Build Card.swift */,
 				F376E18F2DDA437600D98252 /* Build Details.swift */,
 				F31D32122DDD13FE00E7B121 /* Action Card.swift */,
@@ -298,6 +301,7 @@
 				F3E0D1D22DDB370E004A14C7 /* CiWorkflow.swift in Sources */,
 				F3E0D1AD2DDA70AC004A14C7 /* Build VM.swift in Sources */,
 				F31D321D2DDD20F100E7B121 /* Action VM.swift in Sources */,
+				F31D322B2DDD572E00E7B121 /* Workflow Action Card.swift in Sources */,
 				F376E16E2DDA299200D98252 /* Product VM.swift in Sources */,
 				F3E0D1CE2DDB1A96004A14C7 /* Auth View.swift in Sources */,
 				F30246282DDC609500999146 /* App Store Model.swift in Sources */,
