@@ -20,6 +20,7 @@ struct ProductCardImage: View {
                     .clipShape(.rect(cornerRadius: 8))
             }
         }
+        .animation(.default, value: vm.iconUrl)
         .task {
             if let appId = product.relationships?.app?.data?.id {
                 try? await vm.appBuilds(appId)
