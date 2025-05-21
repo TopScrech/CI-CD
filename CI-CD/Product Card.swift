@@ -66,6 +66,18 @@ struct ProductCard: View {
                         
                         Image(systemName: "play")
                     }
+                    
+                    Button {
+                        Task {
+                            try await vm.startBuild(workflow.id, clean: true)
+                        }
+                    } label: {
+                        Text("Start clean build")
+                        
+                        Text(name)
+                        
+                        Image(systemName: "play")
+                    }
                 }
             }
 #if DEBUG
