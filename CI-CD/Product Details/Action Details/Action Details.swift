@@ -6,28 +6,19 @@ struct ActionDetails: View {
     
     var body: some View {
         TabView {
-            List {
-                ForEach(vm.issues) { issue in
-                    IssueCard(issue)
+            IssueList()
+                .tag(0)
+                .tabItem {
+                    Label("Issues", systemImage: "exclamationmark.triangle")
                 }
-            }
-            .navigationTitle("Issues")
-            .tag(0)
-            .tabItem {
-                Label("Issues", systemImage: "exclamationmark.triangle")
-            }
             
-            List {
-                ForEach(vm.artifacts) { artifact in
-                    ArtifactCard(artifact)
+            ArtifactList()
+                .tag(1)
+                .tabItem {
+                    Label("Artifacts", systemImage: "archivebox")
                 }
-            }
-            .navigationTitle("Artifacts")
-            .tag(1)
-            .tabItem {
-                Label("Artifacts", systemImage: "archivebox")
-            }
         }
+        .environment(vm)
     }
 }
 
