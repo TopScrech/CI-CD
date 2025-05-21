@@ -10,6 +10,11 @@ struct ArtifactList: View {
             }
         }
         .navigationTitle("Artifacts")
+        .overlay {
+            if vm.issues.isEmpty {
+                ContentUnavailableView("No artifacts found", systemImage: "archivebox")
+            }
+        }
     }
 }
 

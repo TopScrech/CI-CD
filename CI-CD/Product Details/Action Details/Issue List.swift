@@ -10,6 +10,11 @@ struct IssueList: View {
             }
         }
         .navigationTitle("Issues")
+        .overlay {
+            if vm.issues.isEmpty {
+                ContentUnavailableView("No issues found", systemImage: "checkmark.seal", description: Text("Your code is great!"))
+            }
+        }
     }
 }
 

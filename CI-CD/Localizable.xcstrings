@@ -163,6 +163,12 @@
     "Line" : {
 
     },
+    "No artifacts found" : {
+
+    },
+    "No issues found" : {
+
+    },
     "Now" : {
 
     },
@@ -210,6 +216,9 @@
 
     },
     "You need an API key with the 'Admin' role from App Store Connect to start builds with external deployments. API keys with the 'Developer' role cannot be used for this" : {
+
+    },
+    "Your code is great!" : {
 
     }
   },
