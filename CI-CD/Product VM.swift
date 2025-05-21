@@ -56,38 +56,12 @@ final class ProductVM {
                         .replacingOccurrences(of: "{f}", with: "png")
                     
                     iconUrl = url
-                    print("App Store Icon URL:", url)
                 }
             }
         } catch {
             print(error)
         }
     }
-    
-//    func fetchIconUrl(_ bundleId: String?) async throws -> URL? {
-//        guard let bundleId else {
-//            return nil
-//        }
-//        
-//        let urlString = "https://itunes.apple.com/lookup?bundleId=" + bundleId
-//        
-//        guard let url = URL(string: urlString) else {
-//            print("Invalid URL:", urlString)
-//            throw URLError(.badURL)
-//        }
-//        
-//        let (data, _) = try await URLSession.shared.data(from: url)
-//        let result = try JSONDecoder().decode(Welcome.self, from: data)
-//        
-//        guard
-//            let resultUrlString = result.results.first?.artworkUrl512
-//        else {
-//            print("No artworkUrl512 found for", bundleId)
-//            return nil
-//        }
-//        
-//        return URL(string: resultUrlString)
-//    }
     
     func fetchWorkflows(_ id: String) async throws {
         guard let provider = try await provider() else {
@@ -127,7 +101,10 @@ final class ProductVM {
         }
     }
     
-    func startBuild(_ workflowId: String, clean: Bool = false) async throws {
+    func startBuild(
+        _ workflowId: String,
+        clean: Bool = false
+    ) async throws {
         guard let provider = try await provider() else {
             return
         }
