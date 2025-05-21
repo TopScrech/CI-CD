@@ -67,6 +67,9 @@ struct WorkflowCard: View {
                 if let actions = workflow.attributes?.actions {
                     ForEach(actions) { action in
                         HStack {
+                            Spacer()
+                                .frame(width: 16)
+                            
                             if let type = action.actionType {
                                 Group {
                                     switch type {

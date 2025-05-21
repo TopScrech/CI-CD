@@ -127,6 +127,9 @@
     "Copy repository url" : {
 
     },
+    "Copy workflow id" : {
+
+    },
     "Created" : {
 
     },
@@ -174,9 +177,6 @@
       }
     },
     "Primary repositories" : {
-
-    },
-    "Print workflow id" : {
 
     },
     "Private Key" : {
