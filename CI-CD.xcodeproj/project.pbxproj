@@ -114,6 +114,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F31D32292DDD532F00E7B121 /* Action Details */ = {
+			isa = PBXGroup;
+			children = (
+				F31D32142DDD17C600E7B121 /* Action Details.swift */,
+				F31D321E2DDD242600E7B121 /* Artifact Card.swift */,
+				F31D32162DDD18A200E7B121 /* Issue Card.swift */,
+			);
+			path = "Action Details";
+			sourceTree = "<group>";
+		};
 		F33708962DD93A01006834F8 = {
 			isa = PBXGroup;
 			children = (
@@ -165,9 +175,7 @@
 				F376E18F2DDA437600D98252 /* Build Details.swift */,
 				F31D32122DDD13FE00E7B121 /* Action Card.swift */,
 				F31D321C2DDD20F100E7B121 /* Action VM.swift */,
-				F31D32142DDD17C600E7B121 /* Action Details.swift */,
-				F31D321E2DDD242600E7B121 /* Artifact Card.swift */,
-				F31D32162DDD18A200E7B121 /* Issue Card.swift */,
+				F31D32292DDD532F00E7B121 /* Action Details */,
 				F31D32102DDD081E00E7B121 /* Build Details Progress.swift */,
 				F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */,
 			);
