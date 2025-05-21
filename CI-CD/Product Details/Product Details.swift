@@ -29,7 +29,7 @@ struct ProductDetails: View {
     
     var body: some View {
         List {
-            Section {
+            Section("Workflows") {
                 ForEach(vm.workflows) { workflow in
                     WorkflowCard(workflow)
                 }
