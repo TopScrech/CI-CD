@@ -19,9 +19,32 @@ struct WorkflowCard: View {
     }
     
     var body: some View {
-        Button {
-            Task {
-                try await vm.startBuild(workflow.id)
+        Menu {
+#if DEBUG
+            Button {
+                UIPasteboard.general.string = workflow.id
+            } label: {
+                Text("Copy workflow id")
+                
+                Text(workflow.id)
+                
+                Image(systemName: "doc.on.doc")
+            }
+#endif
+            Button {
+                Task {
+                    try await vm.startBuild(workflow.id)
+                }
+            } label: {
+                Label("Start build", systemImage: "play")
+            }
+            
+            Button {
+                Task {
+                    try await vm.startBuild(workflow.id, clean: true)
+                }
+            } label: {
+                Label("Start clean build", systemImage: "play")
             }
         } label: {
             VStack(alignment: .leading, spacing: 12) {
@@ -80,22 +103,6 @@ struct WorkflowCard: View {
             }
         }
         .foregroundStyle(.foreground)
-        .contextMenu {
-#if DEBUG
-            Button {
-                print(workflow.attributes?.actions?.first?.id.uuidString ?? "Workflow id not found")
-            } label: {
-                Label("Print workflow id", systemImage: "hammer")
-            }
-#endif
-            Button {
-                Task {
-                    try await vm.startBuild(workflow.id)
-                }
-            } label: {
-                Label("Start build", systemImage: "play")
-            }
-        }
     }
 }
 
