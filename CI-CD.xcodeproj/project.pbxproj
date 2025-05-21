@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -93,13 +93,11 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		F376E1522DD9C4E500D98252 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolder = Frameworks;
 			files = (
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -152,15 +150,12 @@
 /* Begin PBXFrameworksBuildPhase section */
 		F32429E42DDDD018000A16E8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F32429EC2DDDD018000A16E8 /* RealityKitContent in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F337089C2DD93A01006834F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */,
 				F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */,
@@ -168,7 +163,6 @@
 				F376E1942DDA47BB00D98252 /* ScrechKit in Frameworks */,
 				F3E0D1D52DDB3B51004A14C7 /* MailCover in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -291,8 +285,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = visionOS;
 			packageProductDependencies = (
 				F32429EB2DDDD018000A16E8 /* RealityKitContent */,
@@ -311,8 +303,6 @@
 				F376E1522DD9C4E500D98252 /* Embed Frameworks */,
 			);
 			buildRules = (
-			);
-			dependencies = (
 			);
 			name = "CI-CD";
 			packageProductDependencies = (
@@ -361,7 +351,7 @@
 				F3E0D1D32DDB3B51004A14C7 /* XCRemoteSwiftPackageReference "MailCover" */,
 				F31D32222DDD265A00E7B121 /* XCRemoteSwiftPackageReference "SafariCover" */,
 			);
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = F33708A02DD93A01006834F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -375,27 +365,22 @@
 /* Begin PBXResourcesBuildPhase section */
 		F32429E52DDDD018000A16E8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F32429FD2DDDD038000A16E8 /* Assets.xcassets in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F337089D2DD93A01006834F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3E0D1C72DDB1420004A14C7 /* Localizable.xcstrings in Resources */,
 				F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F32429E32DDDD018000A16E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3242A012DDDD06E000A16E8 /* App Container.swift in Sources */,
 				F3242A022DDDD06E000A16E8 /* Auth View.swift in Sources */,
@@ -434,11 +419,9 @@
 				F3242A0D2DDDD075000A16E8 /* Product Card.swift in Sources */,
 				F3242A042DDDD06E000A16E8 /* CI-CD.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F337089B2DD93A01006834F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */,
 				F31D322F2DDD5A9600E7B121 /* Artifact List.swift in Sources */,
@@ -477,12 +460,11 @@
 				F31D32212DDD245F00E7B121 /* CiArtifact.swift in Sources */,
 				F3E0D1C52DDA92DD004A14C7 /* Workflow Card.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F32429F42DDDD019000A16E8 /* Debug */ = {
+		F32429F42DDDD019000A16E8 /* Debug configuration for PBXNativeTarget "visionOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -508,7 +490,7 @@
 			};
 			name = Debug;
 		};
-		F32429F52DDDD019000A16E8 /* Release */ = {
+		F32429F52DDDD019000A16E8 /* Release configuration for PBXNativeTarget "visionOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -535,7 +517,7 @@
 			};
 			name = Release;
 		};
-		F33708A92DD93A02006834F8 /* Debug */ = {
+		F33708A92DD93A02006834F8 /* Debug configuration for PBXProject "CI-CD" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -600,7 +582,7 @@
 			};
 			name = Debug;
 		};
-		F33708AA2DD93A02006834F8 /* Release */ = {
+		F33708AA2DD93A02006834F8 /* Release configuration for PBXProject "CI-CD" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -657,7 +639,7 @@
 			};
 			name = Release;
 		};
-		F33708AC2DD93A02006834F8 /* Debug */ = {
+		F33708AC2DD93A02006834F8 /* Debug configuration for PBXNativeTarget "CI-CD" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -696,7 +678,7 @@
 			};
 			name = Debug;
 		};
-		F33708AD2DD93A02006834F8 /* Release */ = {
+		F33708AD2DD93A02006834F8 /* Release configuration for PBXNativeTarget "CI-CD" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -741,28 +723,25 @@
 		F32429F72DDDD019000A16E8 /* Build configuration list for PBXNativeTarget "visionOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F32429F42DDDD019000A16E8 /* Debug */,
-				F32429F52DDDD019000A16E8 /* Release */,
+				F32429F42DDDD019000A16E8 /* Debug configuration for PBXNativeTarget "visionOS" */,
+				F32429F52DDDD019000A16E8 /* Release configuration for PBXNativeTarget "visionOS" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F337089A2DD93A01006834F8 /* Build configuration list for PBXProject "CI-CD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F33708A92DD93A02006834F8 /* Debug */,
-				F33708AA2DD93A02006834F8 /* Release */,
+				F33708A92DD93A02006834F8 /* Debug configuration for PBXProject "CI-CD" */,
+				F33708AA2DD93A02006834F8 /* Release configuration for PBXProject "CI-CD" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F33708AB2DD93A02006834F8 /* Build configuration list for PBXNativeTarget "CI-CD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F33708AC2DD93A02006834F8 /* Debug */,
-				F33708AD2DD93A02006834F8 /* Release */,
+				F33708AC2DD93A02006834F8 /* Debug configuration for PBXNativeTarget "CI-CD" */,
+				F33708AD2DD93A02006834F8 /* Release configuration for PBXNativeTarget "CI-CD" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
