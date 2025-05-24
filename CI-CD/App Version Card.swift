@@ -26,12 +26,6 @@ struct AppVersionCard: View {
                         .foregroundStyle(.secondary)
                 }
                 
-                //                if !downloadUrl.isEmpty, let  {
-                //                    Link("Download", destination: downloadUrl)
-                //                        .footnote(.semibold)
-                //                        .foregroundStyle(.blue)
-                //                }
-                
                 if let errorMessage {
                     Text(errorMessage)
                         .footnote()
@@ -52,6 +46,13 @@ struct AppVersionCard: View {
                 }
             } else if isProcessing {
                 ProgressView()
+            } else if !isProcessing, !downloadUrl.isEmpty {
+                Button {
+                    safariCover = true
+                } label: {
+                    Image(systemName: "square.and.arrow.down")
+                        .title3(.semibold)
+                }
             }
         }
         .animation(.default, value: adpId)
