@@ -117,6 +117,12 @@
     "All" : {
 
     },
+    "AltStore helper" : {
+
+    },
+    "AltStore Helper" : {
+
+    },
     "Archive" : {
 
     },
@@ -281,6 +287,9 @@
           }
         }
       }
+    },
+    "Error" : {
+
     },
     "Execution progress" : {
 

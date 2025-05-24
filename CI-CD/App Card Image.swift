@@ -2,8 +2,8 @@ import SwiftUI
 import AppStoreConnect_Swift_SDK
 import Kingfisher
 
-struct ProductCardImage: View {
-    @Environment(ProductVM.self) private var vm
+struct AppCardImage: View {
+    @Environment(AppVM.self) private var vm
     
     private let product: CiProduct
     
@@ -30,6 +30,6 @@ struct ProductCardImage: View {
 }
 
 #Preview {
-    ProductCardImage(CiProduct.preview)
-        .environment(ProductVM())
+    AppCardImage(CiProduct.preview)
+        .environment(AppVM())
 }

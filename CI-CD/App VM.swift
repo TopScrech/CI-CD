@@ -2,11 +2,12 @@ import Foundation
 import AppStoreConnect_Swift_SDK
 
 @Observable
-final class ProductVM {
+final class AppVM {
     var builds: [CiBuildRun] = []
     var workflows: [CiWorkflow] = []
     var primaryRepos: [ScmRepository] = []
     var additionalRepos: [ScmRepository] = []
+    var versions: [AppStoreVersion] = []
     
     var iconUrl: String?
     
@@ -170,6 +171,25 @@ final class ProductVM {
             additionalRepos = try await provider.request(request).data
         } catch {
             print(error)
+        }
+    }
+    
+    func getVersions(_ appId: String) async throws {
+        guard let provider = try await provider() else {
+            return
+        }
+        
+        let request = APIEndpoint.v1
+            .apps
+            .id(appId)
+            .appStoreVersions
+            .get()
+        
+        do {
+            versions = try await provider.request(request).data
+        } catch {
+            print(error)
+            throw error
         }
     }
 }

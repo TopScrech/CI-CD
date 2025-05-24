@@ -1,8 +1,8 @@
 import SwiftUI
 import AppStoreConnect_Swift_SDK
 
-struct ProductCard: View {
-    @State private var vm = ProductVM()
+struct AppCard: View {
+    @State private var vm = AppVM()
     @EnvironmentObject private var store: ValueStore
     
     private let product: CiProduct
@@ -11,13 +11,15 @@ struct ProductCard: View {
         self.product = product
     }
     
+    @State private var sheetVersions = false
+    
     var body: some View {
         NavigationLink {
             ProductDetails(product)
                 .environment(vm)
         } label: {
             HStack {
-                ProductCardImage(product)
+                AppCardImage(product)
                     .environment(vm)
                 
                 VStack(alignment: .leading) {
@@ -42,6 +44,16 @@ struct ProductCard: View {
                             .secondary()
                             .footnote()
                     }
+                }
+            }
+        }
+        .sheet($sheetVersions) {
+            NavigationView {
+                if let appId = product.relationships?.app?.data?.id {
+                    AppVersions(appId)
+                        .environment(vm)
+                } else {
+                    Text("Error")
                 }
             }
         }
@@ -87,6 +99,16 @@ struct ProductCard: View {
                     }
                 }
             }
+            
+            if let _ = product.relationships?.app?.data?.id {
+                Section {
+                    Button {
+                        sheetVersions = true
+                    } label: {
+                        Label("AltStore helper", systemImage: "app.dashed")
+                    }
+                }
+            }
 #if DEBUG
             Section {
                 Button {
@@ -117,6 +139,6 @@ struct ProductCard: View {
 }
 
 #Preview {
-    ProductCard(CiProduct.preview)
+    AppCard(CiProduct.preview)
         .environmentObject(ValueStore())
 }
