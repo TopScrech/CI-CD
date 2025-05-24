@@ -174,8 +174,8 @@ final class AppVM {
         }
     }
     
-    func getVersions(_ appId: String) async throws {
-        guard let provider = try await provider() else {
+    func getVersions(_ appId: String?) async throws {
+        guard let appId, let provider = try await provider() else {
             return
         }
         

@@ -65,8 +65,9 @@ struct AppCard: View {
                 async let builds: () = vm.fetchBuilds(product.id)
                 async let primaryRepos: () = vm.primaryRepositories(product.id)
                 async let additionalRepos: () = vm.additionalRepositories(product.id)
+                async let versions: () = vm.getVersions(product.relationships?.app?.data?.id)
                 
-                _ = try? await (workflows, builds, additionalRepos, primaryRepos)
+                _ = try? await (workflows, builds, additionalRepos, primaryRepos, versions)
             }
         }
         .contextMenu {

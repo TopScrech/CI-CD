@@ -10,7 +10,8 @@ struct AppVersionCard: View {
     
     @State private var adpId: String?
     @State private var isProcessing = false
-    @State private var downloadURL: URL?
+    @State private var safariCover = false
+    @State private var downloadUrl = ""
     @State private var errorMessage: String?
     
     var body: some View {
@@ -25,11 +26,11 @@ struct AppVersionCard: View {
                         .foregroundStyle(.secondary)
                 }
                 
-                if let downloadURL {
-                    Link("Download", destination: downloadURL)
-                        .footnote(.semibold)
-                        .foregroundStyle(.blue)
-                }
+                //                if !downloadUrl.isEmpty, let  {
+                //                    Link("Download", destination: downloadUrl)
+                //                        .footnote(.semibold)
+                //                        .foregroundStyle(.blue)
+                //                }
                 
                 if let errorMessage {
                     Text(errorMessage)
@@ -40,18 +41,22 @@ struct AppVersionCard: View {
             
             Spacer()
             
-            if let adpId, !isProcessing, downloadURL == nil {
+            if let adpId, !isProcessing, downloadUrl.isEmpty {
                 Button {
-                    Task { await startProcessing(adpId) }
+                    Task {
+                        await startProcessing(adpId)
+                    }
                 } label: {
                     Image(systemName: "square.and.arrow.down")
-                        .semibold()
+                        .title3(.semibold)
                 }
             } else if isProcessing {
                 ProgressView()
             }
         }
+        .animation(.default, value: adpId)
         .foregroundStyle(.primary)
+        .safariCover($safariCover, url: downloadUrl)
         .task {
             if adpId == nil {
                 try? await getADPKey(version.id)
@@ -62,9 +67,28 @@ struct AppVersionCard: View {
     private func startProcessing(_ adpId: String) async {
         isProcessing = true
         errorMessage = nil
-        downloadURL = nil
+        downloadUrl = ""
         
         do {
+            // 1. Check if ADP is already processed
+            guard let statusURL = URL(string: "https://api.altstore.io/adps/\(adpId)") else {
+                print("⛔️ Invalid status URL")
+                return
+            }
+            
+            let (statusData, _) = try await URLSession.shared.data(from: statusURL)
+            let statusResult = try JSONDecoder().decode(ADPStatusResponse.self, from: statusData)
+            
+            if statusResult.status == "success", let urlString = statusResult.downloadURL {
+                print("Already processed")
+                
+                downloadUrl = urlString
+                safariCover = true
+                isProcessing = false
+                return
+            }
+            
+            // 2. If not, start processing as before
             guard let postURL = URL(string: "https://api.altstore.io/adps") else {
                 print("⛔️ Invalid URL")
                 return
@@ -84,15 +108,11 @@ struct AppVersionCard: View {
                 throw URLError(.badServerResponse)
             }
             
-            guard let url = URL(string: "https://api.altstore.io/adps/\(adpId)") else {
-                print("⛔️ Invalid URL")
-                return
-            }
+            let result = try await pollADPStatus(url: statusURL, maxAttempts: 120, interval: 5)
             
-            let result = try await pollADPStatus(url: url, maxAttempts: 120, interval: 5)
-            
-            if let urlString = result.downloadURL, let url = URL(string: urlString) {
-                downloadURL = url
+            if let urlString = result.downloadURL {
+                downloadUrl = urlString
+                safariCover = true
             } else {
                 throw NSError(domain: "ADP", code: 2, userInfo: [NSLocalizedDescriptionKey: "No download URL found"])
             }
