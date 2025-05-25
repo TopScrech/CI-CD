@@ -17,6 +17,7 @@ struct AppVersions: View {
             }
         }
         .navigationTitle("AltStore Helper")
+        .scrollIndicators(.never)
         .refreshableTask {
             try? await vm.getVersions(appId)
         }
