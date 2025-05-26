@@ -1,5 +1,5 @@
 {
-  "originHash" : "0b93ca27a1ba8352ef7e63aaf49f85f611bf173287287df07d71c1a000a39b2c",
+  "originHash" : "127a8aa91b8483f45a51fa3fe569db64081e59a1acfe1a751001d25c5e7cb95b",
   "pins" : [
     {
       "identity" : "appstoreconnect-swift-sdk",
@@ -43,7 +43,7 @@
       "location" : "https://github.com/TopScrech/ScrechKit",
       "state" : {
         "branch" : "main",
-        "revision" : "b5d9a0d6e2e0b221b7db5d68011226254f637822"
+        "revision" : "b4ffcdfc764889a0def8c74993b3218732cb8351"
       }
     },
     {
