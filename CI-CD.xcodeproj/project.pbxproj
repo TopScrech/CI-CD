@@ -13,6 +13,8 @@
 		F3116C072DF57496009521DE /* App Version Card VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* App Version Card VM.swift */; };
 		F3116C092DF574A5009521DE /* ADP Status Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C082DF574A5009521DE /* ADP Status Response.swift */; };
 		F3116C0A2DF574A5009521DE /* ADP Status Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C082DF574A5009521DE /* ADP Status Response.swift */; };
+		F3116C0C2DF5F688009521DE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C0B2DF5F688009521DE /* Error.swift */; };
+		F3116C0D2DF5F688009521DE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C0B2DF5F688009521DE /* Error.swift */; };
 		F31D32112DDD081E00E7B121 /* Build Details Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32102DDD081E00E7B121 /* Build Details Progress.swift */; };
 		F31D32132DDD13FE00E7B121 /* Action Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32122DDD13FE00E7B121 /* Action Card.swift */; };
 		F31D32152DDD17C600E7B121 /* Action Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32142DDD17C600E7B121 /* Action Details.swift */; };
@@ -118,6 +120,7 @@
 		F302462B2DDC6AAE00999146 /* User Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User Defaults.swift"; sourceTree = "<group>"; };
 		F3116C052DF57496009521DE /* App Version Card VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Version Card VM.swift"; sourceTree = "<group>"; };
 		F3116C082DF574A5009521DE /* ADP Status Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ADP Status Response.swift"; sourceTree = "<group>"; };
+		F3116C0B2DF5F688009521DE /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		F31D32102DDD081E00E7B121 /* Build Details Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build Details Progress.swift"; sourceTree = "<group>"; };
 		F31D32122DDD13FE00E7B121 /* Action Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action Card.swift"; sourceTree = "<group>"; };
 		F31D32142DDD17C600E7B121 /* Action Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action Details.swift"; sourceTree = "<group>"; };
@@ -253,6 +256,7 @@
 				F376E1642DDA195300D98252 /* App Container.swift */,
 				F3E0D1CB2DDB19D3004A14C7 /* Value Store.swift */,
 				F3E0D1CD2DDB1A96004A14C7 /* Auth View.swift */,
+				F3116C0B2DF5F688009521DE /* Error.swift */,
 				F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */,
 				F33708AE2DD93A0D006834F8 /* Assets.xcassets */,
 				F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */,
@@ -451,6 +455,7 @@
 				F3242A202DDDD083000A16E8 /* CiWorkflow.swift in Sources */,
 				F3242A212DDDD083000A16E8 /* CiIssue.swift in Sources */,
 				F3116C062DF57496009521DE /* App Version Card VM.swift in Sources */,
+				F3116C0D2DF5F688009521DE /* Error.swift in Sources */,
 				F3242A222DDDD083000A16E8 /* ScmRepository.swift in Sources */,
 				F3242A232DDDD083000A16E8 /* CiArtifact.swift in Sources */,
 				F3242A1A2DDDD07E000A16E8 /* Issue Card.swift in Sources */,
@@ -496,6 +501,7 @@
 				F31D32152DDD17C600E7B121 /* Action Details.swift in Sources */,
 				F31D321B2DDD1AA300E7B121 /* CiIssue.swift in Sources */,
 				F3116C072DF57496009521DE /* App Version Card VM.swift in Sources */,
+				F3116C0C2DF5F688009521DE /* Error.swift in Sources */,
 				F302462A2DDC680400999146 /* App Card Image.swift in Sources */,
 				F31D32112DDD081E00E7B121 /* Build Details Progress.swift in Sources */,
 				F31D32132DDD13FE00E7B121 /* Action Card.swift in Sources */,
