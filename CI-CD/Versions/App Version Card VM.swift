@@ -6,8 +6,7 @@ final class AppVersionCardVM {
     var adpId: String?
     var errorMessage: String?
     var isProcessing = false
-    var safariCover = false
-    var downloadUrl = ""
+    var downloadUrl: URL?
     
     func startProcessing() async {
         guard let adpId else {
@@ -16,7 +15,7 @@ final class AppVersionCardVM {
         
         isProcessing = true
         errorMessage = nil
-        downloadUrl = ""
+        downloadUrl = nil
         
         do {
             // 1. Check if ADP is already processed
@@ -28,11 +27,14 @@ final class AppVersionCardVM {
             let (statusData, _) = try await URLSession.shared.data(from: statusURL)
             let statusResult = try JSONDecoder().decode(ADPStatusResponse.self, from: statusData)
             
-            if statusResult.status == "success", let urlString = statusResult.downloadURL {
+            if statusResult.status == "success" {
+                //            if statusResult.status == "success", let urlString = statusResult.downloadURL {
                 print("Already processed")
                 
-                downloadUrl = urlString
-                safariCover = true
+                //                downloadUrl = urlString
+                try temporarySaveADP(statusResult)
+                
+                //                safariCover = true
                 isProcessing = false
                 return
             }
@@ -47,9 +49,10 @@ final class AppVersionCardVM {
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             
-            let encoder = JSONEncoder()
+            let body = try JSONEncoder().encode(
+                ["adpID": adpId]
+            )
             
-            let body = try encoder.encode(["adpID": adpId])
             request.httpBody = body
             
             let (_, response) = try await URLSession.shared.data(for: request)
@@ -61,19 +64,42 @@ final class AppVersionCardVM {
                 throw URLError(.badServerResponse)
             }
             
-            let result = try await pollADPStatus(url: statusURL, maxAttempts: 120, interval: 5)
+            let result = try await pollADPStatus(
+                url: statusURL,
+                maxAttempts: 120,
+                interval: 5
+            )
             
-            guard let urlString = result.downloadURL else {
-                throw NSError(domain: "ADP", code: 2, userInfo: [NSLocalizedDescriptionKey: "No download URL found"])
-            }
-            
-            downloadUrl = urlString
-            safariCover = true
+            try temporarySaveADP(result)
         } catch {
             errorMessage = error.localizedDescription
         }
         
         isProcessing = false
+    }
+    
+    private func temporarySaveADP(_ response: ADPStatusResponse) throws {
+        guard
+            let urlString = response.downloadURL,
+            let remoteURL = URL(string: urlString)
+        else {
+            throw NSError(
+                domain: "ADP",
+                code: 2,
+                userInfo: [NSLocalizedDescriptionKey: "No download URL found"]
+            )
+        }
+        
+        let data = try Data(contentsOf: remoteURL)
+        
+        let fm = FileManager.default
+        let tempDirectory = fm.temporaryDirectory
+        let originalFileName = remoteURL.lastPathComponent
+        let fileURL = tempDirectory.appendingPathComponent(originalFileName)
+        
+        try data.write(to: fileURL)
+        
+        downloadUrl = fileURL
     }
     
     /// Polls the ADP status endpoint up to `maxAttempts` times, waiting `interval` seconds between each
@@ -127,7 +153,6 @@ final class AppVersionCardVM {
             let adpKey = try await provider.request(request).data
             adpId = adpKey.id
         } catch {
-            print(error)
             throw error
         }
     }

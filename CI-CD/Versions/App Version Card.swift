@@ -2,7 +2,7 @@ import SwiftUI
 import AppStoreConnect_Swift_SDK
 
 struct AppVersionCard: View {
-    @Bindable private var vm = AppVersionCardVM()
+    @State private var vm = AppVersionCardVM()
     
     private let version: AppStoreVersion
     
@@ -31,31 +31,30 @@ struct AppVersionCard: View {
             
             Spacer()
             
-            if !vm.isProcessing, vm.downloadUrl.isEmpty {
-                Button {
-                    Task {
-                        await vm.startProcessing()
+            if vm.adpId != nil {
+                if !vm.isProcessing, let url = vm.downloadUrl {
+                    ShareLink(item: url) {
+                        Image(systemName: "square.and.arrow.up")
+                            .title3(.semibold)
                     }
-                } label: {
-                    Image(systemName: "square.and.arrow.down")
-                        .title3(.semibold)
-                }
-                
-            } else if vm.isProcessing {
-                ProgressView()
-                
-            } else if !vm.isProcessing, !vm.downloadUrl.isEmpty {
-                Button {
-                    vm.safariCover = true
-                } label: {
-                    Image(systemName: "square.and.arrow.down")
-                        .title3(.semibold)
+                    
+                } else if !vm.isProcessing {
+                    Button {
+                        Task {
+                            await vm.startProcessing()
+                        }
+                    } label: {
+                        Image(systemName: "square.and.arrow.down")
+                            .title3(.semibold)
+                    }
+                    
+                } else if vm.isProcessing {
+                    ProgressView()
                 }
             }
         }
         .animation(.default, value: vm.adpId)
         .foregroundStyle(.primary)
-        .safariCover($vm.safariCover, url: vm.downloadUrl)
         .task {
             if vm.adpId == nil {
                 try? await vm.getADPKey(version.id)
