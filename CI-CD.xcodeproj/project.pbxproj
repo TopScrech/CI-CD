@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		F302462A2DDC680400999146 /* App Card Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246292DDC680400999146 /* App Card Image.swift */; };
 		F302462C2DDC6AAE00999146 /* User Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* User Defaults.swift */; };
+		F3116C062DF57496009521DE /* App Version Card VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* App Version Card VM.swift */; };
+		F3116C072DF57496009521DE /* App Version Card VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* App Version Card VM.swift */; };
+		F3116C092DF574A5009521DE /* ADP Status Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C082DF574A5009521DE /* ADP Status Response.swift */; };
+		F3116C0A2DF574A5009521DE /* ADP Status Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C082DF574A5009521DE /* ADP Status Response.swift */; };
 		F31D32112DDD081E00E7B121 /* Build Details Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32102DDD081E00E7B121 /* Build Details Progress.swift */; };
 		F31D32132DDD13FE00E7B121 /* Action Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32122DDD13FE00E7B121 /* Action Card.swift */; };
 		F31D32152DDD17C600E7B121 /* Action Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32142DDD17C600E7B121 /* Action Details.swift */; };
@@ -112,6 +116,8 @@
 /* Begin PBXFileReference section */
 		F30246292DDC680400999146 /* App Card Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Card Image.swift"; sourceTree = "<group>"; };
 		F302462B2DDC6AAE00999146 /* User Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User Defaults.swift"; sourceTree = "<group>"; };
+		F3116C052DF57496009521DE /* App Version Card VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Version Card VM.swift"; sourceTree = "<group>"; };
+		F3116C082DF574A5009521DE /* ADP Status Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ADP Status Response.swift"; sourceTree = "<group>"; };
 		F31D32102DDD081E00E7B121 /* Build Details Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build Details Progress.swift"; sourceTree = "<group>"; };
 		F31D32122DDD13FE00E7B121 /* Action Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action Card.swift"; sourceTree = "<group>"; };
 		F31D32142DDD17C600E7B121 /* Action Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action Details.swift"; sourceTree = "<group>"; };
@@ -187,6 +193,8 @@
 				F3A010F32DE2011D0098E234 /* App Versions.swift */,
 				F376E16D2DDA299200D98252 /* App VM.swift */,
 				F3A010F62DE2070A0098E234 /* App Version Card.swift */,
+				F3116C052DF57496009521DE /* App Version Card VM.swift */,
+				F3116C082DF574A5009521DE /* ADP Status Response.swift */,
 			);
 			path = Versions;
 			sourceTree = "<group>";
@@ -442,6 +450,7 @@
 				F3242A1F2DDDD083000A16E8 /* CiBuildRun.swift in Sources */,
 				F3242A202DDDD083000A16E8 /* CiWorkflow.swift in Sources */,
 				F3242A212DDDD083000A16E8 /* CiIssue.swift in Sources */,
+				F3116C062DF57496009521DE /* App Version Card VM.swift in Sources */,
 				F3242A222DDDD083000A16E8 /* ScmRepository.swift in Sources */,
 				F3242A232DDDD083000A16E8 /* CiArtifact.swift in Sources */,
 				F3242A1A2DDDD07E000A16E8 /* Issue Card.swift in Sources */,
@@ -451,6 +460,7 @@
 				F3242A062DDDD075000A16E8 /* Provider.swift in Sources */,
 				F3242A072DDDD075000A16E8 /* App List.swift in Sources */,
 				F3242A082DDDD075000A16E8 /* User Defaults.swift in Sources */,
+				F3116C0A2DF574A5009521DE /* ADP Status Response.swift in Sources */,
 				F3242A092DDDD075000A16E8 /* App Card Image.swift in Sources */,
 				F3242A0A2DDDD075000A16E8 /* App VM.swift in Sources */,
 				F3242A0C2DDDD075000A16E8 /* App List VM.swift in Sources */,
@@ -485,6 +495,7 @@
 				F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */,
 				F31D32152DDD17C600E7B121 /* Action Details.swift in Sources */,
 				F31D321B2DDD1AA300E7B121 /* CiIssue.swift in Sources */,
+				F3116C072DF57496009521DE /* App Version Card VM.swift in Sources */,
 				F302462A2DDC680400999146 /* App Card Image.swift in Sources */,
 				F31D32112DDD081E00E7B121 /* Build Details Progress.swift in Sources */,
 				F31D32132DDD13FE00E7B121 /* Action Card.swift in Sources */,
@@ -494,6 +505,7 @@
 				F376E1672DDA284600D98252 /* App Card.swift in Sources */,
 				F3E0D1CC2DDB19D3004A14C7 /* Value Store.swift in Sources */,
 				F31D32312DDD5E8200E7B121 /* Transparent List.swift in Sources */,
+				F3116C092DF574A5009521DE /* ADP Status Response.swift in Sources */,
 				F31D32262DDD435A00E7B121 /* Repo Card.swift in Sources */,
 				F31D32172DDD18A200E7B121 /* Issue Card.swift in Sources */,
 				F3E0D1C92DDB18AC004A14C7 /* App Settings.swift in Sources */,
