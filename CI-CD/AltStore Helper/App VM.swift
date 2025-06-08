@@ -12,7 +12,9 @@ final class AppVM {
     var iconUrl: String?
     
     func appBuilds(_ appId: String) async throws {
-        guard let provider = try await provider() else {
+        guard
+            let provider = try await provider()
+        else {
             return
         }
         
@@ -35,7 +37,9 @@ final class AppVM {
     }
     
     private func appBuildIcon(_ buildId: String) async throws {
-        guard let provider = try await provider() else {
+        guard
+            let provider = try await provider()
+        else {
             return
         }
         
@@ -49,23 +53,28 @@ final class AppVM {
         do {
             let icons = try await provider.request(request).data
             
-            if let appStoreIcon = icons.first(where: { $0.attributes?.iconType == .appStore }) {
-                if let urlTemplate = appStoreIcon.attributes?.iconAsset?.templateURL {
-                    let url = urlTemplate
-                        .replacingOccurrences(of: "{w}", with: "1024")
-                        .replacingOccurrences(of: "{h}", with: "1024")
-                        .replacingOccurrences(of: "{f}", with: "png")
-                    
-                    iconUrl = url
-                }
+            guard
+                let appStoreIcon = icons.first(where: { $0.attributes?.iconType == .appStore }),
+                let urlTemplate = appStoreIcon.attributes?.iconAsset?.templateURL
+            else {
+                return
             }
+            
+            let url = urlTemplate
+                .replacingOccurrences(of: "{w}", with: "1024")
+                .replacingOccurrences(of: "{h}", with: "1024")
+                .replacingOccurrences(of: "{f}", with: "png")
+            
+            iconUrl = url
         } catch {
             print(error)
         }
     }
     
     func fetchWorkflows(_ id: String) async throws {
-        guard let provider = try await provider() else {
+        guard
+            let provider = try await provider()
+        else {
             return
         }
         
@@ -83,7 +92,9 @@ final class AppVM {
     }
     
     func fetchBuilds(_ id: String) async throws {
-        guard let provider = try await provider() else {
+        guard
+            let provider = try await provider()
+        else {
             return
         }
         
@@ -106,7 +117,9 @@ final class AppVM {
         _ workflowId: String,
         clean: Bool = false
     ) async throws {
-        guard let provider = try await provider() else {
+        guard
+            let provider = try await provider()
+        else {
             return
         }
         
@@ -175,7 +188,10 @@ final class AppVM {
     }
     
     func getVersions(_ appId: String?) async throws {
-        guard let appId, let provider = try await provider() else {
+        guard
+            let appId,
+            let provider = try await provider()
+        else {
             return
         }
         
