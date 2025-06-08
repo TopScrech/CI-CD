@@ -126,7 +126,7 @@ struct AppVersionCard: View {
         isProcessing = false
     }
     
-    /// Polls the ADP status endpoint up to `maxAttempts` times, waiting `interval` seconds between each.
+    /// Polls the ADP status endpoint up to `maxAttempts` times, waiting `interval` seconds between each
     private func pollADPStatus(
         url: URL,
         maxAttempts: Int,
@@ -142,7 +142,9 @@ struct AppVersionCard: View {
                 throw NSError(
                     domain: "ADP",
                     code: 1,
-                    userInfo: [NSLocalizedDescriptionKey: "Processing failed"]
+                    userInfo: [
+                        NSLocalizedDescriptionKey: "Processing failed"
+                    ]
                 )
             }
             
@@ -154,7 +156,9 @@ struct AppVersionCard: View {
         throw NSError(
             domain: "ADP",
             code: 3,
-            userInfo: [NSLocalizedDescriptionKey: "Timed out waiting for download URL"]
+            userInfo: [
+                NSLocalizedDescriptionKey: "Timed out waiting for download URL"
+            ]
         )
     }
     
