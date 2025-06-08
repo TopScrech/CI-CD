@@ -10,10 +10,14 @@ struct AppVersionCard: View {
         self.version = version
     }
     
+    private var versionString: String? {
+        version.attributes?.versionString
+    }
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(version.attributes?.versionString ?? "-")
+                Text(versionString ?? "-")
                     .title3(.semibold)
                 
                 if let adpId = vm.adpId {
@@ -36,12 +40,13 @@ struct AppVersionCard: View {
                     ShareLink(item: url) {
                         Image(systemName: "square.and.arrow.up")
                             .title3(.semibold)
+                            .foregroundStyle(.green)
                     }
                     
                 } else if !vm.isProcessing {
                     Button {
                         Task {
-                            await vm.startProcessing()
+                            await vm.startProcessing(versionString)
                         }
                     } label: {
                         Image(systemName: "square.and.arrow.down")

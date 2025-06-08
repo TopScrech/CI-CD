@@ -8,7 +8,7 @@ final class AppVersionCardVM {
     var isProcessing = false
     var downloadUrl: URL?
     
-    func startProcessing() async {
+    func startProcessing(_ version: String?) async {
         guard let adpId else {
             return
         }
@@ -30,7 +30,7 @@ final class AppVersionCardVM {
             if statusResult.status == "success" {
                 print("Already processed")
                 
-                try temporarySaveADP(statusResult)
+                try temporarySaveADP(statusResult, version: version)
                 isProcessing = false
                 
                 return
@@ -67,7 +67,7 @@ final class AppVersionCardVM {
                 interval: 5
             )
             
-            try temporarySaveADP(result)
+            try temporarySaveADP(result, version: version)
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -75,7 +75,11 @@ final class AppVersionCardVM {
         isProcessing = false
     }
     
-    private func temporarySaveADP(_ response: ADPStatusResponse) throws {
+    private func temporarySaveADP(
+        _ response: ADPStatusResponse,
+        version: String?
+    ) throws {
+        
         guard
             let urlString = response.downloadURL,
             let remoteUrl = URL(string: urlString)
@@ -85,16 +89,18 @@ final class AppVersionCardVM {
         
         let data = try Data(contentsOf: remoteUrl)
         
+        let versionString = version?.replacingOccurrences(of: ".", with: "_").appending(".zip")
+        let fileName = versionString ?? remoteUrl.lastPathComponent
+        
         let tempDir = FileManager.default.temporaryDirectory
-        let fileName = remoteUrl.lastPathComponent
         let fileUrl = tempDir.appendingPathComponent(fileName)
         
         try data.write(to: fileUrl)
-        
         downloadUrl = fileUrl
     }
     
-    /// Polls the ADP status endpoint up to `maxAttempts` times, waiting `interval` seconds between each
+    /// Polls the ADP status endpoint up to `maxAttempts` times,
+    /// waiting `interval` seconds between each
     private func pollADPStatus(
         url: URL,
         maxAttempts: Int,
