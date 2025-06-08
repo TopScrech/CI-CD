@@ -89,7 +89,10 @@ final class AppVersionCardVM {
         
         let data = try Data(contentsOf: remoteUrl)
         
-        let versionString = version?.replacingOccurrences(of: ".", with: "_").appending(".zip")
+        let versionString = version?
+            .replacingOccurrences(of: ".", with: "_")
+            .appending(".zip")
+        
         let fileName = versionString ?? remoteUrl.lastPathComponent
         
         let tempDir = FileManager.default.temporaryDirectory
