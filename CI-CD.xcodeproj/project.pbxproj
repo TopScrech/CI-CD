@@ -181,14 +181,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F3116C042DF571CF009521DE /* AltStore Helper */ = {
+		F3116C042DF571CF009521DE /* Versions */ = {
 			isa = PBXGroup;
 			children = (
 				F3A010F32DE2011D0098E234 /* App Versions.swift */,
 				F376E16D2DDA299200D98252 /* App VM.swift */,
 				F3A010F62DE2070A0098E234 /* App Version Card.swift */,
 			);
-			path = "AltStore Helper";
+			path = Versions;
 			sourceTree = "<group>";
 		};
 		F31D32292DDD532F00E7B121 /* Action Details */ = {
@@ -254,7 +254,7 @@
 				F302462B2DDC6AAE00999146 /* User Defaults.swift */,
 				F376E1662DDA284600D98252 /* App Card.swift */,
 				F30246292DDC680400999146 /* App Card Image.swift */,
-				F3116C042DF571CF009521DE /* AltStore Helper */,
+				F3116C042DF571CF009521DE /* Versions */,
 				F376E16A2DDA28AB00D98252 /* Product Details */,
 				F3E0D1BF2DDA872C004A14C7 /* Preview */,
 				F3E0D1CA2DDB18B3004A14C7 /* Settings */,

@@ -23,7 +23,7 @@ struct AppVersionCard: View {
                 if let adpId {
                     Text(adpId)
                         .footnote()
-                        .foregroundStyle(.secondary)
+                        .secondary()
                 }
                 
                 if let errorMessage {
@@ -44,8 +44,10 @@ struct AppVersionCard: View {
                     Image(systemName: "square.and.arrow.down")
                         .title3(.semibold)
                 }
+                
             } else if isProcessing {
                 ProgressView()
+                
             } else if !isProcessing, !downloadUrl.isEmpty {
                 Button {
                     safariCover = true
