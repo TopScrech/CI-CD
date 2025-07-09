@@ -176,9 +176,6 @@
         }
       }
     },
-    "CI/CD" : {
-      "shouldTranslate" : false
-    },
     "Completion status" : {
       "localizations" : {
         "ru" : {

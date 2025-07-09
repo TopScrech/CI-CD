@@ -13,7 +13,6 @@ struct AppListView: View {
                 AppCard(product)
             }
         }
-        .navigationTitle("CI/CD")
         .animation(.default, value: vm.products.count)
         .scrollIndicators(.never)
         .refreshableTask {
