@@ -106,7 +106,7 @@ struct AppCard: View {
                     Button {
                         sheetVersions = true
                     } label: {
-                        Label("AltStore helper", systemImage: "app.dashed")
+                        Label("AltStore Helper", systemImage: "app.dashed")
                     }
                 }
             }
