@@ -148,6 +148,12 @@
     },
     "Build %@" : {
       "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Build %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -158,6 +164,12 @@
     },
     "Build %lld" : {
       "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Build %lld"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -188,6 +200,12 @@
     },
     "Copy" : {
       "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopiëren"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -207,7 +225,14 @@
       }
     },
     "Copy app id" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать идентификатор приложения"
+          }
+        }
+      }
     },
     "Copy artifact id" : {
       "localizations" : {
@@ -286,7 +311,14 @@
       }
     },
     "Error" : {
-
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fout"
+          }
+        }
+      }
     },
     "Execution progress" : {
 
@@ -322,10 +354,29 @@
 
     },
     "Now" : {
-
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nu"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сейчас"
+          }
+        }
+      }
     },
     "Open on GitHub" : {
       "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open op GitHub"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -346,6 +397,12 @@
     },
     "Private Key" : {
       "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privésleutel"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -355,13 +412,33 @@
       }
     },
     "Private Key ID" : {
-
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privésleutel-ID"
+          }
+        }
+      }
     },
     "Reason" : {
-
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reden"
+          }
+        }
+      }
     },
     "Rebuild" : {
       "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rebuild"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -371,10 +448,23 @@
       }
     },
     "Rebuild clean" : {
-
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rebuild clean"
+          }
+        }
+      }
     },
     "Settings" : {
       "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instellingen"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
