@@ -10,10 +10,9 @@ struct AppListView: View {
     var body: some View {
         List {
             ForEach(vm.products) { product in
-                ProductCard(product)
+                AppCard(product)
             }
         }
-        .navigationTitle("CI/CD")
         .animation(.default, value: vm.products.count)
         .scrollIndicators(.never)
         .refreshableTask {

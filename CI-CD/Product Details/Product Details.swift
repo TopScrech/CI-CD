@@ -2,7 +2,7 @@ import SwiftUI
 import AppStoreConnect_Swift_SDK
 
 struct ProductDetails: View {
-    @Environment(ProductVM.self) private var vm
+    @Environment(AppVM.self) private var vm
     @EnvironmentObject private var store: ValueStore
     
     private let product: CiProduct
@@ -115,6 +115,6 @@ struct ProductDetails: View {
 #Preview {
     ProductDetails(CiProduct.preview)
         .environmentObject(ValueStore())
-        .environment(ProductVM())
+        .environment(AppVM())
         .darkSchemePreferred()
 }

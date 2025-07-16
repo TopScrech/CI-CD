@@ -4,7 +4,7 @@ import AppStoreConnect_Swift_SDK
 
 struct BuildCard: View {
     @State private var vm = BuildVM()
-    @Environment(ProductVM.self) private var productVM
+    @Environment(AppVM.self) private var productVM
     @EnvironmentObject private var store: ValueStore
     
     private let build: CiBuildRun

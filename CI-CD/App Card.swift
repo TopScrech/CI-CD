@@ -1,8 +1,8 @@
 import SwiftUI
 import AppStoreConnect_Swift_SDK
 
-struct ProductCard: View {
-    @State private var vm = ProductVM()
+struct AppCard: View {
+    @State private var vm = AppVM()
     @EnvironmentObject private var store: ValueStore
     
     private let product: CiProduct
@@ -11,13 +11,15 @@ struct ProductCard: View {
         self.product = product
     }
     
+    @State private var sheetVersions = false
+    
     var body: some View {
         NavigationLink {
             ProductDetails(product)
                 .environment(vm)
         } label: {
             HStack {
-                ProductCardImage(product)
+                AppCardImage(product)
                     .environment(vm)
                 
                 VStack(alignment: .leading) {
@@ -45,6 +47,16 @@ struct ProductCard: View {
                 }
             }
         }
+        .sheet($sheetVersions) {
+            NavigationView {
+                if let appId = product.relationships?.app?.data?.id {
+                    AppVersions(appId)
+                        .environment(vm)
+                } else {
+                    Text("Error")
+                }
+            }
+        }
         .task {
             if store.demoMode {
                 vm.workflows = [CiWorkflow.preview]
@@ -53,8 +65,9 @@ struct ProductCard: View {
                 async let builds: () = vm.fetchBuilds(product.id)
                 async let primaryRepos: () = vm.primaryRepositories(product.id)
                 async let additionalRepos: () = vm.additionalRepositories(product.id)
+                async let versions: () = vm.getVersions(product.relationships?.app?.data?.id)
                 
-                _ = try? await (workflows, builds, additionalRepos, primaryRepos)
+                _ = try? await (workflows, builds, additionalRepos, primaryRepos, versions)
             }
         }
         .contextMenu {
@@ -84,6 +97,16 @@ struct ProductCard: View {
                             
                             Image(systemName: "play")
                         }
+                    }
+                }
+            }
+            
+            if let _ = product.relationships?.app?.data?.id {
+                Section {
+                    Button {
+                        sheetVersions = true
+                    } label: {
+                        Label("AltStore Helper", systemImage: "app.dashed")
                     }
                 }
             }
@@ -117,6 +140,6 @@ struct ProductCard: View {
 }
 
 #Preview {
-    ProductCard(CiProduct.preview)
+    AppCard(CiProduct.preview)
         .environmentObject(ValueStore())
 }

@@ -2,7 +2,7 @@ import SwiftUI
 import AppStoreConnect_Swift_SDK
 
 struct WorkflowCard: View {
-    @Environment(ProductVM.self) private var vm
+    @Environment(AppVM.self) private var vm
     @EnvironmentObject private var store: ValueStore
     
     private let workflow: CiWorkflow
@@ -103,6 +103,6 @@ extension CiAction: @retroactive Identifiable {
     List {
         WorkflowCard(CiWorkflow.preview)
     }
-    .environment(ProductVM())
+    .environment(AppVM())
     .environmentObject(ValueStore())
 }
