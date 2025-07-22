@@ -154,6 +154,7 @@
 		F3A010F32DE2011D0098E234 /* App Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Versions.swift"; sourceTree = "<group>"; };
 		F3A010F62DE2070A0098E234 /* App Version Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Version Card.swift"; sourceTree = "<group>"; };
 		F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreVersion.swift; sourceTree = "<group>"; };
+		F3AE99E12E2F88AA00D70249 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build VM.swift"; sourceTree = "<group>"; };
 		F3E0D1BD2DDA853C004A14C7 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiBuildRun.swift; sourceTree = "<group>"; };
@@ -233,6 +234,7 @@
 		F33708962DD93A01006834F8 = {
 			isa = PBXGroup;
 			children = (
+				F3AE99E12E2F88AA00D70249 /* README.md */,
 				F33708B22DD93A0D006834F8 /* CI-CD */,
 				F32429FC2DDDD038000A16E8 /* visionOS */,
 				F3242A252DDDD1FB000A16E8 /* Frameworks */,
