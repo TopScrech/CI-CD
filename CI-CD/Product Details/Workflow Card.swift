@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct WorkflowCard: View {
@@ -52,7 +52,7 @@ struct WorkflowCard: View {
 #if DEBUG
             Section {
                 Button {
-                    UIPasteboard.general.string = workflow.id
+                    Pasteboard.copy(workflow.id)
                 } label: {
                     Text("Copy workflow id")
                     

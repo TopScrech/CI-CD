@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct RepoCard: View {
@@ -39,7 +39,7 @@ struct RepoCard: View {
                 }
                 
                 Button {
-                    UIPasteboard.general.url = url
+                    Pasteboard.copy(url)
                 } label: {
                     Label("Copy repository url", systemImage: "doc.on.doc")
                 }

@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct ActionCard: View {
@@ -53,7 +53,7 @@ struct ActionCard: View {
         }
         .contextMenu {
             Button {
-                UIPasteboard.general.string = action.id
+                Pasteboard.copy(action.id)
             } label: {
                 Text("Copy action id")
                 

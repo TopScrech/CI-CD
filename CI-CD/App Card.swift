@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct AppCard: View {
@@ -113,7 +113,7 @@ struct AppCard: View {
 #if DEBUG
             Section {
                 Button {
-                    UIPasteboard.general.string = product.id
+                    Pasteboard.copy(product.id)
                 } label: {
                     Text("Copy product id")
                     
@@ -124,7 +124,7 @@ struct AppCard: View {
                 
                 if let appId = product.relationships?.app?.data?.id {
                     Button {
-                        UIPasteboard.general.string = appId
+                        Pasteboard.copy(appId)
                     } label: {
                         Text("Copy app id")
                         

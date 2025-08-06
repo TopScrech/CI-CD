@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct IssueCard: View {
@@ -32,7 +32,7 @@ struct IssueCard: View {
             .contextMenu {
                 if let message = issue.attributes?.message {
                     Button {
-                        UIPasteboard.general.string = message
+                        Pasteboard.copy(message)
                     } label: {
                         Label("Copy", systemImage: "document.on.document")
                     }

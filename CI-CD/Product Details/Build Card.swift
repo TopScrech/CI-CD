@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import Kingfisher
 import AppStoreConnect_Swift_SDK
 
@@ -137,7 +137,7 @@ struct BuildCard: View {
 #if DEBUG
             Section {
                 Button {
-                    UIPasteboard.general.string = build.id
+                    Pasteboard.copy(build.id)
                 } label: {
                     Text("Copy build id")
                     
