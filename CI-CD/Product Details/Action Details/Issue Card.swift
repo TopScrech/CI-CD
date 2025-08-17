@@ -49,6 +49,7 @@ struct IssueCard: View {
                     
                     Text(path)
                 }
+                .multilineTextAlignment(.leading)
             }
         }
     }
