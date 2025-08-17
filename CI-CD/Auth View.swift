@@ -59,7 +59,7 @@ struct AuthView: View {
             Section {
                 Toggle("Demo Mode", isOn: $store.demoMode)
                 
-                Button("Authorize") {
+                Button("Log in") {
                     store.isAuthorized = true
                 }
                 .disabled(disabled)

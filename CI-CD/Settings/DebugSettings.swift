@@ -4,12 +4,12 @@ struct DebugSettings: View {
     @EnvironmentObject private var store: ValueStore
     
     var body: some View {
-        Section("Debug") {
+        DisclosureGroup("Debug") {
             Button {
                 store.isAuthorized = false
             } label: {
                 HStack {
-                    Text("Deauthorize")
+                    Text("Log out")
                     
                     Spacer()
                     
