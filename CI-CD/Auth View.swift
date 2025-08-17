@@ -44,13 +44,11 @@ struct AuthView: View {
 #if !os(macOS)
                         .textInputAutocapitalization(.none)
 #endif
-                    
                     TextField("Private Key ID", text: $store.privateKeyId)
                         .autocorrectionDisabled()
 #if !os(macOS)
                         .textInputAutocapitalization(.none)
 #endif
-                    
                     Button {
                         showPicker = true
                     } label: {
