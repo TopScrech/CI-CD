@@ -103,10 +103,8 @@ struct AppCard: View {
             
             if let _ = product.relationships?.app?.data?.id {
                 Section {
-                    Button {
+                    Button("AltStore Helper", systemImage: "app.dashed") {
                         sheetVersions = true
-                    } label: {
-                        Label("AltStore Helper", systemImage: "app.dashed")
                     }
                 }
             }

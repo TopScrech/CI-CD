@@ -31,10 +31,8 @@ struct IssueCard: View {
             }
             .contextMenu {
                 if let message = issue.attributes?.message {
-                    Button {
+                    Button("Copy", systemImage: "document.on.document") {
                         Pasteboard.copy(message)
-                    } label: {
-                        Label("Copy", systemImage: "document.on.document")
                     }
                 }
             }

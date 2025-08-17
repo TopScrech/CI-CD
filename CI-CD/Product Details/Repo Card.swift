@@ -31,17 +31,13 @@ struct RepoCard: View {
         .contextMenu {
             if let url = URL(string: stringUrl ?? "") {
                 Section {
-                    Button {
+                    Button("Open on GitHub", systemImage: "link") {
                         openUrl(url)
-                    } label: {
-                        Label("Open on GitHub", systemImage: "link")
                     }
                 }
                 
-                Button {
+                Button("Copy repository url", systemImage: "doc.on.doc") {
                     Pasteboard.copy(url)
-                } label: {
-                    Label("Copy repository url", systemImage: "doc.on.doc")
                 }
                 
                 ShareLink(item: url)

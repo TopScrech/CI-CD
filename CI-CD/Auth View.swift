@@ -49,12 +49,10 @@ struct AuthView: View {
 #if !os(macOS)
                         .textInputAutocapitalization(.none)
 #endif
-                    Button {
+                    Button("Import from Files", systemImage: "document.badge.plus") {
                         showPicker = true
-                    } label: {
-                        Label("Import from Files", systemImage: "document.badge.plus")
-                            .foregroundStyle(.foreground)
                     }
+                    .foregroundStyle(.foreground)
                 }
             }
             

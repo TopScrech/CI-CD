@@ -46,10 +46,8 @@ struct BuildCommitDetails: View {
             }
             
             if let commit, let url = commit.webURL {
-                Button {
+                Button("Open on GitHub", systemImage: "link") {
                     openUrl(url)
-                } label: {
-                    Label("Open on GitHub", systemImage: "link")
                 }
                 
                 ShareLink(item: url)

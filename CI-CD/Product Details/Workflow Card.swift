@@ -21,7 +21,7 @@ struct WorkflowCard: View {
     
     var body: some View {
         Button {
-            
+            #warning("Does nothing?")
         } label: {
             VStack(alignment: .leading, spacing: 12) {
                 Label {
@@ -62,32 +62,36 @@ struct WorkflowCard: View {
                 }
             }
 #endif
-            Button {
-                if store.demoMode {
-                    if let build = vm.builds.first {
-                        vm.builds.append(build)
-                    }
-                } else {
-                    Task {
-                        try await vm.startBuild(workflow.id)
-                    }
-                }
-            } label: {
-                Label("Start build", systemImage: "play")
+            Button("Start build", systemImage: "play") {
+                startBuild()
             }
             
-            Button {
-                if store.demoMode {
-                    if let build = vm.builds.first {
-                        vm.builds.append(build)
-                    }
-                } else {
-                    Task {
-                        try await vm.startBuild(workflow.id, clean: true)
-                    }
-                }
-            } label: {
-                Label("Start clean build", systemImage: "play")
+            Button("Start clean build", systemImage: "play") {
+                startCleanBuild()
+            }
+        }
+    }
+    
+    private func startBuild() {
+        if store.demoMode {
+            if let build = vm.builds.first {
+                vm.builds.append(build)
+            }
+        } else {
+            Task {
+                try await vm.startBuild(workflow.id)
+            }
+        }
+    }
+    
+    private func startCleanBuild() {
+        if store.demoMode {
+            if let build = vm.builds.first {
+                vm.builds.append(build)
+            }
+        } else {
+            Task {
+                try await vm.startBuild(workflow.id, clean: true)
             }
         }
     }
