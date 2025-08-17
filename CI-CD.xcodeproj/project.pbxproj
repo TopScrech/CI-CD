@@ -90,6 +90,7 @@
 		F3A010FA2DE2082F0098E234 /* AppStoreVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */; };
 		F3A010FB2DE2082F0098E234 /* AppStoreVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */; };
 		F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3A36EA42DDA47E200733D6D /* Kingfisher */; };
+		F3A461142E528F9900D9A224 /* AppearanceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A461122E528F9900D9A224 /* AppearanceSettings.swift */; };
 		F3E0D1AD2DDA70AC004A14C7 /* Build VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */; };
 		F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */; };
 		F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
@@ -108,7 +109,6 @@
 		F3FCD1F12E522E7C003BDE5E /* SettingsFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCD1EF2E522E7C003BDE5E /* SettingsFeedback.swift */; };
 		F3FCD1F32E522FE7003BDE5E /* NavSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */; };
 		F3FCD1F42E522FE7003BDE5E /* NavSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */; };
-		F3FCD2082E528543003BDE5E /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCD2072E528543003BDE5E /* ColorTheme.swift */; };
 		F3FCD2092E528543003BDE5E /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCD2072E528543003BDE5E /* ColorTheme.swift */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +162,7 @@
 		F3A010F32DE2011D0098E234 /* App Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Versions.swift"; sourceTree = "<group>"; };
 		F3A010F62DE2070A0098E234 /* App Version Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Version Card.swift"; sourceTree = "<group>"; };
 		F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreVersion.swift; sourceTree = "<group>"; };
+		F3A461122E528F9900D9A224 /* AppearanceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettings.swift; sourceTree = "<group>"; };
 		F3AE99E12E2F88AA00D70249 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build VM.swift"; sourceTree = "<group>"; };
 		F3E0D1BD2DDA853C004A14C7 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
@@ -326,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				F3E0D1C82DDB18AC004A14C7 /* AppSettings.swift */,
+				F3A461122E528F9900D9A224 /* AppearanceSettings.swift */,
 				F3FCD1EF2E522E7C003BDE5E /* SettingsFeedback.swift */,
 				F3FCD1EC2E522E41003BDE5E /* DebugSettings.swift */,
 				F31D32302DDD5E8200E7B121 /* TransparentList.swift */,
@@ -493,7 +495,6 @@
 				F3242A1C2DDDD07E000A16E8 /* Build Details Progress.swift in Sources */,
 				F3242A1D2DDDD07E000A16E8 /* Build VM.swift in Sources */,
 				F3242A062DDDD075000A16E8 /* Provider.swift in Sources */,
-				F3FCD2082E528543003BDE5E /* ColorTheme.swift in Sources */,
 				F3242A072DDDD075000A16E8 /* App List.swift in Sources */,
 				F3242A082DDDD075000A16E8 /* User Defaults.swift in Sources */,
 				F3116C0A2DF574A5009521DE /* ADP Status Response.swift in Sources */,
@@ -536,6 +537,7 @@
 				F31D321B2DDD1AA300E7B121 /* CiIssue.swift in Sources */,
 				F3116C072DF57496009521DE /* App Version Card VM.swift in Sources */,
 				F3116C0C2DF5F688009521DE /* Error.swift in Sources */,
+				F3A461142E528F9900D9A224 /* AppearanceSettings.swift in Sources */,
 				F302462A2DDC680400999146 /* App Card Image.swift in Sources */,
 				F31D32112DDD081E00E7B121 /* Build Details Progress.swift in Sources */,
 				F31D32132DDD13FE00E7B121 /* Action Card.swift in Sources */,
