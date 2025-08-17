@@ -12,7 +12,9 @@ struct AppContainer: View {
             }
         }
         .environmentObject(store)
+#if os(iOS)
         .preferredColorScheme(store.appearance.scheme)
+#endif
     }
 }
 

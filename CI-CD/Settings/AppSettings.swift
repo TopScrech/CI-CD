@@ -5,15 +5,9 @@ struct AppSettings: View {
     
     var body: some View {
         List {
-            Section {
-                Picker("Appearance", selection: $store.appearance) {
-                    ForEach(ColorTheme.allCases) { theme in
-                        Text(theme.loc)
-                            .tag(theme)
-                    }
-                }
-            }
-            
+#if os(iOS)
+            AppearanceSettings()
+#endif
             Section {
                 Toggle("Demo Mode", isOn: $store.demoMode)
             }
