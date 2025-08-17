@@ -46,7 +46,7 @@ struct ArtifactCard: View {
 #if DEBUG
         .contextMenu {
             Button {
-                UIPasteboard.general.string = artifact.id
+                Pasteboard.copy(artifact.id)
             } label: {
                 Text("Copy artifact id")
                 
@@ -57,7 +57,7 @@ struct ArtifactCard: View {
             
             if let downloadUrl {
                 Button {
-                    UIPasteboard.general.string = downloadUrl
+                    Pasteboard.copy(downloadUrl)
                 } label: {
                     Text("Copy download url")
                     

@@ -15,20 +15,16 @@ struct BuildDetails: View {
         List {
             Section {
                 if !store.demoMode, let workflow = build.relationships?.workflow?.data {
-                    Button {
+                    Button("Rebuild", systemImage: "hammer") {
                         Task {
                             try await vm.startRebuild(of: build.id, in: workflow.id)
                         }
-                    } label: {
-                        Label("Rebuild", systemImage: "hammer")
                     }
                     
-                    Button {
+                    Button("Rebuild clean", systemImage: "hammer") {
                         Task {
                             try await vm.startRebuild(of: build.id, in: workflow.id, clean: true)
                         }
-                    } label: {
-                        Label("Rebuild clean", systemImage: "hammer")
                     }
                 }
             }

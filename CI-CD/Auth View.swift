@@ -44,26 +44,22 @@ struct AuthView: View {
 #if !os(macOS)
                         .textInputAutocapitalization(.none)
 #endif
-                    
                     TextField("Private Key ID", text: $store.privateKeyId)
                         .autocorrectionDisabled()
 #if !os(macOS)
                         .textInputAutocapitalization(.none)
 #endif
-                    
-                    Button {
+                    Button("Import from Files", systemImage: "document.badge.plus") {
                         showPicker = true
-                    } label: {
-                        Label("Import from Files", systemImage: "document.badge.plus")
-                            .foregroundStyle(.foreground)
                     }
+                    .foregroundStyle(.foreground)
                 }
             }
             
             Section {
                 Toggle("Demo Mode", isOn: $store.demoMode)
                 
-                Button("Authorize") {
+                Button("Log in") {
                     store.isAuthorized = true
                 }
                 .disabled(disabled)

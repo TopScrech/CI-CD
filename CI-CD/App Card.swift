@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct AppCard: View {
@@ -50,7 +50,7 @@ struct AppCard: View {
         .sheet($sheetVersions) {
             NavigationView {
                 if let appId = product.relationships?.app?.data?.id {
-                    AppVersions(appId)
+                    AppVersions(appId, for: product.attributes?.name)
                         .environment(vm)
                 } else {
                     Text("Error")
@@ -103,17 +103,15 @@ struct AppCard: View {
             
             if let _ = product.relationships?.app?.data?.id {
                 Section {
-                    Button {
+                    Button("AltStore Helper", systemImage: "app.dashed") {
                         sheetVersions = true
-                    } label: {
-                        Label("AltStore Helper", systemImage: "app.dashed")
                     }
                 }
             }
 #if DEBUG
             Section {
                 Button {
-                    UIPasteboard.general.string = product.id
+                    Pasteboard.copy(product.id)
                 } label: {
                     Text("Copy product id")
                     
@@ -124,7 +122,7 @@ struct AppCard: View {
                 
                 if let appId = product.relationships?.app?.data?.id {
                     Button {
-                        UIPasteboard.general.string = appId
+                        Pasteboard.copy(appId)
                     } label: {
                         Text("Copy app id")
                         

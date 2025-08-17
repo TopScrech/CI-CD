@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import Kingfisher
 import AppStoreConnect_Swift_SDK
 
@@ -102,7 +102,7 @@ struct BuildCard: View {
         .padding(.leading, -8)
         .contextMenu {
             if let workflow = build.relationships?.workflow?.data {
-                Button {
+                Button("Rebuild", systemImage: "hammer") {
                     if store.demoMode {
                         if let build = productVM.builds.first {
                             productVM.builds.append(build)
@@ -112,11 +112,9 @@ struct BuildCard: View {
                             try await vm.startRebuild(of: build.id, in: workflow.id)
                         }
                     }
-                } label: {
-                    Label("Rebuild", systemImage: "hammer")
                 }
                 
-                Button {
+                Button("Rebuild clean", systemImage: "hammer") {
                     if store.demoMode {
                         if let build = productVM.builds.first {
                             productVM.builds.append(build)
@@ -130,14 +128,12 @@ struct BuildCard: View {
                             )
                         }
                     }
-                } label: {
-                    Label("Rebuild clean", systemImage: "hammer")
                 }
             }
 #if DEBUG
             Section {
                 Button {
-                    UIPasteboard.general.string = build.id
+                    Pasteboard.copy(build.id)
                 } label: {
                     Text("Copy build id")
                     

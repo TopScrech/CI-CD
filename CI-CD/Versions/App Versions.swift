@@ -5,9 +5,11 @@ struct AppVersions: View {
     @Environment(AppVM.self) private var vm
     
     private let appId: String
+    private let name: String?
     
-    init(_ appId: String) {
+    init(_ appId: String, for name: String?) {
         self.appId = appId
+        self.name = name
     }
     
     var body: some View {
@@ -17,6 +19,7 @@ struct AppVersions: View {
             }
         }
         .navigationTitle("AltStore Helper")
+        .navSubtitle(name ?? "")
         .scrollIndicators(.never)
         .refreshableTask {
             try? await vm.getVersions(appId)
@@ -25,5 +28,5 @@ struct AppVersions: View {
 }
 
 #Preview {
-    AppVersions("")
+    AppVersions("dev.topscrech.Goida", for: "Preview")
 }

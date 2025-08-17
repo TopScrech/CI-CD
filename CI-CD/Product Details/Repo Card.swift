@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct RepoCard: View {
@@ -31,17 +31,13 @@ struct RepoCard: View {
         .contextMenu {
             if let url = URL(string: stringUrl ?? "") {
                 Section {
-                    Button {
+                    Button("Open on GitHub", systemImage: "link") {
                         openUrl(url)
-                    } label: {
-                        Label("Open on GitHub", systemImage: "link")
                     }
                 }
                 
-                Button {
-                    UIPasteboard.general.url = url
-                } label: {
-                    Label("Copy repository url", systemImage: "doc.on.doc")
+                Button("Copy repository url", systemImage: "doc.on.doc") {
+                    Pasteboard.copy(url)
                 }
                 
                 ShareLink(item: url)
