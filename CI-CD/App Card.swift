@@ -50,7 +50,7 @@ struct AppCard: View {
         .sheet($sheetVersions) {
             NavigationView {
                 if let appId = product.relationships?.app?.data?.id {
-                    AppVersions(appId)
+                    AppVersions(appId, for: product.attributes?.name)
                         .environment(vm)
                 } else {
                     Text("Error")
