@@ -18,14 +18,15 @@ struct AppSettings: View {
 #endif
         }
         .navigationTitle("Settings")
-        .transparentList()
         .ornamentDismissButton()
         .foregroundStyle(.foreground)
     }
 }
 
 #Preview {
-    AppSettings()
-        .darkSchemePreferred()
-        .environmentObject(ValueStore())
+    NavigationStack {
+        AppSettings()
+    }
+    .darkSchemePreferred()
+    .environmentObject(ValueStore())
 }
