@@ -6,6 +6,15 @@ struct AppSettings: View {
     var body: some View {
         List {
             Section {
+                Picker("Appearance", selection: $store.appearance) {
+                    ForEach(ColorTheme.allCases) { theme in
+                        Text(theme.loc)
+                            .tag(theme)
+                    }
+                }
+            }
+            
+            Section {
                 Toggle("Demo Mode", isOn: $store.demoMode)
             }
             
@@ -23,5 +32,6 @@ struct AppSettings: View {
 
 #Preview {
     AppSettings()
+        .darkSchemePreferred()
         .environmentObject(ValueStore())
 }

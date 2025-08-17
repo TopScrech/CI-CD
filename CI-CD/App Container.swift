@@ -12,6 +12,7 @@ struct AppContainer: View {
             }
         }
         .environmentObject(store)
+        .preferredColorScheme(store.appearance.scheme)
     }
 }
 
