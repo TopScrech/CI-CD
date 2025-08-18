@@ -188,7 +188,7 @@ struct BuildCard: View {
 }
 
 #Preview {
-    NavigationView {
+    NavigationStack {
         List {
             NavigationLink {
                 
@@ -198,4 +198,5 @@ struct BuildCard: View {
         }
     }
     .darkSchemePreferred()
+    .environmentObject(ValueStore())
 }

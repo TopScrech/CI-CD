@@ -113,8 +113,10 @@ struct ProductDetails: View {
 }
 
 #Preview {
-    ProductDetails(CiProduct.preview)
-        .environmentObject(ValueStore())
-        .environment(AppVM())
-        .darkSchemePreferred()
+    NavigationStack {
+        ProductDetails(CiProduct.preview)
+    }
+    .environmentObject(ValueStore())
+    .environment(AppVM())
+    .darkSchemePreferred()
 }

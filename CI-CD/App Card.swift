@@ -75,9 +75,7 @@ struct AppCard: View {
                 if let name = workflow.attributes?.name {
                     Section {
                         Button {
-                            Task {
-                                try await vm.startBuild(workflow.id)
-                            }
+                            startBuild(workflow)
                         } label: {
                             Text("Start build")
                             
@@ -87,9 +85,7 @@ struct AppCard: View {
                         }
                         
                         Button {
-                            Task {
-                                try await vm.startBuild(workflow.id, clean: true)
-                            }
+                            startBuild(workflow, clean: true)
                         } label: {
                             Text("Start clean build")
                             
@@ -135,9 +131,16 @@ struct AppCard: View {
 #endif
         }
     }
+    
+    private func startBuild(_ workflow: CiWorkflow, clean: Bool = false) {
+        Task {
+            try await vm.startBuild(workflow.id, clean: clean)
+        }
+    }
 }
 
 #Preview {
     AppCard(CiProduct.preview)
+        .darkSchemePreferred()
         .environmentObject(ValueStore())
 }

@@ -37,5 +37,6 @@ struct AppListView: View {
 
 #Preview {
     AppListView()
+        .darkSchemePreferred()
         .environmentObject(ValueStore())
 }

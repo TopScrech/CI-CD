@@ -24,5 +24,8 @@ struct SettingsFeedback: View {
 }
 
 #Preview {
-    SettingsFeedback()
+    List {
+        SettingsFeedback()
+    }
+    .darkSchemePreferred()
 }

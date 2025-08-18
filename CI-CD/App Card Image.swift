@@ -31,5 +31,6 @@ struct AppCardImage: View {
 
 #Preview {
     AppCardImage(CiProduct.preview)
+        .darkSchemePreferred()
         .environment(AppVM())
 }

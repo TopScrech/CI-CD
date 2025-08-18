@@ -19,6 +19,9 @@ struct IssueList: View {
 }
 
 #Preview {
-    IssueList()
-        .environment(ActionVM())
+    NavigationStack {
+        IssueList()
+    }
+    .darkSchemePreferred()
+    .environment(ActionVM())
 }

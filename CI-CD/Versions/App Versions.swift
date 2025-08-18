@@ -28,5 +28,9 @@ struct AppVersions: View {
 }
 
 #Preview {
-    AppVersions("dev.topscrech.Goida", for: "Preview")
+    NavigationStack {
+        AppVersions("dev.topscrech.Goida", for: "Preview")
+    }
+    .darkSchemePreferred()
+    .environment(AppVM())
 }
