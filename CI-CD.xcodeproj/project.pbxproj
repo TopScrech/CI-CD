@@ -89,7 +89,7 @@
 		F3A010FB2DE2082F0098E234 /* AppStoreVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */; };
 		F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3A36EA42DDA47E200733D6D /* Kingfisher */; };
 		F3A461142E528F9900D9A224 /* AppearanceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A461122E528F9900D9A224 /* AppearanceSettings.swift */; };
-		F3B75CDE2E72A9620096E65E /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F3B75CDD2E72A9620096E65E /* AppIcon.icon */; };
+		F3B75CDF2E72ADF80096E65E /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F3B75CDD2E72A9620096E65E /* AppIcon.icon */; };
 		F3E0D1AD2DDA70AC004A14C7 /* Build VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */; };
 		F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */; };
 		F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
@@ -450,7 +450,7 @@
 			files = (
 				F3E0D1C72DDB1420004A14C7 /* Localizable.xcstrings in Resources */,
 				F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */,
-				F3B75CDE2E72A9620096E65E /* AppIcon.icon in Resources */,
+				F3B75CDF2E72ADF80096E65E /* AppIcon.icon in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
