@@ -89,6 +89,7 @@
 		F3A010FB2DE2082F0098E234 /* AppStoreVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */; };
 		F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3A36EA42DDA47E200733D6D /* Kingfisher */; };
 		F3A461142E528F9900D9A224 /* AppearanceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A461122E528F9900D9A224 /* AppearanceSettings.swift */; };
+		F3B75CDE2E72A9620096E65E /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F3B75CDD2E72A9620096E65E /* AppIcon.icon */; };
 		F3E0D1AD2DDA70AC004A14C7 /* Build VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */; };
 		F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */; };
 		F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
@@ -161,6 +162,7 @@
 		F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreVersion.swift; sourceTree = "<group>"; };
 		F3A461122E528F9900D9A224 /* AppearanceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettings.swift; sourceTree = "<group>"; };
 		F3AE99E12E2F88AA00D70249 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F3B75CDD2E72A9620096E65E /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build VM.swift"; sourceTree = "<group>"; };
 		F3E0D1BD2DDA853C004A14C7 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiBuildRun.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				F3116C0B2DF5F688009521DE /* Error.swift */,
 				F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */,
 				F33708AE2DD93A0D006834F8 /* Assets.xcassets */,
+				F3B75CDD2E72A9620096E65E /* AppIcon.icon */,
 				F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */,
 				F3FCD1F52E522FF1003BDE5E /* Utils */,
 				F3E0D1BD2DDA853C004A14C7 /* Provider.swift */,
@@ -447,6 +450,7 @@
 			files = (
 				F3E0D1C72DDB1420004A14C7 /* Localizable.xcstrings in Resources */,
 				F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */,
+				F3B75CDE2E72A9620096E65E /* AppIcon.icon in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
