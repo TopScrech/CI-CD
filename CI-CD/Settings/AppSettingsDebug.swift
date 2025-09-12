@@ -1,6 +1,6 @@
 import ScrechKit
 
-struct DebugSettings: View {
+struct AppSettingsDebug: View {
     @EnvironmentObject private var store: ValueStore
     
     var body: some View {
@@ -35,7 +35,7 @@ struct DebugSettings: View {
 
 #Preview {
     List {
-        DebugSettings()
+        AppSettingsDebug()
     }
     .darkSchemePreferred()
     .environmentObject(ValueStore())

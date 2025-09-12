@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct AppearanceSettings: View {
+struct AppSettingsAppearance: View {
     @EnvironmentObject private var store: ValueStore
     
     var body: some View {
@@ -17,7 +17,7 @@ struct AppearanceSettings: View {
 
 #Preview {
     List {
-        AppearanceSettings()
+        AppSettingsAppearance()
     }
     .darkSchemePreferred()
     .environmentObject(ValueStore())

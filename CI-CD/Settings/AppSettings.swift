@@ -6,15 +6,15 @@ struct AppSettings: View {
     var body: some View {
         List {
 #if os(iOS)
-            AppearanceSettings()
+            AppSettingsAppearance()
 #endif
             Section {
                 Toggle("Demo Mode", isOn: $store.demoMode)
             }
             
-            SettingsFeedback()
+            AppSettingsFeedback()
 #if DEBUG
-            DebugSettings()
+            AppSettingsDebug()
 #endif
         }
         .navigationTitle("Settings")

@@ -1,7 +1,7 @@
 import SwiftUI
 import MailCover
 
-struct SettingsFeedback: View {
+struct AppSettingsFeedback: View {
     @State private var mailCover = false
     
     var body: some View {
@@ -25,7 +25,7 @@ struct SettingsFeedback: View {
 
 #Preview {
     List {
-        SettingsFeedback()
+        AppSettingsFeedback()
     }
     .darkSchemePreferred()
 }
