@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		F302462A2DDC680400999146 /* AppCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246292DDC680400999146 /* AppCardImage.swift */; };
 		F302462C2DDC6AAE00999146 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* UserDefaults.swift */; };
-		F3116C062DF57496009521DE /* App Version Card VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* App Version Card VM.swift */; };
-		F3116C072DF57496009521DE /* App Version Card VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* App Version Card VM.swift */; };
-		F3116C092DF574A5009521DE /* ADP Status Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C082DF574A5009521DE /* ADP Status Response.swift */; };
-		F3116C0A2DF574A5009521DE /* ADP Status Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C082DF574A5009521DE /* ADP Status Response.swift */; };
+		F3116C062DF57496009521DE /* AppVersionCardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* AppVersionCardVM.swift */; };
+		F3116C072DF57496009521DE /* AppVersionCardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* AppVersionCardVM.swift */; };
+		F3116C092DF574A5009521DE /* ADPStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C082DF574A5009521DE /* ADPStatusResponse.swift */; };
+		F3116C0A2DF574A5009521DE /* ADPStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C082DF574A5009521DE /* ADPStatusResponse.swift */; };
 		F3116C0C2DF5F688009521DE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C0B2DF5F688009521DE /* Error.swift */; };
 		F3116C0D2DF5F688009521DE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C0B2DF5F688009521DE /* Error.swift */; };
 		F31D32112DDD081E00E7B121 /* Build Details Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32102DDD081E00E7B121 /* Build Details Progress.swift */; };
@@ -39,7 +39,7 @@
 		F3242A072DDDD075000A16E8 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* AppList.swift */; };
 		F3242A082DDDD075000A16E8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* UserDefaults.swift */; };
 		F3242A092DDDD075000A16E8 /* AppCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246292DDC680400999146 /* AppCardImage.swift */; };
-		F3242A0A2DDDD075000A16E8 /* App VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16D2DDA299200D98252 /* App VM.swift */; };
+		F3242A0A2DDDD075000A16E8 /* AppVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16D2DDA299200D98252 /* AppVM.swift */; };
 		F3242A0C2DDDD075000A16E8 /* AppListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1472DD9C2C200D98252 /* AppListVM.swift */; };
 		F3242A0D2DDDD075000A16E8 /* AppCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1662DDA284600D98252 /* AppCard.swift */; };
 		F3242A0E2DDDD07A000A16E8 /* Workflow Action Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322A2DDD572E00E7B121 /* Workflow Action Card.swift */; };
@@ -79,14 +79,14 @@
 		F376E1652DDA195300D98252 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* AppContainer.swift */; };
 		F376E1672DDA284600D98252 /* AppCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1662DDA284600D98252 /* AppCard.swift */; };
 		F376E1692DDA288200D98252 /* Product Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1682DDA288200D98252 /* Product Details.swift */; };
-		F376E16E2DDA299200D98252 /* App VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16D2DDA299200D98252 /* App VM.swift */; };
+		F376E16E2DDA299200D98252 /* AppVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16D2DDA299200D98252 /* AppVM.swift */; };
 		F376E17E2DDA31C400D98252 /* Build Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E17D2DDA31C400D98252 /* Build Card.swift */; };
 		F376E1902DDA437700D98252 /* Build Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E18F2DDA437600D98252 /* Build Details.swift */; };
 		F376E1942DDA47BB00D98252 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F376E1932DDA47BB00D98252 /* ScrechKit */; };
-		F3A010F42DE2011D0098E234 /* App Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F32DE2011D0098E234 /* App Versions.swift */; };
-		F3A010F52DE2011D0098E234 /* App Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F32DE2011D0098E234 /* App Versions.swift */; };
-		F3A010F72DE2070A0098E234 /* App Version Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F62DE2070A0098E234 /* App Version Card.swift */; };
-		F3A010F82DE2070A0098E234 /* App Version Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F62DE2070A0098E234 /* App Version Card.swift */; };
+		F3A010F42DE2011D0098E234 /* AppVersions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F32DE2011D0098E234 /* AppVersions.swift */; };
+		F3A010F52DE2011D0098E234 /* AppVersions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F32DE2011D0098E234 /* AppVersions.swift */; };
+		F3A010F72DE2070A0098E234 /* AppVersionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F62DE2070A0098E234 /* AppVersionCard.swift */; };
+		F3A010F82DE2070A0098E234 /* AppVersionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F62DE2070A0098E234 /* AppVersionCard.swift */; };
 		F3A010FA2DE2082F0098E234 /* AppStoreVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */; };
 		F3A010FB2DE2082F0098E234 /* AppStoreVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */; };
 		F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3A36EA42DDA47E200733D6D /* Kingfisher */; };
@@ -127,8 +127,8 @@
 /* Begin PBXFileReference section */
 		F30246292DDC680400999146 /* AppCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCardImage.swift; sourceTree = "<group>"; };
 		F302462B2DDC6AAE00999146 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
-		F3116C052DF57496009521DE /* App Version Card VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Version Card VM.swift"; sourceTree = "<group>"; };
-		F3116C082DF574A5009521DE /* ADP Status Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ADP Status Response.swift"; sourceTree = "<group>"; };
+		F3116C052DF57496009521DE /* AppVersionCardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionCardVM.swift; sourceTree = "<group>"; };
+		F3116C082DF574A5009521DE /* ADPStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADPStatusResponse.swift; sourceTree = "<group>"; };
 		F3116C0B2DF5F688009521DE /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		F31D32102DDD081E00E7B121 /* Build Details Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build Details Progress.swift"; sourceTree = "<group>"; };
 		F31D32122DDD13FE00E7B121 /* Action Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action Card.swift"; sourceTree = "<group>"; };
@@ -157,11 +157,11 @@
 		F376E1642DDA195300D98252 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		F376E1662DDA284600D98252 /* AppCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCard.swift; sourceTree = "<group>"; };
 		F376E1682DDA288200D98252 /* Product Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product Details.swift"; sourceTree = "<group>"; };
-		F376E16D2DDA299200D98252 /* App VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App VM.swift"; sourceTree = "<group>"; };
+		F376E16D2DDA299200D98252 /* AppVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVM.swift; sourceTree = "<group>"; };
 		F376E17D2DDA31C400D98252 /* Build Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build Card.swift"; sourceTree = "<group>"; };
 		F376E18F2DDA437600D98252 /* Build Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build Details.swift"; sourceTree = "<group>"; };
-		F3A010F32DE2011D0098E234 /* App Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Versions.swift"; sourceTree = "<group>"; };
-		F3A010F62DE2070A0098E234 /* App Version Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Version Card.swift"; sourceTree = "<group>"; };
+		F3A010F32DE2011D0098E234 /* AppVersions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersions.swift; sourceTree = "<group>"; };
+		F3A010F62DE2070A0098E234 /* AppVersionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionCard.swift; sourceTree = "<group>"; };
 		F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreVersion.swift; sourceTree = "<group>"; };
 		F3A461122E528F9900D9A224 /* AppSettingsAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsAppearance.swift; sourceTree = "<group>"; };
 		F3AE99E12E2F88AA00D70249 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -206,16 +206,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F3116C042DF571CF009521DE /* Versions */ = {
+		F3116C042DF571CF009521DE /* App Versions */ = {
 			isa = PBXGroup;
 			children = (
-				F3A010F32DE2011D0098E234 /* App Versions.swift */,
-				F376E16D2DDA299200D98252 /* App VM.swift */,
-				F3A010F62DE2070A0098E234 /* App Version Card.swift */,
-				F3116C052DF57496009521DE /* App Version Card VM.swift */,
-				F3116C082DF574A5009521DE /* ADP Status Response.swift */,
+				F3A010F32DE2011D0098E234 /* AppVersions.swift */,
+				F3A010F62DE2070A0098E234 /* AppVersionCard.swift */,
+				F3116C052DF57496009521DE /* AppVersionCardVM.swift */,
+				F3116C082DF574A5009521DE /* ADPStatusResponse.swift */,
 			);
-			path = Versions;
+			path = "App Versions";
 			sourceTree = "<group>";
 		};
 		F31D32292DDD532F00E7B121 /* Action Details */ = {
@@ -297,9 +296,10 @@
 				F33708B12DD93A0D006834F8 /* AppList.swift */,
 				F376E1472DD9C2C200D98252 /* AppListVM.swift */,
 				F376E1662DDA284600D98252 /* AppCard.swift */,
+				F376E16D2DDA299200D98252 /* AppVM.swift */,
 				F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */,
 				F30246292DDC680400999146 /* AppCardImage.swift */,
-				F3116C042DF571CF009521DE /* Versions */,
+				F3116C042DF571CF009521DE /* App Versions */,
 				F376E16A2DDA28AB00D98252 /* Product Details */,
 				F3E0D1BF2DDA872C004A14C7 /* Preview */,
 				F3E0D1CA2DDB18B3004A14C7 /* Settings */,
@@ -486,12 +486,12 @@
 				F3FCD1F42E522FE7003BDE5E /* NavSubtitle.swift in Sources */,
 				F3242A0F2DDDD07A000A16E8 /* Action VM.swift in Sources */,
 				F3242A102DDDD07A000A16E8 /* Build Commit Details.swift in Sources */,
-				F3A010F82DE2070A0098E234 /* App Version Card.swift in Sources */,
+				F3A010F82DE2070A0098E234 /* AppVersionCard.swift in Sources */,
 				F3242A112DDDD07A000A16E8 /* Repo Card.swift in Sources */,
 				F3242A122DDDD07A000A16E8 /* Workflow Card.swift in Sources */,
 				F3242A132DDDD07A000A16E8 /* Build Card.swift in Sources */,
 				F3FCD1F12E522E7C003BDE5E /* AppSettingsFeedback.swift in Sources */,
-				F3A010F52DE2011D0098E234 /* App Versions.swift in Sources */,
+				F3A010F52DE2011D0098E234 /* AppVersions.swift in Sources */,
 				F3242A142DDDD07A000A16E8 /* Product Details.swift in Sources */,
 				F3242A242DDDD090000A16E8 /* AppSettings.swift in Sources */,
 				F3FCD1ED2E522E41003BDE5E /* AppSettingsDebug.swift in Sources */,
@@ -505,7 +505,7 @@
 				F3242A1F2DDDD083000A16E8 /* CiBuildRun.swift in Sources */,
 				F3242A202DDDD083000A16E8 /* CiWorkflow.swift in Sources */,
 				F3242A212DDDD083000A16E8 /* CiIssue.swift in Sources */,
-				F3116C062DF57496009521DE /* App Version Card VM.swift in Sources */,
+				F3116C062DF57496009521DE /* AppVersionCardVM.swift in Sources */,
 				F3116C0D2DF5F688009521DE /* Error.swift in Sources */,
 				F33661302E739E82008E73C9 /* AppCardContextMenu.swift in Sources */,
 				F3242A222DDDD083000A16E8 /* ScmRepository.swift in Sources */,
@@ -517,9 +517,9 @@
 				F3242A062DDDD075000A16E8 /* Provider.swift in Sources */,
 				F3242A072DDDD075000A16E8 /* AppList.swift in Sources */,
 				F3242A082DDDD075000A16E8 /* UserDefaults.swift in Sources */,
-				F3116C0A2DF574A5009521DE /* ADP Status Response.swift in Sources */,
+				F3116C0A2DF574A5009521DE /* ADPStatusResponse.swift in Sources */,
 				F3242A092DDDD075000A16E8 /* AppCardImage.swift in Sources */,
-				F3242A0A2DDDD075000A16E8 /* App VM.swift in Sources */,
+				F3242A0A2DDDD075000A16E8 /* AppVM.swift in Sources */,
 				F3242A0C2DDDD075000A16E8 /* AppListVM.swift in Sources */,
 				F3242A0D2DDDD075000A16E8 /* AppCard.swift in Sources */,
 				F3242A042DDDD06E000A16E8 /* CI-CD.swift in Sources */,
@@ -536,17 +536,17 @@
 				F3FCD1F32E522FE7003BDE5E /* NavSubtitle.swift in Sources */,
 				F376E1652DDA195300D98252 /* AppContainer.swift in Sources */,
 				F376E1692DDA288200D98252 /* Product Details.swift in Sources */,
-				F3A010F72DE2070A0098E234 /* App Version Card.swift in Sources */,
+				F3A010F72DE2070A0098E234 /* AppVersionCard.swift in Sources */,
 				F3E0D1D22DDB370E004A14C7 /* CiWorkflow.swift in Sources */,
 				F3E0D1AD2DDA70AC004A14C7 /* Build VM.swift in Sources */,
 				F31D321D2DDD20F100E7B121 /* Action VM.swift in Sources */,
 				F3FCD1F02E522E7C003BDE5E /* AppSettingsFeedback.swift in Sources */,
-				F3A010F42DE2011D0098E234 /* App Versions.swift in Sources */,
+				F3A010F42DE2011D0098E234 /* AppVersions.swift in Sources */,
 				F31D32332DDD614400E7B121 /* Build Commit Details.swift in Sources */,
 				F31D322B2DDD572E00E7B121 /* Workflow Action Card.swift in Sources */,
 				F3FCD1EE2E522E41003BDE5E /* AppSettingsDebug.swift in Sources */,
 				F3A010FA2DE2082F0098E234 /* AppStoreVersion.swift in Sources */,
-				F376E16E2DDA299200D98252 /* App VM.swift in Sources */,
+				F376E16E2DDA299200D98252 /* AppVM.swift in Sources */,
 				F3E0D1CE2DDB1A96004A14C7 /* AuthView.swift in Sources */,
 				F3E0D1D02DDB36C1004A14C7 /* CiProduct.swift in Sources */,
 				F376E1902DDA437700D98252 /* Build Details.swift in Sources */,
@@ -556,7 +556,7 @@
 				F31D32152DDD17C600E7B121 /* Action Details.swift in Sources */,
 				F33661312E739E82008E73C9 /* AppCardContextMenu.swift in Sources */,
 				F31D321B2DDD1AA300E7B121 /* CiIssue.swift in Sources */,
-				F3116C072DF57496009521DE /* App Version Card VM.swift in Sources */,
+				F3116C072DF57496009521DE /* AppVersionCardVM.swift in Sources */,
 				F3116C0C2DF5F688009521DE /* Error.swift in Sources */,
 				F3A461142E528F9900D9A224 /* AppSettingsAppearance.swift in Sources */,
 				F302462A2DDC680400999146 /* AppCardImage.swift in Sources */,
@@ -568,7 +568,7 @@
 				F376E1672DDA284600D98252 /* AppCard.swift in Sources */,
 				F3FCD2092E528543003BDE5E /* ColorTheme.swift in Sources */,
 				F3E0D1CC2DDB19D3004A14C7 /* ValueStore.swift in Sources */,
-				F3116C092DF574A5009521DE /* ADP Status Response.swift in Sources */,
+				F3116C092DF574A5009521DE /* ADPStatusResponse.swift in Sources */,
 				F31D32262DDD435A00E7B121 /* Repo Card.swift in Sources */,
 				F31D32172DDD18A200E7B121 /* Issue Card.swift in Sources */,
 				F3E0D1C92DDB18AC004A14C7 /* AppSettings.swift in Sources */,
