@@ -18,9 +18,7 @@ struct NavSubtitle: ViewModifier {
 #else
         if #available(iOS 26, *) {
             content
-#if DEBUG
                 .navigationSubtitle(subtitle)
-#endif
         }
 #endif
     }
