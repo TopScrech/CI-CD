@@ -3,7 +3,7 @@ import AppStoreConnect_Swift_SDK
 
 @Observable
 final class BuildVM {
-    var actions: [CiBuildAction] = []
+    private(set) var actions: [CiBuildAction] = []
     
     func startRebuild(
         of buildId: String,

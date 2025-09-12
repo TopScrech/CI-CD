@@ -3,10 +3,10 @@ import AppStoreConnect_Swift_SDK
 
 @Observable
 final class AppVersionCardVM {
-    var adpId: String?
-    var errorMessage: String?
-    var isProcessing = false
-    var downloadUrl: URL?
+    private(set) var adpId: String?
+    private(set) var errorMessage: String?
+    private(set) var isProcessing = false
+    private(set) var downloadUrl: URL?
     
     func startProcessing(_ version: String?) async {
         guard let adpId else {
