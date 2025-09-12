@@ -31,9 +31,9 @@
 		F31D322F2DDD5A9600E7B121 /* Artifact List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322E2DDD5A9600E7B121 /* Artifact List.swift */; };
 		F31D32332DDD614400E7B121 /* Build Commit Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32322DDD614400E7B121 /* Build Commit Details.swift */; };
 		F32429FD2DDDD038000A16E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32429F82DDDD038000A16E8 /* Assets.xcassets */; };
-		F3242A012DDDD06E000A16E8 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* App Container.swift */; };
-		F3242A022DDDD06E000A16E8 /* Auth View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* Auth View.swift */; };
-		F3242A032DDDD06E000A16E8 /* Value Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CB2DDB19D3004A14C7 /* Value Store.swift */; };
+		F3242A012DDDD06E000A16E8 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* AppContainer.swift */; };
+		F3242A022DDDD06E000A16E8 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* AuthView.swift */; };
+		F3242A032DDDD06E000A16E8 /* ValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CB2DDB19D3004A14C7 /* ValueStore.swift */; };
 		F3242A042DDDD06E000A16E8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F3242A062DDDD075000A16E8 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
 		F3242A072DDDD075000A16E8 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* AppList.swift */; };
@@ -76,7 +76,7 @@
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F33708B52DD93A0D006834F8 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* AppList.swift */; };
 		F376E14A2DD9C2C200D98252 /* AppListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1472DD9C2C200D98252 /* AppListVM.swift */; };
-		F376E1652DDA195300D98252 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* App Container.swift */; };
+		F376E1652DDA195300D98252 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* AppContainer.swift */; };
 		F376E1672DDA284600D98252 /* AppCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1662DDA284600D98252 /* AppCard.swift */; };
 		F376E1692DDA288200D98252 /* Product Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1682DDA288200D98252 /* Product Details.swift */; };
 		F376E16E2DDA299200D98252 /* App VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16D2DDA299200D98252 /* App VM.swift */; };
@@ -99,8 +99,8 @@
 		F3E0D1C52DDA92DD004A14C7 /* Workflow Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */; };
 		F3E0D1C72DDB1420004A14C7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */; };
 		F3E0D1C92DDB18AC004A14C7 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C82DDB18AC004A14C7 /* AppSettings.swift */; };
-		F3E0D1CC2DDB19D3004A14C7 /* Value Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CB2DDB19D3004A14C7 /* Value Store.swift */; };
-		F3E0D1CE2DDB1A96004A14C7 /* Auth View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* Auth View.swift */; };
+		F3E0D1CC2DDB19D3004A14C7 /* ValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CB2DDB19D3004A14C7 /* ValueStore.swift */; };
+		F3E0D1CE2DDB1A96004A14C7 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* AuthView.swift */; };
 		F3E0D1D02DDB36C1004A14C7 /* CiProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */; };
 		F3E0D1D22DDB370E004A14C7 /* CiWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */; };
 		F3E0D1D52DDB3B51004A14C7 /* MailCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1D42DDB3B51004A14C7 /* MailCover */; };
@@ -154,7 +154,7 @@
 		F33708B02DD93A0D006834F8 /* CI-CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CI-CD.swift"; sourceTree = "<group>"; };
 		F33708B12DD93A0D006834F8 /* AppList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppList.swift; sourceTree = "<group>"; };
 		F376E1472DD9C2C200D98252 /* AppListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListVM.swift; sourceTree = "<group>"; };
-		F376E1642DDA195300D98252 /* App Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container.swift"; sourceTree = "<group>"; };
+		F376E1642DDA195300D98252 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		F376E1662DDA284600D98252 /* AppCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCard.swift; sourceTree = "<group>"; };
 		F376E1682DDA288200D98252 /* Product Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product Details.swift"; sourceTree = "<group>"; };
 		F376E16D2DDA299200D98252 /* App VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App VM.swift"; sourceTree = "<group>"; };
@@ -172,8 +172,8 @@
 		F3E0D1C42DDA92DD004A14C7 /* Workflow Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workflow Card.swift"; sourceTree = "<group>"; };
 		F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F3E0D1C82DDB18AC004A14C7 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		F3E0D1CB2DDB19D3004A14C7 /* Value Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Value Store.swift"; sourceTree = "<group>"; };
-		F3E0D1CD2DDB1A96004A14C7 /* Auth View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Auth View.swift"; sourceTree = "<group>"; };
+		F3E0D1CB2DDB19D3004A14C7 /* ValueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueStore.swift; sourceTree = "<group>"; };
+		F3E0D1CD2DDB1A96004A14C7 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiProduct.swift; sourceTree = "<group>"; };
 		F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiWorkflow.swift; sourceTree = "<group>"; };
 		F3FCD1EC2E522E41003BDE5E /* AppSettingsDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsDebug.swift; sourceTree = "<group>"; };
@@ -255,6 +255,15 @@
 			path = Appearance;
 			sourceTree = "<group>";
 		};
+		F33661322E73A0FF008E73C9 /* Nav */ = {
+			isa = PBXGroup;
+			children = (
+				F376E1642DDA195300D98252 /* AppContainer.swift */,
+				F3E0D1CD2DDB1A96004A14C7 /* AuthView.swift */,
+			);
+			path = Nav;
+			sourceTree = "<group>";
+		};
 		F33708962DD93A01006834F8 = {
 			isa = PBXGroup;
 			children = (
@@ -279,19 +288,14 @@
 			isa = PBXGroup;
 			children = (
 				F33708B02DD93A0D006834F8 /* CI-CD.swift */,
-				F376E1642DDA195300D98252 /* App Container.swift */,
-				F3E0D1CB2DDB19D3004A14C7 /* Value Store.swift */,
-				F3E0D1CD2DDB1A96004A14C7 /* Auth View.swift */,
-				F3116C0B2DF5F688009521DE /* Error.swift */,
+				F33661322E73A0FF008E73C9 /* Nav */,
 				F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */,
 				F33708AE2DD93A0D006834F8 /* Assets.xcassets */,
 				F3B75CDD2E72A9620096E65E /* AppIcon.icon */,
 				F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */,
 				F3FCD1F52E522FF1003BDE5E /* Utils */,
-				F3E0D1BD2DDA853C004A14C7 /* Provider.swift */,
 				F33708B12DD93A0D006834F8 /* AppList.swift */,
 				F376E1472DD9C2C200D98252 /* AppListVM.swift */,
-				F302462B2DDC6AAE00999146 /* UserDefaults.swift */,
 				F376E1662DDA284600D98252 /* AppCard.swift */,
 				F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */,
 				F30246292DDC680400999146 /* AppCardImage.swift */,
@@ -350,7 +354,11 @@
 		F3FCD1F52E522FF1003BDE5E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F3E0D1CB2DDB19D3004A14C7 /* ValueStore.swift */,
+				F302462B2DDC6AAE00999146 /* UserDefaults.swift */,
 				F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */,
+				F3116C0B2DF5F688009521DE /* Error.swift */,
+				F3E0D1BD2DDA853C004A14C7 /* Provider.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -471,9 +479,9 @@
 		F32429E32DDDD018000A16E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
-				F3242A012DDDD06E000A16E8 /* App Container.swift in Sources */,
-				F3242A022DDDD06E000A16E8 /* Auth View.swift in Sources */,
-				F3242A032DDDD06E000A16E8 /* Value Store.swift in Sources */,
+				F3242A012DDDD06E000A16E8 /* AppContainer.swift in Sources */,
+				F3242A022DDDD06E000A16E8 /* AuthView.swift in Sources */,
+				F3242A032DDDD06E000A16E8 /* ValueStore.swift in Sources */,
 				F3242A0E2DDDD07A000A16E8 /* Workflow Action Card.swift in Sources */,
 				F3FCD1F42E522FE7003BDE5E /* NavSubtitle.swift in Sources */,
 				F3242A0F2DDDD07A000A16E8 /* Action VM.swift in Sources */,
@@ -526,7 +534,7 @@
 				F33708B52DD93A0D006834F8 /* AppList.swift in Sources */,
 				F31D322D2DDD5A6500E7B121 /* Issue List.swift in Sources */,
 				F3FCD1F32E522FE7003BDE5E /* NavSubtitle.swift in Sources */,
-				F376E1652DDA195300D98252 /* App Container.swift in Sources */,
+				F376E1652DDA195300D98252 /* AppContainer.swift in Sources */,
 				F376E1692DDA288200D98252 /* Product Details.swift in Sources */,
 				F3A010F72DE2070A0098E234 /* App Version Card.swift in Sources */,
 				F3E0D1D22DDB370E004A14C7 /* CiWorkflow.swift in Sources */,
@@ -539,7 +547,7 @@
 				F3FCD1EE2E522E41003BDE5E /* AppSettingsDebug.swift in Sources */,
 				F3A010FA2DE2082F0098E234 /* AppStoreVersion.swift in Sources */,
 				F376E16E2DDA299200D98252 /* App VM.swift in Sources */,
-				F3E0D1CE2DDB1A96004A14C7 /* Auth View.swift in Sources */,
+				F3E0D1CE2DDB1A96004A14C7 /* AuthView.swift in Sources */,
 				F3E0D1D02DDB36C1004A14C7 /* CiProduct.swift in Sources */,
 				F376E1902DDA437700D98252 /* Build Details.swift in Sources */,
 				F376E17E2DDA31C400D98252 /* Build Card.swift in Sources */,
@@ -559,7 +567,7 @@
 				F302462C2DDC6AAE00999146 /* UserDefaults.swift in Sources */,
 				F376E1672DDA284600D98252 /* AppCard.swift in Sources */,
 				F3FCD2092E528543003BDE5E /* ColorTheme.swift in Sources */,
-				F3E0D1CC2DDB19D3004A14C7 /* Value Store.swift in Sources */,
+				F3E0D1CC2DDB19D3004A14C7 /* ValueStore.swift in Sources */,
 				F3116C092DF574A5009521DE /* ADP Status Response.swift in Sources */,
 				F31D32262DDD435A00E7B121 /* Repo Card.swift in Sources */,
 				F31D32172DDD18A200E7B121 /* Issue Card.swift in Sources */,
