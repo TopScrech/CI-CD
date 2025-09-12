@@ -73,19 +73,23 @@ struct AuthView: View {
         ) { result in
             switch result {
             case .success(let urls):
-                if let url = urls.first {
-                    readP8File(url)
-                    
-                    let keyId = url.lastPathComponent // AuthKey_3U3CPFA54N.p8
-                        .replacingOccurrences(of: "AuthKey_", with: "")
-                        .replacingOccurrences(of: ".p8", with: "")
-                    
-                    store.privateKeyId = keyId
-                }
+                processImportedFile(urls)
                 
             case .failure(let error):
                 print("Failed to pick file:", error.localizedDescription)
             }
+        }
+    }
+    
+    private func processImportedFile(_ urls: [URL]) {
+        if let url = urls.first {
+            readP8File(url)
+            
+            let keyId = url.lastPathComponent // AuthKey_3U3CPFA54N.p8
+                .replacingOccurrences(of: "AuthKey_", with: "")
+                .replacingOccurrences(of: ".p8", with: "")
+            
+            store.privateKeyId = keyId
         }
     }
     
@@ -118,5 +122,6 @@ struct AuthView: View {
 
 #Preview {
     AuthView()
+        .darkSchemePreferred()
         .environmentObject(ValueStore())
 }

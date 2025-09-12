@@ -16,7 +16,9 @@ struct AppearanceSettings: View {
 }
 
 #Preview {
-    AppearanceSettings()
-        .darkSchemePreferred()
-        .environmentObject(ValueStore())
+    List {
+        AppearanceSettings()
+    }
+    .darkSchemePreferred()
+    .environmentObject(ValueStore())
 }

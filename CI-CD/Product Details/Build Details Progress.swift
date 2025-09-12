@@ -69,4 +69,5 @@ struct BuildDetailsProgress: View {
     List {
         BuildDetailsProgress(CiBuildRun.preview)
     }
+    .darkSchemePreferred()
 }

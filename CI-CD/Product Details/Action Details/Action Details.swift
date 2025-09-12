@@ -24,5 +24,6 @@ struct ActionDetails: View {
 
 #Preview {
     ActionDetails()
+        .darkSchemePreferred()
         .environment(ActionVM())
 }

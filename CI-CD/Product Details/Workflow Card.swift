@@ -107,6 +107,6 @@ extension CiAction: @retroactive Identifiable {
     List {
         WorkflowCard(CiWorkflow.preview)
     }
-    .environment(AppVM())
+    .darkSchemePreferred()
     .environmentObject(ValueStore())
 }

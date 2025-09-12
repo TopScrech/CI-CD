@@ -90,7 +90,10 @@ struct BuildDetails: View {
 }
 
 #Preview {
-    BuildDetails(CiBuildRun.preview)
-        .environment(BuildVM())
-        .darkSchemePreferred()
+    NavigationStack {
+        BuildDetails(CiBuildRun.preview)
+    }
+    .darkSchemePreferred()
+    .environment(BuildVM())
+    .environmentObject(ValueStore())
 }

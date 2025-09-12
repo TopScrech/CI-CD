@@ -29,14 +29,12 @@
 		F31D322B2DDD572E00E7B121 /* Workflow Action Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322A2DDD572E00E7B121 /* Workflow Action Card.swift */; };
 		F31D322D2DDD5A6500E7B121 /* Issue List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322C2DDD5A6500E7B121 /* Issue List.swift */; };
 		F31D322F2DDD5A9600E7B121 /* Artifact List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322E2DDD5A9600E7B121 /* Artifact List.swift */; };
-		F31D32312DDD5E8200E7B121 /* TransparentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32302DDD5E8200E7B121 /* TransparentList.swift */; };
 		F31D32332DDD614400E7B121 /* Build Commit Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32322DDD614400E7B121 /* Build Commit Details.swift */; };
 		F32429FD2DDDD038000A16E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32429F82DDDD038000A16E8 /* Assets.xcassets */; };
 		F3242A012DDDD06E000A16E8 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* App Container.swift */; };
 		F3242A022DDDD06E000A16E8 /* Auth View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* Auth View.swift */; };
 		F3242A032DDDD06E000A16E8 /* Value Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CB2DDB19D3004A14C7 /* Value Store.swift */; };
 		F3242A042DDDD06E000A16E8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
-		F3242A052DDDD075000A16E8 /* TransparentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32302DDD5E8200E7B121 /* TransparentList.swift */; };
 		F3242A062DDDD075000A16E8 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
 		F3242A072DDDD075000A16E8 /* App List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* App List.swift */; };
 		F3242A082DDDD075000A16E8 /* User Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* User Defaults.swift */; };
@@ -91,6 +89,7 @@
 		F3A010FB2DE2082F0098E234 /* AppStoreVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */; };
 		F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3A36EA42DDA47E200733D6D /* Kingfisher */; };
 		F3A461142E528F9900D9A224 /* AppearanceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A461122E528F9900D9A224 /* AppearanceSettings.swift */; };
+		F3B75CE02E72B0310096E65E /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F3B75CDD2E72A9620096E65E /* AppIcon.icon */; };
 		F3E0D1AD2DDA70AC004A14C7 /* Build VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */; };
 		F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */; };
 		F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
@@ -142,7 +141,6 @@
 		F31D322A2DDD572E00E7B121 /* Workflow Action Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workflow Action Card.swift"; sourceTree = "<group>"; };
 		F31D322C2DDD5A6500E7B121 /* Issue List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue List.swift"; sourceTree = "<group>"; };
 		F31D322E2DDD5A9600E7B121 /* Artifact List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artifact List.swift"; sourceTree = "<group>"; };
-		F31D32302DDD5E8200E7B121 /* TransparentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentList.swift; sourceTree = "<group>"; };
 		F31D32322DDD614400E7B121 /* Build Commit Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build Commit Details.swift"; sourceTree = "<group>"; };
 		F32429E72DDDD018000A16E8 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32429F82DDDD038000A16E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +162,7 @@
 		F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreVersion.swift; sourceTree = "<group>"; };
 		F3A461122E528F9900D9A224 /* AppearanceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettings.swift; sourceTree = "<group>"; };
 		F3AE99E12E2F88AA00D70249 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F3B75CDD2E72A9620096E65E /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		F3E0D1AC2DDA70AC004A14C7 /* Build VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Build VM.swift"; sourceTree = "<group>"; };
 		F3E0D1BD2DDA853C004A14C7 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiBuildRun.swift; sourceTree = "<group>"; };
@@ -274,6 +273,7 @@
 				F3116C0B2DF5F688009521DE /* Error.swift */,
 				F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */,
 				F33708AE2DD93A0D006834F8 /* Assets.xcassets */,
+				F3B75CDD2E72A9620096E65E /* AppIcon.icon */,
 				F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */,
 				F3FCD1F52E522FF1003BDE5E /* Utils */,
 				F3E0D1BD2DDA853C004A14C7 /* Provider.swift */,
@@ -330,7 +330,6 @@
 				F3A461122E528F9900D9A224 /* AppearanceSettings.swift */,
 				F3FCD1EF2E522E7C003BDE5E /* SettingsFeedback.swift */,
 				F3FCD1EC2E522E41003BDE5E /* DebugSettings.swift */,
-				F31D32302DDD5E8200E7B121 /* TransparentList.swift */,
 				F3FCD2072E528543003BDE5E /* ColorTheme.swift */,
 			);
 			path = Settings;
@@ -449,6 +448,7 @@
 		F337089D2DD93A01006834F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				F3B75CE02E72B0310096E65E /* AppIcon.icon in Resources */,
 				F3E0D1C72DDB1420004A14C7 /* Localizable.xcstrings in Resources */,
 				F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */,
 			);
@@ -462,7 +462,6 @@
 				F3242A012DDDD06E000A16E8 /* App Container.swift in Sources */,
 				F3242A022DDDD06E000A16E8 /* Auth View.swift in Sources */,
 				F3242A032DDDD06E000A16E8 /* Value Store.swift in Sources */,
-				F3242A052DDDD075000A16E8 /* TransparentList.swift in Sources */,
 				F3242A0E2DDDD07A000A16E8 /* Workflow Action Card.swift in Sources */,
 				F3FCD1F42E522FE7003BDE5E /* NavSubtitle.swift in Sources */,
 				F3242A0F2DDDD07A000A16E8 /* Action VM.swift in Sources */,
@@ -547,7 +546,6 @@
 				F376E1672DDA284600D98252 /* App Card.swift in Sources */,
 				F3FCD2092E528543003BDE5E /* ColorTheme.swift in Sources */,
 				F3E0D1CC2DDB19D3004A14C7 /* Value Store.swift in Sources */,
-				F31D32312DDD5E8200E7B121 /* TransparentList.swift in Sources */,
 				F3116C092DF574A5009521DE /* ADP Status Response.swift in Sources */,
 				F31D32262DDD435A00E7B121 /* Repo Card.swift in Sources */,
 				F31D32172DDD18A200E7B121 /* Issue Card.swift in Sources */,
@@ -671,7 +669,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -733,7 +731,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

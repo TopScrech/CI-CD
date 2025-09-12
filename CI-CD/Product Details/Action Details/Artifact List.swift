@@ -19,6 +19,9 @@ struct ArtifactList: View {
 }
 
 #Preview {
-    ArtifactList()
-        .environment(ActionVM())
+    NavigationStack {
+        ArtifactList()
+    }
+    .darkSchemePreferred()
+    .environment(ActionVM())
 }
