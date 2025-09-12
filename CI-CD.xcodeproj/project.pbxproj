@@ -70,6 +70,8 @@
 		F3242A2B2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2A2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK */; };
 		F3242A2D2DDDD22C000A16E8 /* MailCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2C2DDDD22C000A16E8 /* MailCover */; };
 		F3242A2F2DDDD239000A16E8 /* SafariCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2E2DDDD239000A16E8 /* SafariCover */; };
+		F33661302E739E82008E73C9 /* AppCardContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */; };
+		F33661312E739E82008E73C9 /* AppCardContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */; };
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F33708B52DD93A0D006834F8 /* App List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* App List.swift */; };
@@ -145,6 +147,7 @@
 		F32429E72DDDD018000A16E8 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32429F82DDDD038000A16E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F32429FA2DDDD038000A16E8 /* visionOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = visionOS.plist; sourceTree = "<group>"; };
+		F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCardContextMenu.swift; sourceTree = "<group>"; };
 		F337089F2DD93A01006834F8 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33708AE2DD93A0D006834F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CI-CD.entitlements"; sourceTree = "<group>"; };
@@ -290,6 +293,7 @@
 				F376E1472DD9C2C200D98252 /* App List VM.swift */,
 				F302462B2DDC6AAE00999146 /* User Defaults.swift */,
 				F376E1662DDA284600D98252 /* App Card.swift */,
+				F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */,
 				F30246292DDC680400999146 /* App Card Image.swift */,
 				F3116C042DF571CF009521DE /* Versions */,
 				F376E16A2DDA28AB00D98252 /* Product Details */,
@@ -495,6 +499,7 @@
 				F3242A212DDDD083000A16E8 /* CiIssue.swift in Sources */,
 				F3116C062DF57496009521DE /* App Version Card VM.swift in Sources */,
 				F3116C0D2DF5F688009521DE /* Error.swift in Sources */,
+				F33661302E739E82008E73C9 /* AppCardContextMenu.swift in Sources */,
 				F3242A222DDDD083000A16E8 /* ScmRepository.swift in Sources */,
 				F3242A232DDDD083000A16E8 /* CiArtifact.swift in Sources */,
 				F3242A1A2DDDD07E000A16E8 /* Issue Card.swift in Sources */,
@@ -541,6 +546,7 @@
 				F3E0D1C32DDA873C004A14C7 /* CiBuildRun.swift in Sources */,
 				F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */,
 				F31D32152DDD17C600E7B121 /* Action Details.swift in Sources */,
+				F33661312E739E82008E73C9 /* AppCardContextMenu.swift in Sources */,
 				F31D321B2DDD1AA300E7B121 /* CiIssue.swift in Sources */,
 				F3116C072DF57496009521DE /* App Version Card VM.swift in Sources */,
 				F3116C0C2DF5F688009521DE /* Error.swift in Sources */,

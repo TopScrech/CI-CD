@@ -113,10 +113,7 @@ final class AppVM {
         }
     }
     
-    func startBuild(
-        _ workflowId: String,
-        clean: Bool = false
-    ) async throws {
+    func startBuild(_ workflowId: String, clean: Bool = false) async throws {
         guard
             let provider = try await provider()
         else {

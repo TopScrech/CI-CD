@@ -16,11 +16,9 @@ struct AppCard: View {
     var body: some View {
         NavigationLink {
             ProductDetails(product)
-                .environment(vm)
         } label: {
             HStack {
                 AppCardImage(product)
-                    .environment(vm)
                 
                 VStack(alignment: .leading) {
                     if let attributes = product.attributes, let name = attributes.name {
@@ -47,6 +45,8 @@ struct AppCard: View {
                 }
             }
         }
+        .appCardContextMenu($sheetVersions, product: product)
+        .environment(vm)
         .sheet($sheetVersions) {
             NavigationView {
                 if let appId = product.relationships?.app?.data?.id {
@@ -69,72 +69,6 @@ struct AppCard: View {
                 
                 _ = try? await (workflows, builds, additionalRepos, primaryRepos, versions)
             }
-        }
-        .contextMenu {
-            ForEach(vm.workflows) { workflow in
-                if let name = workflow.attributes?.name {
-                    Section {
-                        Button {
-                            startBuild(workflow)
-                        } label: {
-                            Text("Start build")
-                            
-                            Text(name)
-                            
-                            Image(systemName: "play")
-                        }
-                        
-                        Button {
-                            startBuild(workflow, clean: true)
-                        } label: {
-                            Text("Start clean build")
-                            
-                            Text(name)
-                            
-                            Image(systemName: "play")
-                        }
-                    }
-                }
-            }
-            
-            if let _ = product.relationships?.app?.data?.id {
-                Section {
-                    Button("AltStore Helper", systemImage: "app.dashed") {
-                        sheetVersions = true
-                    }
-                }
-            }
-#if DEBUG
-            Section {
-                Button {
-                    Pasteboard.copy(product.id)
-                } label: {
-                    Text("Copy product id")
-                    
-                    Text(product.id)
-                    
-                    Image(systemName: "doc.on.doc")
-                }
-                
-                if let appId = product.relationships?.app?.data?.id {
-                    Button {
-                        Pasteboard.copy(appId)
-                    } label: {
-                        Text("Copy app id")
-                        
-                        Text(appId)
-                        
-                        Image(systemName: "doc.on.doc")
-                    }
-                }
-            }
-#endif
-        }
-    }
-    
-    private func startBuild(_ workflow: CiWorkflow, clean: Bool = false) {
-        Task {
-            try await vm.startBuild(workflow.id, clean: clean)
         }
     }
 }
