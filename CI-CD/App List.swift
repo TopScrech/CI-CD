@@ -5,8 +5,6 @@ struct AppListView: View {
     @State private var vm = AppListVM()
     @EnvironmentObject private var store: ValueStore
     
-    @State private var sheetSettings = false
-    
     var body: some View {
         List {
             ForEach(vm.products) { product in
@@ -22,14 +20,11 @@ struct AppListView: View {
                 try? await vm.fetchProducts()
             }
         }
-        .sheet($sheetSettings) {
-            NavigationView {
-                AppSettings()
-            }
-        }
         .toolbar {
-            SFButton("gear") {
-                sheetSettings = true
+            NavigationLink {
+                AppSettings()
+            } label: {
+                Image(systemName: "gear")
             }
         }
     }
