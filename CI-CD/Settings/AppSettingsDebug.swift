@@ -5,6 +5,14 @@ struct AppSettingsDebug: View {
     
     var body: some View {
         DisclosureGroup("Debug") {
+            TextField("Coolify API-key", text: $store.coolifyAPIKey)
+                .autocorrectionDisabled()
+            
+            TextField("Coolify domain", text: $store.coolifyDomain)
+                .autocorrectionDisabled()
+                .textContentType(.URL)
+                .keyboardType(.URL)
+            
             Button("Copy issuer ID") {
                 Pasteboard.copy(store.issuer)
             }
