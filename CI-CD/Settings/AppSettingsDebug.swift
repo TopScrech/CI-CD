@@ -5,19 +5,6 @@ struct AppSettingsDebug: View {
     
     var body: some View {
         DisclosureGroup("Debug") {
-            Button {
-                store.isAuthorized = false
-            } label: {
-                HStack {
-                    Text("Log out")
-                    
-                    Spacer()
-                    
-                    Image(systemName: "rectangle.portrait.and.arrow.right")
-                        .secondary()
-                }
-            }
-            
             Button("Copy issuer ID") {
                 Pasteboard.copy(store.issuer)
             }
@@ -29,6 +16,11 @@ struct AppSettingsDebug: View {
             Button("Copy private key ID") {
                 Pasteboard.copy(store.privateKeyId)
             }
+            
+            Button("Log out", systemImage: "rectangle.portrait.and.arrow.right", role: .destructive) {
+                store.isAuthorized = false
+            }
+            .foregroundStyle(.red)
         }
     }
 }

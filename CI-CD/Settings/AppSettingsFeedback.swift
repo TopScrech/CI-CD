@@ -6,17 +6,8 @@ struct AppSettingsFeedback: View {
     
     var body: some View {
         Section {
-            Button {
+            Button("Feedback", systemImage: "envelope") {
                 mailCover = true
-            } label: {
-                HStack {
-                    Text("Feedback")
-                    
-                    Spacer()
-                    
-                    Image(systemName: "envelope")
-                        .secondary()
-                }
             }
             .mailCover($mailCover, subject: "CI/CD Feedback", recipients: ["topscrech@icloud.com"])
         }

@@ -21,6 +21,7 @@ struct HomeView: View {
             } label: {
                 Image(systemName: "gear")
             }
+            .keyboardShortcut("s")
         }
     }
 }
