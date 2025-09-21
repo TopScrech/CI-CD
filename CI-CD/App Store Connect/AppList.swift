@@ -1,7 +1,7 @@
 import ScrechKit
 import AppStoreConnect_Swift_SDK
 
-struct AppListView: View {
+struct AppList: View {
     @State private var vm = AppListVM()
     @EnvironmentObject private var store: ValueStore
     
@@ -20,18 +20,11 @@ struct AppListView: View {
                 try? await vm.fetchProducts()
             }
         }
-        .toolbar {
-            NavigationLink {
-                AppSettings()
-            } label: {
-                Image(systemName: "gear")
-            }
-        }
     }
 }
 
 #Preview {
-    AppListView()
+    AppList()
         .darkSchemePreferred()
         .environmentObject(ValueStore())
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F301609E2E80A6BF00748848 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301609D2E80A6BF00748848 /* AppList.swift */; };
+		F301609F2E80A6BF00748848 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301609D2E80A6BF00748848 /* AppList.swift */; };
+		F30160A32E80A79100748848 /* ProjList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160A22E80A79100748848 /* ProjList.swift */; };
+		F30160A42E80A79100748848 /* ProjList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160A22E80A79100748848 /* ProjList.swift */; };
 		F302462A2DDC680400999146 /* AppCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246292DDC680400999146 /* AppCardImage.swift */; };
 		F302462C2DDC6AAE00999146 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* UserDefaults.swift */; };
 		F3116C062DF57496009521DE /* AppVersionCardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* AppVersionCardVM.swift */; };
@@ -36,7 +40,7 @@
 		F3242A032DDDD06E000A16E8 /* ValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CB2DDB19D3004A14C7 /* ValueStore.swift */; };
 		F3242A042DDDD06E000A16E8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
 		F3242A062DDDD075000A16E8 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
-		F3242A072DDDD075000A16E8 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* AppList.swift */; };
+		F3242A072DDDD075000A16E8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* HomeView.swift */; };
 		F3242A082DDDD075000A16E8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* UserDefaults.swift */; };
 		F3242A092DDDD075000A16E8 /* AppCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246292DDC680400999146 /* AppCardImage.swift */; };
 		F3242A0A2DDDD075000A16E8 /* AppVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16D2DDA299200D98252 /* AppVM.swift */; };
@@ -74,7 +78,7 @@
 		F33661312E739E82008E73C9 /* AppCardContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */; };
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
-		F33708B52DD93A0D006834F8 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* AppList.swift */; };
+		F33708B52DD93A0D006834F8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* HomeView.swift */; };
 		F376E14A2DD9C2C200D98252 /* AppListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1472DD9C2C200D98252 /* AppListVM.swift */; };
 		F376E1652DDA195300D98252 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* AppContainer.swift */; };
 		F376E1672DDA284600D98252 /* AppCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1662DDA284600D98252 /* AppCard.swift */; };
@@ -125,6 +129,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F301609D2E80A6BF00748848 /* AppList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppList.swift; sourceTree = "<group>"; };
+		F30160A22E80A79100748848 /* ProjList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjList.swift; sourceTree = "<group>"; };
 		F30246292DDC680400999146 /* AppCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCardImage.swift; sourceTree = "<group>"; };
 		F302462B2DDC6AAE00999146 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F3116C052DF57496009521DE /* AppVersionCardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionCardVM.swift; sourceTree = "<group>"; };
@@ -152,7 +158,7 @@
 		F33708AE2DD93A0D006834F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CI-CD.entitlements"; sourceTree = "<group>"; };
 		F33708B02DD93A0D006834F8 /* CI-CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CI-CD.swift"; sourceTree = "<group>"; };
-		F33708B12DD93A0D006834F8 /* AppList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppList.swift; sourceTree = "<group>"; };
+		F33708B12DD93A0D006834F8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F376E1472DD9C2C200D98252 /* AppListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListVM.swift; sourceTree = "<group>"; };
 		F376E1642DDA195300D98252 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		F376E1662DDA284600D98252 /* AppCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCard.swift; sourceTree = "<group>"; };
@@ -206,6 +212,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F30160A02E80A75700748848 /* App Store Connect */ = {
+			isa = PBXGroup;
+			children = (
+				F301609D2E80A6BF00748848 /* AppList.swift */,
+				F376E1472DD9C2C200D98252 /* AppListVM.swift */,
+				F376E1662DDA284600D98252 /* AppCard.swift */,
+				F376E16D2DDA299200D98252 /* AppVM.swift */,
+				F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */,
+				F30246292DDC680400999146 /* AppCardImage.swift */,
+				F3116C042DF571CF009521DE /* App Versions */,
+				F376E16A2DDA28AB00D98252 /* Product Details */,
+				F3E0D1BF2DDA872C004A14C7 /* Preview */,
+			);
+			path = "App Store Connect";
+			sourceTree = "<group>";
+		};
+		F30160A12E80A76600748848 /* Coolify */ = {
+			isa = PBXGroup;
+			children = (
+				F30160A22E80A79100748848 /* ProjList.swift */,
+			);
+			path = Coolify;
+			sourceTree = "<group>";
+		};
 		F3116C042DF571CF009521DE /* App Versions */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,15 +355,9 @@
 				F3B75CDD2E72A9620096E65E /* AppIcon.icon */,
 				F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */,
 				F3FCD1F52E522FF1003BDE5E /* Utils */,
-				F33708B12DD93A0D006834F8 /* AppList.swift */,
-				F376E1472DD9C2C200D98252 /* AppListVM.swift */,
-				F376E1662DDA284600D98252 /* AppCard.swift */,
-				F376E16D2DDA299200D98252 /* AppVM.swift */,
-				F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */,
-				F30246292DDC680400999146 /* AppCardImage.swift */,
-				F3116C042DF571CF009521DE /* App Versions */,
-				F376E16A2DDA28AB00D98252 /* Product Details */,
-				F3E0D1BF2DDA872C004A14C7 /* Preview */,
+				F33708B12DD93A0D006834F8 /* HomeView.swift */,
+				F30160A12E80A76600748848 /* Coolify */,
+				F30160A02E80A75700748848 /* App Store Connect */,
 				F3E0D1CA2DDB18B3004A14C7 /* Settings */,
 			);
 			path = "CI-CD";
@@ -521,6 +545,7 @@
 				F3FCD1ED2E522E41003BDE5E /* AppSettingsDebug.swift in Sources */,
 				F3A010FB2DE2082F0098E234 /* AppStoreVersion.swift in Sources */,
 				F3242A152DDDD07A000A16E8 /* ActionCard.swift in Sources */,
+				F301609F2E80A6BF00748848 /* AppList.swift in Sources */,
 				F3242A162DDDD07A000A16E8 /* BuildDetails.swift in Sources */,
 				F3242A172DDDD07E000A16E8 /* ActionDetails.swift in Sources */,
 				F3242A182DDDD07E000A16E8 /* ArtifactCard.swift in Sources */,
@@ -536,10 +561,11 @@
 				F3242A232DDDD083000A16E8 /* CiArtifact.swift in Sources */,
 				F3242A1A2DDDD07E000A16E8 /* IssueCard.swift in Sources */,
 				F3242A1B2DDDD07E000A16E8 /* ArtifactList.swift in Sources */,
+				F30160A42E80A79100748848 /* ProjList.swift in Sources */,
 				F3242A1C2DDDD07E000A16E8 /* BuildDetailsProgress.swift in Sources */,
 				F3242A1D2DDDD07E000A16E8 /* BuildVM.swift in Sources */,
 				F3242A062DDDD075000A16E8 /* Provider.swift in Sources */,
-				F3242A072DDDD075000A16E8 /* AppList.swift in Sources */,
+				F3242A072DDDD075000A16E8 /* HomeView.swift in Sources */,
 				F3242A082DDDD075000A16E8 /* UserDefaults.swift in Sources */,
 				F3116C0A2DF574A5009521DE /* ADPStatusResponse.swift in Sources */,
 				F3242A092DDDD075000A16E8 /* AppCardImage.swift in Sources */,
@@ -555,18 +581,20 @@
 				F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */,
 				F31D322F2DDD5A9600E7B121 /* ArtifactList.swift in Sources */,
 				F376E14A2DD9C2C200D98252 /* AppListVM.swift in Sources */,
-				F33708B52DD93A0D006834F8 /* AppList.swift in Sources */,
+				F33708B52DD93A0D006834F8 /* HomeView.swift in Sources */,
 				F31D322D2DDD5A6500E7B121 /* IssueList.swift in Sources */,
 				F3FCD1F32E522FE7003BDE5E /* NavSubtitle.swift in Sources */,
 				F376E1652DDA195300D98252 /* AppContainer.swift in Sources */,
 				F376E1692DDA288200D98252 /* ProductDetails.swift in Sources */,
 				F3A010F72DE2070A0098E234 /* AppVersionCard.swift in Sources */,
+				F301609E2E80A6BF00748848 /* AppList.swift in Sources */,
 				F3E0D1D22DDB370E004A14C7 /* CiWorkflow.swift in Sources */,
 				F3E0D1AD2DDA70AC004A14C7 /* BuildVM.swift in Sources */,
 				F31D321D2DDD20F100E7B121 /* ActionVM.swift in Sources */,
 				F3FCD1F02E522E7C003BDE5E /* AppSettingsFeedback.swift in Sources */,
 				F3A010F42DE2011D0098E234 /* AppVersions.swift in Sources */,
 				F31D32332DDD614400E7B121 /* BuildCommitDetails.swift in Sources */,
+				F30160A32E80A79100748848 /* ProjList.swift in Sources */,
 				F31D322B2DDD572E00E7B121 /* WorkflowActionCard.swift in Sources */,
 				F3FCD1EE2E522E41003BDE5E /* AppSettingsDebug.swift in Sources */,
 				F3A010FA2DE2082F0098E234 /* AppStoreVersion.swift in Sources */,

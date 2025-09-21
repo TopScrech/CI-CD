@@ -6,7 +6,7 @@ struct AppContainer: View {
     var body: some View {
         NavigationStack {
             if store.isAuthorized {
-                AppListView()
+                HomeView()
             } else {
                 AuthView()
             }
