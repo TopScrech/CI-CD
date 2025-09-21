@@ -70,7 +70,6 @@ struct ProductDetails: View {
         .animation(.default, value: selectedAuthor)
         .animation(.default, value: filteredBuilds.count)
         .navigationTitle(product.attributes?.name ?? "")
-        .environment(vm)
         .toolbar {
             Menu {
                 Section {

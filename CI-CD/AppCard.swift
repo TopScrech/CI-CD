@@ -16,6 +16,7 @@ struct AppCard: View {
     var body: some View {
         NavigationLink {
             ProductDetails(product)
+                .environment(vm)
         } label: {
             HStack {
                 AppCardImage(product)
