@@ -16,7 +16,6 @@ extension UserDefaults {
         }
         
         let decoder = JSONDecoder()
-        
         return try? decoder.decode([CiProduct].self, from: data)
     }
 }
