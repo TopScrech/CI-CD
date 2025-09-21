@@ -17,6 +17,8 @@
 		F30160AA2E80B65E00748848 /* CoolifyProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160A82E80B65E00748848 /* CoolifyProject.swift */; };
 		F30160AC2E80B71100748848 /* CoolifyProjCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160AB2E80B71100748848 /* CoolifyProjCard.swift */; };
 		F30160AD2E80B71100748848 /* CoolifyProjCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160AB2E80B71100748848 /* CoolifyProjCard.swift */; };
+		F30160AF2E80BBFA00748848 /* CoolifyProjDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160AE2E80BBFA00748848 /* CoolifyProjDetails.swift */; };
+		F30160B02E80BBFA00748848 /* CoolifyProjDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160AE2E80BBFA00748848 /* CoolifyProjDetails.swift */; };
 		F302462A2DDC680400999146 /* AppCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246292DDC680400999146 /* AppCardImage.swift */; };
 		F302462C2DDC6AAE00999146 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* UserDefaults.swift */; };
 		F3116C062DF57496009521DE /* AppVersionCardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* AppVersionCardVM.swift */; };
@@ -140,6 +142,7 @@
 		F30160A52E80AD8D00748848 /* CoolifyProjListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyProjListVM.swift; sourceTree = "<group>"; };
 		F30160A82E80B65E00748848 /* CoolifyProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyProject.swift; sourceTree = "<group>"; };
 		F30160AB2E80B71100748848 /* CoolifyProjCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyProjCard.swift; sourceTree = "<group>"; };
+		F30160AE2E80BBFA00748848 /* CoolifyProjDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyProjDetails.swift; sourceTree = "<group>"; };
 		F30246292DDC680400999146 /* AppCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCardImage.swift; sourceTree = "<group>"; };
 		F302462B2DDC6AAE00999146 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F3116C052DF57496009521DE /* AppVersionCardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionCardVM.swift; sourceTree = "<group>"; };
@@ -243,6 +246,7 @@
 				F30160A22E80A79100748848 /* CoolifyProjList.swift */,
 				F30160A52E80AD8D00748848 /* CoolifyProjListVM.swift */,
 				F30160AB2E80B71100748848 /* CoolifyProjCard.swift */,
+				F30160AE2E80BBFA00748848 /* CoolifyProjDetails.swift */,
 				F30160A82E80B65E00748848 /* CoolifyProject.swift */,
 			);
 			path = Coolify;
@@ -540,6 +544,7 @@
 			isa = PBXSourcesBuildPhase;
 			files = (
 				F3242A012DDDD06E000A16E8 /* AppContainer.swift in Sources */,
+				F30160B02E80BBFA00748848 /* CoolifyProjDetails.swift in Sources */,
 				F3242A022DDDD06E000A16E8 /* AuthView.swift in Sources */,
 				F3242A032DDDD06E000A16E8 /* ValueStore.swift in Sources */,
 				F3242A0E2DDDD07A000A16E8 /* WorkflowActionCard.swift in Sources */,
@@ -618,6 +623,7 @@
 				F3E0D1CE2DDB1A96004A14C7 /* AuthView.swift in Sources */,
 				F3E0D1D02DDB36C1004A14C7 /* CiProduct.swift in Sources */,
 				F376E1902DDA437700D98252 /* BuildDetails.swift in Sources */,
+				F30160AF2E80BBFA00748848 /* CoolifyProjDetails.swift in Sources */,
 				F376E17E2DDA31C400D98252 /* BuildCard.swift in Sources */,
 				F3E0D1C32DDA873C004A14C7 /* CiBuildRun.swift in Sources */,
 				F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */,

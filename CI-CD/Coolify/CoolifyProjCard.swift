@@ -8,6 +8,26 @@ struct CoolifyProjCard: View {
     }
     
     var body: some View {
-        Text("Hello, World!")
+        NavigationLink {
+            CoolifyProjDetails(proj)
+        } label: {
+            VStack {
+                Text(proj.name)
+                
+                if let description = proj.description, !description.isEmpty {
+                    Text(description)
+                        .footnote()
+                        .secondary()
+                }
+            }
+        }
     }
+}
+
+#Preview {
+#warning("Create Previewprop")
+    CoolifyProjCard(
+        CoolifyProject(id: 1, uuid: "", name: "Test", description: "Test", environments: [])
+    )
+    .darkSchemePreferred()
 }
