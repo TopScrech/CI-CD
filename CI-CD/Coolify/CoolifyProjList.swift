@@ -5,7 +5,9 @@ struct CoolifyProjList: View {
     
     var body: some View {
         List {
-            
+            ForEach(vm.projects) {
+                CoolifyProjCard($0)
+            }
         }
         .refreshableTask {
             await vm.fetchProjects()
