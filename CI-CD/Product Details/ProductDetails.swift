@@ -31,24 +31,24 @@ struct ProductDetails: View {
         List {
             if !vm.workflows.isEmpty {
                 Section("Workflows") {
-                    ForEach(vm.workflows) { workflow in
-                        WorkflowCard(workflow)
+                    ForEach(vm.workflows) {
+                        WorkflowCard($0)
                     }
                 }
             }
             
             if vm.primaryRepos.count > 0 {
                 Section("Primary repositories") {
-                    ForEach(vm.primaryRepos) { repo in
-                        RepoCard(repo)
+                    ForEach(vm.primaryRepos) {
+                        RepoCard($0)
                     }
                 }
             }
             
             if vm.additionalRepos.count > 0 {
                 Section("Additional repositories") {
-                    ForEach(vm.additionalRepos) { repo in
-                        RepoCard(repo)
+                    ForEach(vm.additionalRepos) {
+                        RepoCard($0)
                     }
                 }
             }
@@ -61,8 +61,8 @@ struct ProductDetails: View {
                 )
             } else {
                 Section {
-                    ForEach(filteredBuilds.reversed()) { build in
-                        BuildCard(build)
+                    ForEach(filteredBuilds.reversed()) {
+                        BuildCard($0)
                     }
                 }
             }

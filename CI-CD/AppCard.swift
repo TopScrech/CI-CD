@@ -38,8 +38,8 @@ struct AppCard: View {
                 Spacer()
                 
                 VStack(alignment: .trailing, spacing: 0) {
-                    ForEach(vm.workflows) { workflow in
-                        Text(workflow.attributes?.name ?? "")
+                    ForEach(vm.workflows) {
+                        Text($0.attributes?.name ?? "")
                             .secondary()
                             .footnote()
                     }

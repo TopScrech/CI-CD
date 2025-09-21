@@ -5,8 +5,8 @@ struct ArtifactList: View {
     
     var body: some View {
         List {
-            ForEach(vm.artifacts) { artifact in
-                ArtifactCard(artifact)
+            ForEach(vm.artifacts) {
+                ArtifactCard($0)
             }
         }
         .navigationTitle("Artifacts")

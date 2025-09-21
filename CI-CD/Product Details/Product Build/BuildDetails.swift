@@ -74,8 +74,8 @@ struct BuildDetails: View {
             
             if !vm.actions.isEmpty {
                 Section("Build actions") {
-                    ForEach(vm.actions) { action in
-                        ActionCard(action)
+                    ForEach(vm.actions) {
+                        ActionCard($0)
                     }
                 }
             }

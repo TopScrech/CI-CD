@@ -7,8 +7,8 @@ struct AppListView: View {
     
     var body: some View {
         List {
-            ForEach(vm.products) { product in
-                AppCard(product)
+            ForEach(vm.products) {
+                AppCard($0)
             }
         }
         .animation(.default, value: vm.products.count)

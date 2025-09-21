@@ -5,8 +5,8 @@ struct IssueList: View {
     
     var body: some View {
         List {
-            ForEach(vm.issues) { issue in
-                IssueCard(issue)
+            ForEach(vm.issues) {
+                IssueCard($0)
             }
         }
         .navigationTitle("Issues")

@@ -41,8 +41,8 @@ struct WorkflowCard: View {
                 .foregroundStyle(.foreground)
                 
                 if let actions = workflow.attributes?.actions {
-                    ForEach(actions) { action in
-                        WorkflowActionCard(action)
+                    ForEach(actions) {
+                        WorkflowActionCard($0)
                     }
                 }
             }
