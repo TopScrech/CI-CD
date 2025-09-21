@@ -9,7 +9,7 @@ struct HomeView: View {
                     Label("Connect", systemImage: "app.dashed")
                 }
             
-            ProjList()
+            CoolifyProjList()
                 .tag(1)
                 .tabItem {
                     Label("Coolify", systemImage: "globe")

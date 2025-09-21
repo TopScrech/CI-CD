@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ProjList: View {
+struct CoolifyProjList: View {
     var body: some View {
         List {
             
@@ -9,5 +9,5 @@ struct ProjList: View {
 }
 
 #Preview {
-    ProjList()
+    CoolifyProjList()
 }
