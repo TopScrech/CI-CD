@@ -1,8 +1,10 @@
 import ScrechKit
 
 struct HomeView: View {
+    @EnvironmentObject private var store: ValueStore
+    
     var body: some View {
-        TabView {
+        TabView(selection: $store.lastTab) {
             AppList()
                 .tag(0)
                 .tabItem {
