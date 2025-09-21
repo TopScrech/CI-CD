@@ -17,6 +17,8 @@ struct AppSettingsDebug: View {
                 Pasteboard.copy(store.privateKeyId)
             }
             
+            Toggle("Status bar", isOn: $store.showStatusBar)
+            
             Button("Log out", systemImage: "rectangle.portrait.and.arrow.right", role: .destructive) {
                 store.isAuthorized = false
             }
