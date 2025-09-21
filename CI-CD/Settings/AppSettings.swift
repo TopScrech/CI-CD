@@ -9,7 +9,9 @@ struct AppSettings: View {
             AppSettingsAppearance()
 #endif
             Section {
-                Toggle("Demo Mode", isOn: $store.demoMode)
+                Toggle(isOn: $store.demoMode) {
+                    Label("Demo mode", systemImage: "hammer")
+                }
             }
             
             AppSettingsFeedback()

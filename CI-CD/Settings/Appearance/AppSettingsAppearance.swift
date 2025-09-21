@@ -5,11 +5,13 @@ struct AppSettingsAppearance: View {
     
     var body: some View {
         Section {
-            Picker("Appearance", selection: $store.appearance) {
+            Picker(selection: $store.appearance) {
                 ForEach(ColorTheme.allCases) { theme in
                     Text(theme.loc)
                         .tag(theme)
                 }
+            } label: {
+                Label("Appearance", systemImage: "paintbrush")
             }
         }
     }
