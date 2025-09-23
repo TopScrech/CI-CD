@@ -6,17 +6,13 @@ struct ActionDetails: View {
     
     var body: some View {
         TabView {
-            IssueList()
-                .tag(0)
-                .tabItem {
-                    Label("Issues", systemImage: "exclamationmark.triangle")
-                }
+            Tab("Issues", systemImage: "exclamationmark.triangle") {
+                IssueList()
+            }
             
-            ArtifactList()
-                .tag(1)
-                .tabItem {
-                    Label("Artifacts", systemImage: "archivebox")
-                }
+            Tab("Artifacts", systemImage: "archivebox") {
+                ArtifactList()
+            }
         }
         .environment(vm)
     }
