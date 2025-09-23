@@ -5,17 +5,13 @@ struct HomeView: View {
     
     var body: some View {
         TabView(selection: $store.lastTab) {
-            AppList()
-                .tag(0)
-                .tabItem {
-                    Label("Connect", systemImage: "app.dashed")
-                }
+            Tab("Connect", systemImage: "app.dashed", value: 0) {
+                AppList()
+            }
             
-            CoolifyProjList()
-                .tag(1)
-                .tabItem {
-                    Label("Coolify", systemImage: "globe")
-                }
+            Tab("Coolify", systemImage: "globe", value: 1) {
+                CoolifyProjList()
+            }
         }
         .toolbar {
             NavigationLink {
