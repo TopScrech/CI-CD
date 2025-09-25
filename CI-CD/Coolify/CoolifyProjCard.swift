@@ -25,9 +25,6 @@ struct CoolifyProjCard: View {
 }
 
 #Preview {
-#warning("Create Previewprop")
-    CoolifyProjCard(
-        CoolifyProject(id: 1, uuid: "", name: "Test", description: "Test", environments: [])
-    )
-    .darkSchemePreferred()
+    CoolifyProjCard(PreviewProp.coolifyProj)
+        .darkSchemePreferred()
 }

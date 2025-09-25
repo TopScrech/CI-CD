@@ -17,4 +17,5 @@ struct CoolifyProjList: View {
 
 #Preview {
     CoolifyProjList()
+        .darkSchemePreferred()
 }

@@ -16,6 +16,7 @@ struct CoolifyProjDetails: View {
     }
 }
 
-//#Preview {
-//    CoolifyProjDetails()
-//}
+#Preview {
+    CoolifyProjDetails(PreviewProp.coolifyProj)
+        .darkSchemePreferred()
+}
