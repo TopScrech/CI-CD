@@ -104,7 +104,7 @@
 		F3A010FA2DE2082F0098E234 /* AppStoreVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */; };
 		F3A010FB2DE2082F0098E234 /* AppStoreVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */; };
 		F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3A36EA42DDA47E200733D6D /* Kingfisher */; };
-		F3A461142E528F9900D9A224 /* AppSettingsAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A461122E528F9900D9A224 /* AppSettingsAppearance.swift */; };
+		F3A7CDE22E87D60400F08890 /* Appearance in Frameworks */ = {isa = PBXBuildFile; productRef = F3A7CDE12E87D60400F08890 /* Appearance */; };
 		F3B75CE02E72B0310096E65E /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F3B75CDD2E72A9620096E65E /* AppIcon.icon */; };
 		F3E0D1AD2DDA70AC004A14C7 /* BuildVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1AC2DDA70AC004A14C7 /* BuildVM.swift */; };
 		F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */; };
@@ -124,7 +124,6 @@
 		F3FCD1F12E522E7C003BDE5E /* AppSettingsFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCD1EF2E522E7C003BDE5E /* AppSettingsFeedback.swift */; };
 		F3FCD1F32E522FE7003BDE5E /* NavSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */; };
 		F3FCD1F42E522FE7003BDE5E /* NavSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */; };
-		F3FCD2092E528543003BDE5E /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCD2072E528543003BDE5E /* ColorTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -184,7 +183,6 @@
 		F3A010F32DE2011D0098E234 /* AppVersions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersions.swift; sourceTree = "<group>"; };
 		F3A010F62DE2070A0098E234 /* AppVersionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionCard.swift; sourceTree = "<group>"; };
 		F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreVersion.swift; sourceTree = "<group>"; };
-		F3A461122E528F9900D9A224 /* AppSettingsAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsAppearance.swift; sourceTree = "<group>"; };
 		F3AE99E12E2F88AA00D70249 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F3B75CDD2E72A9620096E65E /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		F3E0D1AC2DDA70AC004A14C7 /* BuildVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildVM.swift; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 		F3FCD1EC2E522E41003BDE5E /* AppSettingsDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsDebug.swift; sourceTree = "<group>"; };
 		F3FCD1EF2E522E7C003BDE5E /* AppSettingsFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsFeedback.swift; sourceTree = "<group>"; };
 		F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavSubtitle.swift; sourceTree = "<group>"; };
-		F3FCD2072E528543003BDE5E /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +218,7 @@
 				F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */,
 				F31D32242DDD265A00E7B121 /* SafariCover in Frameworks */,
 				F376E1942DDA47BB00D98252 /* ScrechKit in Frameworks */,
+				F3A7CDE22E87D60400F08890 /* Appearance in Frameworks */,
 				F3E0D1D52DDB3B51004A14C7 /* MailCover in Frameworks */,
 			);
 		};
@@ -292,15 +290,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F336612E2E739CC1008E73C9 /* Appearance */ = {
-			isa = PBXGroup;
-			children = (
-				F3A461122E528F9900D9A224 /* AppSettingsAppearance.swift */,
-				F3FCD2072E528543003BDE5E /* ColorTheme.swift */,
-			);
-			path = Appearance;
 			sourceTree = "<group>";
 		};
 		F33661322E73A0FF008E73C9 /* Nav */ = {
@@ -413,7 +402,6 @@
 				F3E0D1C82DDB18AC004A14C7 /* AppSettings.swift */,
 				F3FCD1EF2E522E7C003BDE5E /* AppSettingsFeedback.swift */,
 				F3FCD1EC2E522E41003BDE5E /* AppSettingsDebug.swift */,
-				F336612E2E739CC1008E73C9 /* Appearance */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -474,6 +462,7 @@
 				F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */,
 				F3E0D1D42DDB3B51004A14C7 /* MailCover */,
 				F31D32232DDD265A00E7B121 /* SafariCover */,
+				F3A7CDE12E87D60400F08890 /* Appearance */,
 			);
 			productName = CD;
 			productReference = F337089F2DD93A01006834F8 /* iOS.app */;
@@ -514,6 +503,7 @@
 				F3E0D1AE2DDA778A004A14C7 /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */,
 				F3E0D1D32DDB3B51004A14C7 /* XCRemoteSwiftPackageReference "MailCover" */,
 				F31D32222DDD265A00E7B121 /* XCRemoteSwiftPackageReference "SafariCover" */,
+				F3A7CDE02E87D60300F08890 /* XCRemoteSwiftPackageReference "Appearance" */,
 			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = F33708A02DD93A01006834F8 /* Products */;
@@ -638,7 +628,6 @@
 				F31D321B2DDD1AA300E7B121 /* CiIssue.swift in Sources */,
 				F3116C072DF57496009521DE /* AppVersionCardVM.swift in Sources */,
 				F3116C0C2DF5F688009521DE /* Error.swift in Sources */,
-				F3A461142E528F9900D9A224 /* AppSettingsAppearance.swift in Sources */,
 				F302462A2DDC680400999146 /* AppCardImage.swift in Sources */,
 				F31D32112DDD081E00E7B121 /* BuildDetailsProgress.swift in Sources */,
 				F31D32132DDD13FE00E7B121 /* ActionCard.swift in Sources */,
@@ -648,7 +637,6 @@
 				F30160AC2E80B71100748848 /* CoolifyProjCard.swift in Sources */,
 				F302462C2DDC6AAE00999146 /* UserDefaults.swift in Sources */,
 				F376E1672DDA284600D98252 /* AppCard.swift in Sources */,
-				F3FCD2092E528543003BDE5E /* ColorTheme.swift in Sources */,
 				F3E0D1CC2DDB19D3004A14C7 /* ValueStore.swift in Sources */,
 				F3116C092DF574A5009521DE /* ADPStatusResponse.swift in Sources */,
 				F31D32262DDD435A00E7B121 /* RepoCard.swift in Sources */,
@@ -986,6 +974,14 @@
 				minimumVersion = 8.3.2;
 			};
 		};
+		F3A7CDE02E87D60300F08890 /* XCRemoteSwiftPackageReference "Appearance" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TopScrech/Appearance";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		F3E0D1AE2DDA778A004A14C7 /* XCRemoteSwiftPackageReference "appstoreconnect-swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TopScrech/appstoreconnect-swift-sdk";
@@ -1044,6 +1040,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F3A36EA32DDA47E200733D6D /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		F3A7CDE12E87D60400F08890 /* Appearance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3A7CDE02E87D60300F08890 /* XCRemoteSwiftPackageReference "Appearance" */;
+			productName = Appearance;
 		};
 		F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */ = {
 			isa = XCSwiftPackageProductDependency;

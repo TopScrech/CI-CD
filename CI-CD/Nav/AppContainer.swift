@@ -13,7 +13,7 @@ struct AppContainer: View {
         }
         .statusBarHidden(!store.showStatusBar)
         .environmentObject(store)
-#if os(iOS)
+#if canImport(Appearance)
         .preferredColorScheme(store.appearance.scheme)
 #endif
     }

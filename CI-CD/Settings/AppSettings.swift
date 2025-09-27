@@ -1,12 +1,18 @@
 import SwiftUI
 
+#if canImport(Appearance)
+import Appearance
+#endif
+
 struct AppSettings: View {
     @EnvironmentObject private var store: ValueStore
     
     var body: some View {
         List {
-#if os(iOS)
-            AppSettingsAppearance()
+#if canImport(Appearance)
+            Section {
+                AppearancePicker($store.appearance)
+            }
 #endif
             Section {
                 Toggle(isOn: $store.demoMode) {

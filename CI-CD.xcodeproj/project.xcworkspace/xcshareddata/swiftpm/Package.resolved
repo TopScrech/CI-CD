@@ -1,6 +1,15 @@
 {
-  "originHash" : "127a8aa91b8483f45a51fa3fe569db64081e59a1acfe1a751001d25c5e7cb95b",
+  "originHash" : "ba7618bf973a5afe59cd4b604c4c85dae5ca92ea42639e2d3f1484e1977a9baf",
   "pins" : [
+    {
+      "identity" : "appearance",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TopScrech/Appearance",
+      "state" : {
+        "branch" : "main",
+        "revision" : "737ef13cbcd497a84b4093e2827163c4fe001e9d"
+      }
+    },
     {
       "identity" : "appstoreconnect-swift-sdk",
       "kind" : "remoteSourceControl",
