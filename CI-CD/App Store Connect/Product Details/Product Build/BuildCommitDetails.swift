@@ -20,8 +20,8 @@ struct BuildCommitDetails: View {
         Section {
             VStack(alignment: .leading, spacing: 16) {
                 HStack {
-                    if let avatar = author?.avatarURL {
-                        KFImage(avatar)
+                    if let avatar = author?.avatarURL, let avatarURL = URL(string: avatar) {
+                        KFImage(avatarURL)
                             .resizable()
                             .frame(imgSize)
                             .clipShape(.circle)
@@ -45,7 +45,7 @@ struct BuildCommitDetails: View {
                     .monospaced()
             }
             
-            if let commit, let url = commit.webURL {
+            if let commit, let urlString = commit.webURL, let url = URL(string: urlString) {
                 Button("Open on GitHub", systemImage: "link") {
                     openUrl(url)
                 }

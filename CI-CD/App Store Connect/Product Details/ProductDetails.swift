@@ -1,5 +1,5 @@
 import SwiftUI
-import AppStoreConnect_Swift_SDK
+@preconcurrency import AppStoreConnect_Swift_SDK
 
 struct ProductDetails: View {
     @Environment(AppVM.self) private var vm

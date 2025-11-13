@@ -86,8 +86,8 @@ struct BuildCard: View {
                     }
                     
                     HStack {
-                        if let avatar = author?.avatarURL {
-                            KFImage(avatar)
+                        if let avatar = author?.avatarURL, let avatarURL = URL(string: avatar) {
+                            KFImage(avatarURL)
                                 .resizable()
                                 .frame(imgSize)
                                 .clipShape(.circle)

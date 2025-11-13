@@ -1,5 +1,5 @@
 import ScrechKit
-import AppStoreConnect_Swift_SDK
+@preconcurrency import AppStoreConnect_Swift_SDK
 
 struct AppCard: View {
     @State private var vm = AppVM()

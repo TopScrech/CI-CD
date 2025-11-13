@@ -21,6 +21,8 @@
 		F30160B02E80BBFA00748848 /* CoolifyProjDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160AE2E80BBFA00748848 /* CoolifyProjDetails.swift */; };
 		F302462A2DDC680400999146 /* AppCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246292DDC680400999146 /* AppCardImage.swift */; };
 		F302462C2DDC6AAE00999146 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* UserDefaults.swift */; };
+		F304E9182EC693EE0069A73D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304E9172EC693EE0069A73D /* Extensions.swift */; };
+		F304E9192EC693EE0069A73D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304E9172EC693EE0069A73D /* Extensions.swift */; };
 		F3116C062DF57496009521DE /* AppVersionCardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* AppVersionCardVM.swift */; };
 		F3116C072DF57496009521DE /* AppVersionCardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* AppVersionCardVM.swift */; };
 		F3116C092DF574A5009521DE /* ADPStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C082DF574A5009521DE /* ADPStatusResponse.swift */; };
@@ -146,6 +148,7 @@
 		F30160AE2E80BBFA00748848 /* CoolifyProjDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyProjDetails.swift; sourceTree = "<group>"; };
 		F30246292DDC680400999146 /* AppCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCardImage.swift; sourceTree = "<group>"; };
 		F302462B2DDC6AAE00999146 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		F304E9172EC693EE0069A73D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F3116C052DF57496009521DE /* AppVersionCardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionCardVM.swift; sourceTree = "<group>"; };
 		F3116C082DF574A5009521DE /* ADPStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADPStatusResponse.swift; sourceTree = "<group>"; };
 		F3116C0B2DF5F688009521DE /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -410,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				F3E0D1CB2DDB19D3004A14C7 /* ValueStore.swift */,
+				F304E9172EC693EE0069A73D /* Extensions.swift */,
 				F33770CA2E858F8D00180B6D /* PreviewProp.swift */,
 				F302462B2DDC6AAE00999146 /* UserDefaults.swift */,
 				F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */,
@@ -586,6 +590,7 @@
 				F3242A092DDDD075000A16E8 /* AppCardImage.swift in Sources */,
 				F3242A0A2DDDD075000A16E8 /* AppVM.swift in Sources */,
 				F3242A0C2DDDD075000A16E8 /* AppListVM.swift in Sources */,
+				F304E9182EC693EE0069A73D /* Extensions.swift in Sources */,
 				F3242A0D2DDDD075000A16E8 /* AppCard.swift in Sources */,
 				F3242A042DDDD06E000A16E8 /* CI-CD.swift in Sources */,
 			);
@@ -642,6 +647,7 @@
 				F31D32262DDD435A00E7B121 /* RepoCard.swift in Sources */,
 				F31D32172DDD18A200E7B121 /* IssueCard.swift in Sources */,
 				F3E0D1C92DDB18AC004A14C7 /* AppSettings.swift in Sources */,
+				F304E9192EC693EE0069A73D /* Extensions.swift in Sources */,
 				F31D32212DDD245F00E7B121 /* CiArtifact.swift in Sources */,
 				F3E0D1C52DDA92DD004A14C7 /* WorkflowCard.swift in Sources */,
 			);
@@ -669,8 +675,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = xros;
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 7;
 				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -696,8 +703,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = xros;
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 7;
 				VALIDATE_PRODUCT = YES;
 				XROS_DEPLOYMENT_TARGET = 2.0;
@@ -869,8 +877,9 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
@@ -913,8 +922,9 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
