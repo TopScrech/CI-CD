@@ -7,7 +7,7 @@
       "location" : "https://github.com/TopScrech/Appearance",
       "state" : {
         "branch" : "main",
-        "revision" : "ffd455ead37ffdf6809381083b85192a909eb001"
+        "revision" : "1a8f0bc05a667f1079c9f7b3b31840f60abd7db5"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher",
       "state" : {
-        "revision" : "dd3c422ec3088404d6f7e8c905a8318b3de12d6f",
-        "version" : "8.6.0"
+        "revision" : "4d75de347da985a70c63af4d799ed482021f6733",
+        "version" : "8.6.1"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "https://github.com/TopScrech/MailCover",
       "state" : {
         "branch" : "main",
-        "revision" : "c33771592360b836f114ebe32ad660590c7afc28"
+        "revision" : "6be9a338e65877e2ecdb87111afc92e6902daf21"
       }
     },
     {
@@ -43,7 +43,7 @@
       "location" : "https://github.com/TopScrech/SafariCover",
       "state" : {
         "branch" : "main",
-        "revision" : "53823cbe9ca2ab959958ef42b935a988d07dff91"
+        "revision" : "395397e46cb476106fcd8436f955bba3eb0963fa"
       }
     },
     {
@@ -52,7 +52,7 @@
       "location" : "https://github.com/TopScrech/ScrechKit",
       "state" : {
         "branch" : "main",
-        "revision" : "28f4be08c8801f324b0c6e107edf5982291296f6"
+        "revision" : "d8ffdc58388da376d18a7b71f0e78f34e5416219"
       }
     },
     {
