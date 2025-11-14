@@ -86,8 +86,8 @@ struct AuthView: View {
             readP8File(url)
             
             let keyId = url.lastPathComponent // AuthKey_3U3CPFA54N.p8
-                .replacingOccurrences(of: "AuthKey_", with: "")
-                .replacingOccurrences(of: ".p8", with: "")
+                .replacing("AuthKey_", with: "")
+                .replacing(".p8", with: "")
             
             store.privateKeyId = keyId
         }

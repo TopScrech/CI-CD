@@ -90,7 +90,7 @@ final class AppVersionCardVM {
         let data = try Data(contentsOf: remoteUrl)
         
         let versionString = version?
-            .replacingOccurrences(of: ".", with: "_")
+            .replacing(".", with: "_")
             .appending(".zip")
         
         let fileName = versionString ?? remoteUrl.lastPathComponent

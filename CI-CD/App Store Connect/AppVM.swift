@@ -61,9 +61,9 @@ final class AppVM {
             }
             
             let url = urlTemplate
-                .replacingOccurrences(of: "{w}", with: "1024")
-                .replacingOccurrences(of: "{h}", with: "1024")
-                .replacingOccurrences(of: "{f}", with: "png")
+                .replacing("{w}", with: "1024")
+                .replacing("{h}", with: "1024")
+                .replacing("{f}", with: "png")
             
             iconUrl = url
         } catch {
