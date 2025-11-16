@@ -24,9 +24,9 @@ struct AppSettingsDebug: View {
             Button("Copy private key ID") {
                 Pasteboard.copy(store.privateKeyId)
             }
-            
+#if os(iOS)
             Toggle("Status bar", isOn: $store.showStatusBar)
-            
+#endif
             Button("Log out", systemImage: "rectangle.portrait.and.arrow.right", role: .destructive) {
                 store.isAuthorized = false
             }

@@ -11,7 +11,9 @@ struct AppContainer: View {
                 AuthView()
             }
         }
+#if os(iOS)
         .statusBarHidden(!store.showStatusBar)
+#endif
         .environmentObject(store)
 #if canImport(Appearance)
         .preferredColorScheme(store.appearance.scheme)
