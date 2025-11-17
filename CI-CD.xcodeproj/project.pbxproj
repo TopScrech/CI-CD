@@ -84,6 +84,9 @@
 		F3242A2B2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2A2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK */; };
 		F3242A2D2DDDD22C000A16E8 /* MailCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2C2DDDD22C000A16E8 /* MailCover */; };
 		F3242A2F2DDDD239000A16E8 /* SafariCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2E2DDDD239000A16E8 /* SafariCover */; };
+		F32A1AFB2ECB962900BE176C /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F3B75CDD2E72A9620096E65E /* AppIcon.icon */; };
+		F32A1AFC2ECB963700BE176C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
+		F32A1AFD2ECB965F00BE176C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
 		F33661302E739E82008E73C9 /* AppCardContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */; };
 		F33661312E739E82008E73C9 /* AppCardContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */; };
 		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
@@ -169,10 +172,12 @@
 		F32429E72DDDD018000A16E8 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32429F82DDDD038000A16E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F32429FA2DDDD038000A16E8 /* visionOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = visionOS.plist; sourceTree = "<group>"; };
+		F32A1AEA2ECB956D00BE176C /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
+		F32A1AEF2ECB958400BE176C /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCardContextMenu.swift; sourceTree = "<group>"; };
 		F337089F2DD93A01006834F8 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33708AE2DD93A0D006834F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CI-CD.entitlements"; sourceTree = "<group>"; };
+		F33708AF2DD93A0D006834F8 /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		F33708B02DD93A0D006834F8 /* CI-CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CI-CD.swift"; sourceTree = "<group>"; };
 		F33708B12DD93A0D006834F8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F33770CA2E858F8D00180B6D /* PreviewProp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProp.swift; sourceTree = "<group>"; };
@@ -203,6 +208,14 @@
 		F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavSubtitle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F32A1AF02ECB958400BE176C /* macOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = macOS;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		F32429E42DDDD018000A16E8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -212,6 +225,11 @@
 				F3242A2F2DDDD239000A16E8 /* SafariCover in Frameworks */,
 				F3242A2B2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK in Frameworks */,
 				F3242A2D2DDDD22C000A16E8 /* MailCover in Frameworks */,
+			);
+		};
+		F32A1AEC2ECB958400BE176C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
 			);
 		};
 		F337089C2DD93A01006834F8 /* Frameworks */ = {
@@ -282,6 +300,7 @@
 		F32429FC2DDDD038000A16E8 /* visionOS */ = {
 			isa = PBXGroup;
 			children = (
+				F32A1AEA2ECB956D00BE176C /* visionOS.entitlements */,
 				F32429FA2DDDD038000A16E8 /* visionOS.plist */,
 				F32429F82DDDD038000A16E8 /* Assets.xcassets */,
 			);
@@ -342,6 +361,7 @@
 				F3AE99E12E2F88AA00D70249 /* README.md */,
 				F33708B22DD93A0D006834F8 /* CI-CD */,
 				F32429FC2DDDD038000A16E8 /* visionOS */,
+				F32A1AF02ECB958400BE176C /* macOS */,
 				F3242A252DDDD1FB000A16E8 /* Frameworks */,
 				F33708A02DD93A01006834F8 /* Products */,
 			);
@@ -352,6 +372,7 @@
 			children = (
 				F337089F2DD93A01006834F8 /* iOS.app */,
 				F32429E72DDDD018000A16E8 /* visionOS.app */,
+				F32A1AEF2ECB958400BE176C /* macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -361,7 +382,7 @@
 			children = (
 				F33708B02DD93A0D006834F8 /* CI-CD.swift */,
 				F33661322E73A0FF008E73C9 /* Nav */,
-				F33708AF2DD93A0D006834F8 /* CI-CD.entitlements */,
+				F33708AF2DD93A0D006834F8 /* iOS.entitlements */,
 				F33708AE2DD93A0D006834F8 /* Assets.xcassets */,
 				F3B75CDD2E72A9620096E65E /* AppIcon.icon */,
 				F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */,
@@ -448,6 +469,24 @@
 			productReference = F32429E72DDDD018000A16E8 /* visionOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F32A1AEE2ECB958400BE176C /* macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F32A1AF72ECB958500BE176C /* Build configuration list for PBXNativeTarget "macOS" */;
+			buildPhases = (
+				F32A1AEB2ECB958400BE176C /* Sources */,
+				F32A1AEC2ECB958400BE176C /* Frameworks */,
+				F32A1AED2ECB958400BE176C /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				F32A1AF02ECB958400BE176C /* macOS */,
+			);
+			name = macOS;
+			productName = macOS;
+			productReference = F32A1AEF2ECB958400BE176C /* macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F337089E2DD93A01006834F8 /* iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F33708AB2DD93A02006834F8 /* Build configuration list for PBXNativeTarget "iOS" */;
@@ -479,11 +518,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1640;
+				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					F32429E62DDDD018000A16E8 = {
 						CreatedOnToolsVersion = 16.4;
+					};
+					F32A1AEE2ECB958400BE176C = {
+						CreatedOnToolsVersion = 26.2;
 					};
 					F337089E2DD93A01006834F8 = {
 						CreatedOnToolsVersion = 16.4;
@@ -516,6 +558,7 @@
 			targets = (
 				F337089E2DD93A01006834F8 /* iOS */,
 				F32429E62DDDD018000A16E8 /* visionOS */,
+				F32A1AEE2ECB958400BE176C /* macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -524,7 +567,15 @@
 		F32429E52DDDD018000A16E8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				F32A1AFD2ECB965F00BE176C /* Assets.xcassets in Resources */,
 				F32429FD2DDDD038000A16E8 /* Assets.xcassets in Resources */,
+			);
+		};
+		F32A1AED2ECB958400BE176C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				F32A1AFC2ECB963700BE176C /* Assets.xcassets in Resources */,
+				F32A1AFB2ECB962900BE176C /* AppIcon.icon in Resources */,
 			);
 		};
 		F337089D2DD93A01006834F8 /* Resources */ = {
@@ -595,6 +646,11 @@
 				F3242A042DDDD06E000A16E8 /* CI-CD.swift in Sources */,
 			);
 		};
+		F32A1AEB2ECB958400BE176C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
 		F337089B2DD93A01006834F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
@@ -660,6 +716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = visionOS/visionOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
@@ -688,6 +745,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = visionOS/visionOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
@@ -709,6 +767,96 @@
 				TARGETED_DEVICE_FAMILY = 7;
 				VALIDATE_PRODUCT = YES;
 				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		F32A1AF82ECB958500BE176C /* Debug configuration for PBXNativeTarget "macOS" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = CI/CD;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.CI-CD";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F32A1AF92ECB958500BE176C /* Release configuration for PBXNativeTarget "macOS" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = CI/CD;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.CI-CD";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -845,7 +993,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "CI-CD/CI-CD.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "CI-CD/iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
@@ -875,7 +1023,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -890,7 +1038,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "CI-CD/CI-CD.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "CI-CD/iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
@@ -920,7 +1068,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -938,6 +1086,14 @@
 			buildConfigurations = (
 				F32429F42DDDD019000A16E8 /* Debug configuration for PBXNativeTarget "visionOS" */,
 				F32429F52DDDD019000A16E8 /* Release configuration for PBXNativeTarget "visionOS" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		F32A1AF72ECB958500BE176C /* Build configuration list for PBXNativeTarget "macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F32A1AF82ECB958500BE176C /* Debug configuration for PBXNativeTarget "macOS" */,
+				F32A1AF92ECB958500BE176C /* Release configuration for PBXNativeTarget "macOS" */,
 			);
 			defaultConfigurationName = Release;
 		};
