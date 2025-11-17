@@ -11,7 +11,7 @@ struct CoolifyProjCard: View {
         NavigationLink {
             CoolifyProjDetails(proj)
         } label: {
-            VStack {
+            VStack(alignment: .leading) {
                 Text(proj.name)
                 
                 if let description = proj.description, !description.isEmpty {

@@ -232,6 +232,7 @@
       }
     },
     "Archive" : {
+      "extractionState" : "stale",
       "localizations" : {
         "nl" : {
           "stringUnit" : {

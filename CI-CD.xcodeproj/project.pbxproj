@@ -44,7 +44,6 @@
 		F31D322D2DDD5A6500E7B121 /* IssueList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322C2DDD5A6500E7B121 /* IssueList.swift */; };
 		F31D322F2DDD5A9600E7B121 /* ArtifactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322E2DDD5A9600E7B121 /* ArtifactList.swift */; };
 		F31D32332DDD614400E7B121 /* BuildCommitDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32322DDD614400E7B121 /* BuildCommitDetails.swift */; };
-		F32429FD2DDDD038000A16E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32429F82DDDD038000A16E8 /* Assets.xcassets */; };
 		F3242A012DDDD06E000A16E8 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* AppContainer.swift */; };
 		F3242A022DDDD06E000A16E8 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* AuthView.swift */; };
 		F3242A032DDDD06E000A16E8 /* ValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CB2DDB19D3004A14C7 /* ValueStore.swift */; };
@@ -170,9 +169,6 @@
 		F31D322E2DDD5A9600E7B121 /* ArtifactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtifactList.swift; sourceTree = "<group>"; };
 		F31D32322DDD614400E7B121 /* BuildCommitDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildCommitDetails.swift; sourceTree = "<group>"; };
 		F32429E72DDDD018000A16E8 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F32429F82DDDD038000A16E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F32429FA2DDDD038000A16E8 /* visionOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = visionOS.plist; sourceTree = "<group>"; };
-		F32A1AEA2ECB956D00BE176C /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
 		F32A1AEF2ECB958400BE176C /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCardContextMenu.swift; sourceTree = "<group>"; };
 		F337089F2DD93A01006834F8 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,10 +204,28 @@
 		F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavSubtitle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F32A1B032ECBD6BC00BE176C /* Exceptions for "visionOS" folder in "visionOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+			);
+			target = F32429E62DDDD018000A16E8 /* visionOS */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F32A1AF02ECB958400BE176C /* macOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		F32A1B012ECBD6BC00BE176C /* visionOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F32A1B032ECBD6BC00BE176C /* Exceptions for "visionOS" folder in "visionOS" target */,
+			);
+			path = visionOS;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -297,16 +311,6 @@
 			path = "Action Details";
 			sourceTree = "<group>";
 		};
-		F32429FC2DDDD038000A16E8 /* visionOS */ = {
-			isa = PBXGroup;
-			children = (
-				F32A1AEA2ECB956D00BE176C /* visionOS.entitlements */,
-				F32429FA2DDDD038000A16E8 /* visionOS.plist */,
-				F32429F82DDDD038000A16E8 /* Assets.xcassets */,
-			);
-			path = visionOS;
-			sourceTree = "<group>";
-		};
 		F3242A252DDDD1FB000A16E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,7 +364,7 @@
 			children = (
 				F3AE99E12E2F88AA00D70249 /* README.md */,
 				F33708B22DD93A0D006834F8 /* CI-CD */,
-				F32429FC2DDDD038000A16E8 /* visionOS */,
+				F32A1B012ECBD6BC00BE176C /* visionOS */,
 				F32A1AF02ECB958400BE176C /* macOS */,
 				F3242A252DDDD1FB000A16E8 /* Frameworks */,
 				F33708A02DD93A01006834F8 /* Products */,
@@ -568,7 +572,6 @@
 			isa = PBXResourcesBuildPhase;
 			files = (
 				F32A1AFD2ECB965F00BE176C /* Assets.xcassets in Resources */,
-				F32429FD2DDDD038000A16E8 /* Assets.xcassets in Resources */,
 			);
 		};
 		F32A1AED2ECB958400BE176C /* Resources */ = {
