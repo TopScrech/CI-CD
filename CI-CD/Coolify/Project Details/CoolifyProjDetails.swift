@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct CoolifyProjDetails: View {
+    @State private var vm = CoolifyProjDetailsVM()
+    
     private let proj: CoolifyProject
     
     init(_ proj: CoolifyProject) {
@@ -9,10 +11,15 @@ struct CoolifyProjDetails: View {
     
     var body: some View {
         List {
-            
+            ForEach(vm.apps) {
+                CoolifyAppCard($0)
+            }
         }
         .navigationTitle(proj.name)
         .navigationTitle(proj.description ?? "")
+        .refreshableTask {
+            await vm.fetchProjects()
+        }
     }
 }
 

@@ -5,10 +5,10 @@ struct CoolifyProject: Identifiable, Codable {
     let uuid: String
     let name: String
     let description: String?
-    let environments: [CoolifyProjectEnvironment]?
+    let environments: [CoolifyProjectEnv]?
 }
 
-struct CoolifyProjectEnvironment: Identifiable, Codable {
+struct CoolifyProjectEnv: Identifiable, Codable {
     let id: Int
     let name: String
     let projectId: Int

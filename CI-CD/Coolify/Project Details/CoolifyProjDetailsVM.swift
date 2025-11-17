@@ -1,12 +1,12 @@
 import Foundation
 
 @Observable
-final class CoolifyProjListVM {
-    var projects: [CoolifyProject] = []
+final class CoolifyProjDetailsVM {
+    var apps: [CoolifyApp] = []
     
     func fetchProjects() async {
         let store = ValueStore()
-        let path = store.coolifyDomain + "/api/v1/projects"
+        let path = store.coolifyDomain + "/api/v1/applications"
         
         guard let url = URL(string: path) else {
             return
@@ -25,13 +25,12 @@ final class CoolifyProjListVM {
                 print("Failed to print JSON")
             }
             
-            self.projects = try JSONDecoder().decode([CoolifyProject].self, from: data)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            self.apps = try decoder.decode([CoolifyApp].self, from: data)
         } catch {
             print("Error fetching projects:", error)
         }
     }
-}
-
-private struct CoolifyProjectListResponse: Decodable {
-    let data: [CoolifyProject]
 }
