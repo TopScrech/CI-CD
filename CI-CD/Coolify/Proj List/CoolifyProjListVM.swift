@@ -19,12 +19,6 @@ final class CoolifyProjListVM {
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
             
-            if let jsonString = String(data: data, encoding: .utf8) {
-                print(jsonString)
-            } else {
-                print("Failed to print JSON")
-            }
-            
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             
