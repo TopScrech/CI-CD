@@ -6,6 +6,8 @@ struct CoolifyApp: Identifiable, Codable {
     }
     
     let uuid: String
+    let environmentId: Int
+    let repositoryProjectId: Int
     let name: String
     let description: String?
     let gitFullUrl: String?
