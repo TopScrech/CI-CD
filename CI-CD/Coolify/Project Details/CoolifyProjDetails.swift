@@ -13,8 +13,18 @@ struct CoolifyProjDetails: View {
         @Bindable var vm = vm
         
         List {
-            ForEach(vm.apps) {
-                CoolifyAppCard($0)
+            Section("Apps") {
+                ForEach(vm.apps) {
+                    CoolifyAppCard($0)
+                }
+            }
+            
+            if !vm.databases.isEmpty {
+                Section("Databases") {
+                    ForEach(vm.databases) {
+                        CoolifyDatabaseCard($0)
+                    }
+                }
             }
         }
         .navigationTitle(proj.name)

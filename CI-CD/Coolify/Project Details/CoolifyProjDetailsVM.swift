@@ -3,6 +3,7 @@ import Foundation
 @Observable
 final class CoolifyProjDetailsVM {
     var apps: [CoolifyApp] = []
+    var databases: [CoolifyDatabase] = []
     
     var projName = ""
     var projDescription = ""
@@ -46,11 +47,11 @@ final class CoolifyProjDetailsVM {
         
         let envIds = Set(environments.keys)
         
-        guard let apps = await fetchApps(envIds: envIds, environments: environments) else {
-            return
-        }
+        async let apps = fetchApps(envIds: envIds, environments: environments)
+        async let databases = fetchDatabases(envIds: envIds, environments: environments)
         
-        self.apps = apps
+        self.apps = await apps ?? []
+        self.databases = await databases ?? []
     }
     
     private func fetchEnvironments(_ project: CoolifyProject) async -> [Int: CoolifyProjectEnv]? {
@@ -109,6 +110,41 @@ final class CoolifyProjDetailsVM {
             }
             
             return apps
+        } catch {
+            return nil
+        }
+    }
+    
+    private func fetchDatabases(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv]) async -> [CoolifyDatabase]? {
+        let store = ValueStore()
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        let path = store.coolifyDomain + "/api/v1/databases"
+        
+        guard let url = URL(string: path) else {
+            return nil
+        }
+        
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(for: request)
+            var databases = try decoder.decode([CoolifyDatabase].self, from: data)
+            
+            databases = databases.compactMap { database in
+                guard envIds.contains(database.environmentId) else {
+                    return nil
+                }
+                
+                var item = database
+                item.environmentName = environments[database.environmentId]?.name
+                return item
+            }
+            
+            return databases
         } catch {
             return nil
         }
