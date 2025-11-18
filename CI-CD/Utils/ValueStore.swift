@@ -6,7 +6,7 @@ import Appearance
 
 final class ValueStore: ObservableObject {
     @AppStorage("is_authorized") var isAuthorized = false
-    @AppStorage("last_tab") var lastTab = 0
+    @AppStorage("last_tab") var lastTab = HomeViewTab.connect
     @AppStorage("demo_mode") var demoMode = false
 #if os(iOS)
     @AppStorage("show_status_bar") var showStatusBar = true

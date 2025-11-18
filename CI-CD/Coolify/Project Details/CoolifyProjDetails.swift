@@ -13,8 +13,12 @@ struct CoolifyProjDetails: View {
         
         List {
             Section("Apps") {
-                ForEach(vm.apps) {
-                    CoolifyAppCard($0)
+                ForEach(vm.apps) { app in
+                    NavigationLink {
+                        CoolifyAppDetails(app)
+                    } label: {
+                        CoolifyAppCard(app)
+                    }
                 }
             }
             
