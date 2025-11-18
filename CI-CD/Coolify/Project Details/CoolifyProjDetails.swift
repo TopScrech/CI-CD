@@ -16,9 +16,8 @@ struct CoolifyProjDetails: View {
             }
         }
         .navigationTitle(proj.name)
-        .navigationTitle(proj.description ?? "")
         .refreshableTask {
-            await vm.fetchProjects()
+            await vm.load(proj)
         }
     }
 }

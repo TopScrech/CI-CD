@@ -4,33 +4,56 @@ import Foundation
 final class CoolifyProjDetailsVM {
     var apps: [CoolifyApp] = []
     
-    func fetchProjects() async {
+    func load(_ project: CoolifyProject) async {
         let store = ValueStore()
-        let path = store.coolifyDomain + "/api/v1/applications"
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        guard let url = URL(string: path) else {
+        // 1) Fetch environments for the project so we know which apps belong here.
+        let envPath = store.coolifyDomain + "/api/v1/projects/\(project.uuid)/environments"
+        guard let envURL = URL(string: envPath) else {
             return
         }
         
-        var request = URLRequest(url: url)
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        var envRequest = URLRequest(url: envURL)
+        envRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        envRequest.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (data, _) = try await URLSession.shared.data(for: request)
+            let (envData, _) = try await URLSession.shared.data(for: envRequest)
+            let environments = try decoder.decode([CoolifyProjectEnv].self, from: envData)
+            let envLookup = Dictionary(uniqueKeysWithValues: environments.map { ($0.id, $0) })
+            let envIds = Set(envLookup.keys)
             
-            if let jsonString = String(data: data, encoding: .utf8) {
-                print(jsonString)
-            } else {
-                print("Failed to print JSON")
+            let appsPath = store.coolifyDomain + "/api/v1/applications"
+            
+            guard let appsURL = URL(string: appsPath) else {
+                return
             }
             
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            var appsRequest = URLRequest(url: appsURL)
+            appsRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+            appsRequest.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
             
-            self.apps = try decoder.decode([CoolifyApp].self, from: data)
+            let (appData, _) = try await URLSession.shared.data(for: appsRequest)
+            
+            var decodedApps = try decoder.decode([CoolifyApp].self, from: appData)
+            
+            // Attach environment names and filter down to the current project
+            decodedApps = decodedApps.compactMap { app in
+                guard envIds.contains(app.environmentId) else {
+                    return nil
+                }
+                
+                var enrichedApp = app
+                enrichedApp.environmentName = envLookup[app.environmentId]?.name
+                
+                return enrichedApp
+            }
+            
+            self.apps = decodedApps
         } catch {
-            print("Error fetching projects:", error)
+            print("Error fetching project details:", error)
         }
     }
 }

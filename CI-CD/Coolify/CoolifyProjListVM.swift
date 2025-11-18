@@ -25,7 +25,10 @@ final class CoolifyProjListVM {
                 print("Failed to print JSON")
             }
             
-            self.projects = try JSONDecoder().decode([CoolifyProject].self, from: data)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            self.projects = try decoder.decode([CoolifyProject].self, from: data)
         } catch {
             print("Error fetching projects:", error)
         }

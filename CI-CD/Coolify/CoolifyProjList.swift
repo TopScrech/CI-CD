@@ -9,7 +9,6 @@ struct CoolifyProjList: View {
                 CoolifyProjCard($0)
             }
         }
-        .navigationTitle("Projects")
         .refreshableTask {
             await vm.fetchProjects()
         }
