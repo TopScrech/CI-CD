@@ -10,9 +10,9 @@ struct CoolifyProject: Identifiable, Codable {
 
 struct CoolifyProjectEnv: Identifiable, Codable {
     let id: Int
-    let name: String?
     let projectId: Int?
+    let name: String
+    let description: String?
     let createdAt: String?
     let updatedAt: String?
-    let description: String?
 }

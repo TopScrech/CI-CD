@@ -12,7 +12,7 @@ struct CoolifyApp: Identifiable, Codable {
     let description: String?
     let gitFullUrl: String?
     
-    // Not provided by the API; populated client-side for quick lookup.
+    /// Helps to link apps to their parent proj
     var environmentName: String?
 }
 
