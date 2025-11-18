@@ -2,11 +2,10 @@ import ScrechKit
 
 struct CoolifyProjDetails: View {
     @State private var vm = CoolifyProjDetailsVM()
-    
-    private let proj: CoolifyProject
+    @State private var proj: CoolifyProject
     
     init(_ proj: CoolifyProject) {
-        self.proj = proj
+        _proj = State(initialValue: proj)
     }
     
     var body: some View {
@@ -27,12 +26,13 @@ struct CoolifyProjDetails: View {
                 }
             }
         }
-        .navigationTitle(proj.name)
-        .navSubtitle(proj.description ?? "")
+        .navigationTitle(vm.project?.name ?? proj.name)
+        .navSubtitle(vm.project?.description ?? proj.description ?? "")
         .refreshableTask {
-            await vm.load(proj)
+            await vm.load(vm.project ?? proj)
         }
         .task {
+            vm.project = proj
             vm.projName = proj.name
             vm.projDescription = proj.description ?? ""
         }
@@ -49,11 +49,15 @@ struct CoolifyProjDetails: View {
             TextField("New name", text: $vm.projName)
                 .autocorrectionDisabled()
             
-            TextField("New name", text: $vm.projDescription)
+            TextField("New description", text: $vm.projDescription)
             
             Button("Save") {
                 Task {
-                    await vm.rename(proj.uuid)
+                    if let updated = await vm.rename(proj.uuid) {
+                        vm.project = updated
+                        proj = updated
+                        await vm.load(updated)
+                    }
                 }
             }
         }

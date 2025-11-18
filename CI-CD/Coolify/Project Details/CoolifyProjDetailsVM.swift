@@ -2,6 +2,7 @@ import Foundation
 
 @Observable
 final class CoolifyProjDetailsVM {
+    var project: CoolifyProject?
     var apps: [CoolifyApp] = []
     var databases: [CoolifyDatabase] = []
     
@@ -9,12 +10,12 @@ final class CoolifyProjDetailsVM {
     var projDescription = ""
     var alertRename = false
     
-    func rename(_ projUUID: String) async {
+    func rename(_ projUUID: String) async -> CoolifyProject? {
         let store = ValueStore()
         
         let renameProjPath = store.coolifyDomain + "/api/v1/projects/\(projUUID)"
         guard let renameProjURL = URL(string: renameProjPath) else {
-            return
+            return nil
         }
         
         let params = [
@@ -23,7 +24,7 @@ final class CoolifyProjDetailsVM {
         ]
         
         guard let body = try? JSONEncoder().encode(params) else {
-            return
+            return nil
         }
         
         var renameRequest = URLRequest(url: renameProjURL)
@@ -35,12 +36,16 @@ final class CoolifyProjDetailsVM {
         
         do {
             _ = try await URLSession.shared.data(for: renameRequest)
+            return await fetchProject(projUUID)
         } catch {
             print("Error renaming proj:", error.localizedDescription)
+            return nil
         }
     }
     
     func load(_ project: CoolifyProject) async {
+        self.project = project
+        
         guard let environments = await fetchEnvironments(project) else {
             return
         }
@@ -74,6 +79,28 @@ final class CoolifyProjDetailsVM {
             let envs = try decoder.decode([CoolifyProjectEnv].self, from: data)
             
             return Dictionary(uniqueKeysWithValues: envs.map { ($0.id, $0) })
+        } catch {
+            return nil
+        }
+    }
+
+    func fetchProject(_ uuid: String) async -> CoolifyProject? {
+        let store = ValueStore()
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        let path = store.coolifyDomain + "/api/v1/projects/\(uuid)"
+        guard let url = URL(string: path) else {
+            return nil
+        }
+        
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(for: request)
+            return try decoder.decode(CoolifyProject.self, from: data)
         } catch {
             return nil
         }
