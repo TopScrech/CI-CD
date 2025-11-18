@@ -1,4 +1,5 @@
 import Foundation
+import ScrechKit
 
 @Observable
 final class CoolifyProjListVM {
@@ -27,8 +28,4 @@ final class CoolifyProjListVM {
             print("Error fetching projects:", error)
         }
     }
-}
-
-private struct CoolifyProjectListResponse: Decodable {
-    let data: [CoolifyProject]
 }

@@ -21,6 +21,13 @@ struct CoolifyProjCard: View {
                 }
             }
         }
+#if DEBUG
+        .contextMenu {
+            Button("Print", systemImage: "hammer") {
+                print(proj)
+            }
+        }
+#endif
     }
 }
 
