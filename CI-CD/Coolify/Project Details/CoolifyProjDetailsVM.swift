@@ -13,7 +13,8 @@ final class CoolifyProjDetailsVM {
     func rename(_ projUUID: String) async -> CoolifyProject? {
         let store = ValueStore()
         
-        let renameProjPath = store.coolifyDomain + "/api/v1/projects/\(projUUID)"
+        let renameProjPath = store.coolifyDomain + "/api/v1/projects/" + projUUID
+        
         guard let renameProjURL = URL(string: renameProjPath) else {
             return nil
         }
@@ -89,7 +90,8 @@ final class CoolifyProjDetailsVM {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        let path = store.coolifyDomain + "/api/v1/projects/\(uuid)"
+        let path = store.coolifyDomain + "/api/v1/projects/" + uuid
+        
         guard let url = URL(string: path) else {
             return nil
         }
