@@ -7,127 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F301609E2E80A6BF00748848 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301609D2E80A6BF00748848 /* AppList.swift */; };
-		F301609F2E80A6BF00748848 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301609D2E80A6BF00748848 /* AppList.swift */; };
-		F30160A32E80A79100748848 /* CoolifyProjList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160A22E80A79100748848 /* CoolifyProjList.swift */; };
-		F30160A42E80A79100748848 /* CoolifyProjList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160A22E80A79100748848 /* CoolifyProjList.swift */; };
-		F30160A62E80AD8D00748848 /* CoolifyProjListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160A52E80AD8D00748848 /* CoolifyProjListVM.swift */; };
-		F30160A72E80AD8D00748848 /* CoolifyProjListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160A52E80AD8D00748848 /* CoolifyProjListVM.swift */; };
-		F30160A92E80B65E00748848 /* CoolifyProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160A82E80B65E00748848 /* CoolifyProject.swift */; };
-		F30160AA2E80B65E00748848 /* CoolifyProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160A82E80B65E00748848 /* CoolifyProject.swift */; };
-		F30160AC2E80B71100748848 /* CoolifyProjCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160AB2E80B71100748848 /* CoolifyProjCard.swift */; };
-		F30160AD2E80B71100748848 /* CoolifyProjCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160AB2E80B71100748848 /* CoolifyProjCard.swift */; };
-		F30160AF2E80BBFA00748848 /* CoolifyProjDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160AE2E80BBFA00748848 /* CoolifyProjDetails.swift */; };
-		F30160B02E80BBFA00748848 /* CoolifyProjDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30160AE2E80BBFA00748848 /* CoolifyProjDetails.swift */; };
-		F302462A2DDC680400999146 /* AppCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246292DDC680400999146 /* AppCardImage.swift */; };
-		F302462C2DDC6AAE00999146 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* UserDefaults.swift */; };
-		F304E9182EC693EE0069A73D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304E9172EC693EE0069A73D /* Extensions.swift */; };
-		F304E9192EC693EE0069A73D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304E9172EC693EE0069A73D /* Extensions.swift */; };
-		F3116C062DF57496009521DE /* AppVersionCardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* AppVersionCardVM.swift */; };
-		F3116C072DF57496009521DE /* AppVersionCardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C052DF57496009521DE /* AppVersionCardVM.swift */; };
-		F3116C092DF574A5009521DE /* ADPStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C082DF574A5009521DE /* ADPStatusResponse.swift */; };
-		F3116C0A2DF574A5009521DE /* ADPStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C082DF574A5009521DE /* ADPStatusResponse.swift */; };
-		F3116C0C2DF5F688009521DE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C0B2DF5F688009521DE /* Error.swift */; };
-		F3116C0D2DF5F688009521DE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3116C0B2DF5F688009521DE /* Error.swift */; };
-		F31D32112DDD081E00E7B121 /* BuildDetailsProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32102DDD081E00E7B121 /* BuildDetailsProgress.swift */; };
-		F31D32132DDD13FE00E7B121 /* ActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32122DDD13FE00E7B121 /* ActionCard.swift */; };
-		F31D32152DDD17C600E7B121 /* ActionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32142DDD17C600E7B121 /* ActionDetails.swift */; };
-		F31D32172DDD18A200E7B121 /* IssueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32162DDD18A200E7B121 /* IssueCard.swift */; };
-		F31D321B2DDD1AA300E7B121 /* CiIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321A2DDD1AA300E7B121 /* CiIssue.swift */; };
-		F31D321D2DDD20F100E7B121 /* ActionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321C2DDD20F100E7B121 /* ActionVM.swift */; };
-		F31D321F2DDD242600E7B121 /* ArtifactCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321E2DDD242600E7B121 /* ArtifactCard.swift */; };
-		F31D32212DDD245F00E7B121 /* CiArtifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32202DDD245F00E7B121 /* CiArtifact.swift */; };
 		F31D32242DDD265A00E7B121 /* SafariCover in Frameworks */ = {isa = PBXBuildFile; productRef = F31D32232DDD265A00E7B121 /* SafariCover */; };
-		F31D32262DDD435A00E7B121 /* RepoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32252DDD435A00E7B121 /* RepoCard.swift */; };
-		F31D32282DDD439700E7B121 /* ScmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32272DDD439700E7B121 /* ScmRepository.swift */; };
-		F31D322B2DDD572E00E7B121 /* WorkflowActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322A2DDD572E00E7B121 /* WorkflowActionCard.swift */; };
-		F31D322D2DDD5A6500E7B121 /* IssueList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322C2DDD5A6500E7B121 /* IssueList.swift */; };
-		F31D322F2DDD5A9600E7B121 /* ArtifactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322E2DDD5A9600E7B121 /* ArtifactList.swift */; };
-		F31D32332DDD614400E7B121 /* BuildCommitDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32322DDD614400E7B121 /* BuildCommitDetails.swift */; };
-		F3242A012DDDD06E000A16E8 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* AppContainer.swift */; };
-		F3242A022DDDD06E000A16E8 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* AuthView.swift */; };
-		F3242A032DDDD06E000A16E8 /* ValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CB2DDB19D3004A14C7 /* ValueStore.swift */; };
-		F3242A042DDDD06E000A16E8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
-		F3242A062DDDD075000A16E8 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
-		F3242A072DDDD075000A16E8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* HomeView.swift */; };
-		F3242A082DDDD075000A16E8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F302462B2DDC6AAE00999146 /* UserDefaults.swift */; };
-		F3242A092DDDD075000A16E8 /* AppCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246292DDC680400999146 /* AppCardImage.swift */; };
-		F3242A0A2DDDD075000A16E8 /* AppVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16D2DDA299200D98252 /* AppVM.swift */; };
-		F3242A0C2DDDD075000A16E8 /* AppListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1472DD9C2C200D98252 /* AppListVM.swift */; };
-		F3242A0D2DDDD075000A16E8 /* AppCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1662DDA284600D98252 /* AppCard.swift */; };
-		F3242A0E2DDDD07A000A16E8 /* WorkflowActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322A2DDD572E00E7B121 /* WorkflowActionCard.swift */; };
-		F3242A0F2DDDD07A000A16E8 /* ActionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321C2DDD20F100E7B121 /* ActionVM.swift */; };
-		F3242A102DDDD07A000A16E8 /* BuildCommitDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32322DDD614400E7B121 /* BuildCommitDetails.swift */; };
-		F3242A112DDDD07A000A16E8 /* RepoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32252DDD435A00E7B121 /* RepoCard.swift */; };
-		F3242A122DDDD07A000A16E8 /* WorkflowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C42DDA92DD004A14C7 /* WorkflowCard.swift */; };
-		F3242A132DDDD07A000A16E8 /* BuildCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E17D2DDA31C400D98252 /* BuildCard.swift */; };
-		F3242A142DDDD07A000A16E8 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1682DDA288200D98252 /* ProductDetails.swift */; };
-		F3242A152DDDD07A000A16E8 /* ActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32122DDD13FE00E7B121 /* ActionCard.swift */; };
-		F3242A162DDDD07A000A16E8 /* BuildDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E18F2DDA437600D98252 /* BuildDetails.swift */; };
-		F3242A172DDDD07E000A16E8 /* ActionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32142DDD17C600E7B121 /* ActionDetails.swift */; };
-		F3242A182DDDD07E000A16E8 /* ArtifactCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321E2DDD242600E7B121 /* ArtifactCard.swift */; };
-		F3242A192DDDD07E000A16E8 /* IssueList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322C2DDD5A6500E7B121 /* IssueList.swift */; };
-		F3242A1A2DDDD07E000A16E8 /* IssueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32162DDD18A200E7B121 /* IssueCard.swift */; };
-		F3242A1B2DDDD07E000A16E8 /* ArtifactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D322E2DDD5A9600E7B121 /* ArtifactList.swift */; };
-		F3242A1C2DDDD07E000A16E8 /* BuildDetailsProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32102DDD081E00E7B121 /* BuildDetailsProgress.swift */; };
-		F3242A1D2DDDD07E000A16E8 /* BuildVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1AC2DDA70AC004A14C7 /* BuildVM.swift */; };
-		F3242A1E2DDDD083000A16E8 /* CiProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */; };
-		F3242A1F2DDDD083000A16E8 /* CiBuildRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */; };
-		F3242A202DDDD083000A16E8 /* CiWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */; };
-		F3242A212DDDD083000A16E8 /* CiIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D321A2DDD1AA300E7B121 /* CiIssue.swift */; };
-		F3242A222DDDD083000A16E8 /* ScmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32272DDD439700E7B121 /* ScmRepository.swift */; };
-		F3242A232DDDD083000A16E8 /* CiArtifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31D32202DDD245F00E7B121 /* CiArtifact.swift */; };
 		F3242A272DDDD1FB000A16E8 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A262DDDD1FB000A16E8 /* ScrechKit */; };
 		F3242A292DDDD201000A16E8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A282DDDD201000A16E8 /* Kingfisher */; };
 		F3242A2B2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2A2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK */; };
 		F3242A2D2DDDD22C000A16E8 /* MailCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2C2DDDD22C000A16E8 /* MailCover */; };
 		F3242A2F2DDDD239000A16E8 /* SafariCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2E2DDDD239000A16E8 /* SafariCover */; };
-		F32A1AFB2ECB962900BE176C /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F3B75CDD2E72A9620096E65E /* AppIcon.icon */; };
-		F32A1AFC2ECB963700BE176C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
-		F32A1AFD2ECB965F00BE176C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
-		F32A1B072ECBDA9E00BE176C /* CoolifyProjDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32A1B062ECBDA9E00BE176C /* CoolifyProjDetailsVM.swift */; };
-		F32A1B082ECBDA9E00BE176C /* CoolifyProjDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32A1B062ECBDA9E00BE176C /* CoolifyProjDetailsVM.swift */; };
-		F32A1B0A2ECBDB6100BE176C /* CoolifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32A1B092ECBDB6100BE176C /* CoolifyApp.swift */; };
-		F32A1B0B2ECBDB6100BE176C /* CoolifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32A1B092ECBDB6100BE176C /* CoolifyApp.swift */; };
-		F32A1B0D2ECBDCDF00BE176C /* CoolifyAppCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32A1B0C2ECBDCDF00BE176C /* CoolifyAppCard.swift */; };
-		F32A1B0E2ECBDCDF00BE176C /* CoolifyAppCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32A1B0C2ECBDCDF00BE176C /* CoolifyAppCard.swift */; };
-		F33661302E739E82008E73C9 /* AppCardContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */; };
-		F33661312E739E82008E73C9 /* AppCardContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */; };
-		F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33708AE2DD93A0D006834F8 /* Assets.xcassets */; };
-		F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B02DD93A0D006834F8 /* CI-CD.swift */; };
-		F33708B52DD93A0D006834F8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33708B12DD93A0D006834F8 /* HomeView.swift */; };
-		F33770CB2E858F8D00180B6D /* PreviewProp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33770CA2E858F8D00180B6D /* PreviewProp.swift */; };
-		F33770CC2E858F8D00180B6D /* PreviewProp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33770CA2E858F8D00180B6D /* PreviewProp.swift */; };
-		F376E14A2DD9C2C200D98252 /* AppListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1472DD9C2C200D98252 /* AppListVM.swift */; };
-		F376E1652DDA195300D98252 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1642DDA195300D98252 /* AppContainer.swift */; };
-		F376E1672DDA284600D98252 /* AppCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1662DDA284600D98252 /* AppCard.swift */; };
-		F376E1692DDA288200D98252 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E1682DDA288200D98252 /* ProductDetails.swift */; };
-		F376E16E2DDA299200D98252 /* AppVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E16D2DDA299200D98252 /* AppVM.swift */; };
-		F376E17E2DDA31C400D98252 /* BuildCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E17D2DDA31C400D98252 /* BuildCard.swift */; };
-		F376E1902DDA437700D98252 /* BuildDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376E18F2DDA437600D98252 /* BuildDetails.swift */; };
 		F376E1942DDA47BB00D98252 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F376E1932DDA47BB00D98252 /* ScrechKit */; };
-		F3A010F42DE2011D0098E234 /* AppVersions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F32DE2011D0098E234 /* AppVersions.swift */; };
-		F3A010F52DE2011D0098E234 /* AppVersions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F32DE2011D0098E234 /* AppVersions.swift */; };
-		F3A010F72DE2070A0098E234 /* AppVersionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F62DE2070A0098E234 /* AppVersionCard.swift */; };
-		F3A010F82DE2070A0098E234 /* AppVersionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F62DE2070A0098E234 /* AppVersionCard.swift */; };
-		F3A010FA2DE2082F0098E234 /* AppStoreVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */; };
-		F3A010FB2DE2082F0098E234 /* AppStoreVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */; };
 		F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3A36EA42DDA47E200733D6D /* Kingfisher */; };
 		F3A7CDE22E87D60400F08890 /* Appearance in Frameworks */ = {isa = PBXBuildFile; productRef = F3A7CDE12E87D60400F08890 /* Appearance */; };
-		F3B75CE02E72B0310096E65E /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F3B75CDD2E72A9620096E65E /* AppIcon.icon */; };
-		F3E0D1AD2DDA70AC004A14C7 /* BuildVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1AC2DDA70AC004A14C7 /* BuildVM.swift */; };
 		F3E0D1B02DDA778A004A14C7 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1AF2DDA778A004A14C7 /* AppStoreConnect-Swift-SDK */; };
-		F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1BD2DDA853C004A14C7 /* Provider.swift */; };
-		F3E0D1C32DDA873C004A14C7 /* CiBuildRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */; };
-		F3E0D1C52DDA92DD004A14C7 /* WorkflowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1C42DDA92DD004A14C7 /* WorkflowCard.swift */; };
-		F3E0D1C72DDB1420004A14C7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */; };
-		F3E0D1CC2DDB19D3004A14C7 /* ValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CB2DDB19D3004A14C7 /* ValueStore.swift */; };
-		F3E0D1CE2DDB1A96004A14C7 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CD2DDB1A96004A14C7 /* AuthView.swift */; };
-		F3E0D1D02DDB36C1004A14C7 /* CiProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */; };
-		F3E0D1D22DDB370E004A14C7 /* CiWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */; };
 		F3E0D1D52DDB3B51004A14C7 /* MailCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3E0D1D42DDB3B51004A14C7 /* MailCover */; };
-		F3FCD1F32E522FE7003BDE5E /* NavSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */; };
-		F3FCD1F42E522FE7003BDE5E /* NavSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -142,66 +32,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F301609D2E80A6BF00748848 /* AppList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppList.swift; sourceTree = "<group>"; };
-		F30160A22E80A79100748848 /* CoolifyProjList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyProjList.swift; sourceTree = "<group>"; };
-		F30160A52E80AD8D00748848 /* CoolifyProjListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyProjListVM.swift; sourceTree = "<group>"; };
-		F30160A82E80B65E00748848 /* CoolifyProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyProject.swift; sourceTree = "<group>"; };
-		F30160AB2E80B71100748848 /* CoolifyProjCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyProjCard.swift; sourceTree = "<group>"; };
-		F30160AE2E80BBFA00748848 /* CoolifyProjDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyProjDetails.swift; sourceTree = "<group>"; };
-		F30246292DDC680400999146 /* AppCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCardImage.swift; sourceTree = "<group>"; };
-		F302462B2DDC6AAE00999146 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
-		F304E9172EC693EE0069A73D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		F3116C052DF57496009521DE /* AppVersionCardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionCardVM.swift; sourceTree = "<group>"; };
-		F3116C082DF574A5009521DE /* ADPStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADPStatusResponse.swift; sourceTree = "<group>"; };
-		F3116C0B2DF5F688009521DE /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		F31D32102DDD081E00E7B121 /* BuildDetailsProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildDetailsProgress.swift; sourceTree = "<group>"; };
-		F31D32122DDD13FE00E7B121 /* ActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCard.swift; sourceTree = "<group>"; };
-		F31D32142DDD17C600E7B121 /* ActionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDetails.swift; sourceTree = "<group>"; };
-		F31D32162DDD18A200E7B121 /* IssueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCard.swift; sourceTree = "<group>"; };
-		F31D321A2DDD1AA300E7B121 /* CiIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiIssue.swift; sourceTree = "<group>"; };
-		F31D321C2DDD20F100E7B121 /* ActionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionVM.swift; sourceTree = "<group>"; };
-		F31D321E2DDD242600E7B121 /* ArtifactCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtifactCard.swift; sourceTree = "<group>"; };
-		F31D32202DDD245F00E7B121 /* CiArtifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiArtifact.swift; sourceTree = "<group>"; };
-		F31D32252DDD435A00E7B121 /* RepoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCard.swift; sourceTree = "<group>"; };
-		F31D32272DDD439700E7B121 /* ScmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScmRepository.swift; sourceTree = "<group>"; };
-		F31D322A2DDD572E00E7B121 /* WorkflowActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowActionCard.swift; sourceTree = "<group>"; };
-		F31D322C2DDD5A6500E7B121 /* IssueList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueList.swift; sourceTree = "<group>"; };
-		F31D322E2DDD5A9600E7B121 /* ArtifactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtifactList.swift; sourceTree = "<group>"; };
-		F31D32322DDD614400E7B121 /* BuildCommitDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildCommitDetails.swift; sourceTree = "<group>"; };
 		F32429E72DDDD018000A16E8 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32A1AEF2ECB958400BE176C /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F32A1B062ECBDA9E00BE176C /* CoolifyProjDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyProjDetailsVM.swift; sourceTree = "<group>"; };
-		F32A1B092ECBDB6100BE176C /* CoolifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyApp.swift; sourceTree = "<group>"; };
-		F32A1B0C2ECBDCDF00BE176C /* CoolifyAppCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolifyAppCard.swift; sourceTree = "<group>"; };
-		F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCardContextMenu.swift; sourceTree = "<group>"; };
 		F337089F2DD93A01006834F8 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F33708AE2DD93A0D006834F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F33708AF2DD93A0D006834F8 /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
-		F33708B02DD93A0D006834F8 /* CI-CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CI-CD.swift"; sourceTree = "<group>"; };
-		F33708B12DD93A0D006834F8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		F33770CA2E858F8D00180B6D /* PreviewProp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProp.swift; sourceTree = "<group>"; };
-		F376E1472DD9C2C200D98252 /* AppListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListVM.swift; sourceTree = "<group>"; };
-		F376E1642DDA195300D98252 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
-		F376E1662DDA284600D98252 /* AppCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCard.swift; sourceTree = "<group>"; };
-		F376E1682DDA288200D98252 /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
-		F376E16D2DDA299200D98252 /* AppVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVM.swift; sourceTree = "<group>"; };
-		F376E17D2DDA31C400D98252 /* BuildCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildCard.swift; sourceTree = "<group>"; };
-		F376E18F2DDA437600D98252 /* BuildDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildDetails.swift; sourceTree = "<group>"; };
-		F3A010F32DE2011D0098E234 /* AppVersions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersions.swift; sourceTree = "<group>"; };
-		F3A010F62DE2070A0098E234 /* AppVersionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionCard.swift; sourceTree = "<group>"; };
-		F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreVersion.swift; sourceTree = "<group>"; };
 		F3AE99E12E2F88AA00D70249 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F3B75CDD2E72A9620096E65E /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
-		F3E0D1AC2DDA70AC004A14C7 /* BuildVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildVM.swift; sourceTree = "<group>"; };
-		F3E0D1BD2DDA853C004A14C7 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
-		F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiBuildRun.swift; sourceTree = "<group>"; };
-		F3E0D1C42DDA92DD004A14C7 /* WorkflowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowCard.swift; sourceTree = "<group>"; };
-		F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		F3E0D1CB2DDB19D3004A14C7 /* ValueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueStore.swift; sourceTree = "<group>"; };
-		F3E0D1CD2DDB1A96004A14C7 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiProduct.swift; sourceTree = "<group>"; };
-		F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiWorkflow.swift; sourceTree = "<group>"; };
-		F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavSubtitle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -211,6 +45,22 @@
 				Assets.xcassets,
 			);
 			target = F32429E62DDDD018000A16E8 /* visionOS */;
+		};
+		F32A1C7A2ECC5EB100BE176C /* Exceptions for "CI-CD" folder in "visionOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppIcon.icon,
+				Localizable.xcstrings,
+			);
+			target = F32429E62DDDD018000A16E8 /* visionOS */;
+		};
+		F32A1C7B2ECC5EB100BE176C /* Exceptions for "CI-CD" folder in "macOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppIcon.icon,
+				Assets.xcassets,
+			);
+			target = F32A1AEE2ECB958400BE176C /* macOS */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -228,9 +78,13 @@
 			path = visionOS;
 			sourceTree = "<group>";
 		};
-		F32A1B122ECC566800BE176C /* Settings */ = {
+		F32A1C032ECC5EB100BE176C /* CI-CD */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Settings;
+			exceptions = (
+				F32A1C7A2ECC5EB100BE176C /* Exceptions for "CI-CD" folder in "visionOS" target */,
+				F32A1C7B2ECC5EB100BE176C /* Exceptions for "CI-CD" folder in "macOS" target */,
+			);
+			path = "CI-CD";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -265,57 +119,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F30160A02E80A75700748848 /* App Store Connect */ = {
-			isa = PBXGroup;
-			children = (
-				F301609D2E80A6BF00748848 /* AppList.swift */,
-				F376E1472DD9C2C200D98252 /* AppListVM.swift */,
-				F376E1662DDA284600D98252 /* AppCard.swift */,
-				F376E16D2DDA299200D98252 /* AppVM.swift */,
-				F336612F2E739E82008E73C9 /* AppCardContextMenu.swift */,
-				F30246292DDC680400999146 /* AppCardImage.swift */,
-				F3116C042DF571CF009521DE /* App Versions */,
-				F376E16A2DDA28AB00D98252 /* Product Details */,
-				F3E0D1BF2DDA872C004A14C7 /* Preview */,
-			);
-			path = "App Store Connect";
-			sourceTree = "<group>";
-		};
-		F30160A12E80A76600748848 /* Coolify */ = {
-			isa = PBXGroup;
-			children = (
-				F30160A22E80A79100748848 /* CoolifyProjList.swift */,
-				F30160A52E80AD8D00748848 /* CoolifyProjListVM.swift */,
-				F30160AB2E80B71100748848 /* CoolifyProjCard.swift */,
-				F30160A82E80B65E00748848 /* CoolifyProject.swift */,
-				F32A1B052ECBDA2700BE176C /* Project Details */,
-			);
-			path = Coolify;
-			sourceTree = "<group>";
-		};
-		F3116C042DF571CF009521DE /* App Versions */ = {
-			isa = PBXGroup;
-			children = (
-				F3A010F32DE2011D0098E234 /* AppVersions.swift */,
-				F3A010F62DE2070A0098E234 /* AppVersionCard.swift */,
-				F3116C052DF57496009521DE /* AppVersionCardVM.swift */,
-				F3116C082DF574A5009521DE /* ADPStatusResponse.swift */,
-			);
-			path = "App Versions";
-			sourceTree = "<group>";
-		};
-		F31D32292DDD532F00E7B121 /* Action Details */ = {
-			isa = PBXGroup;
-			children = (
-				F31D32142DDD17C600E7B121 /* ActionDetails.swift */,
-				F31D322C2DDD5A6500E7B121 /* IssueList.swift */,
-				F31D32162DDD18A200E7B121 /* IssueCard.swift */,
-				F31D322E2DDD5A9600E7B121 /* ArtifactList.swift */,
-				F31D321E2DDD242600E7B121 /* ArtifactCard.swift */,
-			);
-			path = "Action Details";
-			sourceTree = "<group>";
-		};
 		F3242A252DDDD1FB000A16E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,63 +126,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F32A1B052ECBDA2700BE176C /* Project Details */ = {
-			isa = PBXGroup;
-			children = (
-				F30160AE2E80BBFA00748848 /* CoolifyProjDetails.swift */,
-				F32A1B062ECBDA9E00BE176C /* CoolifyProjDetailsVM.swift */,
-				F32A1B0C2ECBDCDF00BE176C /* CoolifyAppCard.swift */,
-				F32A1B092ECBDB6100BE176C /* CoolifyApp.swift */,
-			);
-			path = "Project Details";
-			sourceTree = "<group>";
-		};
-		F33661322E73A0FF008E73C9 /* Nav */ = {
-			isa = PBXGroup;
-			children = (
-				F376E1642DDA195300D98252 /* AppContainer.swift */,
-				F3E0D1CD2DDB1A96004A14C7 /* AuthView.swift */,
-			);
-			path = Nav;
-			sourceTree = "<group>";
-		};
-		F33661332E73A1B7008E73C9 /* Build Actions */ = {
-			isa = PBXGroup;
-			children = (
-				F31D32122DDD13FE00E7B121 /* ActionCard.swift */,
-				F31D321C2DDD20F100E7B121 /* ActionVM.swift */,
-				F31D32292DDD532F00E7B121 /* Action Details */,
-			);
-			path = "Build Actions";
-			sourceTree = "<group>";
-		};
-		F33661342E73A1EF008E73C9 /* Product Build */ = {
-			isa = PBXGroup;
-			children = (
-				F376E17D2DDA31C400D98252 /* BuildCard.swift */,
-				F3E0D1AC2DDA70AC004A14C7 /* BuildVM.swift */,
-				F376E18F2DDA437600D98252 /* BuildDetails.swift */,
-				F31D32322DDD614400E7B121 /* BuildCommitDetails.swift */,
-				F31D32102DDD081E00E7B121 /* BuildDetailsProgress.swift */,
-				F33661332E73A1B7008E73C9 /* Build Actions */,
-			);
-			path = "Product Build";
-			sourceTree = "<group>";
-		};
-		F33661352E73A213008E73C9 /* Workflow */ = {
-			isa = PBXGroup;
-			children = (
-				F3E0D1C42DDA92DD004A14C7 /* WorkflowCard.swift */,
-				F31D322A2DDD572E00E7B121 /* WorkflowActionCard.swift */,
-			);
-			path = Workflow;
-			sourceTree = "<group>";
-		};
 		F33708962DD93A01006834F8 = {
 			isa = PBXGroup;
 			children = (
 				F3AE99E12E2F88AA00D70249 /* README.md */,
-				F33708B22DD93A0D006834F8 /* CI-CD */,
+				F32A1C032ECC5EB100BE176C /* CI-CD */,
 				F32A1B012ECBD6BC00BE176C /* visionOS */,
 				F32A1AF02ECB958400BE176C /* macOS */,
 				F3242A252DDDD1FB000A16E8 /* Frameworks */,
@@ -397,63 +148,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F33708B22DD93A0D006834F8 /* CI-CD */ = {
-			isa = PBXGroup;
-			children = (
-				F33708B02DD93A0D006834F8 /* CI-CD.swift */,
-				F33661322E73A0FF008E73C9 /* Nav */,
-				F33708AF2DD93A0D006834F8 /* iOS.entitlements */,
-				F33708AE2DD93A0D006834F8 /* Assets.xcassets */,
-				F3B75CDD2E72A9620096E65E /* AppIcon.icon */,
-				F3E0D1C62DDB1420004A14C7 /* Localizable.xcstrings */,
-				F3FCD1F52E522FF1003BDE5E /* Utils */,
-				F33708B12DD93A0D006834F8 /* HomeView.swift */,
-				F30160A12E80A76600748848 /* Coolify */,
-				F30160A02E80A75700748848 /* App Store Connect */,
-				F32A1B122ECC566800BE176C /* Settings */,
-			);
-			path = "CI-CD";
-			sourceTree = "<group>";
-		};
-		F376E16A2DDA28AB00D98252 /* Product Details */ = {
-			isa = PBXGroup;
-			children = (
-				F376E1682DDA288200D98252 /* ProductDetails.swift */,
-				F31D32252DDD435A00E7B121 /* RepoCard.swift */,
-				F33661352E73A213008E73C9 /* Workflow */,
-				F33661342E73A1EF008E73C9 /* Product Build */,
-			);
-			path = "Product Details";
-			sourceTree = "<group>";
-		};
-		F3E0D1BF2DDA872C004A14C7 /* Preview */ = {
-			isa = PBXGroup;
-			children = (
-				F3A010F92DE2082F0098E234 /* AppStoreVersion.swift */,
-				F3E0D1C22DDA873C004A14C7 /* CiBuildRun.swift */,
-				F31D321A2DDD1AA300E7B121 /* CiIssue.swift */,
-				F3E0D1CF2DDB36C1004A14C7 /* CiProduct.swift */,
-				F3E0D1D12DDB370E004A14C7 /* CiWorkflow.swift */,
-				F31D32202DDD245F00E7B121 /* CiArtifact.swift */,
-				F31D32272DDD439700E7B121 /* ScmRepository.swift */,
-			);
-			path = Preview;
-			sourceTree = "<group>";
-		};
-		F3FCD1F52E522FF1003BDE5E /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				F3E0D1CB2DDB19D3004A14C7 /* ValueStore.swift */,
-				F304E9172EC693EE0069A73D /* Extensions.swift */,
-				F33770CA2E858F8D00180B6D /* PreviewProp.swift */,
-				F302462B2DDC6AAE00999146 /* UserDefaults.swift */,
-				F3FCD1F22E522FE7003BDE5E /* NavSubtitle.swift */,
-				F3116C0B2DF5F688009521DE /* Error.swift */,
-				F3E0D1BD2DDA853C004A14C7 /* Provider.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -468,7 +162,7 @@
 			buildRules = (
 			);
 			fileSystemSynchronizedGroups = (
-				F32A1B122ECC566800BE176C /* Settings */,
+				F32A1C032ECC5EB100BE176C /* CI-CD */,
 			);
 			name = visionOS;
 			packageProductDependencies = (
@@ -512,7 +206,7 @@
 			buildRules = (
 			);
 			fileSystemSynchronizedGroups = (
-				F32A1B122ECC566800BE176C /* Settings */,
+				F32A1C032ECC5EB100BE176C /* CI-CD */,
 			);
 			name = iOS;
 			packageProductDependencies = (
@@ -583,22 +277,16 @@
 		F32429E52DDDD018000A16E8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				F32A1AFD2ECB965F00BE176C /* Assets.xcassets in Resources */,
 			);
 		};
 		F32A1AED2ECB958400BE176C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				F32A1AFC2ECB963700BE176C /* Assets.xcassets in Resources */,
-				F32A1AFB2ECB962900BE176C /* AppIcon.icon in Resources */,
 			);
 		};
 		F337089D2DD93A01006834F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				F3B75CE02E72B0310096E65E /* AppIcon.icon in Resources */,
-				F3E0D1C72DDB1420004A14C7 /* Localizable.xcstrings in Resources */,
-				F33708B32DD93A0D006834F8 /* Assets.xcassets in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
@@ -607,58 +295,6 @@
 		F32429E32DDDD018000A16E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
-				F3242A012DDDD06E000A16E8 /* AppContainer.swift in Sources */,
-				F32A1B0A2ECBDB6100BE176C /* CoolifyApp.swift in Sources */,
-				F30160B02E80BBFA00748848 /* CoolifyProjDetails.swift in Sources */,
-				F3242A022DDDD06E000A16E8 /* AuthView.swift in Sources */,
-				F3242A032DDDD06E000A16E8 /* ValueStore.swift in Sources */,
-				F3242A0E2DDDD07A000A16E8 /* WorkflowActionCard.swift in Sources */,
-				F3FCD1F42E522FE7003BDE5E /* NavSubtitle.swift in Sources */,
-				F3242A0F2DDDD07A000A16E8 /* ActionVM.swift in Sources */,
-				F3242A102DDDD07A000A16E8 /* BuildCommitDetails.swift in Sources */,
-				F3A010F82DE2070A0098E234 /* AppVersionCard.swift in Sources */,
-				F3242A112DDDD07A000A16E8 /* RepoCard.swift in Sources */,
-				F3242A122DDDD07A000A16E8 /* WorkflowCard.swift in Sources */,
-				F3242A132DDDD07A000A16E8 /* BuildCard.swift in Sources */,
-				F30160A92E80B65E00748848 /* CoolifyProject.swift in Sources */,
-				F3A010F52DE2011D0098E234 /* AppVersions.swift in Sources */,
-				F32A1B0D2ECBDCDF00BE176C /* CoolifyAppCard.swift in Sources */,
-				F30160AD2E80B71100748848 /* CoolifyProjCard.swift in Sources */,
-				F3242A142DDDD07A000A16E8 /* ProductDetails.swift in Sources */,
-				F30160A62E80AD8D00748848 /* CoolifyProjListVM.swift in Sources */,
-				F3A010FB2DE2082F0098E234 /* AppStoreVersion.swift in Sources */,
-				F3242A152DDDD07A000A16E8 /* ActionCard.swift in Sources */,
-				F301609F2E80A6BF00748848 /* AppList.swift in Sources */,
-				F3242A162DDDD07A000A16E8 /* BuildDetails.swift in Sources */,
-				F3242A172DDDD07E000A16E8 /* ActionDetails.swift in Sources */,
-				F3242A182DDDD07E000A16E8 /* ArtifactCard.swift in Sources */,
-				F3242A192DDDD07E000A16E8 /* IssueList.swift in Sources */,
-				F3242A1E2DDDD083000A16E8 /* CiProduct.swift in Sources */,
-				F3242A1F2DDDD083000A16E8 /* CiBuildRun.swift in Sources */,
-				F3242A202DDDD083000A16E8 /* CiWorkflow.swift in Sources */,
-				F3242A212DDDD083000A16E8 /* CiIssue.swift in Sources */,
-				F3116C062DF57496009521DE /* AppVersionCardVM.swift in Sources */,
-				F3116C0D2DF5F688009521DE /* Error.swift in Sources */,
-				F33661302E739E82008E73C9 /* AppCardContextMenu.swift in Sources */,
-				F3242A222DDDD083000A16E8 /* ScmRepository.swift in Sources */,
-				F3242A232DDDD083000A16E8 /* CiArtifact.swift in Sources */,
-				F3242A1A2DDDD07E000A16E8 /* IssueCard.swift in Sources */,
-				F3242A1B2DDDD07E000A16E8 /* ArtifactList.swift in Sources */,
-				F30160A42E80A79100748848 /* CoolifyProjList.swift in Sources */,
-				F33770CB2E858F8D00180B6D /* PreviewProp.swift in Sources */,
-				F3242A1C2DDDD07E000A16E8 /* BuildDetailsProgress.swift in Sources */,
-				F3242A1D2DDDD07E000A16E8 /* BuildVM.swift in Sources */,
-				F3242A062DDDD075000A16E8 /* Provider.swift in Sources */,
-				F3242A072DDDD075000A16E8 /* HomeView.swift in Sources */,
-				F3242A082DDDD075000A16E8 /* UserDefaults.swift in Sources */,
-				F3116C0A2DF574A5009521DE /* ADPStatusResponse.swift in Sources */,
-				F32A1B082ECBDA9E00BE176C /* CoolifyProjDetailsVM.swift in Sources */,
-				F3242A092DDDD075000A16E8 /* AppCardImage.swift in Sources */,
-				F3242A0A2DDDD075000A16E8 /* AppVM.swift in Sources */,
-				F3242A0C2DDDD075000A16E8 /* AppListVM.swift in Sources */,
-				F304E9182EC693EE0069A73D /* Extensions.swift in Sources */,
-				F3242A0D2DDDD075000A16E8 /* AppCard.swift in Sources */,
-				F3242A042DDDD06E000A16E8 /* CI-CD.swift in Sources */,
 			);
 		};
 		F32A1AEB2ECB958400BE176C /* Sources */ = {
@@ -669,58 +305,6 @@
 		F337089B2DD93A01006834F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
-				F33708B42DD93A0D006834F8 /* CI-CD.swift in Sources */,
-				F32A1B0B2ECBDB6100BE176C /* CoolifyApp.swift in Sources */,
-				F30160A72E80AD8D00748848 /* CoolifyProjListVM.swift in Sources */,
-				F31D322F2DDD5A9600E7B121 /* ArtifactList.swift in Sources */,
-				F376E14A2DD9C2C200D98252 /* AppListVM.swift in Sources */,
-				F33708B52DD93A0D006834F8 /* HomeView.swift in Sources */,
-				F31D322D2DDD5A6500E7B121 /* IssueList.swift in Sources */,
-				F33770CC2E858F8D00180B6D /* PreviewProp.swift in Sources */,
-				F3FCD1F32E522FE7003BDE5E /* NavSubtitle.swift in Sources */,
-				F376E1652DDA195300D98252 /* AppContainer.swift in Sources */,
-				F376E1692DDA288200D98252 /* ProductDetails.swift in Sources */,
-				F3A010F72DE2070A0098E234 /* AppVersionCard.swift in Sources */,
-				F301609E2E80A6BF00748848 /* AppList.swift in Sources */,
-				F3E0D1D22DDB370E004A14C7 /* CiWorkflow.swift in Sources */,
-				F3E0D1AD2DDA70AC004A14C7 /* BuildVM.swift in Sources */,
-				F31D321D2DDD20F100E7B121 /* ActionVM.swift in Sources */,
-				F32A1B0E2ECBDCDF00BE176C /* CoolifyAppCard.swift in Sources */,
-				F3A010F42DE2011D0098E234 /* AppVersions.swift in Sources */,
-				F31D32332DDD614400E7B121 /* BuildCommitDetails.swift in Sources */,
-				F30160A32E80A79100748848 /* CoolifyProjList.swift in Sources */,
-				F31D322B2DDD572E00E7B121 /* WorkflowActionCard.swift in Sources */,
-				F3A010FA2DE2082F0098E234 /* AppStoreVersion.swift in Sources */,
-				F376E16E2DDA299200D98252 /* AppVM.swift in Sources */,
-				F3E0D1CE2DDB1A96004A14C7 /* AuthView.swift in Sources */,
-				F3E0D1D02DDB36C1004A14C7 /* CiProduct.swift in Sources */,
-				F376E1902DDA437700D98252 /* BuildDetails.swift in Sources */,
-				F30160AF2E80BBFA00748848 /* CoolifyProjDetails.swift in Sources */,
-				F376E17E2DDA31C400D98252 /* BuildCard.swift in Sources */,
-				F3E0D1C32DDA873C004A14C7 /* CiBuildRun.swift in Sources */,
-				F3E0D1BE2DDA853C004A14C7 /* Provider.swift in Sources */,
-				F31D32152DDD17C600E7B121 /* ActionDetails.swift in Sources */,
-				F33661312E739E82008E73C9 /* AppCardContextMenu.swift in Sources */,
-				F31D321B2DDD1AA300E7B121 /* CiIssue.swift in Sources */,
-				F3116C072DF57496009521DE /* AppVersionCardVM.swift in Sources */,
-				F3116C0C2DF5F688009521DE /* Error.swift in Sources */,
-				F302462A2DDC680400999146 /* AppCardImage.swift in Sources */,
-				F31D32112DDD081E00E7B121 /* BuildDetailsProgress.swift in Sources */,
-				F31D32132DDD13FE00E7B121 /* ActionCard.swift in Sources */,
-				F31D32282DDD439700E7B121 /* ScmRepository.swift in Sources */,
-				F31D321F2DDD242600E7B121 /* ArtifactCard.swift in Sources */,
-				F30160AA2E80B65E00748848 /* CoolifyProject.swift in Sources */,
-				F30160AC2E80B71100748848 /* CoolifyProjCard.swift in Sources */,
-				F302462C2DDC6AAE00999146 /* UserDefaults.swift in Sources */,
-				F376E1672DDA284600D98252 /* AppCard.swift in Sources */,
-				F3E0D1CC2DDB19D3004A14C7 /* ValueStore.swift in Sources */,
-				F3116C092DF574A5009521DE /* ADPStatusResponse.swift in Sources */,
-				F32A1B072ECBDA9E00BE176C /* CoolifyProjDetailsVM.swift in Sources */,
-				F31D32262DDD435A00E7B121 /* RepoCard.swift in Sources */,
-				F31D32172DDD18A200E7B121 /* IssueCard.swift in Sources */,
-				F304E9192EC693EE0069A73D /* Extensions.swift in Sources */,
-				F31D32212DDD245F00E7B121 /* CiArtifact.swift in Sources */,
-				F3E0D1C52DDA92DD004A14C7 /* WorkflowCard.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */
