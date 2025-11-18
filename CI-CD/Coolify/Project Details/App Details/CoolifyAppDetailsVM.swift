@@ -1,4 +1,4 @@
-import Foundation
+import ScrechKit
 
 @Observable
 final class CoolifyAppDetailsVM {
@@ -21,6 +21,8 @@ final class CoolifyAppDetailsVM {
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
+            
+            print(prettyJSON(data) ?? "Invalid JSON")
             
             let response = try decoder.decode(DeploymentResponse.self, from: data)
             deployments = response.deployments

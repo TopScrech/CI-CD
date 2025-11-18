@@ -13,12 +13,8 @@ struct CoolifyProjDetails: View {
         
         List {
             Section("Apps") {
-                ForEach(vm.apps) { app in
-                    NavigationLink {
-                        CoolifyAppDetails(app)
-                    } label: {
-                        CoolifyAppCard(app)
-                    }
+                ForEach(vm.apps) {
+                    CoolifyAppCard($0)
                 }
             }
             
@@ -56,13 +52,17 @@ struct CoolifyProjDetails: View {
             TextField("New description", text: $vm.projDescription)
             
             Button("Save") {
-                Task {
-                    if let updated = await vm.rename(proj.uuid) {
-                        vm.project = updated
-                        proj = updated
-                        await vm.load(updated)
-                    }
-                }
+                save()
+            }
+        }
+    }
+    
+    private func save() {
+        Task {
+            if let updated = await vm.rename(proj.uuid) {
+                vm.project = updated
+                proj = updated
+                await vm.load(updated)
             }
         }
     }

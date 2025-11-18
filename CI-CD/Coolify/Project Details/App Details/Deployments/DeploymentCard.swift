@@ -11,13 +11,14 @@ struct DeploymentCard: View {
         HStack {
             Capsule()
                 .fill(deployment.status.color.gradient)
-                .frame(width: 3, height: 40)
+                .frame(width: 5, height: 50)
             
             VStack(alignment: .leading, spacing: 4) {
                 DeploymentCardStatus(deployment.status)
                 
-                if let branch = deployment.branch {
-                    Text(branch)
+                if let commit = deployment.commitMessage, !commit.isEmpty {
+                    Text(commit)
+                        .lineLimit(2)
                         .footnote()
                         .secondary()
                 }
@@ -27,14 +28,15 @@ struct DeploymentCard: View {
                         .footnote()
                         .secondary()
                 }
-                
-                if let message = deployment.message, !message.isEmpty {
-                    Text(message)
-                        .footnote()
-                        .secondary()
-                }
             }
         }
+#if DEBUG
+        .contextMenu {
+            Button("Print", systemImage: "hammer") {
+                print(deployment)
+            }
+        }
+#endif
     }
 }
 

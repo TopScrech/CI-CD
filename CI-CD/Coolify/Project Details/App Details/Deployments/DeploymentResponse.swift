@@ -11,9 +11,7 @@ struct CoolifyDeployment: Identifiable, Decodable {
     let status: DeploymentStatus
     let createdAt: String?
     let updatedAt: String?
-    let commitSha: String?
-    let branch: String?
-    let message: String?
+    let commitMessage: String?
 }
 
 enum DeploymentStatus: String, Decodable {

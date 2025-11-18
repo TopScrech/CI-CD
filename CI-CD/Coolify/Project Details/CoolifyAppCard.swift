@@ -10,13 +10,17 @@ struct CoolifyAppCard: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(app.name)
-            
-            if let description = app.description, !description.isEmpty {
-                Text(description)
-                    .footnote()
-                    .secondary()
+        NavigationLink {
+            CoolifyAppDetails(app)
+        } label: {
+            VStack(alignment: .leading) {
+                Text(app.name)
+                
+                if let description = app.description, !description.isEmpty {
+                    Text(description)
+                        .footnote()
+                        .secondary()
+                }
             }
         }
         .contextMenu {
