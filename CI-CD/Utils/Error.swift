@@ -15,5 +15,5 @@ enum Error: String, Throwable {
 }
 
 public protocol Throwable: LocalizedError {
-   var message: String { get }
+    var message: String { get }
 }
