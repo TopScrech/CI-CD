@@ -5,7 +5,6 @@ import Appearance
 #endif
 
 final class ValueStore: ObservableObject {
-    @AppStorage("is_authorized") var isAuthorized = false
     @AppStorage("last_tab") var lastTab = HomeViewTab.connect
     @AppStorage("demo_mode") var demoMode = false
 #if os(iOS)
@@ -22,4 +21,12 @@ final class ValueStore: ObservableObject {
     
     @AppStorage("coolify_api_key") var coolifyAPIKey = ""
     @AppStorage("coolify_domain") var coolifyDomain = "https://coolify.example.com"
+    
+    var coolifyAuthorized: Bool {
+        !coolifyDomain.isEmpty && !coolifyAPIKey.isEmpty
+    }
+    
+    var connectAuthorized: Bool {
+        !issuer.isEmpty && !privateKey.isEmpty && !privateKeyId.isEmpty
+    }
 }

@@ -2,15 +2,33 @@ import SwiftUI
 
 struct CoolifyProjList: View {
     @State private var vm = CoolifyProjListVM()
+    @EnvironmentObject private var store: ValueStore
+    
+    @State private var sheetAuth = false
     
     var body: some View {
         List {
-            ForEach(vm.projects) {
-                CoolifyProjCard($0)
+            if store.coolifyAuthorized {
+                ForEach(vm.projects) {
+                    CoolifyProjCard($0)
+                }
+            } else {
+                ContentUnavailableView("Coolify credentials missing", systemImage: "key.card")
+                
+                Section {
+                    Button("Provide credentials") {
+                        sheetAuth = true
+                    }
+                }
             }
         }
         .refreshableTask {
             await vm.fetchProjects()
+        }
+        .sheet($sheetAuth) {
+            CoolifyAuthView {
+                await vm.fetchProjects()
+            }
         }
     }
 }
@@ -18,4 +36,5 @@ struct CoolifyProjList: View {
 #Preview {
     CoolifyProjList()
         .darkSchemePreferred()
+        .environmentObject(ValueStore())
 }

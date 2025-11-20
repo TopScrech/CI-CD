@@ -1,20 +1,17 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct AuthView: View {
+struct ConnectAuthView: View {
     @EnvironmentObject private var store: ValueStore
+    @Environment(\.dismiss) private var dismiss
+    
+    private let onDismiss: () async -> Void
+    
+    init(onDismiss: @escaping () async -> Void = {}) {
+        self.onDismiss = onDismiss
+    }
     
     @State private var showPicker = false
-    
-    private var disabled: Bool {
-        if store.demoMode {
-            false
-        } else {
-            store.issuer.isEmpty ||
-            store.privateKey.isEmpty ||
-            store.privateKeyId.isEmpty
-        }
-    }
     
     var body: some View {
         List {
@@ -59,10 +56,9 @@ struct AuthView: View {
             Section {
                 Toggle("Demo Mode", isOn: $store.demoMode)
                 
-                Button("Log in") {
-                    store.isAuthorized = true
+                Button("Save") {
+                    dismiss()
                 }
-                .disabled(disabled)
             }
         }
         .animation(.default, value: store.demoMode)
@@ -121,7 +117,7 @@ struct AuthView: View {
 }
 
 #Preview {
-    AuthView()
+    ConnectAuthView()
         .darkSchemePreferred()
         .environmentObject(ValueStore())
 }

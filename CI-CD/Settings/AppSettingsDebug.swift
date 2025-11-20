@@ -3,15 +3,24 @@ import ScrechKit
 struct AppSettingsDebug: View {
     @EnvironmentObject private var store: ValueStore
     
+    @State private var sheetAuthConnect = false
+    @State private var sheetAuthCoolify = false
+    
     var body: some View {
         DisclosureGroup("Debug") {
-            TextField("Coolify API-key", text: $store.coolifyAPIKey)
-                .autocorrectionDisabled()
+            Button("Coolify credentials") {
+                sheetAuthCoolify = true
+            }
+            .sheet($sheetAuthCoolify) {
+                CoolifyAuthView()
+            }
             
-            TextField("Coolify domain", text: $store.coolifyDomain)
-                .autocorrectionDisabled()
-                .textContentType(.URL)
-                .keyboardType(.URL)
+            Button("Connect credentials") {
+                sheetAuthConnect = true
+            }
+            .sheet($sheetAuthConnect) {
+                ConnectAuthView()
+            }
             
             Button("Copy issuer ID") {
                 Pasteboard.copy(store.issuer)
@@ -27,10 +36,6 @@ struct AppSettingsDebug: View {
 #if os(iOS)
             Toggle("Status bar", isOn: $store.showStatusBar)
 #endif
-            Button("Log out", systemImage: "rectangle.portrait.and.arrow.right", role: .destructive) {
-                store.isAuthorized = false
-            }
-            .foregroundStyle(.red)
         }
     }
 }

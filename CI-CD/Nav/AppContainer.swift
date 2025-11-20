@@ -5,11 +5,7 @@ struct AppContainer: View {
     
     var body: some View {
         NavigationStack {
-            if store.isAuthorized {
-                HomeView()
-            } else {
-                AuthView()
-            }
+            HomeView()
         }
 #if os(iOS)
         .statusBarHidden(!store.showStatusBar)
