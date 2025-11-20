@@ -53,7 +53,7 @@ struct CoolifyAppDetails: View {
             }
             
             Section("Deployments") {
-                DeploymentList()
+                CoolifyDeploymentList()
                     .environment(vm)
             }
         }

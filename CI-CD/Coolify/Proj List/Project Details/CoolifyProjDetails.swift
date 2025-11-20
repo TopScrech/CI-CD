@@ -18,13 +18,8 @@ struct CoolifyProjDetails: View {
                 }
             }
             
-            if !vm.databases.isEmpty {
-                Section("Databases") {
-                    ForEach(vm.databases) {
-                        CoolifyDatabaseCard($0)
-                    }
-                }
-            }
+            CoolifyDatabaseList()
+                .environment(vm)
         }
         .navigationTitle(proj.name)
         .navSubtitle(proj.description ?? "")

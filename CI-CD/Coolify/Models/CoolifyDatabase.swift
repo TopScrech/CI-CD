@@ -14,7 +14,6 @@ struct CoolifyDatabase: Identifiable, Codable {
     var environmentName: String?
     
     private enum CodingKeys: String, CodingKey {
-        case rawId = "id",
-             uuid, environmentId, name, description
+        case rawId = "id", uuid, environmentId, name, description
     }
 }

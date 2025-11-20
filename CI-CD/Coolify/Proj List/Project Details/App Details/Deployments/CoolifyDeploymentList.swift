@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DeploymentList: View {
+struct CoolifyDeploymentList: View {
     @Environment(CoolifyAppDetailsVM.self) private var vm
     
     var body: some View {
@@ -12,7 +12,7 @@ struct DeploymentList: View {
                 ContentUnavailableView("No deployments yet", systemImage: "shippingbox")
             } else {
                 ForEach(vm.deployments) {
-                    DeploymentCard($0)
+                    CoolifyDeploymentCard($0)
                 }
             }
         }
@@ -21,7 +21,7 @@ struct DeploymentList: View {
 
 #Preview {
     List {
-        DeploymentList()
+        CoolifyDeploymentList()
     }
     .darkSchemePreferred()
     .environment(CoolifyAppDetailsVM())
