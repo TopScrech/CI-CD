@@ -1,13 +1,22 @@
 {
-  "originHash" : "127a8aa91b8483f45a51fa3fe569db64081e59a1acfe1a751001d25c5e7cb95b",
+  "originHash" : "3f33520871387221af0af3dbad3446f2cbd5bbd1ce4a861a28f2005bb7e4bf3f",
   "pins" : [
+    {
+      "identity" : "appearance",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TopScrech/Appearance",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1a8f0bc05a667f1079c9f7b3b31840f60abd7db5"
+      }
+    },
     {
       "identity" : "appstoreconnect-swift-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/TopScrech/appstoreconnect-swift-sdk",
+      "location" : "https://github.com/AvdLee/appstoreconnect-swift-sdk",
       "state" : {
-        "branch" : "master",
-        "revision" : "0368de871a33fb7121c1efa6408e3731c6a59f49"
+        "revision" : "3c71b2bfa08c54cff86e2ed70f1e39a239396ea3",
+        "version" : "4.1.1"
       }
     },
     {
@@ -15,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher",
       "state" : {
-        "revision" : "2015fda791daa72c8058619545a593bf8c1dd59f",
-        "version" : "8.5.0"
+        "revision" : "d30a5fad881137e2267f96a8e3fc35c58999bb94",
+        "version" : "8.6.2"
       }
     },
     {
@@ -25,7 +34,7 @@
       "location" : "https://github.com/TopScrech/MailCover",
       "state" : {
         "branch" : "main",
-        "revision" : "c33771592360b836f114ebe32ad660590c7afc28"
+        "revision" : "1a3afc2b001ddf2118d340f046ac42fba41d05cd"
       }
     },
     {
@@ -34,7 +43,7 @@
       "location" : "https://github.com/TopScrech/SafariCover",
       "state" : {
         "branch" : "main",
-        "revision" : "53823cbe9ca2ab959958ef42b935a988d07dff91"
+        "revision" : "395397e46cb476106fcd8436f955bba3eb0963fa"
       }
     },
     {
@@ -43,7 +52,16 @@
       "location" : "https://github.com/TopScrech/ScrechKit",
       "state" : {
         "branch" : "main",
-        "revision" : "c551fdb49de6625903e9d11b13e7e89eaf8a8bf3"
+        "revision" : "6cb3d04aa0c7e2686c5356537c1aca0cc2fe6279"
+      }
+    },
+    {
+      "identity" : "swift-asn1",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-asn1.git",
+      "state" : {
+        "revision" : "40d25bbb2fc5b557a9aa8512210bded327c0f60d",
+        "version" : "1.5.0"
       }
     },
     {
@@ -51,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-crypto.git",
       "state" : {
-        "revision" : "60f13f60c4d093691934dc6cfdf5f508ada1f894",
-        "version" : "2.6.0"
+        "revision" : "95ba0316a9b733e92bb6b071255ff46263bbe7dc",
+        "version" : "3.15.1"
       }
     },
     {
