@@ -6,7 +6,7 @@ struct HomeView: View {
     var body: some View {
         TabView(selection: $store.lastTab) {
             Tab("Connect", systemImage: "app.dashed", value: .connect) {
-                AppList()
+                ConnectAppList()
             }
             
             Tab("Coolify", systemImage: "globe", value: .coolify) {

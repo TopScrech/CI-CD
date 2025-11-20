@@ -1,7 +1,7 @@
 import ScrechKit
 import AppStoreConnect_Swift_SDK
 
-struct AppList: View {
+struct ConnectAppList: View {
     @State private var vm = AppListVM()
     @EnvironmentObject private var store: ValueStore
     
@@ -24,7 +24,7 @@ struct AppList: View {
 }
 
 #Preview {
-    AppList()
+    ConnectAppList()
         .darkSchemePreferred()
         .environmentObject(ValueStore())
 }
