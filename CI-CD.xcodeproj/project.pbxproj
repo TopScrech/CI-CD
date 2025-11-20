@@ -80,7 +80,7 @@
 				Coolify/Models/CoolifyDatabase.swift,
 				Coolify/Models/CoolifyDeployment.swift,
 				Coolify/Models/CoolifyProject.swift,
-				Utils/APIEndpoint.swift,
+				Utils/CoolifyAPIEndpoint.swift,
 			);
 			target = F3721A372ECFD00C00CCE9EE /* Unit Tests */;
 		};

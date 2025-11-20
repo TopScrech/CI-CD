@@ -24,7 +24,7 @@ struct CoolifyProjDetails: View {
         .navigationTitle(proj.name)
         .navSubtitle(proj.description ?? "")
         .refreshableTask {
-            await vm.load(proj)
+            await vm.load(proj.uuid)
         }
         .toolbar {
             Menu {
@@ -51,7 +51,7 @@ struct CoolifyProjDetails: View {
         Task {
             if let updated = await vm.rename(proj.uuid) {
                 proj = updated
-                await vm.load(updated)
+                await vm.load(updated.uuid)
             }
         }
     }

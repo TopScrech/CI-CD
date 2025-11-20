@@ -7,9 +7,8 @@ final class CoolifyProjListVM {
     
     func fetchProjects() async {
         let store = ValueStore()
-        let path = store.coolifyDomain + "/api/v1/projects"
         
-        guard let url = URL(string: path) else {
+        guard let url = CoolifyAPIEndpoint.fetchProjects() else {
             return
         }
         
