@@ -1,4 +1,4 @@
-import Foundation
+import ScrechKit
 
 @Observable
 final class CoolifyProjDetailsVM {
@@ -107,9 +107,6 @@ final class CoolifyProjDetailsVM {
     
     private func fetchApps(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv]) async -> [CoolifyApp]? {
         let store = ValueStore()
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        
         let path = store.coolifyDomain + "/api/v1/applications"
         
         guard let url = URL(string: path) else {
@@ -122,9 +119,21 @@ final class CoolifyProjDetailsVM {
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
-            var apps = try decoder.decode([CoolifyApp].self, from: data)
             
-            apps = apps.compactMap { app in
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let apps = try decoder.decode([CoolifyApp].self, from: data)
+            
+            if let object = try? JSONSerialization.jsonObject(with: data),
+               let formatted = try? JSONSerialization.data(withJSONObject: object, options: .prettyPrinted),
+               let string = String(data: formatted, encoding: .utf8) {
+                print("Apps:", string)
+            } else {
+                print("invalid json")
+            }
+            
+            return apps.compactMap { app in
                 guard envIds.contains(app.environmentId) else {
                     return nil
                 }
@@ -134,8 +143,6 @@ final class CoolifyProjDetailsVM {
                 
                 return item
             }
-            
-            return apps
         } catch {
             return nil
         }

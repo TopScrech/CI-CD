@@ -10,10 +10,18 @@ struct CoolifyApp: Identifiable, Decodable {
     let repositoryProjectId: Int
     let name: String
     let description: String?
-#warning("Doesn't exist or has a different name")
-    let gitFullUrl: String?
+    let gitRepository: String?
+    let gitBranch: String?
     let fqdn: String?
     
     /// Helps to link apps to their parent proj
     var environmentName: String?
+    
+    var gitRepoURL: URL? {
+        if let gitRepository {
+            URL(string: "https://github.com/" + gitRepository)
+        } else {
+            nil
+        }
+    }
 }

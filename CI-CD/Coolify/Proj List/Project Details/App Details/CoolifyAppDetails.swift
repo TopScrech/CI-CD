@@ -26,20 +26,25 @@ struct CoolifyAppDetails: View {
                         ShareLink(item: url)
                     } label: {
                         LabeledContent("URL", value: urlString)
-                            .foregroundStyle(.foreground)
+                            .tint(.primary)
                     }
                 }
                 
-                if let urlString = app.gitFullUrl, let url = URL(string: urlString) {
+                if let gitRepoURL = app.gitRepoURL {
                     Menu {
                         Button("Open") {
-                            openURL(url)
+                            openURL(gitRepoURL)
                         }
                         
-                        ShareLink(item: url)
+                        ShareLink(item: gitRepoURL)
                     } label: {
-                        LabeledContent("Repository", value: urlString)
+                        LabeledContent("Repository", value: gitRepoURL.description)
+                            .tint(.primary)
                     }
+                }
+                
+                if let branch = app.gitBranch {
+                    LabeledContent("Branch", value: branch)
                 }
             }
             
@@ -64,7 +69,8 @@ struct CoolifyAppDetails: View {
             repositoryProjectId: 1,
             name: "Demo App",
             description: "",
-            gitFullUrl: "https://github.com/cool/repo",
+            gitRepository: "https://github.com/cool/repo",
+            gitBranch: "main",
             fqdn: "demo.example.com",
             environmentName: "Production"
         )

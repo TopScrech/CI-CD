@@ -53,7 +53,7 @@ struct CoolifyAppCard: View {
                 }
             }
             
-            if let urlString = app.gitFullUrl, let url = URL(string: urlString) {
+            if let urlString = app.gitRepository, let url = URL(string: urlString) {
                 Button("Open on GitHub", systemImage: "link") {
                     openURL(url)
                 }
