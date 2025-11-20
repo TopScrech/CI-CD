@@ -63,7 +63,7 @@ struct CoolifyProjCard: View {
 }
 
 #Preview {
-    CoolifyProjCard(PreviewProp.coolifyProj)
+    CoolifyProjCard(Preview.coolifyProj)
         .environment(CoolifyProjListVM())
         .environment(CoolifyProjDetailsVM())
         .darkSchemePreferred()

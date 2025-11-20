@@ -16,9 +16,7 @@ final class CoolifyAppDetailsVM {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        let path = store.coolifyDomain + "/api/v1/deployments/applications/" + appUUID
-        
-        guard let url = URL(string: path) else {
+        guard let url = CoolifyAPIEndpoint.fetchDeployments(appUUID) else {
             return
         }
         

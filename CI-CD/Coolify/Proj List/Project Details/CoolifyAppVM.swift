@@ -4,9 +4,8 @@ import Foundation
 final class CoolifyAppVM {
     func deploy(_ appUUID: String, force: Bool = false) async {
         let store = ValueStore()
-        let path = store.coolifyDomain + "/api/v1/applications/\(appUUID)/start"
         
-        guard let url = URL(string: path) else {
+        guard let url = CoolifyAPIEndpoint.deploy(appUUID) else {
             return
         }
         
@@ -28,9 +27,8 @@ final class CoolifyAppVM {
     
     func stop(_ appUUID: String) async {
         let store = ValueStore()
-        let path = store.coolifyDomain + "/api/v1/applications/\(appUUID)/stop"
         
-        guard let url = URL(string: path) else {
+        guard let url = CoolifyAPIEndpoint.stop(appUUID) else {
             return
         }
         
@@ -48,9 +46,8 @@ final class CoolifyAppVM {
     
     func restart(_ appUUID: String) async {
         let store = ValueStore()
-        let path = store.coolifyDomain + "/api/v1/applications/\(appUUID)/restart"
         
-        guard let url = URL(string: path) else {
+        guard let url = CoolifyAPIEndpoint.restart(appUUID) else {
             return
         }
         
