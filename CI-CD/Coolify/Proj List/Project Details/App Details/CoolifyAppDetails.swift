@@ -11,8 +11,6 @@ struct CoolifyAppDetails: View {
     var body: some View {
         List {
             Section("App") {
-                LabeledContent("Name", value: app.name)
-                
                 if let description = app.description, !description.isEmpty {
                     LabeledContent("Description", value: description)
                 }

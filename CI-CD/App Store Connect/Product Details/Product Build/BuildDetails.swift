@@ -1,4 +1,4 @@
-import ScrechKit
+import SwiftUI
 import AppStoreConnect_Swift_SDK
 
 struct BuildDetails: View {
@@ -33,7 +33,7 @@ struct BuildDetails: View {
             
             Section {
                 if let startedReason = build.attributes?.startReason {
-                    ListParam("Reason", param: startedReason.rawValue.lowercased().capitalized)
+                    LabeledContent("Reason", value: startedReason.rawValue.lowercased().capitalized)
                 }
                 
                 if let created = build.attributes?.createdDate {
