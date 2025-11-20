@@ -12,6 +12,7 @@ struct CoolifyApp: Identifiable, Decodable {
     let description: String?
     let gitRepository: String?
     let gitBranch: String?
+    let buildPack: String?
     let fqdn: String?
     
     /// Helps to link apps to their parent proj

@@ -46,6 +46,10 @@ struct CoolifyAppDetails: View {
                 if let branch = app.gitBranch {
                     LabeledContent("Branch", value: branch)
                 }
+                
+                if let buildPack = app.buildPack {
+                    LabeledContent("Build pack", value: buildPack)
+                }
             }
             
             Section("Deployments") {
@@ -71,6 +75,7 @@ struct CoolifyAppDetails: View {
             description: "",
             gitRepository: "https://github.com/cool/repo",
             gitBranch: "main",
+            buildPack: "Dockerfile",
             fqdn: "demo.example.com",
             environmentName: "Production"
         )
