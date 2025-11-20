@@ -13,6 +13,8 @@
 		F3242A2B2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2A2DDDD20F000A16E8 /* AppStoreConnect-Swift-SDK */; };
 		F3242A2D2DDDD22C000A16E8 /* MailCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2C2DDDD22C000A16E8 /* MailCover */; };
 		F3242A2F2DDDD239000A16E8 /* SafariCover in Frameworks */ = {isa = PBXBuildFile; productRef = F3242A2E2DDDD239000A16E8 /* SafariCover */; };
+		F372227E2ECFD93D00CCE9EE /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F372227D2ECFD93D00CCE9EE /* ScrechKit */; };
+		F37222802ECFD96400CCE9EE /* Appearance in Frameworks */ = {isa = PBXBuildFile; productRef = F372227F2ECFD96400CCE9EE /* Appearance */; };
 		F376E1942DDA47BB00D98252 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F376E1932DDA47BB00D98252 /* ScrechKit */; };
 		F3A36EA52DDA47E200733D6D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3A36EA42DDA47E200733D6D /* Kingfisher */; };
 		F3A7CDE22E87D60400F08890 /* Appearance in Frameworks */ = {isa = PBXBuildFile; productRef = F3A7CDE12E87D60400F08890 /* Appearance */; };
@@ -70,6 +72,7 @@
 			membershipExceptions = (
 				AppIcon.icon,
 				Assets.xcassets,
+				Utils/HomeViewTab.swift,
 			);
 			target = F32A1AEE2ECB958400BE176C /* macOS */;
 		};
@@ -80,7 +83,10 @@
 				Coolify/Models/CoolifyDatabase.swift,
 				Coolify/Models/CoolifyDeployment.swift,
 				Coolify/Models/CoolifyProject.swift,
+				Coolify/Models/CoolifyProjectEnv.swift,
 				Utils/CoolifyAPIEndpoint.swift,
+				Utils/HomeViewTab.swift,
+				Utils/ValueStore.swift,
 			);
 			target = F3721A372ECFD00C00CCE9EE /* Unit Tests */;
 		};
@@ -131,6 +137,7 @@
 		F32A1AEC2ECB958400BE176C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				F372227E2ECFD93D00CCE9EE /* ScrechKit in Frameworks */,
 			);
 		};
 		F337089C2DD93A01006834F8 /* Frameworks */ = {
@@ -147,6 +154,7 @@
 		F3721A352ECFD00C00CCE9EE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				F37222802ECFD96400CCE9EE /* Appearance in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -225,6 +233,9 @@
 				F32A1AF02ECB958400BE176C /* macOS */,
 			);
 			name = macOS;
+			packageProductDependencies = (
+				F372227D2ECFD93D00CCE9EE /* ScrechKit */,
+			);
 			productName = macOS;
 			productReference = F32A1AEF2ECB958400BE176C /* macOS.app */;
 			productType = "com.apple.product-type.application";
@@ -273,6 +284,9 @@
 				F3721A392ECFD00C00CCE9EE /* Unit Tests */,
 			);
 			name = "Unit Tests";
+			packageProductDependencies = (
+				F372227F2ECFD96400CCE9EE /* Appearance */,
+			);
 			productName = "CI-CD Unit Tests";
 			productReference = F3721A382ECFD00C00CCE9EE /* Unit Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -926,6 +940,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F31D32222DDD265A00E7B121 /* XCRemoteSwiftPackageReference "SafariCover" */;
 			productName = SafariCover;
+		};
+		F372227D2ECFD93D00CCE9EE /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F376E1922DDA47BB00D98252 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
+		};
+		F372227F2ECFD96400CCE9EE /* Appearance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3A7CDE02E87D60300F08890 /* XCRemoteSwiftPackageReference "Appearance" */;
+			productName = Appearance;
 		};
 		F376E1932DDA47BB00D98252 /* ScrechKit */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -1,5 +1,9 @@
 import SwiftUI
 
+#if os(macOS)
+import Combine
+#endif
+
 #if canImport(Appearance)
 import Appearance
 #endif
