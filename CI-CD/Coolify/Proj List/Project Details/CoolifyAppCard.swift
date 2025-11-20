@@ -41,15 +41,11 @@ struct CoolifyAppCard: View {
             
             Section {
                 Button("Restart", systemImage: "arrow.trianglehead.2.clockwise.rotate.90") {
-                    Task {
-                        await vm.restart(app.uuid)
-                    }
+                    restart()
                 }
                 
                 Button("Stop", systemImage: "stop") {
-                    Task {
-                        await vm.stop(app.uuid)
-                    }
+                    stop()
                 }
             }
             
@@ -58,6 +54,18 @@ struct CoolifyAppCard: View {
                     openURL(url)
                 }
             }
+        }
+    }
+    
+    private func restart() {
+        Task {
+            await vm.restart(app.uuid)
+        }
+    }
+    
+    private func stop() {
+        Task {
+            await vm.stop(app.uuid)
         }
     }
     

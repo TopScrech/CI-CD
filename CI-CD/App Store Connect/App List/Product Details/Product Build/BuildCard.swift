@@ -103,31 +103,11 @@ struct BuildCard: View {
         .contextMenu {
             if let workflow = build.relationships?.workflow?.data {
                 Button("Rebuild", systemImage: "hammer") {
-                    if store.demoMode {
-                        if let build = productVM.builds.first {
-                            productVM.builds.append(build)
-                        }
-                    } else {
-                        Task {
-                            try await vm.startRebuild(of: build.id, in: workflow.id)
-                        }
-                    }
+                    rebuild(workflow.id)
                 }
                 
                 Button("Rebuild clean", systemImage: "hammer") {
-                    if store.demoMode {
-                        if let build = productVM.builds.first {
-                            productVM.builds.append(build)
-                        }
-                    } else {
-                        Task {
-                            try await vm.startRebuild(
-                                of: build.id,
-                                in: workflow.id,
-                                clean: true
-                            )
-                        }
-                    }
+                    rebuildClean(workflow.id)
                 }
             }
 #if DEBUG
@@ -143,6 +123,30 @@ struct BuildCard: View {
                 }
             }
 #endif
+        }
+    }
+    
+    private func rebuild(_ workflowId: String) {
+        if store.demoMode {
+            if let build = productVM.builds.first {
+                productVM.builds.append(build)
+            }
+        } else {
+            Task {
+                try await vm.startRebuild(of: build.id, in: workflowId)
+            }
+        }
+    }
+    
+    private func rebuildClean(_ workflowId: String) {
+        if store.demoMode {
+            if let build = productVM.builds.first {
+                productVM.builds.append(build)
+            }
+        } else {
+            Task {
+                try await vm.startRebuild(of: build.id, in: workflowId, clean: true)
+            }
         }
     }
     

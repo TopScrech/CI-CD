@@ -45,9 +45,7 @@ struct AppVersionCard: View {
                     
                 } else if !vm.isProcessing {
                     Button {
-                        Task {
-                            await vm.startProcessing(versionString)
-                        }
+                        startProcessing()
                     } label: {
                         Image(systemName: "square.and.arrow.down")
                             .title3(.semibold)
@@ -64,6 +62,12 @@ struct AppVersionCard: View {
             if vm.adpId == nil {
                 try? await vm.getADPKey(version.id)
             }
+        }
+    }
+    
+    private func startProcessing() {
+        Task {
+            await vm.startProcessing(versionString)
         }
     }
 }
