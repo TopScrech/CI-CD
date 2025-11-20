@@ -2,9 +2,16 @@ import ScrechKit
 
 @Observable
 final class CoolifyAppDetailsVM {
+    var isLoading = true
     var deployments: [CoolifyDeployment] = []
     
     func fetchDeployments(_ appUUID: String) async {
+        defer {
+            withAnimation {
+                isLoading = false
+            }
+        }
+        
         let store = ValueStore()
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase

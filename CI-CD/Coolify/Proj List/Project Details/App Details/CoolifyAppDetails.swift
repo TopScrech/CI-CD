@@ -29,13 +29,8 @@ struct CoolifyAppDetails: View {
             }
             
             Section("Deployments") {
-                if vm.deployments.isEmpty {
-                    ContentUnavailableView("No deployments yet", systemImage: "shippingbox")
-                } else {
-                    ForEach(vm.deployments) {
-                        DeploymentCard($0)
-                    }
-                }
+                DeploymentList()
+                    .environment(vm)
             }
         }
         .navigationTitle(app.name)
