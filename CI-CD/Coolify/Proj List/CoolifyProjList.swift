@@ -22,6 +22,7 @@ struct CoolifyProjList: View {
                 }
             }
         }
+        .environment(vm)
         .refreshableTask {
             await vm.fetchProjects()
         }

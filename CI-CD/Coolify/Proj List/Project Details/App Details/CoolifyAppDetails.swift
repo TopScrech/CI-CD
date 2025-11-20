@@ -2,6 +2,8 @@ import SwiftUI
 
 struct CoolifyAppDetails: View {
     @State private var vm = CoolifyAppDetailsVM()
+    @Environment(\.openURL) private var openURL
+    
     private let app: CoolifyApp
     
     init(_ app: CoolifyApp) {
@@ -15,12 +17,29 @@ struct CoolifyAppDetails: View {
                     LabeledContent("Environment", value: env)
                 }
                 
-                if let fqdn = app.fqdn, !fqdn.isEmpty {
-                    LabeledContent("URL", value: fqdn)
+                if let urlString = app.fqdn, !urlString.isEmpty, let url = URL(string: urlString) {
+                    Menu {
+                        Button("Open") {
+                            openURL(url)
+                        }
+                        
+                        ShareLink(item: url)
+                    } label: {
+                        LabeledContent("URL", value: urlString)
+                            .foregroundStyle(.foreground)
+                    }
                 }
                 
-                if let git = app.gitFullUrl, let url = URL(string: git) {
-                    Link("Repository", destination: url)
+                if let urlString = app.gitFullUrl, let url = URL(string: urlString) {
+                    Menu {
+                        Button("Open") {
+                            openURL(url)
+                        }
+                        
+                        ShareLink(item: url)
+                    } label: {
+                        LabeledContent("Repository", value: urlString)
+                    }
                 }
             }
             

@@ -33,6 +33,10 @@ struct AppSettingsDebug: View {
             Button("Copy private key ID") {
                 Pasteboard.copy(store.privateKeyId)
             }
+            
+            Button("Copy Coolify API key") {
+                Pasteboard.copy(store.coolifyAPIKey)
+            }
 #if os(iOS)
             Toggle("Status bar", isOn: $store.showStatusBar)
 #endif

@@ -1,7 +1,7 @@
 import ScrechKit
 
 struct CoolifyProjDetails: View {
-    @State private var vm = CoolifyProjDetailsVM()
+    @Environment(CoolifyProjDetailsVM.self) private var vm
     @State private var proj: CoolifyProject
     
     init(_ proj: CoolifyProject) {
@@ -26,15 +26,10 @@ struct CoolifyProjDetails: View {
                 }
             }
         }
-        .navigationTitle(vm.project?.name ?? proj.name)
-        .navSubtitle(vm.project?.description ?? proj.description ?? "")
+        .navigationTitle(proj.name)
+        .navSubtitle(proj.description ?? "")
         .refreshableTask {
-            await vm.load(vm.project ?? proj)
-        }
-        .task {
-            vm.project = proj
-            vm.projName = proj.name
-            vm.projDescription = proj.description ?? ""
+            await vm.load(proj)
         }
         .toolbar {
             Menu {
@@ -60,7 +55,6 @@ struct CoolifyProjDetails: View {
     private func save() {
         Task {
             if let updated = await vm.rename(proj.uuid) {
-                vm.project = updated
                 proj = updated
                 await vm.load(updated)
             }
@@ -71,4 +65,5 @@ struct CoolifyProjDetails: View {
 #Preview {
     CoolifyProjDetails(PreviewProp.coolifyProj)
         .darkSchemePreferred()
+        .environment(CoolifyProjDetailsVM())
 }

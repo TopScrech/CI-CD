@@ -2,7 +2,6 @@ import Foundation
 
 @Observable
 final class CoolifyProjDetailsVM {
-    var project: CoolifyProject?
     var apps: [CoolifyApp] = []
     var databases: [CoolifyDatabase] = []
     
@@ -45,8 +44,6 @@ final class CoolifyProjDetailsVM {
     }
     
     func load(_ project: CoolifyProject) async {
-        self.project = project
-        
         guard let environments = await fetchEnvironments(project) else {
             return
         }
