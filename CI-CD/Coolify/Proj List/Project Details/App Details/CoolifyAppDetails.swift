@@ -67,9 +67,10 @@ struct CoolifyAppDetails: View {
             await vm.fetchDeployments(app.uuid)
         }
         .toolbar {
-            Button("Rename", systemImage: "pencil") {
-                alertRename = true
-            }
+#warning("Bogo renaming")
+            //            Button("Rename", systemImage: "pencil") {
+            //                alertRename = true
+            //            }
         }
         .alert("Rename", isPresented: $alertRename) {
             TextField("New name", text: $vm.newName)
