@@ -20,34 +20,29 @@ struct WorkflowCard: View {
     }
     
     var body: some View {
-        Button {
-            #warning("Does nothing?")
-        } label: {
-            VStack(alignment: .leading, spacing: 12) {
-                Label {
-                    Text(workflow.attributes?.name ?? "")
-                    
-                    if let description = workflow.attributes?.description, !description.isEmpty {
-                        Text(description)
-                            .secondary()
-                            .footnote()
-                    }
-                } icon: {
-                    Image(systemName: "server.rack")
-                        .bold()
-                        .foregroundStyle(iconColor)
-                        .frame(width: 30)
-                }
-                .foregroundStyle(.foreground)
+        VStack(alignment: .leading, spacing: 12) {
+            Label {
+                Text(workflow.attributes?.name ?? "")
                 
-                if let actions = workflow.attributes?.actions {
-                    ForEach(actions) {
-                        WorkflowActionCard($0)
-                    }
+                if let description = workflow.attributes?.description, !description.isEmpty {
+                    Text(description)
+                        .secondary()
+                        .footnote()
+                }
+            } icon: {
+                Image(systemName: "server.rack")
+                    .bold()
+                    .foregroundStyle(iconColor)
+                    .frame(width: 30)
+            }
+            .foregroundStyle(.foreground)
+            
+            if let actions = workflow.attributes?.actions {
+                ForEach(actions) {
+                    WorkflowActionCard($0)
                 }
             }
         }
-        .foregroundStyle(.foreground)
         .contextMenu {
 #if DEBUG
             Section {
@@ -94,12 +89,6 @@ struct WorkflowCard: View {
                 try await vm.startBuild(workflow.id, clean: true)
             }
         }
-    }
-}
-
-extension CiAction: @retroactive Identifiable {
-    public var id: UUID {
-        UUID()
     }
 }
 
