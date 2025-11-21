@@ -118,6 +118,8 @@ final class CoolifyProjDetailsVM {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             
+            print("Fetched apps:", prettyJSON(data) ?? "Invalid JSON")
+            
             let apps = try decoder.decode([CoolifyApp].self, from: data)
             
             if let object = try? JSONSerialization.jsonObject(with: data),

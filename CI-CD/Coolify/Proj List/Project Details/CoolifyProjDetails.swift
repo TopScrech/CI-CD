@@ -2,6 +2,7 @@ import ScrechKit
 
 struct CoolifyProjDetails: View {
     @Environment(CoolifyProjDetailsVM.self) private var vm
+    
     @State private var proj: CoolifyProject
     
     init(_ proj: CoolifyProject) {

@@ -40,4 +40,8 @@ struct CoolifyAPIEndpoint {
     static func fetchApps() -> URL? {
         URL(string: domain() + "/api/v1/applications")
     }
+    
+    static func app(_ appUUID: String) -> URL? {
+        URL(string: domain() + "/api/v1/applications/" + appUUID)
+    }
 }

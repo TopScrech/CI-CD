@@ -4,7 +4,7 @@ struct CoolifyProjCard: View {
     @State private var projDetailsVM = CoolifyProjDetailsVM()
     @Environment(CoolifyProjListVM.self) private var vm
     
-    private let proj: CoolifyProject
+    @State private var proj: CoolifyProject
     
     init(_ proj: CoolifyProject) {
         self.proj = proj
@@ -55,8 +55,8 @@ struct CoolifyProjCard: View {
     
     private func save() {
         Task {
-            if let _ = await projDetailsVM.rename(proj.uuid) {
-                await vm.fetchProjects()
+            if let proj = await projDetailsVM.rename(proj.uuid) {
+                self.proj = proj
             }
         }
     }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CoolifyAppCard: View {
     @State private var vm = CoolifyAppVM()
+    @State private var appDetailsVM = CoolifyAppDetailsVM()
     @Environment(\.openURL) private var openURL
     
     private let app: CoolifyApp
@@ -13,6 +14,7 @@ struct CoolifyAppCard: View {
     var body: some View {
         NavigationLink {
             CoolifyAppDetails(app)
+                .environment(appDetailsVM)
         } label: {
             VStack(alignment: .leading) {
                 Text(app.name)
@@ -23,6 +25,9 @@ struct CoolifyAppCard: View {
                         .secondary()
                 }
             }
+        }
+        .task {
+            appDetailsVM.newName = app.name
         }
         .contextMenu {
             Section {
