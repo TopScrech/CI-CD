@@ -6,6 +6,7 @@ struct BuildCard: View {
     @State private var vm = BuildVM()
     @Environment(AppVM.self) private var productVM
     @EnvironmentObject private var store: ValueStore
+    @Environment(\.accessibilityDifferentiateWithoutColor) private var differentiateWithoutColor
     
     private let build: CiBuildRun
     
@@ -46,6 +47,10 @@ struct BuildCard: View {
                     .padding(.vertical, 5)
                 
                 VStack(alignment: .leading) {
+                    if differentiateWithoutColor, let status = build.attributes?.completionStatus {
+                        Text(status.rawValue)
+                    }
+                    
                     HStack {
                         if let build = build.attributes?.number {
                             Text("Build \(build)")
