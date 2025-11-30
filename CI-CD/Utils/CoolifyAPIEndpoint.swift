@@ -33,12 +33,12 @@ struct CoolifyAPIEndpoint {
         URL(string: domain(isTesting) + "/api/v1/projects")
     }
     
-    static func fetchDatabases() -> URL? {
-        URL(string: domain() + "/api/v1/databases")
+    static func fetchDatabases(_ isTesting: Bool = false) -> URL? {
+        URL(string: domain(isTesting) + "/api/v1/databases")
     }
     
-    static func fetchApps() -> URL? {
-        URL(string: domain() + "/api/v1/applications")
+    static func fetchApps(_ isTesting: Bool = false) -> URL? {
+        URL(string: domain(isTesting) + "/api/v1/applications")
     }
     
     static func app(_ appUUID: String) -> URL? {
