@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AvdLee/appstoreconnect-swift-sdk",
       "state" : {
-        "revision" : "3c71b2bfa08c54cff86e2ed70f1e39a239396ea3",
-        "version" : "4.1.1"
+        "revision" : "9dd00f70b8e3501a2e886da95ef046476907ba0a",
+        "version" : "4.1.2"
       }
     },
     {
@@ -52,7 +52,7 @@
       "location" : "https://github.com/TopScrech/ScrechKit",
       "state" : {
         "branch" : "main",
-        "revision" : "6cb3d04aa0c7e2686c5356537c1aca0cc2fe6279"
+        "revision" : "025be8e9600e32e4c1d79ee135119c86a2a5cae2"
       }
     },
     {
