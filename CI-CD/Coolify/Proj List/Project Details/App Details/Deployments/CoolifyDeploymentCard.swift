@@ -1,6 +1,6 @@
 import ScrechKit
 
-struct DeploymentCard: View {
+struct CoolifyDeploymentCard: View {
     private let deployment: CoolifyDeployment
     
     init(_ deployment: CoolifyDeployment) {
@@ -14,7 +14,7 @@ struct DeploymentCard: View {
                 .frame(width: 5, height: 50)
             
             VStack(alignment: .leading, spacing: 4) {
-                DeploymentCardStatus(deployment.status)
+                CoolifyDeploymentCardStatus(deployment.status)
                 
                 if let commit = deployment.commitMessage, !commit.isEmpty {
                     Text(commit)
@@ -42,7 +42,7 @@ struct DeploymentCard: View {
 
 //#Preview {
 //    List {
-//        DeploymentCard()
+//        CoolifyDeploymentCard()
 //    }
 //    .darkSchemePreferred()
 //}

@@ -1,16 +1,20 @@
 import SwiftUI
 
 struct CoolifyAppDetails: View {
-    @State private var vm = CoolifyAppDetailsVM()
+    @Environment(CoolifyAppDetailsVM.self) private var vm
     @Environment(\.openURL) private var openURL
     
-    private let app: CoolifyApp
+    @State private var app: CoolifyApp
     
     init(_ app: CoolifyApp) {
         self.app = app
     }
     
+    @State private var alertRename = false
+    
     var body: some View {
+        @Bindable var vm = vm
+        
         List {
             Section("App") {
                 if let env = app.environmentName {
@@ -53,7 +57,7 @@ struct CoolifyAppDetails: View {
             }
             
             Section("Deployments") {
-                DeploymentList()
+                CoolifyDeploymentList()
                     .environment(vm)
             }
         }
@@ -61,6 +65,32 @@ struct CoolifyAppDetails: View {
         .navSubtitle(app.description ?? "")
         .refreshableTask {
             await vm.fetchDeployments(app.uuid)
+        }
+        .toolbar {
+#warning("Bogo renaming")
+            //            Button("Rename", systemImage: "pencil") {
+            //                alertRename = true
+            //            }
+        }
+        .alert("Rename", isPresented: $alertRename) {
+            TextField("New name", text: $vm.newName)
+            
+            TextField("New description", text: $vm.newDescription)
+            
+            Button("Save") {
+                save()
+            }
+        }
+    }
+    
+    private func save() {
+        Task {
+            if let app = await vm.renameApp(app) {
+                self.app = app
+                print("New app name:", app.name)
+            } else {
+                print("New app object not returned")
+            }
         }
     }
 }
@@ -81,4 +111,5 @@ struct CoolifyAppDetails: View {
         )
     )
     .darkSchemePreferred()
+    .environment(CoolifyAppDetailsVM())
 }

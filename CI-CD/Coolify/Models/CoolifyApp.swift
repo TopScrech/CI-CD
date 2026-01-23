@@ -1,6 +1,6 @@
 import Foundation
 
-struct CoolifyApp: Identifiable, Decodable {
+struct CoolifyApp: Identifiable, Codable {
     var id: String {
         uuid
     }
@@ -8,8 +8,8 @@ struct CoolifyApp: Identifiable, Decodable {
     let uuid: String
     let environmentId: Int
     let repositoryProjectId: Int
-    let name: String
-    let description: String?
+    var name: String
+    var description: String?
     let gitRepository: String?
     let gitBranch: String?
     let buildPack: String?

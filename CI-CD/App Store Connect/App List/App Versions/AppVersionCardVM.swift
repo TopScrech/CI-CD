@@ -122,7 +122,7 @@ final class AppVersionCardVM {
             }
             
             if attempt < maxAttempts {
-                try await Task.sleep(nanoseconds: interval * 1_000_000_000)
+                try await Task.sleep(for: .seconds(interval))
             }
         }
         

@@ -2,6 +2,7 @@ import ScrechKit
 
 struct CoolifyProjDetails: View {
     @Environment(CoolifyProjDetailsVM.self) private var vm
+    
     @State private var proj: CoolifyProject
     
     init(_ proj: CoolifyProject) {
@@ -18,18 +19,13 @@ struct CoolifyProjDetails: View {
                 }
             }
             
-            if !vm.databases.isEmpty {
-                Section("Databases") {
-                    ForEach(vm.databases) {
-                        CoolifyDatabaseCard($0)
-                    }
-                }
-            }
+            CoolifyDatabaseList()
+                .environment(vm)
         }
         .navigationTitle(proj.name)
         .navSubtitle(proj.description ?? "")
         .refreshableTask {
-            await vm.load(proj)
+            await vm.load(proj.uuid)
         }
         .toolbar {
             Menu {
@@ -56,14 +52,14 @@ struct CoolifyProjDetails: View {
         Task {
             if let updated = await vm.rename(proj.uuid) {
                 proj = updated
-                await vm.load(updated)
+                await vm.load(updated.uuid)
             }
         }
     }
 }
 
 #Preview {
-    CoolifyProjDetails(PreviewProp.coolifyProj)
+    CoolifyProjDetails(Preview.coolifyProj)
         .darkSchemePreferred()
         .environment(CoolifyProjDetailsVM())
 }

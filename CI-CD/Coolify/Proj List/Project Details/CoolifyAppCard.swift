@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CoolifyAppCard: View {
     @State private var vm = CoolifyAppVM()
+    @State private var appDetailsVM = CoolifyAppDetailsVM()
     @Environment(\.openURL) private var openURL
     
     private let app: CoolifyApp
@@ -13,6 +14,7 @@ struct CoolifyAppCard: View {
     var body: some View {
         NavigationLink {
             CoolifyAppDetails(app)
+                .environment(appDetailsVM)
         } label: {
             VStack(alignment: .leading) {
                 Text(app.name)
@@ -23,6 +25,9 @@ struct CoolifyAppCard: View {
                         .secondary()
                 }
             }
+        }
+        .task {
+            appDetailsVM.newName = app.name
         }
         .contextMenu {
             Section {
@@ -41,15 +46,11 @@ struct CoolifyAppCard: View {
             
             Section {
                 Button("Restart", systemImage: "arrow.trianglehead.2.clockwise.rotate.90") {
-                    Task {
-                        await vm.restart(app.uuid)
-                    }
+                    restart()
                 }
                 
                 Button("Stop", systemImage: "stop") {
-                    Task {
-                        await vm.stop(app.uuid)
-                    }
+                    stop()
                 }
             }
             
@@ -58,6 +59,18 @@ struct CoolifyAppCard: View {
                     openURL(url)
                 }
             }
+        }
+    }
+    
+    private func restart() {
+        Task {
+            await vm.restart(app.uuid)
+        }
+    }
+    
+    private func stop() {
+        Task {
+            await vm.stop(app.uuid)
         }
     }
     

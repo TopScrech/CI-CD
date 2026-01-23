@@ -1,3 +1,4 @@
+import Foundation
 import AppStoreConnect_Swift_SDK
 
 extension APIProvider: @retroactive @unchecked Sendable {}
@@ -11,5 +12,11 @@ extension CiGitUser: @retroactive Hashable {
     public static func == (lhs: CiGitUser, rhs: CiGitUser) -> Bool {
         lhs.displayName == rhs.displayName &&
         lhs.avatarURL == rhs.avatarURL
+    }
+}
+
+extension CiAction: @retroactive Identifiable {
+    public var id: UUID {
+        UUID()
     }
 }

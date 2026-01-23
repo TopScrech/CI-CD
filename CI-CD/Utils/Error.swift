@@ -1,9 +1,7 @@
 import Foundation
 
 enum Error: String, Throwable {
-    case timeout,
-         processingFailed,
-         donwloadUrlNotFound
+    case timeout, processingFailed, donwloadUrlNotFound
     
     var message: String {
         switch self {

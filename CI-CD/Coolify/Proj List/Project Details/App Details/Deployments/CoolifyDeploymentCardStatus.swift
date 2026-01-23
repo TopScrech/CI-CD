@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DeploymentCardStatus: View {
+struct CoolifyDeploymentCardStatus: View {
     private let status: DeploymentStatus
     
     init(_ status: DeploymentStatus) {
@@ -20,5 +20,5 @@ struct DeploymentCardStatus: View {
 }
 
 #Preview {
-    DeploymentCardStatus(.finished)
+    CoolifyDeploymentCardStatus(.finished)
 }

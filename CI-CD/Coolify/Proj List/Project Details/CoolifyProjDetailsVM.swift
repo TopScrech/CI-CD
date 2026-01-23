@@ -12,9 +12,7 @@ final class CoolifyProjDetailsVM {
     func rename(_ projUUID: String) async -> CoolifyProject? {
         let store = ValueStore()
         
-        let renameProjPath = store.coolifyDomain + "/api/v1/projects/" + projUUID
-        
-        guard let renameProjURL = URL(string: renameProjPath) else {
+        guard let renameProjURL = CoolifyAPIEndpoint.proj(projUUID) else {
             return nil
         }
         
@@ -43,8 +41,8 @@ final class CoolifyProjDetailsVM {
         }
     }
     
-    func load(_ project: CoolifyProject) async {
-        guard let environments = await fetchEnvironments(project) else {
+    func load(_ projUUID: String) async {
+        guard let environments = await fetchEnvironments(projUUID) else {
             return
         }
         
@@ -57,14 +55,12 @@ final class CoolifyProjDetailsVM {
         self.databases = await databases ?? []
     }
     
-    private func fetchEnvironments(_ project: CoolifyProject) async -> [Int: CoolifyProjectEnv]? {
+    private func fetchEnvironments(_ projUUID: String) async -> [Int: CoolifyProjectEnv]? {
         let store = ValueStore()
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        let path = store.coolifyDomain + "/api/v1/projects/\(project.uuid)/environments"
-        
-        guard let url = URL(string: path) else {
+        guard let url = CoolifyAPIEndpoint.fetchProjEnvironments(projUUID) else {
             return nil
         }
         
@@ -78,18 +74,17 @@ final class CoolifyProjDetailsVM {
             
             return Dictionary(uniqueKeysWithValues: envs.map { ($0.id, $0) })
         } catch {
+            print(error.localizedDescription)
             return nil
         }
     }
-
-    func fetchProject(_ uuid: String) async -> CoolifyProject? {
+    
+    func fetchProject(_ projUUID: String) async -> CoolifyProject? {
         let store = ValueStore()
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        let path = store.coolifyDomain + "/api/v1/projects/" + uuid
-        
-        guard let url = URL(string: path) else {
+        guard let url = CoolifyAPIEndpoint.proj(projUUID) else {
             return nil
         }
         
@@ -101,15 +96,15 @@ final class CoolifyProjDetailsVM {
             let (data, _) = try await URLSession.shared.data(for: request)
             return try decoder.decode(CoolifyProject.self, from: data)
         } catch {
+            print(error.localizedDescription)
             return nil
         }
     }
     
     private func fetchApps(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv]) async -> [CoolifyApp]? {
         let store = ValueStore()
-        let path = store.coolifyDomain + "/api/v1/applications"
         
-        guard let url = URL(string: path) else {
+        guard let url = CoolifyAPIEndpoint.fetchApps() else {
             return nil
         }
         
@@ -122,6 +117,8 @@ final class CoolifyProjDetailsVM {
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            print("Fetched apps:", prettyJSON(data) ?? "Invalid JSON")
             
             let apps = try decoder.decode([CoolifyApp].self, from: data)
             
@@ -144,20 +141,20 @@ final class CoolifyProjDetailsVM {
                 return item
             }
         } catch {
+            print(error.localizedDescription)
             return nil
         }
     }
     
     private func fetchDatabases(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv]) async -> [CoolifyDatabase]? {
-        let store = ValueStore()
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        let path = store.coolifyDomain + "/api/v1/databases"
-        
-        guard let url = URL(string: path) else {
+        guard let url = CoolifyAPIEndpoint.fetchDatabases() else {
             return nil
         }
+        
+        let store = ValueStore()
         
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -179,6 +176,7 @@ final class CoolifyProjDetailsVM {
             
             return databases
         } catch {
+            print(error.localizedDescription)
             return nil
         }
     }
