@@ -36,7 +36,7 @@ struct AppVersionCard: View {
             Spacer()
             
             if vm.adpId != nil {
-                if !vm.isProcessing, let url = vm.downloadUrl {
+                if !vm.isProcessing, let url = vm.downloadURL {
                     ShareLink(item: url) {
                         Image(systemName: "square.and.arrow.up")
                             .title3(.semibold)
@@ -44,9 +44,7 @@ struct AppVersionCard: View {
                     }
                     
                 } else if !vm.isProcessing {
-                    Button {
-                        startProcessing()
-                    } label: {
+                    Button(action: startProcessing) {
                         Image(systemName: "square.and.arrow.down")
                             .title3(.semibold)
                     }

@@ -57,18 +57,13 @@ struct WorkflowCard: View {
                 }
             }
 #endif
-            Button("Start build", systemImage: "play") {
-                startBuild()
-            }
-            
-            Button("Start clean build", systemImage: "play") {
-                startCleanBuild()
-            }
+            Button("Start build", systemImage: "play", action: startBuild)
+            Button("Start clean build", systemImage: "play", action: startCleanBuild)
         }
     }
     
     private func startBuild() {
-        if store.demoMode {
+        if store.connectDemoMode {
             if let build = vm.builds.first {
                 vm.builds.append(build)
             }
@@ -80,7 +75,7 @@ struct WorkflowCard: View {
     }
     
     private func startCleanBuild() {
-        if store.demoMode {
+        if store.connectDemoMode {
             if let build = vm.builds.first {
                 vm.builds.append(build)
             }

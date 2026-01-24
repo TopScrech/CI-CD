@@ -15,8 +15,12 @@ struct AppSettings: View {
             }
 #endif
             Section {
-                Toggle(isOn: $store.demoMode) {
-                    Label("Demo mode", systemImage: "hammer")
+                Toggle(isOn: $store.connectDemoMode) {
+                    Label("Connect demo", systemImage: "hammer")
+                }
+                
+                Toggle(isOn: $store.coolifyDemoMode) {
+                    Label("Coolify demo", systemImage: "cloud")
                 }
             }
             

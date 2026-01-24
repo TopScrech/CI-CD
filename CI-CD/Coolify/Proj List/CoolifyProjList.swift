@@ -8,7 +8,7 @@ struct CoolifyProjList: View {
     
     var body: some View {
         List {
-            if store.coolifyAuthorized {
+            if store.coolifyDemoMode || store.coolifyAuthorized {
                 ForEach(vm.projects) {
                     CoolifyProjCard($0)
                 }
@@ -24,12 +24,20 @@ struct CoolifyProjList: View {
         }
         .environment(vm)
         .refreshableTask {
-            await vm.fetchProjects()
+            await refreshProjects()
         }
         .sheet($sheetAuth) {
             CoolifyAuthView {
-                await vm.fetchProjects()
+                await refreshProjects()
             }
+        }
+    }
+    
+    private func refreshProjects() async {
+        if store.coolifyDemoMode {
+            vm.projects = [Preview.coolifyProj]
+        } else {
+            await vm.fetchProjects()
         }
     }
 }

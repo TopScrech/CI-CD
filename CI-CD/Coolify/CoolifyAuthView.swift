@@ -12,22 +12,29 @@ struct CoolifyAuthView: View {
     
     var body: some View {
         List {
-            Section("Domain") {
-                TextField("https://coolify.example.com", text: $store.coolifyDomain)
-                    .textContentType(.URL)
-                    .keyboardType(.URL)
-                    .autocorrectionDisabled()
+            if !store.coolifyDemoMode {
+                Section("Domain") {
+                    TextField("https://coolify.example.com", text: $store.coolifyDomain)
+                        .textContentType(.URL)
+                        .keyboardType(.URL)
+                        .autocorrectionDisabled()
+                }
+                
+                Section("API key") {
+                    TextField("welkfp22324o423mkl2lk31", text: $store.coolifyAPIKey)
+                        .autocorrectionDisabled()
+                }
             }
             
-            Section("API key") {
-                TextField("welkfp22324o423mkl2lk31", text: $store.coolifyAPIKey)
-                    .autocorrectionDisabled()
-            }
-            
-            Button("Save") {
-                save()
+            Section {
+                Toggle("Coolify demo", isOn: $store.coolifyDemoMode)
+                
+                Button("Reset Coolify credentials", role: .destructive, action: resetCredentials)
+                
+                Button("Save", action: save)
             }
         }
+        .animation(.default, value: store.coolifyDemoMode)
     }
     
     private func save() {
@@ -36,6 +43,11 @@ struct CoolifyAuthView: View {
         }
         
         dismiss()
+    }
+    
+    private func resetCredentials() {
+        store.coolifyDomain = "https://coolify.example.com"
+        store.coolifyAPIKey = ""
     }
 }
 

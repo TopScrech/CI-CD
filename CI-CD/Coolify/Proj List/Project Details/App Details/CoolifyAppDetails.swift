@@ -1,3 +1,4 @@
+import OSLog
 import SwiftUI
 
 struct CoolifyAppDetails: View {
@@ -74,12 +75,8 @@ struct CoolifyAppDetails: View {
         }
         .alert("Rename", isPresented: $alertRename) {
             TextField("New name", text: $vm.newName)
-            
             TextField("New description", text: $vm.newDescription)
-            
-            Button("Save") {
-                save()
-            }
+            Button("Save", action: save)
         }
     }
     
@@ -87,9 +84,9 @@ struct CoolifyAppDetails: View {
         Task {
             if let app = await vm.renameApp(app) {
                 self.app = app
-                print("New app name:", app.name)
+                Logger().info("New app name: \(app.name)")
             } else {
-                print("New app object not returned")
+                Logger().warning("New app object not returned")
             }
         }
     }

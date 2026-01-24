@@ -1,4 +1,5 @@
 import Foundation
+import OSLog
 import ScrechKit
 
 @Observable
@@ -7,6 +8,11 @@ final class CoolifyProjListVM {
     
     func fetchProjects() async {
         let store = ValueStore()
+
+        if store.coolifyDemoMode {
+            projects = [Preview.coolifyProj]
+            return
+        }
         
         guard let url = CoolifyAPIEndpoint.fetchProjects() else {
             return
@@ -24,7 +30,7 @@ final class CoolifyProjListVM {
             
             self.projects = try decoder.decode([CoolifyProject].self, from: data)
         } catch {
-            print("Error fetching projects:", error)
+            Logger().error("Error fetching projects: \(error.localizedDescription)")
         }
     }
 }

@@ -2,7 +2,7 @@ import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct RepoCard: View {
-    @Environment(\.openURL) private var openUrl
+    @Environment(\.openURL) private var openURL
     
     private let repo: ScmRepository
     
@@ -10,7 +10,7 @@ struct RepoCard: View {
         self.repo = repo
     }
     
-    private var stringUrl: String? {
+    private var stringURL: String? {
         repo.attributes?.httpCloneURL?.description
     }
     
@@ -22,17 +22,17 @@ struct RepoCard: View {
             Text(repo.attributes?.ownerName ?? "-")
                 .secondary()
             
-            if let stringUrl {
-                Text(stringUrl)
+            if let stringURL {
+                Text(stringURL)
                     .footnote()
                     .tertiary()
             }
         }
         .contextMenu {
-            if let url = URL(string: stringUrl ?? "") {
+            if let url = URL(string: stringURL ?? "") {
                 Section {
                     Button("Open on GitHub", systemImage: "link") {
-                        openUrl(url)
+                        openURL(url)
                     }
                 }
                 

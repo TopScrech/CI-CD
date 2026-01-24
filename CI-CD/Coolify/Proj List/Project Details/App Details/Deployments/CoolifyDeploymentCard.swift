@@ -1,3 +1,4 @@
+import OSLog
 import ScrechKit
 
 struct CoolifyDeploymentCard: View {
@@ -33,7 +34,7 @@ struct CoolifyDeploymentCard: View {
 #if DEBUG
         .contextMenu {
             Button("Print", systemImage: "hammer") {
-                print(deployment)
+                Logger().info("Deployment: \(String(describing: deployment))")
             }
         }
 #endif

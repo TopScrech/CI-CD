@@ -1,3 +1,4 @@
+import OSLog
 import ScrechKit
 
 @Observable
@@ -16,6 +17,12 @@ final class CoolifyAppDetailsVM {
         }
         
         let store = ValueStore()
+        
+        if store.coolifyDemoMode {
+            deployments = Preview.coolifyDeployments
+            return
+        }
+
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
@@ -30,12 +37,12 @@ final class CoolifyAppDetailsVM {
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
             
-            print(prettyJSON(data) ?? "Invalid JSON")
+            Logger().info("Deployments: \(prettyJSON(data) ?? "Invalid JSON")")
             
             let response = try decoder.decode(DeploymentResponse.self, from: data)
             deployments = response.deployments
         } catch {
-            print("Error fetching deployments:", error)
+            Logger().error("Error fetching deployments: \(error.localizedDescription)")
         }
     }
     
@@ -62,7 +69,7 @@ final class CoolifyAppDetailsVM {
             
             return await fetchApp(app.uuid)
         } catch {
-            print("Error renaming app:", error.localizedDescription)
+            Logger().error("Error renaming app: \(error.localizedDescription)")
             return nil
         }
     }
@@ -82,14 +89,14 @@ final class CoolifyAppDetailsVM {
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
             
-            print("Fetched app:", prettyJSON(data) ?? "Invalid JSON")
+            Logger().info("Fetched app: \(prettyJSON(data) ?? "Invalid JSON")")
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             
             return try decoder.decode(CoolifyApp.self, from: data)
         } catch {
-            print("Error fetching app:", error.localizedDescription)
+            Logger().error("Error fetching app: \(error.localizedDescription)")
             return nil
         }
     }

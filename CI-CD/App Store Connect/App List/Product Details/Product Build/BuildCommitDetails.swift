@@ -3,7 +3,7 @@ import AppStoreConnect_Swift_SDK
 import Kingfisher
 
 struct BuildCommitDetails: View {
-    @Environment(\.openURL) private var openUrl
+    @Environment(\.openURL) private var openURL
     
     private let build: CiBuildRun
     
@@ -47,7 +47,7 @@ struct BuildCommitDetails: View {
             
             if let commit, let urlString = commit.webURL, let url = URL(string: urlString) {
                 Button("Open on GitHub", systemImage: "link") {
-                    openUrl(url)
+                    openURL(url)
                 }
                 
                 ShareLink(item: url)

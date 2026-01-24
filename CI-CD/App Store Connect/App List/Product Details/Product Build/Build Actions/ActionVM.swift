@@ -1,4 +1,5 @@
 import Foundation
+import OSLog
 import AppStoreConnect_Swift_SDK
 
 @Observable
@@ -45,7 +46,7 @@ final class ActionVM {
         do {
             issues = try await provider.request(request).data
         } catch {
-            print(error)
+            Logger().error("Failed to fetch build issues: \(error.localizedDescription)")
         }
     }
     
@@ -64,7 +65,7 @@ final class ActionVM {
         do {
             artifacts = try await provider.request(request).data
         } catch {
-            print(error)
+            Logger().error("Failed to fetch build artifacts: \(error.localizedDescription)")
         }
     }
 }

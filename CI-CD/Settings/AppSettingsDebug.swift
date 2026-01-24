@@ -37,6 +37,17 @@ struct AppSettingsDebug: View {
             Button("Copy Coolify API key") {
                 Pasteboard.copy(store.coolifyAPIKey)
             }
+            
+            Button("Reset App Store Connect credentials", role: .destructive) {
+                store.issuer = ""
+                store.privateKey = ""
+                store.privateKeyId = ""
+            }
+            
+            Button("Reset Coolify credentials", role: .destructive) {
+                store.coolifyDomain = "https://coolify.example.com"
+                store.coolifyAPIKey = ""
+            }
 #if os(iOS)
             Toggle("Status bar", isOn: $store.showStatusBar)
 #endif

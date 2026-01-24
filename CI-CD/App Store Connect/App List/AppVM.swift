@@ -1,4 +1,5 @@
 import Foundation
+import OSLog
 import AppStoreConnect_Swift_SDK
 
 @Observable
@@ -9,7 +10,7 @@ final class AppVM {
     var additionalRepos: [ScmRepository] = []
     var versions: [AppStoreVersion] = []
     
-    var iconUrl: String?
+    var iconURL: String?
     
     func appBuilds(_ appId: String) async throws {
         guard
@@ -32,7 +33,7 @@ final class AppVM {
                 try await appBuildIcon(buildId)
             }
         } catch {
-            print(error)
+            Logger().error("Failed to fetch app builds: \(error.localizedDescription)")
         }
     }
     
@@ -65,9 +66,9 @@ final class AppVM {
                 .replacing("{h}", with: "1024")
                 .replacing("{f}", with: "png")
             
-            iconUrl = url
+            iconURL = url
         } catch {
-            print(error)
+            Logger().error("Failed to fetch build icon: \(error.localizedDescription)")
         }
     }
     
@@ -87,7 +88,7 @@ final class AppVM {
         do {
             workflows = try await provider.request(request).data
         } catch {
-            print(error)
+            Logger().error("Failed to fetch workflows: \(error.localizedDescription)")
         }
     }
     
@@ -109,7 +110,7 @@ final class AppVM {
         do {
             builds = try await provider.request(request).data
         } catch {
-            print(error)
+            Logger().error("Failed to fetch builds: \(error.localizedDescription)")
         }
     }
     
@@ -144,7 +145,7 @@ final class AppVM {
             let build = try await provider.request(request).data
             builds.append(build)
         } catch {
-            print(error)
+            Logger().error("Failed to start build: \(error.localizedDescription)")
         }
     }
     
@@ -162,7 +163,7 @@ final class AppVM {
         do {
             primaryRepos = try await provider.request(request).data
         } catch {
-            print(error)
+            Logger().error("Failed to fetch primary repositories: \(error.localizedDescription)")
         }
     }
     
@@ -180,7 +181,7 @@ final class AppVM {
         do {
             additionalRepos = try await provider.request(request).data
         } catch {
-            print(error)
+            Logger().error("Failed to fetch additional repositories: \(error.localizedDescription)")
         }
     }
     
@@ -201,7 +202,7 @@ final class AppVM {
         do {
             versions = try await provider.request(request).data
         } catch {
-            print(error)
+            Logger().error("Failed to fetch versions: \(error.localizedDescription)")
             throw error
         }
     }

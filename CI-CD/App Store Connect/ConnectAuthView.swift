@@ -1,3 +1,4 @@
+import OSLog
 import SwiftUI
 import UniformTypeIdentifiers
 
@@ -15,7 +16,7 @@ struct ConnectAuthView: View {
     
     var body: some View {
         List {
-            if !store.demoMode {
+            if !store.connectDemoMode {
                 Section {
                     HStack {
                         TextField("Issuer ID", text: $store.issuer)
@@ -54,14 +55,16 @@ struct ConnectAuthView: View {
             }
             
             Section {
-                Toggle("Demo Mode", isOn: $store.demoMode)
+                Toggle("Connect demo", isOn: $store.connectDemoMode)
+                
+                Button("Reset App Store Connect credentials", role: .destructive, action: resetCredentials)
                 
                 Button("Save") {
                     dismiss()
                 }
             }
         }
-        .animation(.default, value: store.demoMode)
+        .animation(.default, value: store.connectDemoMode)
         .fileImporter(
             isPresented: $showPicker,
             allowedContentTypes: [UTType(filenameExtension: "p8")!],
@@ -72,7 +75,7 @@ struct ConnectAuthView: View {
                 processImportedFile(urls)
                 
             case .failure(let error):
-                print("Failed to pick file:", error.localizedDescription)
+                Logger().error("Failed to pick file: \(error.localizedDescription)")
             }
         }
     }
@@ -111,8 +114,14 @@ struct ConnectAuthView: View {
             
             store.privateKey = lines.joined()
         } catch {
-            print("Failed to read file:", error.localizedDescription)
+            Logger().error("Failed to read file: \(error.localizedDescription)")
         }
+    }
+    
+    private func resetCredentials() {
+        store.issuer = ""
+        store.privateKey = ""
+        store.privateKeyId = ""
     }
 }
 
