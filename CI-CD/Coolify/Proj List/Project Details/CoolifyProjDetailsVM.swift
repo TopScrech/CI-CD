@@ -11,6 +11,16 @@ final class CoolifyProjDetailsVM {
     
     func rename(_ projUUID: String) async -> CoolifyProject? {
         let store = ValueStore()
+
+        if store.coolifyDemoMode {
+            return CoolifyProject(
+                id: Preview.coolifyProj.id,
+                uuid: projUUID,
+                name: projName,
+                description: projDescription,
+                environments: []
+            )
+        }
         
         guard let renameProjURL = CoolifyAPIEndpoint.proj(projUUID) else {
             return nil
@@ -42,6 +52,14 @@ final class CoolifyProjDetailsVM {
     }
     
     func load(_ projUUID: String) async {
+        let store = ValueStore()
+        
+        if store.coolifyDemoMode {
+            apps = Preview.coolifyApps
+            databases = Preview.coolifyDatabases
+            return
+        }
+        
         guard let environments = await fetchEnvironments(projUUID) else {
             return
         }
@@ -162,19 +180,18 @@ final class CoolifyProjDetailsVM {
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
-            var databases = try decoder.decode([CoolifyDatabase].self, from: data)
+            let databases = try decoder.decode([CoolifyDatabase].self, from: data)
             
-            databases = databases.compactMap { database in
+            return databases.compactMap { database in
                 guard envIds.contains(database.environmentId) else {
                     return nil
                 }
                 
                 var item = database
                 item.environmentName = environments[database.environmentId]?.name
+                
                 return item
             }
-            
-            return databases
         } catch {
             print(error.localizedDescription)
             return nil

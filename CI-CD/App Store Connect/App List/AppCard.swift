@@ -59,7 +59,7 @@ struct AppCard: View {
             }
         }
         .task {
-            if store.demoMode {
+            if store.connectDemoMode {
                 vm.workflows = [CiWorkflow.preview]
             } else {
                 async let workflows: () = vm.fetchWorkflows(product.id)

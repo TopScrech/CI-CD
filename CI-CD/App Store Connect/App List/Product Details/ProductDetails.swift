@@ -101,7 +101,7 @@ struct ProductDetails: View {
             }
         }
         .refreshableTask {
-            if store.demoMode {
+            if store.connectDemoMode {
                 vm.builds = [CiBuildRun.preview]
             } else {
                 async let builds: () = vm.fetchBuilds(product.id)

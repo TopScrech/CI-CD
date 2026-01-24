@@ -63,7 +63,7 @@ struct WorkflowCard: View {
     }
     
     private func startBuild() {
-        if store.demoMode {
+        if store.connectDemoMode {
             if let build = vm.builds.first {
                 vm.builds.append(build)
             }
@@ -75,7 +75,7 @@ struct WorkflowCard: View {
     }
     
     private func startCleanBuild() {
-        if store.demoMode {
+        if store.connectDemoMode {
             if let build = vm.builds.first {
                 vm.builds.append(build)
             }

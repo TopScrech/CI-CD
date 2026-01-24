@@ -9,7 +9,7 @@ struct ConnectAppList: View {
     
     var body: some View {
         List {
-            if store.demoMode || store.connectAuthorized {
+            if store.connectDemoMode || store.connectAuthorized {
                 ForEach(vm.products) {
                     AppCard($0)
                 }
@@ -37,7 +37,7 @@ struct ConnectAppList: View {
     
     private func fetch() {
         Task {
-            if store.demoMode {
+            if store.connectDemoMode {
                 vm.products = [CiProduct.preview]
             } else {
                 try? await vm.fetchProducts()

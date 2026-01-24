@@ -10,7 +10,8 @@ import Appearance
 
 final class ValueStore: ObservableObject {
     @AppStorage("last_tab") var lastTab = HomeViewTab.connect
-    @AppStorage("demo_mode") var demoMode = false
+    @AppStorage("demo_mode") var connectDemoMode = false
+    @AppStorage("coolify_demo_mode") var coolifyDemoMode = false
 #if os(iOS)
     @AppStorage("show_status_bar") var showStatusBar = true
 #endif

@@ -16,6 +16,12 @@ final class CoolifyAppDetailsVM {
         }
         
         let store = ValueStore()
+        
+        if store.coolifyDemoMode {
+            deployments = Preview.coolifyDeployments
+            return
+        }
+
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         

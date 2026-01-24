@@ -132,7 +132,7 @@ struct BuildCard: View {
     }
     
     private func rebuild(_ workflowId: String) {
-        if store.demoMode {
+        if store.connectDemoMode {
             if let build = productVM.builds.first {
                 productVM.builds.append(build)
             }
@@ -144,7 +144,7 @@ struct BuildCard: View {
     }
     
     private func rebuildClean(_ workflowId: String) {
-        if store.demoMode {
+        if store.connectDemoMode {
             if let build = productVM.builds.first {
                 productVM.builds.append(build)
             }

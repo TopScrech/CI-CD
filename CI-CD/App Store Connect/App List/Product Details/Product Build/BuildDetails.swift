@@ -14,7 +14,7 @@ struct BuildDetails: View {
     var body: some View {
         List {
             Section {
-                if !store.demoMode, let workflow = build.relationships?.workflow?.data {
+                if !store.connectDemoMode, let workflow = build.relationships?.workflow?.data {
                     Button("Rebuild", systemImage: "hammer") {
                         Task {
                             try await vm.startRebuild(of: build.id, in: workflow.id)
