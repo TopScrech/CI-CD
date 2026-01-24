@@ -1,4 +1,5 @@
 import Foundation
+import OSLog
 import AppStoreConnect_Swift_SDK
 
 @Observable
@@ -41,9 +42,9 @@ final class BuildVM {
         
         do {
             let build = try await provider.request(request).data
-            print(build)
+            Logger().info("Started build \(build.id)")
         } catch {
-            print(error)
+            Logger().error("Failed to start rebuild: \(error.localizedDescription)")
         }
     }
     
@@ -64,7 +65,7 @@ final class BuildVM {
                 $0.attributes?.name ?? "" < $1.attributes?.name ?? ""
             }
         } catch {
-            print(error)
+            Logger().error("Failed to fetch build actions: \(error.localizedDescription)")
         }
     }
 }

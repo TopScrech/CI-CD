@@ -1,3 +1,4 @@
+import OSLog
 import SwiftUI
 
 struct CoolifyProjCard: View {
@@ -37,7 +38,7 @@ struct CoolifyProjCard: View {
             }
 #if DEBUG
             Button("Print", systemImage: "hammer") {
-                print(proj)
+                Logger().info("Project: \(String(describing: proj))")
             }
 #endif
         }

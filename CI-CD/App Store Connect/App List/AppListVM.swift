@@ -1,4 +1,5 @@
 import Foundation
+import OSLog
 import AppStoreConnect_Swift_SDK
 
 @Observable
@@ -26,7 +27,7 @@ final class AppListVM {
             products = try await provider.request(request).data
             UserDefaults().saveProducts(products)
         } catch {
-            print(error)
+            Logger().error("Failed to fetch products: \(error.localizedDescription)")
         }
     }
 }

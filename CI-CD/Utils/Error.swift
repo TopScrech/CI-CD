@@ -1,13 +1,13 @@
 import Foundation
 
 enum Error: String, Throwable {
-    case timeout, processingFailed, donwloadUrlNotFound
+    case timeout, processingFailed, donwloadURLNotFound
     
     var message: String {
         switch self {
         case .timeout: "Timed out waiting for download URL"
         case .processingFailed: "Processing failed"
-        case .donwloadUrlNotFound: "Download URL not found"
+        case .donwloadURLNotFound: "Download URL not found"
         }
     }
 }

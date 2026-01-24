@@ -1,4 +1,5 @@
 import Foundation
+import OSLog
 
 @Observable
 final class CoolifyAppVM {
@@ -19,9 +20,9 @@ final class CoolifyAppVM {
         
         do {
             let (_, _) = try await URLSession.shared.data(for: request)
-            print("Successfully queued a deployment")
+            Logger().info("Successfully queued a deployment")
         } catch {
-            print("Error fetching projects:", error)
+            Logger().error("Error fetching projects: \(error.localizedDescription)")
         }
     }
     
@@ -38,9 +39,9 @@ final class CoolifyAppVM {
         
         do {
             let (_, _) = try await URLSession.shared.data(for: request)
-            print("Successfully restarted app")
+            Logger().info("Successfully restarted app")
         } catch {
-            print("Error startig app:", error)
+            Logger().error("Error startig app: \(error.localizedDescription)")
         }
     }
     
@@ -57,9 +58,9 @@ final class CoolifyAppVM {
         
         do {
             let (_, _) = try await URLSession.shared.data(for: request)
-            print("Successfully restarted an app")
+            Logger().info("Successfully restarted an app")
         } catch {
-            print("Error restarting app:", error)
+            Logger().error("Error restarting app: \(error.localizedDescription)")
         }
     }
 }

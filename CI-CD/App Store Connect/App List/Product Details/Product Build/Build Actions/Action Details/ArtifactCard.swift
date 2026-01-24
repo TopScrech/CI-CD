@@ -17,7 +17,7 @@ struct ArtifactCard: View {
         }
     }
     
-    private var downloadUrl: String? {
+    private var downloadURL: String? {
         artifact.attributes?.downloadURL?.description
     }
     
@@ -42,7 +42,7 @@ struct ArtifactCard: View {
                 safariCover = true
             }
         }
-        .safariCover($safariCover, url: downloadUrl ?? "https://bisquit.host/404")
+        .safariCover($safariCover, url: downloadURL ?? "https://bisquit.host/404")
 #if DEBUG
         .contextMenu {
             Button {
@@ -55,13 +55,13 @@ struct ArtifactCard: View {
                 Image(systemName: "document.on.document")
             }
             
-            if let downloadUrl {
+            if let downloadURL {
                 Button {
-                    Pasteboard.copy(downloadUrl)
+                    Pasteboard.copy(downloadURL)
                 } label: {
                     Text("Copy download url")
                     
-                    Text(downloadUrl)
+                    Text(downloadURL)
                     
                     Image(systemName: "document.on.document")
                 }

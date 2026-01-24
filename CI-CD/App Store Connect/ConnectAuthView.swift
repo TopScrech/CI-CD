@@ -1,3 +1,4 @@
+import OSLog
 import SwiftUI
 import UniformTypeIdentifiers
 
@@ -74,7 +75,7 @@ struct ConnectAuthView: View {
                 processImportedFile(urls)
                 
             case .failure(let error):
-                print("Failed to pick file:", error.localizedDescription)
+                Logger().error("Failed to pick file: \(error.localizedDescription)")
             }
         }
     }
@@ -113,7 +114,7 @@ struct ConnectAuthView: View {
             
             store.privateKey = lines.joined()
         } catch {
-            print("Failed to read file:", error.localizedDescription)
+            Logger().error("Failed to read file: \(error.localizedDescription)")
         }
     }
     

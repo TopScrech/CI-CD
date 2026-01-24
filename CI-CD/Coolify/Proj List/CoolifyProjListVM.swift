@@ -1,4 +1,5 @@
 import Foundation
+import OSLog
 import ScrechKit
 
 @Observable
@@ -29,7 +30,7 @@ final class CoolifyProjListVM {
             
             self.projects = try decoder.decode([CoolifyProject].self, from: data)
         } catch {
-            print("Error fetching projects:", error)
+            Logger().error("Error fetching projects: \(error.localizedDescription)")
         }
     }
 }

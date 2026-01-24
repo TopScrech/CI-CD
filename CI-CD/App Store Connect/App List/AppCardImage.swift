@@ -13,14 +13,14 @@ struct AppCardImage: View {
     
     var body: some View {
         VStack {
-            if let urlStrting = vm.iconUrl, let url = URL(string: urlStrting) {
+            if let urlStrting = vm.iconURL, let url = URL(string: urlStrting) {
                 KFImage(url)
                     .resizable()
                     .frame(32)
                     .clipShape(.rect(cornerRadius: 8))
             }
         }
-        .animation(.default, value: vm.iconUrl)
+        .animation(.default, value: vm.iconURL)
         .task {
             if let appId = product.relationships?.app?.data?.id {
                 try? await vm.appBuilds(appId)
