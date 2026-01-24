@@ -9,7 +9,7 @@ struct ConnectAppList: View {
     
     var body: some View {
         List {
-            if store.connectAuthorized {
+            if store.demoMode || store.connectAuthorized {
                 ForEach(vm.products) {
                     AppCard($0)
                 }
