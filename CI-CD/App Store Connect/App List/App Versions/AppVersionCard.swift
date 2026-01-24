@@ -44,9 +44,7 @@ struct AppVersionCard: View {
                     }
                     
                 } else if !vm.isProcessing {
-                    Button {
-                        startProcessing()
-                    } label: {
+                    Button(action: startProcessing) {
                         Image(systemName: "square.and.arrow.down")
                             .title3(.semibold)
                     }

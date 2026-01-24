@@ -46,10 +46,7 @@ struct CoolifyProjCard: View {
                 .autocorrectionDisabled()
             
             TextField("New description", text: $projDetailsVM.projDescription)
-            
-            Button("Save", role: .cancel) {
-                save()
-            }
+            Button("Save", role: .cancel, action: save)
         }
     }
     

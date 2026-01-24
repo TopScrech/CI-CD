@@ -24,9 +24,7 @@ struct CoolifyAuthView: View {
                     .autocorrectionDisabled()
             }
             
-            Button("Save") {
-                save()
-            }
+            Button("Save", action: save)
         }
     }
     

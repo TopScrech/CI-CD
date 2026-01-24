@@ -57,13 +57,8 @@ struct WorkflowCard: View {
                 }
             }
 #endif
-            Button("Start build", systemImage: "play") {
-                startBuild()
-            }
-            
-            Button("Start clean build", systemImage: "play") {
-                startCleanBuild()
-            }
+            Button("Start build", systemImage: "play", action: startBuild)
+            Button("Start clean build", systemImage: "play", action: startCleanBuild)
         }
     }
     

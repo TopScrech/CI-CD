@@ -74,12 +74,8 @@ struct CoolifyAppDetails: View {
         }
         .alert("Rename", isPresented: $alertRename) {
             TextField("New name", text: $vm.newName)
-            
             TextField("New description", text: $vm.newDescription)
-            
-            Button("Save") {
-                save()
-            }
+            Button("Save", action: save)
         }
     }
     

@@ -45,13 +45,8 @@ struct CoolifyAppCard: View {
             }
             
             Section {
-                Button("Restart", systemImage: "arrow.trianglehead.2.clockwise.rotate.90") {
-                    restart()
-                }
-                
-                Button("Stop", systemImage: "stop") {
-                    stop()
-                }
+                Button("Restart", systemImage: "arrow.trianglehead.2.clockwise.rotate.90", action: restart)
+                Button("Stop", systemImage: "stop", action: stop)
             }
             
             if let urlString = app.gitRepository, let url = URL(string: urlString) {
