@@ -17,13 +17,13 @@ struct BuildDetails: View {
                 if !store.connectDemoMode, let workflow = build.relationships?.workflow?.data {
                     Button("Rebuild", systemImage: "hammer") {
                         Task {
-                            try await vm.startRebuild(of: build.id, in: workflow.id)
+                            try await vm.startRebuild(of: build.id, in: workflow.id, store: store)
                         }
                     }
                     
                     Button("Rebuild clean", systemImage: "hammer") {
                         Task {
-                            try await vm.startRebuild(of: build.id, in: workflow.id, clean: true)
+                            try await vm.startRebuild(of: build.id, in: workflow.id, clean: true, store: store)
                         }
                     }
                 }
@@ -84,7 +84,27 @@ struct BuildDetails: View {
         .foregroundStyle(.foreground)
         .scrollIndicators(.never)
         .task {
-            try? await vm.buildActions(build.id)
+            load()
+        }
+        .onChange(of: store.connectAccount?.id) {
+            vm.reset()
+            load()
+        }
+        .onChange(of: store.connectDemoMode) {
+            vm.reset()
+            load()
+        }
+        .onChange(of: store.connectRefreshToken) {
+            vm.reset()
+            load()
+        }
+    }
+
+    private func load() {
+        Task {
+            guard !store.connectDemoMode else { return }
+
+            try? await vm.buildActions(build.id, store: store)
         }
     }
 }

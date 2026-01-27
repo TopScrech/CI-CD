@@ -2,6 +2,7 @@ import ScrechKit
 
 struct CoolifyProjDetails: View {
     @Environment(CoolifyProjDetailsVM.self) private var vm
+    @EnvironmentObject private var store: ValueStore
     
     @State private var proj: CoolifyProject
     
@@ -25,7 +26,25 @@ struct CoolifyProjDetails: View {
         .navigationTitle(proj.name)
         .navSubtitle(proj.description ?? "")
         .refreshableTask {
-            await vm.load(proj.uuid)
+            await load()
+        }
+        .task {
+            await load()
+        }
+        .onChange(of: store.coolifyAccount?.id) {
+            Task {
+                await load()
+            }
+        }
+        .onChange(of: store.coolifyDemoMode) {
+            Task {
+                await load()
+            }
+        }
+        .onChange(of: store.coolifyRefreshToken) {
+            Task {
+                await load()
+            }
         }
         .toolbar {
             Menu {
@@ -47,11 +66,15 @@ struct CoolifyProjDetails: View {
     
     private func save() {
         Task {
-            if let updated = await vm.rename(proj.uuid) {
+            if let updated = await vm.rename(proj.uuid, store: store) {
                 proj = updated
-                await vm.load(updated.uuid)
+                await vm.load(updated.uuid, store: store)
             }
         }
+    }
+
+    private func load() async {
+        await vm.load(proj.uuid, store: store)
     }
 }
 

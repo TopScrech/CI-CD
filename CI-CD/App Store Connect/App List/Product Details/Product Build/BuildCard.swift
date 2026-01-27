@@ -138,7 +138,7 @@ struct BuildCard: View {
             }
         } else {
             Task {
-                try await vm.startRebuild(of: build.id, in: workflowId)
+                try await vm.startRebuild(of: build.id, in: workflowId, store: store)
             }
         }
     }
@@ -150,7 +150,7 @@ struct BuildCard: View {
             }
         } else {
             Task {
-                try await vm.startRebuild(of: build.id, in: workflowId, clean: true)
+                try await vm.startRebuild(of: build.id, in: workflowId, clean: true, store: store)
             }
         }
     }

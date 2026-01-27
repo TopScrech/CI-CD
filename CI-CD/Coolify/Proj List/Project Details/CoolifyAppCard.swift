@@ -4,6 +4,7 @@ struct CoolifyAppCard: View {
     @State private var vm = CoolifyAppVM()
     @State private var appDetailsVM = CoolifyAppDetailsVM()
     @Environment(\.openURL) private var openURL
+    @EnvironmentObject private var store: ValueStore
     
     private let app: CoolifyApp
     
@@ -59,19 +60,19 @@ struct CoolifyAppCard: View {
     
     private func restart() {
         Task {
-            await vm.restart(app.uuid)
+            await vm.restart(app.uuid, store: store)
         }
     }
     
     private func stop() {
         Task {
-            await vm.stop(app.uuid)
+            await vm.stop(app.uuid, store: store)
         }
     }
     
     private func deploy(_ force: Bool = false) {
         Task {
-            await vm.deploy(app.uuid, force: force)
+            await vm.deploy(app.uuid, force: force, store: store)
         }
     }
 }

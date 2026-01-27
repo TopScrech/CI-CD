@@ -33,6 +33,18 @@ struct ConnectAppList: View {
         .refreshableTask {
             fetch()
         }
+        .task {
+            fetch()
+        }
+        .onChange(of: store.connectAccount?.id) {
+            fetch()
+        }
+        .onChange(of: store.connectDemoMode) {
+            fetch()
+        }
+        .onChange(of: store.connectRefreshToken) {
+            fetch()
+        }
     }
     
     private func fetch() {
@@ -40,7 +52,7 @@ struct ConnectAppList: View {
             if store.connectDemoMode {
                 vm.products = [CiProduct.preview]
             } else {
-                try? await vm.fetchProducts()
+                try? await vm.fetchProducts(store: store)
             }
         }
     }

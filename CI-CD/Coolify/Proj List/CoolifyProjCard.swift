@@ -4,6 +4,7 @@ import SwiftUI
 struct CoolifyProjCard: View {
     @State private var projDetailsVM = CoolifyProjDetailsVM()
     @Environment(CoolifyProjListVM.self) private var vm
+    @EnvironmentObject private var store: ValueStore
     
     @State private var proj: CoolifyProject
     
@@ -53,7 +54,7 @@ struct CoolifyProjCard: View {
     
     private func save() {
         Task {
-            if let proj = await projDetailsVM.rename(proj.uuid) {
+            if let proj = await projDetailsVM.rename(proj.uuid, store: store) {
                 self.proj = proj
             }
         }

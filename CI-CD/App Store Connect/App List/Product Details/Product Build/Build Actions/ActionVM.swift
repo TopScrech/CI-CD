@@ -6,6 +6,11 @@ import AppStoreConnect_Swift_SDK
 final class ActionVM {
     private(set) var issues: [CiIssue] = []
     private(set) var artifacts: [CiArtifact] = []
+
+    func reset() {
+        issues = []
+        artifacts = []
+    }
     
     var warningCount: Int? {
         issues.filter {
@@ -31,8 +36,8 @@ final class ActionVM {
         }.count
     }
     
-    func buildIssues(_ actionId: String) async throws {
-        guard let provider = try await provider() else {
+    func buildIssues(_ actionId: String, store: ValueStore) async throws {
+        guard let provider = try await provider(store: store) else {
             return
         }
         
@@ -50,8 +55,8 @@ final class ActionVM {
         }
     }
     
-    func buildArtifacts(_ actionId: String) async throws {
-        guard let provider = try await provider() else {
+    func buildArtifacts(_ actionId: String, store: ValueStore) async throws {
+        guard let provider = try await provider(store: store) else {
             return
         }
         

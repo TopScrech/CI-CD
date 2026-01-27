@@ -3,6 +3,7 @@ import ScrechKit
 
 struct ActionCard: View {
     @State private var vm = ActionVM()
+    @EnvironmentObject private var store: ValueStore
     
     private let action: CiBuildAction
     
@@ -46,10 +47,15 @@ struct ActionCard: View {
             .animation(.default, value: vm.testFailureCount)
         }
         .task {
-            async let issues: () = vm.buildIssues(action.id)
-            async let artifacts: () = vm.buildArtifacts(action.id)
-            
-            _ = try? await (issues, artifacts)
+            load()
+        }
+        .onChange(of: store.connectAccount?.id) {
+            vm.reset()
+            load()
+        }
+        .onChange(of: store.connectRefreshToken) {
+            vm.reset()
+            load()
         }
         .contextMenu {
             Button {
@@ -61,6 +67,17 @@ struct ActionCard: View {
                 
                 Image(systemName: "hammer")
             }
+        }
+    }
+
+    private func load() {
+        Task {
+            guard !store.connectDemoMode else { return }
+
+            async let issues: () = vm.buildIssues(action.id, store: store)
+            async let artifacts: () = vm.buildArtifacts(action.id, store: store)
+
+            _ = try? await (issues, artifacts)
         }
     }
 }

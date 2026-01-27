@@ -101,17 +101,42 @@ struct ProductDetails: View {
             }
         }
         .refreshableTask {
-            if store.connectDemoMode {
-                vm.builds = [CiBuildRun.preview]
-            } else {
-                async let builds: () = vm.fetchBuilds(product.id)
-                async let primary: () = vm.primaryRepositories(product.id)
-                async let additional: () = vm.additionalRepositories(product.id)
-                
-                // Parallel
-                _ = try? await (builds, primary, additional)
+            await refresh()
+        }
+        .task {
+            await refresh()
+        }
+        .onChange(of: store.connectAccount?.id) {
+            Task {
+                await refresh()
             }
         }
+        .onChange(of: store.connectDemoMode) {
+            Task {
+                await refresh()
+            }
+        }
+        .onChange(of: store.connectRefreshToken) {
+            Task {
+                await refresh()
+            }
+        }
+    }
+
+    private func refresh() async {
+        vm.primaryRepos = []
+        vm.additionalRepos = []
+
+        if store.connectDemoMode {
+            vm.builds = [CiBuildRun.preview]
+            return
+        }
+
+        async let builds: () = vm.fetchBuilds(product.id, store: store)
+        async let primary: () = vm.primaryRepositories(product.id, store: store)
+        async let additional: () = vm.additionalRepositories(product.id, store: store)
+
+        _ = try? await (builds, primary, additional)
     }
 }
 

@@ -9,6 +9,13 @@ final class AppVersionCardVM {
     private(set) var isProcessing = false
     private(set) var downloadURL: URL?
     
+    func reset() {
+        adpId = nil
+        errorMessage = nil
+        isProcessing = false
+        downloadURL = nil
+    }
+    
     func startProcessing(_ version: String?) async {
         guard let adpId else { return }
         
@@ -119,8 +126,8 @@ final class AppVersionCardVM {
         throw Error.timeout
     }
     
-    func getADPKey(_ notarizationId: String) async throws {
-        guard let provider = try await provider() else { return }
+    func getADPKey(_ notarizationId: String, store: ValueStore) async throws {
+        guard let provider = try await provider(store: store) else { return }
         
         let request = APIEndpoint.v1
             .appStoreVersions

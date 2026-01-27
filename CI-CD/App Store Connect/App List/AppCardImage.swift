@@ -4,6 +4,7 @@ import Kingfisher
 
 struct AppCardImage: View {
     @Environment(AppVM.self) private var vm
+    @EnvironmentObject private var store: ValueStore
     
     private let product: CiProduct
     
@@ -23,7 +24,21 @@ struct AppCardImage: View {
         .animation(.default, value: vm.iconURL)
         .task {
             if let appId = product.relationships?.app?.data?.id {
-                try? await vm.appBuilds(appId)
+                try? await vm.appBuilds(appId, store: store)
+            }
+        }
+        .onChange(of: store.connectAccount?.id) {
+            Task {
+                if let appId = product.relationships?.app?.data?.id {
+                    try? await vm.appBuilds(appId, store: store)
+                }
+            }
+        }
+        .onChange(of: store.connectRefreshToken) {
+            Task {
+                if let appId = product.relationships?.app?.data?.id {
+                    try? await vm.appBuilds(appId, store: store)
+                }
             }
         }
     }

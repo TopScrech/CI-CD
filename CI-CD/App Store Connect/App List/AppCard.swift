@@ -59,15 +59,30 @@ struct AppCard: View {
             }
         }
         .task {
+            load()
+        }
+        .onChange(of: store.connectAccount?.id) {
+            load()
+        }
+        .onChange(of: store.connectDemoMode) {
+            load()
+        }
+        .onChange(of: store.connectRefreshToken) {
+            load()
+        }
+    }
+
+    private func load() {
+        Task {
             if store.connectDemoMode {
                 vm.workflows = [CiWorkflow.preview]
             } else {
-                async let workflows: () = vm.fetchWorkflows(product.id)
-                async let builds: () = vm.fetchBuilds(product.id)
-                async let primaryRepos: () = vm.primaryRepositories(product.id)
-                async let additionalRepos: () = vm.additionalRepositories(product.id)
-                async let versions: () = vm.getVersions(product.relationships?.app?.data?.id)
-                
+                async let workflows: () = vm.fetchWorkflows(product.id, store: store)
+                async let builds: () = vm.fetchBuilds(product.id, store: store)
+                async let primaryRepos: () = vm.primaryRepositories(product.id, store: store)
+                async let additionalRepos: () = vm.additionalRepositories(product.id, store: store)
+                async let versions: () = vm.getVersions(product.relationships?.app?.data?.id, store: store)
+
                 _ = try? await (workflows, builds, additionalRepos, primaryRepos, versions)
             }
         }

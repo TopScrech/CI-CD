@@ -69,7 +69,7 @@ struct WorkflowCard: View {
             }
         } else {
             Task {
-                try await vm.startBuild(workflow.id)
+                try await vm.startBuild(workflow.id, store: store)
             }
         }
     }
@@ -81,7 +81,7 @@ struct WorkflowCard: View {
             }
         } else {
             Task {
-                try await vm.startBuild(workflow.id, clean: true)
+                try await vm.startBuild(workflow.id, clean: true, store: store)
             }
         }
     }

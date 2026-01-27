@@ -3,10 +3,12 @@ import OSLog
 
 @Observable
 final class CoolifyAppVM {
-    func deploy(_ appUUID: String, force: Bool = false) async {
-        let store = ValueStore()
+    func deploy(_ appUUID: String, force: Bool = false, store: ValueStore) async {
+        guard let account = store.coolifyAccount, account.isAuthorized else {
+            return
+        }
         
-        guard let url = CoolifyAPIEndpoint.deploy(appUUID) else {
+        guard let url = CoolifyAPIEndpoint.deploy(appUUID, domain: account.domain) else {
             return
         }
         
@@ -16,7 +18,7 @@ final class CoolifyAppVM {
         
         var request = URLRequest(url: url.appending(queryItems: queryItems))
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
             let (_, _) = try await URLSession.shared.data(for: request)
@@ -26,16 +28,18 @@ final class CoolifyAppVM {
         }
     }
     
-    func stop(_ appUUID: String) async {
-        let store = ValueStore()
+    func stop(_ appUUID: String, store: ValueStore) async {
+        guard let account = store.coolifyAccount, account.isAuthorized else {
+            return
+        }
         
-        guard let url = CoolifyAPIEndpoint.stop(appUUID) else {
+        guard let url = CoolifyAPIEndpoint.stop(appUUID, domain: account.domain) else {
             return
         }
         
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
             let (_, _) = try await URLSession.shared.data(for: request)
@@ -45,16 +49,18 @@ final class CoolifyAppVM {
         }
     }
     
-    func restart(_ appUUID: String) async {
-        let store = ValueStore()
+    func restart(_ appUUID: String, store: ValueStore) async {
+        guard let account = store.coolifyAccount, account.isAuthorized else {
+            return
+        }
         
-        guard let url = CoolifyAPIEndpoint.restart(appUUID) else {
+        guard let url = CoolifyAPIEndpoint.restart(appUUID, domain: account.domain) else {
             return
         }
         
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
             let (_, _) = try await URLSession.shared.data(for: request)

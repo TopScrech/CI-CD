@@ -3,6 +3,7 @@ import AppStoreConnect_Swift_SDK
 
 struct AppVersionCard: View {
     @State private var vm = AppVersionCardVM()
+    @EnvironmentObject private var store: ValueStore
     
     private let version: AppStoreVersion
     
@@ -57,15 +58,35 @@ struct AppVersionCard: View {
         .animation(.default, value: vm.adpId)
         .foregroundStyle(.primary)
         .task {
-            if vm.adpId == nil {
-                try? await vm.getADPKey(version.id)
-            }
+            load()
+        }
+        .onChange(of: store.connectAccount?.id) {
+            vm.reset()
+            load()
+        }
+        .onChange(of: store.connectDemoMode) {
+            vm.reset()
+            load()
+        }
+        .onChange(of: store.connectRefreshToken) {
+            vm.reset()
+            load()
         }
     }
     
     private func startProcessing() {
         Task {
             await vm.startProcessing(versionString)
+        }
+    }
+
+    private func load() {
+        Task {
+            guard !store.connectDemoMode else { return }
+
+            if vm.adpId == nil {
+                try? await vm.getADPKey(version.id, store: store)
+            }
         }
     }
 }

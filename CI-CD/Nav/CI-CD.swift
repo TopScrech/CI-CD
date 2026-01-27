@@ -1,4 +1,5 @@
 import ScrechKit
+import SwiftData
 
 #if canImport(SafariCover)
 import SafariCover
@@ -10,5 +11,6 @@ struct CDApp: App {
         WindowGroup {
             AppContainer()
         }
+        .modelContainer(AccountModelContainer.shared)
     }
 }

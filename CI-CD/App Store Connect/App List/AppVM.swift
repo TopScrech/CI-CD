@@ -12,9 +12,9 @@ final class AppVM {
     
     var iconURL: String?
     
-    func appBuilds(_ appId: String) async throws {
+    func appBuilds(_ appId: String, store: ValueStore) async throws {
         guard
-            let provider = try await provider()
+            let provider = try await provider(store: store)
         else {
             return
         }
@@ -30,16 +30,16 @@ final class AppVM {
             let builds = try await provider.request(request)
             
             if let buildId = builds.data.first?.id {
-                try await appBuildIcon(buildId)
+                try await appBuildIcon(buildId, store: store)
             }
         } catch {
             Logger().error("Failed to fetch app builds: \(error)")
         }
     }
     
-    private func appBuildIcon(_ buildId: String) async throws {
+    private func appBuildIcon(_ buildId: String, store: ValueStore) async throws {
         guard
-            let provider = try await provider()
+            let provider = try await provider(store: store)
         else {
             return
         }
@@ -72,9 +72,9 @@ final class AppVM {
         }
     }
     
-    func fetchWorkflows(_ id: String) async throws {
+    func fetchWorkflows(_ id: String, store: ValueStore) async throws {
         guard
-            let provider = try await provider()
+            let provider = try await provider(store: store)
         else {
             return
         }
@@ -92,9 +92,9 @@ final class AppVM {
         }
     }
     
-    func fetchBuilds(_ id: String) async throws {
+    func fetchBuilds(_ id: String, store: ValueStore) async throws {
         guard
-            let provider = try await provider()
+            let provider = try await provider(store: store)
         else {
             return
         }
@@ -114,9 +114,9 @@ final class AppVM {
         }
     }
     
-    func startBuild(_ workflowId: String, clean: Bool = false) async throws {
+    func startBuild(_ workflowId: String, clean: Bool = false, store: ValueStore) async throws {
         guard
-            let provider = try await provider()
+            let provider = try await provider(store: store)
         else {
             return
         }
@@ -149,8 +149,8 @@ final class AppVM {
         }
     }
     
-    func primaryRepositories(_ productId: String) async throws {
-        guard let provider = try await provider() else {
+    func primaryRepositories(_ productId: String, store: ValueStore) async throws {
+        guard let provider = try await provider(store: store) else {
             return
         }
         
@@ -167,8 +167,8 @@ final class AppVM {
         }
     }
     
-    func additionalRepositories(_ productId: String) async throws {
-        guard let provider = try await provider() else {
+    func additionalRepositories(_ productId: String, store: ValueStore) async throws {
+        guard let provider = try await provider(store: store) else {
             return
         }
         
@@ -185,10 +185,10 @@ final class AppVM {
         }
     }
     
-    func getVersions(_ appId: String?) async throws {
+    func getVersions(_ appId: String?, store: ValueStore) async throws {
         guard
             let appId,
-            let provider = try await provider()
+            let provider = try await provider(store: store)
         else {
             return
         }

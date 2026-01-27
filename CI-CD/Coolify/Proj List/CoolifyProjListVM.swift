@@ -6,21 +6,24 @@ import ScrechKit
 final class CoolifyProjListVM {
     var projects: [CoolifyProject] = []
     
-    func fetchProjects() async {
-        let store = ValueStore()
-
+    func fetchProjects(store: ValueStore) async {
         if store.coolifyDemoMode {
             projects = [Preview.coolifyProj]
             return
         }
+
+        guard let account = store.coolifyAccount, account.isAuthorized else {
+            projects = []
+            return
+        }
         
-        guard let url = CoolifyAPIEndpoint.fetchProjects() else {
+        guard let url = CoolifyAPIEndpoint.fetchProjects(domain: account.domain) else {
             return
         }
         
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)

@@ -5,13 +5,18 @@ import AppStoreConnect_Swift_SDK
 @Observable
 final class BuildVM {
     private(set) var actions: [CiBuildAction] = []
+
+    func reset() {
+        actions = []
+    }
     
     func startRebuild(
         of buildId: String,
         in workflowId: String,
-        clean: Bool = false
+        clean: Bool = false,
+        store: ValueStore
     ) async throws {
-        guard let provider = try await provider() else {
+        guard let provider = try await provider(store: store) else {
             return
         }
         
@@ -48,8 +53,8 @@ final class BuildVM {
         }
     }
     
-    func buildActions(_ buildId: String) async throws {
-        guard let provider = try await provider() else {
+    func buildActions(_ buildId: String, store: ValueStore) async throws {
+        guard let provider = try await provider(store: store) else {
             return
         }
         

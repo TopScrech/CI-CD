@@ -4,6 +4,7 @@ import SwiftUI
 struct CoolifyAppDetails: View {
     @Environment(CoolifyAppDetailsVM.self) private var vm
     @Environment(\.openURL) private var openURL
+    @EnvironmentObject private var store: ValueStore
     
     @State private var app: CoolifyApp
     
@@ -65,7 +66,30 @@ struct CoolifyAppDetails: View {
         .navigationTitle(app.name)
         .navSubtitle(app.description ?? "")
         .refreshableTask {
-            await vm.fetchDeployments(app.uuid)
+            vm.resetLoading()
+            await load()
+        }
+        .task {
+            vm.resetLoading()
+            await load()
+        }
+        .onChange(of: store.coolifyAccount?.id) {
+            Task {
+                vm.resetLoading()
+                await load()
+            }
+        }
+        .onChange(of: store.coolifyDemoMode) {
+            Task {
+                vm.resetLoading()
+                await load()
+            }
+        }
+        .onChange(of: store.coolifyRefreshToken) {
+            Task {
+                vm.resetLoading()
+                await load()
+            }
         }
         .toolbar {
 #warning("Bogo renaming")
@@ -82,13 +106,17 @@ struct CoolifyAppDetails: View {
     
     private func save() {
         Task {
-            if let app = await vm.renameApp(app) {
+            if let app = await vm.renameApp(app, store: store) {
                 self.app = app
                 Logger().info("New app name: \(app.name)")
             } else {
                 Logger().warning("New app object not returned")
             }
         }
+    }
+
+    private func load() async {
+        await vm.fetchDeployments(app.uuid, store: store)
     }
 }
 

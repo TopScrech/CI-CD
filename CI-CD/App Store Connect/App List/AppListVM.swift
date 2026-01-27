@@ -6,12 +6,12 @@ import AppStoreConnect_Swift_SDK
 final class AppListVM {
     var products: [CiProduct] = []
     
-    func fetchProducts() async throws {
+    func fetchProducts(store: ValueStore) async throws {
         if let cachedProducts = UserDefaults().loadProducts() {
             products = cachedProducts
         }
         
-        guard let provider = try await provider() else {
+        guard let provider = try await provider(store: store) else {
             return
         }
         

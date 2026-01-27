@@ -10,9 +10,7 @@ final class CoolifyProjDetailsVM {
     var projDescription = ""
     var alertRename = false
     
-    func rename(_ projUUID: String) async -> CoolifyProject? {
-        let store = ValueStore()
-        
+    func rename(_ projUUID: String, store: ValueStore) async -> CoolifyProject? {
         if store.coolifyDemoMode {
             return CoolifyProject(
                 id: Preview.coolifyProj.id,
@@ -22,8 +20,12 @@ final class CoolifyProjDetailsVM {
                 environments: []
             )
         }
+
+        guard let account = store.coolifyAccount, account.isAuthorized else {
+            return nil
+        }
         
-        guard let renameProjURL = CoolifyAPIEndpoint.proj(projUUID) else {
+        guard let renameProjURL = CoolifyAPIEndpoint.proj(projUUID, domain: account.domain) else {
             return nil
         }
         
@@ -40,52 +42,59 @@ final class CoolifyProjDetailsVM {
         renameRequest.httpMethod = "PATCH"
         renameRequest.setValue("application/json", forHTTPHeaderField: "Accept")
         renameRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        renameRequest.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        renameRequest.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         renameRequest.httpBody = body
         
         do {
             _ = try await URLSession.shared.data(for: renameRequest)
-            return await fetchProject(projUUID)
+            return await fetchProject(projUUID, store: store)
         } catch {
             Logger().error("Error renaming proj: \(error)")
             return nil
         }
     }
     
-    func load(_ projUUID: String) async {
-        let store = ValueStore()
-        
+    func load(_ projUUID: String, store: ValueStore) async {
         if store.coolifyDemoMode {
             apps = Preview.coolifyApps
             databases = Preview.coolifyDatabases
             return
         }
+
+        guard store.coolifyAccount?.isAuthorized == true else {
+            apps = []
+            databases = []
+            return
+        }
         
-        guard let environments = await fetchEnvironments(projUUID) else {
+        guard let environments = await fetchEnvironments(projUUID, store: store) else {
             return
         }
         
         let envIds = Set(environments.keys)
         
-        async let apps = fetchApps(envIds: envIds, environments: environments)
-        async let databases = fetchDatabases(envIds: envIds, environments: environments)
+        async let apps = fetchApps(envIds: envIds, environments: environments, store: store)
+        async let databases = fetchDatabases(envIds: envIds, environments: environments, store: store)
         
         self.apps = await apps ?? []
         self.databases = await databases ?? []
     }
     
-    private func fetchEnvironments(_ projUUID: String) async -> [Int: CoolifyProjectEnv]? {
-        let store = ValueStore()
+    private func fetchEnvironments(_ projUUID: String, store: ValueStore) async -> [Int: CoolifyProjectEnv]? {
+        guard let account = store.coolifyAccount, account.isAuthorized else {
+            return nil
+        }
+
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        guard let url = CoolifyAPIEndpoint.fetchProjEnvironments(projUUID) else {
+        guard let url = CoolifyAPIEndpoint.fetchProjEnvironments(projUUID, domain: account.domain) else {
             return nil
         }
         
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
@@ -98,18 +107,21 @@ final class CoolifyProjDetailsVM {
         }
     }
     
-    func fetchProject(_ projUUID: String) async -> CoolifyProject? {
-        let store = ValueStore()
+    func fetchProject(_ projUUID: String, store: ValueStore) async -> CoolifyProject? {
+        guard let account = store.coolifyAccount, account.isAuthorized else {
+            return nil
+        }
+
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        guard let url = CoolifyAPIEndpoint.proj(projUUID) else {
+        guard let url = CoolifyAPIEndpoint.proj(projUUID, domain: account.domain) else {
             return nil
         }
         
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
@@ -120,16 +132,18 @@ final class CoolifyProjDetailsVM {
         }
     }
     
-    private func fetchApps(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv]) async -> [CoolifyApp]? {
-        let store = ValueStore()
-        
-        guard let url = CoolifyAPIEndpoint.fetchApps() else {
+    private func fetchApps(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv], store: ValueStore) async -> [CoolifyApp]? {
+        guard let account = store.coolifyAccount, account.isAuthorized else {
+            return nil
+        }
+
+        guard let url = CoolifyAPIEndpoint.fetchApps(domain: account.domain) else {
             return nil
         }
         
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
@@ -168,19 +182,21 @@ final class CoolifyProjDetailsVM {
         }
     }
     
-    private func fetchDatabases(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv]) async -> [CoolifyDatabase]? {
+    private func fetchDatabases(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv], store: ValueStore) async -> [CoolifyDatabase]? {
+        guard let account = store.coolifyAccount, account.isAuthorized else {
+            return nil
+        }
+
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        guard let url = CoolifyAPIEndpoint.fetchDatabases() else {
+        guard let url = CoolifyAPIEndpoint.fetchDatabases(domain: account.domain) else {
             return nil
         }
         
-        let store = ValueStore()
-        
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(store.coolifyAPIKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)

@@ -3,6 +3,7 @@ import AppStoreConnect_Swift_SDK
 
 struct AppCardContextMenu: ViewModifier {
     @Environment(AppVM.self) private var vm
+    @EnvironmentObject private var store: ValueStore
     
     @Binding private var sheetVersions: Bool
     private let product: CiProduct
@@ -20,7 +21,7 @@ struct AppCardContextMenu: ViewModifier {
                         Section {
                             Button {
                                 Task {
-                                    try await vm.startBuild(workflow.id)
+                                    try await vm.startBuild(workflow.id, store: store)
                                 }
                             } label: {
                                 Text("Start build")
@@ -32,7 +33,7 @@ struct AppCardContextMenu: ViewModifier {
                             
                             Button {
                                 Task {
-                                    try await vm.startBuild(workflow.id, clean: true)
+                                    try await vm.startBuild(workflow.id, clean: true, store: store)
                                 }
                             } label: {
                                 Text("Start clean build")

@@ -1,12 +1,20 @@
 import Foundation
 import AppStoreConnect_Swift_SDK
 
-func provider() async throws -> APIProvider? {
+func provider(store: ValueStore) async throws -> APIProvider? {
+    guard !store.connectDemoMode else {
+        return nil
+    }
+
+    guard let account = store.connectAccount, account.isAuthorized else {
+        return nil
+    }
+
     let configuration = try APIConfiguration(
-        issuerID: ValueStore().issuer,
-        privateKeyID: ValueStore().privateKeyId,
-        privateKey: ValueStore().privateKey
+        issuerID: account.issuerID,
+        privateKeyID: account.privateKeyID,
+        privateKey: account.privateKey
     )
-    
+
     return APIProvider(configuration: configuration)
 }
