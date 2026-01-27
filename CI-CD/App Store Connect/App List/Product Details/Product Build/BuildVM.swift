@@ -44,7 +44,7 @@ final class BuildVM {
             let build = try await provider.request(request).data
             Logger().info("Started build \(build.id)")
         } catch {
-            Logger().error("Failed to start rebuild: \(error.localizedDescription)")
+            Logger().error("Failed to start rebuild: \(error)")
         }
     }
     
@@ -65,7 +65,7 @@ final class BuildVM {
                 $0.attributes?.name ?? "" < $1.attributes?.name ?? ""
             }
         } catch {
-            Logger().error("Failed to fetch build actions: \(error.localizedDescription)")
+            Logger().error("Failed to fetch build actions: \(error)")
         }
     }
 }

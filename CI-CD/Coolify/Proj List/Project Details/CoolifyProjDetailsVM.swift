@@ -47,7 +47,7 @@ final class CoolifyProjDetailsVM {
             _ = try await URLSession.shared.data(for: renameRequest)
             return await fetchProject(projUUID)
         } catch {
-            Logger().error("Error renaming proj: \(error.localizedDescription)")
+            Logger().error("Error renaming proj: \(error)")
             return nil
         }
     }
@@ -93,7 +93,7 @@ final class CoolifyProjDetailsVM {
             
             return Dictionary(uniqueKeysWithValues: envs.map { ($0.id, $0) })
         } catch {
-            Logger().error("Error fetching environments: \(error.localizedDescription)")
+            Logger().error("Error fetching environments: \(error)")
             return nil
         }
     }
@@ -115,7 +115,7 @@ final class CoolifyProjDetailsVM {
             let (data, _) = try await URLSession.shared.data(for: request)
             return try decoder.decode(CoolifyProject.self, from: data)
         } catch {
-            Logger().error("Error fetching project: \(error.localizedDescription)")
+            Logger().error("Error fetching project: \(error)")
             return nil
         }
     }
@@ -163,7 +163,7 @@ final class CoolifyProjDetailsVM {
                 return item
             }
         } catch {
-            Logger().error("Error fetching apps: \(error.localizedDescription)")
+            Logger().error("Error fetching apps: \(error)")
             return nil
         }
     }
@@ -197,7 +197,7 @@ final class CoolifyProjDetailsVM {
                 return item
             }
         } catch {
-            Logger().error("Error fetching databases: \(error.localizedDescription)")
+            Logger().error("Error fetching databases: \(error)")
             return nil
         }
     }

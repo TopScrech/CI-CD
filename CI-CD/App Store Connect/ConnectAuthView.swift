@@ -75,7 +75,7 @@ struct ConnectAuthView: View {
                 processImportedFile(urls)
                 
             case .failure(let error):
-                Logger().error("Failed to pick file: \(error.localizedDescription)")
+                Logger().error("Failed to pick file: \(error)")
             }
         }
     }
@@ -114,7 +114,7 @@ struct ConnectAuthView: View {
             
             store.privateKey = lines.joined()
         } catch {
-            Logger().error("Failed to read file: \(error.localizedDescription)")
+            Logger().error("Failed to read file: \(error)")
         }
     }
     

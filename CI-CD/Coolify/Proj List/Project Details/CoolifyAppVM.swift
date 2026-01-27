@@ -22,7 +22,7 @@ final class CoolifyAppVM {
             let (_, _) = try await URLSession.shared.data(for: request)
             Logger().info("Successfully queued a deployment")
         } catch {
-            Logger().error("Error fetching projects: \(error.localizedDescription)")
+            Logger().error("Error fetching projects: \(error)")
         }
     }
     
@@ -41,7 +41,7 @@ final class CoolifyAppVM {
             let (_, _) = try await URLSession.shared.data(for: request)
             Logger().info("Successfully restarted app")
         } catch {
-            Logger().error("Error startig app: \(error.localizedDescription)")
+            Logger().error("Error startig app: \(error)")
         }
     }
     
@@ -60,7 +60,7 @@ final class CoolifyAppVM {
             let (_, _) = try await URLSession.shared.data(for: request)
             Logger().info("Successfully restarted an app")
         } catch {
-            Logger().error("Error restarting app: \(error.localizedDescription)")
+            Logger().error("Error restarting app: \(error)")
         }
     }
 }

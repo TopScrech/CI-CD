@@ -30,7 +30,7 @@ final class CoolifyProjListVM {
             
             self.projects = try decoder.decode([CoolifyProject].self, from: data)
         } catch {
-            Logger().error("Error fetching projects: \(error.localizedDescription)")
+            Logger().error("Error fetching projects: \(error)")
         }
     }
 }

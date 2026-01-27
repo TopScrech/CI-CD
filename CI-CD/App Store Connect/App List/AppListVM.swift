@@ -27,7 +27,7 @@ final class AppListVM {
             products = try await provider.request(request).data
             UserDefaults().saveProducts(products)
         } catch {
-            Logger().error("Failed to fetch products: \(error.localizedDescription)")
+            Logger().error("Failed to fetch products: \(error)")
         }
     }
 }

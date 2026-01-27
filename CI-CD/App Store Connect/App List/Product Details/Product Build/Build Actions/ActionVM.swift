@@ -46,7 +46,7 @@ final class ActionVM {
         do {
             issues = try await provider.request(request).data
         } catch {
-            Logger().error("Failed to fetch build issues: \(error.localizedDescription)")
+            Logger().error("Failed to fetch build issues: \(error)")
         }
     }
     
@@ -65,7 +65,7 @@ final class ActionVM {
         do {
             artifacts = try await provider.request(request).data
         } catch {
-            Logger().error("Failed to fetch build artifacts: \(error.localizedDescription)")
+            Logger().error("Failed to fetch build artifacts: \(error)")
         }
     }
 }

@@ -42,7 +42,7 @@ final class CoolifyAppDetailsVM {
             let response = try decoder.decode(DeploymentResponse.self, from: data)
             deployments = response.deployments
         } catch {
-            Logger().error("Error fetching deployments: \(error.localizedDescription)")
+            Logger().error("Error fetching deployments: \(error)")
         }
     }
     
@@ -69,7 +69,7 @@ final class CoolifyAppDetailsVM {
             
             return await fetchApp(app.uuid)
         } catch {
-            Logger().error("Error renaming app: \(error.localizedDescription)")
+            Logger().error("Error renaming app: \(error)")
             return nil
         }
     }
@@ -96,7 +96,7 @@ final class CoolifyAppDetailsVM {
             
             return try decoder.decode(CoolifyApp.self, from: data)
         } catch {
-            Logger().error("Error fetching app: \(error.localizedDescription)")
+            Logger().error("Error fetching app: \(error)")
             return nil
         }
     }
