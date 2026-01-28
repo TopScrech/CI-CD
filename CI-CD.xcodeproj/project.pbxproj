@@ -49,7 +49,6 @@
 		F337089F2DD93A01006834F8 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34050492F24C78100E8CDAE /* AGENTS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AGENTS.md; sourceTree = "<group>"; };
 		F3721A382ECFD00C00CCE9EE /* Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3A64EB52F28EE0F008354CC /* iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "iOS-Info.plist"; sourceTree = "<group>"; };
 		F3AE99E12E2F88AA00D70249 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +64,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				AppIcon.icon,
+				iOS.plist,
 				Localizable.xcstrings,
 			);
 			target = F32429E62DDDD018000A16E8 /* visionOS */;
@@ -92,6 +92,13 @@
 			);
 			target = F3721A372ECFD00C00CCE9EE /* Unit Tests */;
 		};
+		F3EB9C622F298F3F00AF831A /* Exceptions for "CI-CD" folder in "iOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				iOS.plist,
+			);
+			target = F337089E2DD93A01006834F8 /* iOS */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -111,6 +118,7 @@
 		F32A1C032ECC5EB100BE176C /* CI-CD */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				F3EB9C622F298F3F00AF831A /* Exceptions for "CI-CD" folder in "iOS" target */,
 				F32A1C7A2ECC5EB100BE176C /* Exceptions for "CI-CD" folder in "visionOS" target */,
 				F32A1C7B2ECC5EB100BE176C /* Exceptions for "CI-CD" folder in "macOS" target */,
 				F3721A452ECFD02900CCE9EE /* Exceptions for "CI-CD" folder in "Unit Tests" target */,
@@ -172,7 +180,6 @@
 		F33708962DD93A01006834F8 = {
 			isa = PBXGroup;
 			children = (
-				F3A64EB52F28EE0F008354CC /* iOS-Info.plist */,
 				F34050492F24C78100E8CDAE /* AGENTS.md */,
 				F3AE99E12E2F88AA00D70249 /* README.md */,
 				F32A1C032ECC5EB100BE176C /* CI-CD */,
@@ -699,7 +706,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS-Info.plist";
+				INFOPLIST_FILE = "CI-CD/iOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = CI/CD;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
@@ -745,7 +752,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS-Info.plist";
+				INFOPLIST_FILE = "CI-CD/iOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = CI/CD;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
