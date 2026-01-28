@@ -20,9 +20,6 @@ struct CoolifyAuthView: View {
     
     @State private var lastObservedDemoAccountID: UUID?
     @State private var lastObservedDemoMode = false
-    @State private var pendingDeleteAccounts: [ProviderAccount] = []
-    @State private var pendingDeleteSelected = false
-    @State private var showDeleteAlert = false
 
     private var selectedAccount: ProviderAccount? {
         if let selectedID = store.coolifyAccount?.id,
@@ -51,12 +48,6 @@ struct CoolifyAuthView: View {
             }
         }
         .animation(.default, value: accounts.count)
-        .alert(deleteAlertTitle, isPresented: $showDeleteAlert) {
-            Button("Delete", role: .destructive, action: confirmDeleteAccounts)
-            Button("Cancel", role: .cancel, action: cancelDeleteAccounts)
-        } message: {
-            Text(deleteAlertMessage)
-        }
         .onAppear {
             ensureAccountSelection()
         }
@@ -179,38 +170,12 @@ struct CoolifyAuthView: View {
         }
         guard !accountsToDelete.isEmpty else { return }
 
-        pendingDeleteAccounts = accountsToDelete
-        pendingDeleteSelected = accountsToDelete.contains { $0.id == store.coolifyAccount?.id }
-        showDeleteAlert = true
-    }
-
-    private var deleteAlertTitle: String {
-        pendingDeleteAccounts.count == 1 ? "Delete account?" : "Delete accounts?"
-    }
-
-    private var deleteAlertMessage: String {
-        let count = pendingDeleteAccounts.count
-        if count == 1 {
-            let name = pendingDeleteAccounts.first?.effectiveName ?? "this account"
-            return "This will remove \(name)"
-        }
-        return "This will remove \(count) accounts"
-    }
-
-    private func confirmDeleteAccounts() {
-        let deletingSelected = pendingDeleteSelected
+        let deletingSelected = accountsToDelete.contains { $0.id == store.coolifyAccount?.id }
         let selectedID = store.coolifyAccount?.id
 
-        pendingDeleteAccounts.forEach(modelContext.delete)
-        pendingDeleteAccounts = []
-        pendingDeleteSelected = false
+        accountsToDelete.forEach(modelContext.delete)
 
         saveChanges(selecting: deletingSelected ? nil : selectedID)
-    }
-
-    private func cancelDeleteAccounts() {
-        pendingDeleteAccounts = []
-        pendingDeleteSelected = false
     }
 
     private func save() {
