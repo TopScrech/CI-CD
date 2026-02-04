@@ -33,6 +33,7 @@ struct AppSettings: View {
             AppSettingsDebug()
 #endif
         }
+        .scrollIndicators(.hidden)
         .navigationTitle("Settings")
         .ornamentDismissButton()
         .foregroundStyle(.foreground)
