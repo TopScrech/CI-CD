@@ -92,14 +92,16 @@ struct CoolifyAppDetails: View {
             }
         }
         .toolbar {
-#warning("Bogo renaming")
-            //            Button("Rename", systemImage: "pencil") {
-            //                alertRename = true
-            //            }
+            Button("Rename", systemImage: "pencil") {
+                vm.newName = app.name
+                vm.newDescription = app.description ?? ""
+                alertRename = true
+            }
         }
         .alert("Rename", isPresented: $alertRename) {
             TextField("New name", text: $vm.newName)
             TextField("New description", text: $vm.newDescription)
+            Button("Cancel", role: .cancel) {}
             Button("Save", action: save)
         }
     }
