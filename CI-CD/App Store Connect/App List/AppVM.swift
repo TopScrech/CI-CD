@@ -2,6 +2,8 @@ import Foundation
 import OSLog
 import AppStoreConnect_Swift_SDK
 
+private let logger = Logger(subsystem: "dev.topscrech.CI-CD", category: "AppVM")
+
 @Observable
 final class AppVM {
     var builds: [CiBuildRun] = []
@@ -33,7 +35,7 @@ final class AppVM {
                 try await appBuildIcon(buildId, store: store)
             }
         } catch {
-            Logger().error("Failed to fetch app builds: \(error)")
+            logger.error("Failed to fetch app builds: \(error)")
         }
     }
     
@@ -68,7 +70,7 @@ final class AppVM {
             
             iconURL = url
         } catch {
-            Logger().error("Failed to fetch build icon: \(error)")
+            logger.error("Failed to fetch build icon: \(error)")
         }
     }
     
@@ -88,7 +90,7 @@ final class AppVM {
         do {
             workflows = try await provider.request(request).data
         } catch {
-            Logger().error("Failed to fetch workflows: \(error)")
+            logger.error("Failed to fetch workflows: \(error)")
         }
     }
     
@@ -110,7 +112,7 @@ final class AppVM {
         do {
             builds = try await provider.request(request).data
         } catch {
-            Logger().error("Failed to fetch builds: \(error)")
+            logger.error("Failed to fetch builds: \(error)")
         }
     }
     
@@ -145,7 +147,7 @@ final class AppVM {
             let build = try await provider.request(request).data
             builds.append(build)
         } catch {
-            Logger().error("Failed to start build: \(error)")
+            logger.error("Failed to start build: \(error)")
         }
     }
     
@@ -163,7 +165,7 @@ final class AppVM {
         do {
             primaryRepos = try await provider.request(request).data
         } catch {
-            Logger().error("Failed to fetch primary repositories: \(error)")
+            logger.error("Failed to fetch primary repositories: \(error)")
         }
     }
     
@@ -181,7 +183,7 @@ final class AppVM {
         do {
             additionalRepos = try await provider.request(request).data
         } catch {
-            Logger().error("Failed to fetch additional repositories: \(error)")
+            logger.error("Failed to fetch additional repositories: \(error)")
         }
     }
     
@@ -202,7 +204,7 @@ final class AppVM {
         do {
             versions = try await provider.request(request).data
         } catch {
-            Logger().error("Failed to fetch versions: \(error)")
+            logger.error("Failed to fetch versions: \(error)")
             throw error
         }
     }

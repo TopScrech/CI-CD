@@ -1,6 +1,8 @@
 import Foundation
 import OSLog
 
+private let logger = Logger(subsystem: "dev.topscrech.CI-CD", category: "CoolifyAppVM")
+
 @Observable
 final class CoolifyAppVM {
     func deploy(_ appUUID: String, force: Bool = false, store: ValueStore) async {
@@ -22,9 +24,9 @@ final class CoolifyAppVM {
         
         do {
             let (_, _) = try await URLSession.shared.data(for: request)
-            Logger().info("Successfully queued a deployment")
+            logger.info("Successfully queued a deployment")
         } catch {
-            Logger().error("Error fetching projects: \(error)")
+            logger.error("Error fetching projects: \(error)")
         }
     }
     
@@ -43,9 +45,9 @@ final class CoolifyAppVM {
         
         do {
             let (_, _) = try await URLSession.shared.data(for: request)
-            Logger().info("Successfully restarted app")
+            logger.info("Successfully restarted app")
         } catch {
-            Logger().error("Error startig app: \(error)")
+            logger.error("Error startig app: \(error)")
         }
     }
     
@@ -64,9 +66,9 @@ final class CoolifyAppVM {
         
         do {
             let (_, _) = try await URLSession.shared.data(for: request)
-            Logger().info("Successfully restarted an app")
+            logger.info("Successfully restarted an app")
         } catch {
-            Logger().error("Error restarting app: \(error)")
+            logger.error("Error restarting app: \(error)")
         }
     }
 }

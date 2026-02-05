@@ -1,6 +1,8 @@
 import OSLog
 import ScrechKit
 
+private let logger = Logger(subsystem: "dev.topscrech.CI-CD", category: "CoolifyProjDetailsVM")
+
 @Observable
 final class CoolifyProjDetailsVM {
     var apps: [CoolifyApp] = []
@@ -49,7 +51,7 @@ final class CoolifyProjDetailsVM {
             _ = try await URLSession.shared.data(for: renameRequest)
             return await fetchProject(projUUID, store: store)
         } catch {
-            Logger().error("Error renaming proj: \(error)")
+            logger.error("Error renaming proj: \(error)")
             return nil
         }
     }
@@ -102,7 +104,7 @@ final class CoolifyProjDetailsVM {
             
             return Dictionary(uniqueKeysWithValues: envs.map { ($0.id, $0) })
         } catch {
-            Logger().error("Error fetching environments: \(error)")
+            logger.error("Error fetching environments: \(error)")
             return nil
         }
     }
@@ -127,7 +129,7 @@ final class CoolifyProjDetailsVM {
             let (data, _) = try await URLSession.shared.data(for: request)
             return try decoder.decode(CoolifyProject.self, from: data)
         } catch {
-            Logger().error("Error fetching project: \(error)")
+            logger.error("Error fetching project: \(error)")
             return nil
         }
     }
@@ -151,7 +153,7 @@ final class CoolifyProjDetailsVM {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             
-            Logger().info("Fetched apps: \(prettyJSON(data) ?? "Invalid JSON")")
+            logger.info("Fetched apps: \(prettyJSON(data) ?? "Invalid JSON")")
             
             let apps = try decoder.decode([CoolifyApp].self, from: data)
             
@@ -160,11 +162,11 @@ final class CoolifyProjDetailsVM {
                 let formatted = try? JSONSerialization.data(withJSONObject: object, options: .prettyPrinted),
                 let string = String(data: formatted, encoding: .utf8)
             else {
-                Logger().warning("Invalid JSON")
+                logger.warning("Invalid JSON")
                 return nil
             }
             
-            Logger().info("Apps: \(string)")
+            logger.info("Apps: \(string)")
             
             return apps.compactMap { app in
                 guard envIds.contains(app.environmentId) else {
@@ -177,7 +179,7 @@ final class CoolifyProjDetailsVM {
                 return item
             }
         } catch {
-            Logger().error("Error fetching apps: \(error)")
+            logger.error("Error fetching apps: \(error)")
             return nil
         }
     }
@@ -213,7 +215,7 @@ final class CoolifyProjDetailsVM {
                 return item
             }
         } catch {
-            Logger().error("Error fetching databases: \(error)")
+            logger.error("Error fetching databases: \(error)")
             return nil
         }
     }
