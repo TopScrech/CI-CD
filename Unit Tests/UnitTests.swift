@@ -2,7 +2,7 @@ import Foundation
 import Testing
 
 struct UnitTests {
-    private let coolifyAPIKey = "3|Jppioewjujxc0GGYLStnirSvu1DuHFJ9p1hTm4Qs9f133df4"
+    private let coolifyAPIKey = ""
     
     @Test func fetchProjects() async throws {
         let projects: [CoolifyProject] = try await fetch(from: CoolifyAPIEndpoint.fetchProjects(true))
