@@ -50,6 +50,7 @@
 		F34050492F24C78100E8CDAE /* AGENTS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AGENTS.md; sourceTree = "<group>"; };
 		F3721A382ECFD00C00CCE9EE /* Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AE99E12E2F88AA00D70249 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F3E065032F467EA1001B77CD /* UNLICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = UNLICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -182,6 +183,7 @@
 			children = (
 				F34050492F24C78100E8CDAE /* AGENTS.md */,
 				F3AE99E12E2F88AA00D70249 /* README.md */,
+				F3E065032F467EA1001B77CD /* UNLICENSE.txt */,
 				F32A1C032ECC5EB100BE176C /* CI-CD */,
 				F32A1B012ECBD6BC00BE176C /* visionOS */,
 				F32A1AF02ECB958400BE176C /* macOS */,
