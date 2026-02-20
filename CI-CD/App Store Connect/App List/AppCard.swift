@@ -1,0 +1,96 @@
+import ScrechKit
+@preconcurrency import AppStoreConnect_Swift_SDK
+
+struct AppCard: View {
+    @State private var vm = AppVM()
+    @EnvironmentObject private var store: ValueStore
+    
+    private let product: CiProduct
+    
+    init(_ product: CiProduct) {
+        self.product = product
+    }
+    
+    @State private var sheetVersions = false
+    
+    var body: some View {
+        NavigationLink {
+            ProductDetails(product)
+                .environment(vm)
+        } label: {
+            HStack {
+                AppCardImage(product)
+                
+                VStack(alignment: .leading) {
+                    if let attributes = product.attributes, let name = attributes.name {
+                        Text(name)
+                            .title3()
+                    }
+#if DEBUG
+                    if let bundleId = product.relationships?.bundleID?.data?.id {
+                        Text(bundleId)
+                            .secondary()
+                            .footnote()
+                    }
+#endif
+                }
+                
+                Spacer()
+                
+                VStack(alignment: .trailing, spacing: 0) {
+                    ForEach(vm.workflows) {
+                        Text($0.attributes?.name ?? "")
+                            .secondary()
+                            .footnote()
+                    }
+                }
+            }
+        }
+        .appCardContextMenu($sheetVersions, product: product)
+        .environment(vm)
+        .sheet($sheetVersions) {
+            NavigationView {
+                if let appId = product.relationships?.app?.data?.id {
+                    AppVersions(appId, for: product.attributes?.name)
+                        .environment(vm)
+                } else {
+                    Text("Error")
+                }
+            }
+        }
+        .task {
+            load()
+        }
+        .onChange(of: store.connectAccount?.id) {
+            load()
+        }
+        .onChange(of: store.connectDemoMode) {
+            load()
+        }
+        .onChange(of: store.connectRefreshToken) {
+            load()
+        }
+    }
+
+    private func load() {
+        Task {
+            if store.connectDemoMode {
+                vm.workflows = [CiWorkflow.preview]
+            } else {
+                async let workflows: () = vm.fetchWorkflows(product.id, store: store)
+                async let builds: () = vm.fetchBuilds(product.id, store: store)
+                async let primaryRepos: () = vm.primaryRepositories(product.id, store: store)
+                async let additionalRepos: () = vm.additionalRepositories(product.id, store: store)
+                async let versions: () = vm.getVersions(product.relationships?.app?.data?.id, store: store)
+
+                _ = try? await (workflows, builds, additionalRepos, primaryRepos, versions)
+            }
+        }
+    }
+}
+
+#Preview {
+    AppCard(CiProduct.preview)
+        .darkSchemePreferred()
+        .environmentObject(ValueStore())
+}
