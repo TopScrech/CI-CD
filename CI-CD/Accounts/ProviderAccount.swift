@@ -8,10 +8,8 @@ enum AccountProvider: String, CaseIterable, Identifiable, Codable {
 
     var title: String {
         switch self {
-        case .connect:
-            "Connect"
-        case .coolify:
-            "Coolify"
+        case .connect: String(localized: "Connect")
+        case .coolify: String(localized: "Coolify")
         }
     }
 
@@ -79,17 +77,17 @@ extension ProviderAccount {
 
         if demoMode {
             switch provider {
-            case .connect: return "Connect demo"
-            case .coolify: return "Coolify demo"
+            case .connect: return String(localized: "Connect demo")
+            case .coolify: return String(localized: "Coolify demo")
             }
         }
 
         switch provider {
         case .connect:
-            return issuerID.isEmpty ? "Connect account" : issuerID
+            return issuerID.isEmpty ? String(localized: "Connect account") : issuerID
             
         case .coolify:
-            return coolifyDomain.isEmpty ? "Coolify account" : coolifyDomain
+            return coolifyDomain.isEmpty ? String(localized: "Coolify account") : coolifyDomain
         }
     }
 

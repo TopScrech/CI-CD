@@ -9,7 +9,7 @@ struct AppSettingsFeedback: View {
             Button("Feedback", systemImage: "envelope") {
                 mailCover = true
             }
-            .mailCover($mailCover, subject: "CI/CD Feedback", recipients: ["topscrech@icloud.com"])
+            .mailCover($mailCover, subject: String(localized: "CI/CD Feedback"), recipients: ["topscrech@icloud.com"])
         }
     }
 }

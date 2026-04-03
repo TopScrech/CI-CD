@@ -15,7 +15,7 @@ struct HomeView: View {
                 CoolifyProjList()
             }
         }
-        .navigationTitle(store.lastTab.rawValue.capitalized)
+        .navigationTitle(store.lastTab.title)
         .toolbar {
             AccountPickerMenu(
                 showConnectAuth: { showConnectAuth = true },

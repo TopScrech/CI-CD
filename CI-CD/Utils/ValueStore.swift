@@ -49,11 +49,11 @@ final class ValueStore: ObservableObject {
     }
 
     var connectAccountTitle: String {
-        connectAccount?.effectiveName ?? "Connect"
+        connectAccount?.effectiveName ?? String(localized: "Connect")
     }
 
     var coolifyAccountTitle: String {
-        coolifyAccount?.effectiveName ?? "Coolify"
+        coolifyAccount?.effectiveName ?? String(localized: "Coolify")
     }
 
     func configure(context: ModelContext) {
@@ -225,10 +225,10 @@ struct ConnectAccountSnapshot: Identifiable, Equatable {
         }
 
         if demoMode {
-            return "Connect demo"
+            return String(localized: "Connect demo")
         }
 
-        return issuerID.isEmpty ? "Connect account" : issuerID
+        return issuerID.isEmpty ? String(localized: "Connect account") : issuerID
     }
 
     var isAuthorized: Bool {
@@ -257,10 +257,10 @@ struct CoolifyAccountSnapshot: Identifiable, Equatable {
         }
 
         if demoMode {
-            return "Coolify demo"
+            return String(localized: "Coolify demo")
         }
 
-        return domain.isEmpty ? "Coolify account" : domain
+        return domain.isEmpty ? String(localized: "Coolify account") : domain
     }
 
     var isAuthorized: Bool {
