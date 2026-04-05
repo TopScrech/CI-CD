@@ -58,8 +58,18 @@ struct CoolifyAppDetails: View {
                     LabeledContent("Branch", value: branch)
                 }
                 
-                if let buildPack = app.buildPack {
-                    LabeledContent("Build pack", value: buildPack)
+                if vm.isLoadingBuildPacks && vm.availableBuildPacks.isEmpty {
+                    HStack {
+                        Text("Build pack")
+                        Spacer()
+                        ProgressView()
+                    }
+                } else if !vm.availableBuildPacks.isEmpty {
+                    Picker("Build pack", selection: $vm.newBuildPack) {
+                        ForEach(vm.availableBuildPacks) {
+                            Text($0.title).tag($0.rawValue)
+                        }
+                    }
                 }
             }
             
@@ -128,9 +138,25 @@ struct CoolifyAppDetails: View {
         }
         .alert("Rename", isPresented: $alertRename) {
             TextField("New name", text: $vm.newName)
+                .autocorrectionDisabled()
+            
             TextField("New description", text: $vm.newDescription)
+            
             Button("Cancel", role: .cancel) {}
             Button("Save", action: save)
+        }
+        .onChange(of: vm.newBuildPack) { oldValue, newValue in
+            guard
+                !vm.isPreparingBuildPack,
+                !vm.isSaving,
+                !newValue.isEmpty,
+                newValue != oldValue,
+                newValue != app.buildPack
+            else {
+                return
+            }
+            
+            save()
         }
     }
     
@@ -146,6 +172,7 @@ struct CoolifyAppDetails: View {
     }
     
     private func load() async {
+        await vm.prepareEditor(for: app, store: store)
         await vm.fetchDeployments(app.uuid, store: store)
     }
     
