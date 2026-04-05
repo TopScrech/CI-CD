@@ -7,7 +7,7 @@ struct ConnectAuthView: View {
     @EnvironmentObject private var store: ValueStore
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
-
+    
     @Query(
         filter: #Predicate<ProviderAccount> { $0.providerRawValue == "connect" },
         sort: \ProviderAccount.createdAt,
@@ -29,14 +29,14 @@ struct ConnectAuthView: View {
            let match = accounts.first(where: { $0.id == selectedID }) {
             return match
         }
-
+        
         return accounts.first
     }
     
     var body: some View {
         List {
             accountsSection
-
+            
             if let account = selectedAccount {
                 credentialsSection(account)
                 demoSection(account)
@@ -72,7 +72,7 @@ struct ConnectAuthView: View {
             }
         }
     }
-
+    
     private var accountsSection: some View {
         Section("Accounts") {
             if accounts.isEmpty {
@@ -84,9 +84,9 @@ struct ConnectAuthView: View {
                     } label: {
                         HStack {
                             Text(account.effectiveName)
-
+                            
                             Spacer()
-
+                            
                             if store.connectAccount?.id == account.id {
                                 Image(systemName: "checkmark")
                             }
@@ -95,23 +95,23 @@ struct ConnectAuthView: View {
                     .tint(.primary)
                 }
                 .onDelete(perform: deleteAccounts)
-
+                
                 Button("Add account", systemImage: "plus", action: addAccount)
             }
         }
     }
-
+    
     @ViewBuilder
     private func credentialsSection(_ account: ProviderAccount) -> some View {
         @Bindable var account = account
-
+        
         Section {
             TextField("Account name", text: $account.name)
                 .autocorrectionDisabled()
                 .onChange(of: account.name) {
                     account.touch()
                 }
-
+            
             HStack {
                 TextField("Issuer ID", text: $account.issuerID)
                     .autocorrectionDisabled()
@@ -127,7 +127,7 @@ struct ConnectAuthView: View {
                     }
                 }
             }
-
+            
             TextEditor(text: $account.privateKey)
                 .autocorrectionDisabled()
                 .onChange(of: account.privateKey) {
@@ -136,7 +136,7 @@ struct ConnectAuthView: View {
 #if !os(macOS)
                 .textInputAutocapitalization(.none)
 #endif
-
+            
             TextField("Private Key ID", text: $account.privateKeyID)
                 .autocorrectionDisabled()
                 .onChange(of: account.privateKeyID) {
@@ -145,29 +145,22 @@ struct ConnectAuthView: View {
 #if !os(macOS)
                 .textInputAutocapitalization(.none)
 #endif
-
+            
             Button("Import from Files", systemImage: "document.badge.plus") {
                 showPicker = true
             }
             .foregroundStyle(.foreground)
-
-            Button("Reset credentials", role: .destructive) {
-                account.issuerID = ""
-                account.privateKey = ""
-                account.privateKeyID = ""
-                saveChanges()
-            }
         } header: {
             Text("Credentials")
         } footer: {
             Text("You need an API key with the 'Admin' role from App Store Connect to start builds with external deployments. API keys with the 'Developer' role cannot be used for this")
         }
     }
-
+    
     @ViewBuilder
     private func demoSection(_ account: ProviderAccount) -> some View {
         @Bindable var account = account
-
+        
         Section {
             Toggle("Demo mode", isOn: $account.demoMode)
                 .onChange(of: account.id) {
@@ -180,28 +173,28 @@ struct ConnectAuthView: View {
                         lastObservedDemoMode = account.demoMode
                         return
                     }
-
+                    
                     guard lastObservedDemoMode != account.demoMode else {
                         return
                     }
-
+                    
                     lastObservedDemoMode = account.demoMode
                     saveChanges()
                 }
         }
     }
-
+    
     private func ensureAccountSelection() {
         guard !accounts.isEmpty else {
             store.selectAccount(nil, provider: .connect)
             return
         }
-
+        
         if let selectedID = store.connectAccount?.id,
            accounts.contains(where: { $0.id == selectedID }) {
             return
         }
-
+        
         store.selectAccount(accounts.first?.id, provider: .connect)
     }
     
@@ -210,57 +203,57 @@ struct ConnectAuthView: View {
         modelContext.insert(account)
         saveChanges(selecting: account.id)
     }
-
+    
     private func deleteAccounts(at offsets: IndexSet) {
         let accountsToDelete = offsets.compactMap { index in
             accounts.indices.contains(index) ? accounts[index] : nil
         }
         guard !accountsToDelete.isEmpty else { return }
-
+        
         let deletingSelected = accountsToDelete.contains { $0.id == store.connectAccount?.id }
         let selectedID = store.connectAccount?.id
-
+        
         accountsToDelete.forEach(modelContext.delete)
-
+        
         saveChanges(selecting: deletingSelected ? nil : selectedID)
     }
-
+    
     private func save() {
         saveChanges()
-
+        
         Task {
             await onDismiss()
         }
         
         dismiss()
     }
-
+    
     private func saveChanges(selecting id: UUID? = nil) {
         let accountToTouch: ProviderAccount?
-
+        
         if let id {
             accountToTouch = accountModel(for: id) ?? selectedAccount
         } else {
             accountToTouch = selectedAccount
         }
-
+        
         accountToTouch?.touch()
         try? modelContext.save()
-
+        
         if let id {
             store.selectAccount(id, provider: .connect)
         }
-
+        
         store.refreshSelection(for: .connect)
         store.bumpRefreshToken(for: .connect)
     }
-
+    
     private func accountModel(for id: UUID) -> ProviderAccount? {
         var descriptor = FetchDescriptor<ProviderAccount>(
             predicate: #Predicate { $0.id == id }
         )
         descriptor.fetchLimit = 1
-
+        
         return try? modelContext.fetch(descriptor).first
     }
     
@@ -268,15 +261,15 @@ struct ConnectAuthView: View {
         guard let url = urls.first, let account = selectedAccount else {
             return
         }
-
+        
         if let privateKey = readP8File(url) {
             account.privateKey = privateKey
         }
-            
+        
         let keyId = url.lastPathComponent
             .replacing("AuthKey_", with: "")
             .replacing(".p8", with: "")
-            
+        
         account.privateKeyID = keyId
         saveChanges()
     }

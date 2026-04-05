@@ -5,7 +5,7 @@ struct CoolifyAuthView: View {
     @EnvironmentObject private var store: ValueStore
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
-
+    
     @Query(
         filter: #Predicate<ProviderAccount> { $0.providerRawValue == "coolify" },
         sort: \ProviderAccount.createdAt,
@@ -20,20 +20,20 @@ struct CoolifyAuthView: View {
     
     @State private var lastObservedDemoAccountID: UUID?
     @State private var lastObservedDemoMode = false
-
+    
     private var selectedAccount: ProviderAccount? {
         if let selectedID = store.coolifyAccount?.id,
            let match = accounts.first(where: { $0.id == selectedID }) {
             return match
         }
-
+        
         return accounts.first
     }
     
     var body: some View {
         List {
             accountsSection
-
+            
             if let account = selectedAccount {
                 credentialsSection(account)
                 demoSection(account)
@@ -56,7 +56,7 @@ struct CoolifyAuthView: View {
             store.refreshSelection(for: .coolify)
         }
     }
-
+    
     private var accountsSection: some View {
         Section("Accounts") {
             if accounts.isEmpty {
@@ -68,9 +68,9 @@ struct CoolifyAuthView: View {
                     } label: {
                         HStack {
                             Text(account.effectiveName)
-
+                            
                             Spacer()
-
+                            
                             if store.coolifyAccount?.id == account.id {
                                 Image(systemName: "checkmark")
                             }
@@ -79,22 +79,22 @@ struct CoolifyAuthView: View {
                     .tint(.primary)
                 }
                 .onDelete(perform: deleteAccounts)
-
+                
                 Button("Add account", systemImage: "plus", action: addAccount)
             }
         }
     }
-
+    
     private func credentialsSection(_ account: ProviderAccount) -> some View {
         @Bindable var account = account
-
+        
         return Section("Credentials") {
             TextField("Account name", text: $account.name)
                 .autocorrectionDisabled()
                 .onChange(of: account.name) {
                     account.touch()
                 }
-
+            
             TextField("https://coolify.example.com", text: $account.coolifyDomain)
                 .textContentType(.URL)
                 .keyboardType(.URL)
@@ -102,25 +102,19 @@ struct CoolifyAuthView: View {
                 .onChange(of: account.coolifyDomain) {
                     account.touch()
                 }
-
+            
             TextField("API key", text: $account.coolifyAPIKey)
                 .autocorrectionDisabled()
                 .onChange(of: account.coolifyAPIKey) {
                     account.touch()
                 }
-
-            Button("Reset credentials", role: .destructive) {
-                account.coolifyDomain = "https://coolify.example.com"
-                account.coolifyAPIKey = ""
-                saveChanges()
-            }
         }
     }
-
+    
     @ViewBuilder
     private func demoSection(_ account: ProviderAccount) -> some View {
         @Bindable var account = account
-
+        
         Section {
             Toggle("Demo mode", isOn: $account.demoMode)
                 .onChange(of: account.id) {
@@ -133,87 +127,87 @@ struct CoolifyAuthView: View {
                         lastObservedDemoMode = account.demoMode
                         return
                     }
-
+                    
                     guard lastObservedDemoMode != account.demoMode else {
                         return
                     }
-
+                    
                     lastObservedDemoMode = account.demoMode
                     saveChanges()
                 }
         }
     }
-
+    
     private func ensureAccountSelection() {
         guard !accounts.isEmpty else {
             store.selectAccount(nil, provider: .coolify)
             return
         }
-
+        
         if let selectedID = store.coolifyAccount?.id,
            accounts.contains(where: { $0.id == selectedID }) {
             return
         }
-
+        
         store.selectAccount(accounts.first?.id, provider: .coolify)
     }
-
+    
     private func addAccount() {
         let account = ProviderAccount(provider: .coolify)
         modelContext.insert(account)
         saveChanges(selecting: account.id)
     }
-
+    
     private func deleteAccounts(at offsets: IndexSet) {
         let accountsToDelete = offsets.compactMap { index in
             accounts.indices.contains(index) ? accounts[index] : nil
         }
         guard !accountsToDelete.isEmpty else { return }
-
+        
         let deletingSelected = accountsToDelete.contains { $0.id == store.coolifyAccount?.id }
         let selectedID = store.coolifyAccount?.id
-
+        
         accountsToDelete.forEach(modelContext.delete)
-
+        
         saveChanges(selecting: deletingSelected ? nil : selectedID)
     }
-
+    
     private func save() {
         saveChanges()
-
+        
         Task {
             await onDismiss()
         }
         
         dismiss()
     }
-
+    
     private func saveChanges(selecting id: UUID? = nil) {
         let accountToTouch: ProviderAccount?
-
+        
         if let id {
             accountToTouch = accountModel(for: id) ?? selectedAccount
         } else {
             accountToTouch = selectedAccount
         }
-
+        
         accountToTouch?.touch()
         try? modelContext.save()
-
+        
         if let id {
             store.selectAccount(id, provider: .coolify)
         }
-
+        
         store.refreshSelection(for: .coolify)
         store.bumpRefreshToken(for: .coolify)
     }
-
+    
     private func accountModel(for id: UUID) -> ProviderAccount? {
         var descriptor = FetchDescriptor<ProviderAccount>(
             predicate: #Predicate { $0.id == id }
         )
         descriptor.fetchLimit = 1
-
+        
         return try? modelContext.fetch(descriptor).first
     }
 }
