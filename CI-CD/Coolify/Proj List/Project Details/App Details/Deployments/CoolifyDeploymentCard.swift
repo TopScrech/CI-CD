@@ -12,10 +12,19 @@ struct CoolifyDeploymentCard: View {
         HStack {
             Capsule()
                 .fill(deployment.status.color.gradient)
-                .frame(width: 5, height: 50)
+                .frame(width: 5, height: 90)
             
             VStack(alignment: .leading, spacing: 4) {
-                CoolifyDeploymentCardStatus(deployment.status)
+                HStack {
+                    CoolifyDeploymentCardStatus(deployment.status)
+                    
+                    Spacer()
+                    
+                    if let finishedAgoText = deployment.finishedAgoText {
+                        Text(finishedAgoText)
+                            .secondary()
+                    }
+                }
                 
                 if let commit = deployment.commitMessage, !commit.isEmpty {
                     Text(commit)
@@ -24,8 +33,20 @@ struct CoolifyDeploymentCard: View {
                         .secondary()
                 }
                 
-                if let created = deployment.createdAt {
-                    Text(created)
+                if let createdAtText = deployment.createdAtText {
+                    Text("Started \(createdAtText)")
+                        .footnote()
+                        .secondary()
+                }
+                
+                if let durationText = deployment.durationText {
+                    Text("Duration \(durationText)")
+                        .footnote()
+                        .secondary()
+                }
+                
+                if let finishedDateText = deployment.finishedDateText {
+                    Text("Finished \(finishedDateText)")
                         .footnote()
                         .secondary()
                 }
