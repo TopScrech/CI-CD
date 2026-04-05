@@ -1,7 +1,7 @@
-import OSLog
-import SwiftData
 import SwiftUI
+import SwiftData
 import UniformTypeIdentifiers
+import OSLog
 
 struct ConnectAuthView: View {
     @EnvironmentObject private var store: ValueStore
