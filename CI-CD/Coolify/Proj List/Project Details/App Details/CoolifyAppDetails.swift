@@ -34,6 +34,8 @@ struct CoolifyAppDetails: View {
                     } label: {
                         LabeledContent("URL", value: urlString)
                             .tint(.primary)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
                     }
                 }
                 
@@ -47,6 +49,8 @@ struct CoolifyAppDetails: View {
                     } label: {
                         LabeledContent("Repository", value: gitRepoURL.description)
                             .tint(.primary)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
                     }
                 }
                 
