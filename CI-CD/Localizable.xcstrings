@@ -1,1800 +1,4486 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-    "" : {
-      "shouldTranslate" : false
+  "sourceLanguage": "en",
+  "strings": {
+    "": {
+      "shouldTranslate": false
     },
-    "%lldd ago" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldd geleden"
+    "%lldd ago": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldd geleden"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldд назад"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldд назад"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldg önce"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "il y a %lld j"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldд тому"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "vor %lld T"
           }
         }
       }
     },
-    "%lldh ago" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldh geleden"
+    "%lldh ago": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldu geleden"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldч назад"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldч назад"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldsa önce"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "il y a %lld h"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldг тому"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "vor %lld Std"
           }
         }
       }
     },
-    "%lldm" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldm"
+    "%lldm": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldm"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldм"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldм"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%llddk"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld min"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldхв"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld Min"
           }
         }
       }
     },
-    "%lldm ago" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldm geleden"
+    "%lldm ago": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldm geleden"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldм назад"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldм назад"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%llddk önce"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "il y a %lld min"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldхв тому"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "vor %lld Min"
           }
         }
       }
     },
-    "%llds ago" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%llds geleden"
+    "%llds ago": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%llds geleden"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldс назад"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldс назад"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldsn önce"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "il y a %lld s"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldс тому"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "vor %lld Sek"
           }
         }
       }
     },
-    "⚠️ %lldx Analyzer Warnings" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⚠️ %lldx Analyzer Waarschuwingen"
+    "⚠️ %lldx Analyzer Warnings": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx Analyzer-waarschuwingen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⚠️ %lldx Предупреждения Анализатора"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx Предупреждения анализатора"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx Çözümleyici Uyarısı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx avertissements de l’analyseur"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx попереджень аналізатора"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx Analyzer-Warnungen"
           }
         }
       }
     },
-    "⚠️ %lldx Warnings" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⚠️ %lldx Waarschuwingen"
+    "⚠️ %lldx Warnings": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx Waarschuwingen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⚠️ %lldx Предупреждения"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx Предупреждения"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx Uyarı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx avertissements"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx попереджень"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ %lldx Warnungen"
           }
         }
       }
     },
-    "⛔️ %lldx Errors" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⛔️ %lldx Fouten"
+    "⛔️ %lldx Errors": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx Fouten"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⛔️ %lldx Ошибки"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx Ошибки"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx Hata"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx erreurs"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx помилок"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx Fehler"
           }
         }
       }
     },
-    "⛔️ %lldx Test Failures" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⛔️ %lldx Testfouten"
+    "⛔️ %lldx Test Failures": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx Testmislukkingen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⛔️ %lldx Сбои Тестов"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx Сбоев тестов"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx Test Başarısızlığı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx échecs de test"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx збоїв тестів"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⛔️ %lldx Testfehler"
           }
         }
       }
     },
-    "📁 %lldx Artifacts" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "📁 %lldx Artifacten"
+    "📁 %lldx Artifacts": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📁 %lldx Artefacten"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "📁 %lldx Артифакты"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📁 %lldx Артефакты"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📁 %lldx Yapı Çıktısı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📁 %lldx artefacts"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📁 %lldx артефактів"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📁 %lldx Artefakte"
           }
         }
       }
     },
-    "Account name" : {
-      "comment" : "A label for the name of a user's account.",
-      "extractionState" : "stale",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Accountnaam"
+    "Account name": {
+      "comment": "A label for the name of a user's account.",
+      "extractionState": "stale",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accountnaam"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Имя аккаунта"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Имя аккаунта"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hesap adı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nom du compte"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Назва акаунта"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kontoname"
           }
         }
       }
     },
-    "Account name (optional)" : {
-      "comment" : "A label for the account name field.",
-      "isCommentAutoGenerated" : true
-    },
-    "Accounts" : {
-      "comment" : "A section header for the list of Connect accounts.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Accounts"
+    "Account name (optional)": {
+      "comment": "A label for the account name field.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accountnaam (optioneel)"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Аккаунты"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Имя аккаунта (необязательно)"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hesap adı (isteğe bağlı)"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nom du compte (facultatif)"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Назва акаунта (необов’язково)"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kontoname (optional)"
           }
         }
       }
     },
-    "Add account" : {
-      "comment" : "A button that adds a new Connect account when pressed.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Account toevoegen"
+    "Accounts": {
+      "comment": "A section header for the list of Connect accounts.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accounts"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Добавить аккаунт"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Аккаунты"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hesaplar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comptes"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Акаунти"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Konten"
           }
         }
       }
     },
-    "Add Connect account" : {
-      "comment" : "A label for a button that adds a Connect account.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect-account toevoegen"
+    "Add account": {
+      "comment": "A button that adds a new Connect account when pressed.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account toevoegen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Добавить аккаунт Connect"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Добавить аккаунт"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hesap ekle"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter un compte"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Додати акаунт"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Konto hinzufügen"
           }
         }
       }
     },
-    "Add Coolify account" : {
-      "comment" : "A button label for adding a Coolify account.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coolify-account toevoegen"
+    "Add Connect account": {
+      "comment": "A label for a button that adds a Connect account.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect-account toevoegen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Добавить аккаунт Coolify"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Добавить аккаунт Connect"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect hesabı ekle"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter un compte Connect"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Додати акаунт Connect"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect-Konto hinzufügen"
           }
         }
       }
     },
-    "Add your %@ credentials to load projects" : {
-      "comment" : "A description of the action to take to add credentials for a given service. The argument is the name of the service.",
-      "isCommentAutoGenerated" : true
-    },
-    "Additional repositories" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aanvullende repositories"
+    "Add Coolify account": {
+      "comment": "A button label for adding a Coolify account.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify-account toevoegen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Дополнительные репозитории"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Добавить аккаунт Coolify"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify hesabı ekle"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter un compte Coolify"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Додати акаунт Coolify"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify-Konto hinzufügen"
           }
         }
       }
     },
-    "All" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alle"
+    "Add your %@ credentials to load projects": {
+      "comment": "A description of the action to take to add credentials for a given service. The argument is the name of the service.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voeg je %@-gegevens toe om projecten te laden"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Все"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Добавьте данные %@, чтобы загрузить проекты"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Projeleri yüklemek için %@ kimlik bilgilerinizi ekleyin"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajoutez vos identifiants %@ pour charger les projets"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Додайте свої облікові дані %@, щоб завантажити проєкти"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Füge deine %@ Zugangsdaten hinzu, um Projekte zu laden"
           }
         }
       }
     },
-    "AltStore Helper" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AltStore Helper"
+    "Additional repositories": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Extra repositories"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AltStore помощник"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Дополнительные репозитории"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ek depolar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dépôts supplémentaires"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Додаткові репозиторії"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zusätzliche Repositories"
           }
         }
       }
     },
-    "API key" : {
-      "comment" : "A label for the API key field in the Coolify authentication view.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "API-sleutel"
+    "All": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alles"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "API-ключ"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Все"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tümü"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Усі"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle"
           }
         }
       }
     },
-    "App" : {
-      "comment" : "A section header for the \"App\" details in the view.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App"
+    "AltStore Helper": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AltStore-helper"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Приложение"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Помощник AltStore"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AltStore Yardımcısı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assistant AltStore"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Помічник AltStore"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AltStore-Helfer"
           }
         }
       }
     },
-    "Appearance" : {
-      "comment" : "A label for the \"Appearance\" setting in the app settings menu.",
-      "extractionState" : "stale",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weergave"
+    "API key": {
+      "comment": "A label for the API key field in the Coolify authentication view.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "API-sleutel"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Оформление"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ключ API"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "API anahtarı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clé API"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ключ API"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "API-Schlüssel"
           }
         }
       }
     },
-    "Apps" : {
-      "comment" : "A section header for the list of apps in a Coolify project.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apps"
+    "App": {
+      "comment": "A section header for the \"App\" details in the view.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Приложения"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Приложение"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulama"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Застосунок"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App"
           }
         }
       }
     },
-    "Archive" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Archiveren"
+    "Appearance": {
+      "comment": "A label for the \"Appearance\" setting in the app settings menu.",
+      "extractionState": "stale",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weergave"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Архивировать"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Внешний вид"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Görünüm"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apparence"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вигляд"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Darstellung"
           }
         }
       }
     },
-    "Artifacts" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Artefacten"
+    "Apps": {
+      "comment": "A section header for the list of apps in a Coolify project.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Артифакты"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Приложения"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulamalar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Застосунки"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apps"
           }
         }
       }
     },
-    "Branch" : {
-      "comment" : "A label for the branch of a repository.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Branch"
+    "Archive": {
+      "extractionState": "stale",
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archief"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ветка"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Архив"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arşiv"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archive"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Архів"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archiv"
           }
         }
       }
     },
-    "Build %@" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Build %@"
+    "Artifacts": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artefacten"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Билд %@"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Артефакты"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yapı çıktıları"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artefacts"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Артефакти"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artefakte"
           }
         }
       }
     },
-    "Build %lld" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Build %lld"
+    "Branch": {
+      "comment": "A label for the branch of a repository.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Branch"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Билд %lld"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ветка"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dal"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Branche"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Гілка"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Branch"
           }
         }
       }
     },
-    "Build actions" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Build acties"
+    "Build %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build %@"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Действия сборки"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сборка %@"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ derlemesi"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build %@"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Збірка %@"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build %@"
           }
         }
       }
     },
-    "Build pack" : {
-      "comment" : "A label for the build pack of a Coolify app.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Build pack"
+    "Build %lld": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build %lld"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пакет сборки"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сборка %lld"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld derlemesi"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build %lld"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Збірка %lld"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build %lld"
           }
         }
       }
     },
-    "Cancel" : {
-      "comment" : "The text for a button that cancels an action.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Annuleren"
+    "Build actions": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build-acties"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отмена"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Действия сборки"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Derleme eylemleri"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actions de build"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Дії збірки"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build-Aktionen"
           }
         }
       }
     },
-    "CI/CD Feedback" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "CI/CD Feedback"
+    "Build pack": {
+      "comment": "A label for the build pack of a Coolify app.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build-pakket"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отзыв о CI/CD"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пакет сборки"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Derleme paketi"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pack de build"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пакет збірки"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build-Paket"
           }
         }
       }
     },
-    "Completion status" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Voltooiingsstatus"
+    "Cancel": {
+      "comment": "The text for a button that cancels an action.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuleren"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Статус выполнения"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Отменить"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İptal"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuler"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скасувати"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abbrechen"
           }
         }
       }
     },
-    "Connect" : {
-      "comment" : "A tab label for the \"Connect\" tab in the home view.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect"
+    "CI/CD Feedback": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CI/CD-feedback"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Отзыв о CI/CD"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CI/CD geri bildirimi"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retour CI/CD"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Відгук про CI/CD"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CI/CD-Feedback"
           }
         }
       }
     },
-    "Connect account" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect-account"
+    "Completion status": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voltooiingsstatus"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Аккаунт Connect"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Статус завершения"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamamlanma durumu"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Statut d’achèvement"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Статус завершення"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abschlussstatus"
           }
         }
       }
     },
-    "Connect credentials" : {
-      "comment" : "A button that shows a sheet for entering Connect credentials.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect-gegevens"
+    "Connect": {
+      "comment": "A tab label for the \"Connect\" tab in the home view.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Учетные данные Connect"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect"
           }
         }
       }
     },
-    "Connect demo" : {
-      "comment" : "A toggle label for enabling Connect demo data",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect-demo"
+    "Connect account": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect-account"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Демо Connect"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Аккаунт Connect"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect hesabı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compte Connect"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Акаунт Connect"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect-Konto"
           }
         }
       }
     },
-    "Coolify" : {
-      "comment" : "The name of the second tab in the tab view in the home view.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coolify"
+    "Connect credentials": {
+      "comment": "A button that shows a sheet for entering Connect credentials.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect-gegevens"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coolify"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Данные Connect"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect kimlik bilgileri"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifiants Connect"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Облікові дані Connect"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect-Zugangsdaten"
           }
         }
       }
     },
-    "Coolify account" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coolify-account"
+    "Connect demo": {
+      "comment": "A toggle label for enabling Connect demo data",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect-demo"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Аккаунт Coolify"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Демо Connect"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect demosu"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Démo Connect"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Демо Connect"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect-Demo"
           }
         }
       }
     },
-    "Coolify credentials" : {
-      "comment" : "A button that shows a view for entering Coolify credentials.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coolify-gegevens"
+    "Coolify": {
+      "comment": "The name of the second tab in the tab view in the home view.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Учетные данные Coolify"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify"
           }
         }
       }
     },
-    "Coolify demo" : {
-      "comment" : "A toggle label for enabling Coolify demo data",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coolify-demo"
+    "Coolify account": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify-account"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Демо Coolify"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Аккаунт Coolify"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify hesabı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compte Coolify"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Акаунт Coolify"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify-Konto"
           }
         }
       }
     },
-    "Copy" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kopiëren"
+    "Coolify credentials": {
+      "comment": "A button that shows a view for entering Coolify credentials.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify-gegevens"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Скопировать"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Данные Coolify"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify kimlik bilgileri"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifiants Coolify"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Облікові дані Coolify"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify-Zugangsdaten"
           }
         }
       }
     },
-    "Copy action id" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actie id kopiëren"
+    "Coolify demo": {
+      "comment": "A toggle label for enabling Coolify demo data",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify-demo"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Скопировать идентификатор действия"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Демо Coolify"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify demosu"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Démo Coolify"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Демо Coolify"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify-Demo"
           }
         }
       }
     },
-    "Copy repository url" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Repository url kopiëren"
+    "Copy": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopiëren"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Скопировать ссылку репозитория"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Копировать"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopyala"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Копіювати"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopieren"
           }
         }
       }
     },
-    "Created" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aangemaakt"
+    "Copy action id": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actie-id kopiëren"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Создан"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Копировать ID действия"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eylem kimliğini kopyala"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier l’ID de l’action"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Копіювати ID дії"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktions-ID kopieren"
           }
         }
       }
     },
-    "Credentials" : {
-      "comment" : "A section header in the Connect authentication view.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gegevens"
+    "Copy repository url": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repository-URL kopiëren"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Учетные данные"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Копировать URL репозитория"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Depo URL’sini kopyala"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier l’URL du dépôt"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Копіювати URL репозиторію"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repository-URL kopieren"
           }
         }
       }
     },
-    "Credentials missing" : {
-      "comment" : "A label describing the missing credentials.",
-      "isCommentAutoGenerated" : true
-    },
-    "Dark" : {
-      "comment" : "Localized string key for the \"Dark\" color theme.",
-      "extractionState" : "stale",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donker"
+    "Created": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aangemaakt"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Темное"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Создано"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oluşturuldu"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créé"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Створено"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erstellt"
           }
         }
       }
     },
-    "Databases" : {
-      "comment" : "A section header for databases within a Coolify project.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Databases"
+    "Credentials": {
+      "comment": "A section header in the Connect authentication view.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gegevens"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Базы данных"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Данные"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kimlik bilgileri"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifiants"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Облікові дані"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zugangsdaten"
           }
         }
       }
     },
-    "Debug" : {
-      "comment" : "A section header in the settings view that contains debug options.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Debug"
+    "Credentials missing": {
+      "comment": "A label describing the missing credentials.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gegevens ontbreken"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отладка"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Данные отсутствуют"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kimlik bilgileri eksik"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifiants manquants"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Облікові дані відсутні"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zugangsdaten fehlen"
           }
         }
       }
     },
-    "Delete" : {
-      "comment" : "A button that deletes a Connect account.",
-      "isCommentAutoGenerated" : true
-    },
-    "Demo mode" : {
-      "comment" : "A toggle that allows the user to enable or disable demo mode.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Demo-modus"
+    "Dark": {
+      "comment": "Localized string key for the \"Dark\" color theme.",
+      "extractionState": "stale",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Donker"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Демо-режим"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Темная"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koyu"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sombre"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Темна"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dunkel"
           }
         }
       }
     },
-    "Demo Mode" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Demo-modus"
+    "Databases": {
+      "comment": "A section header for databases within a Coolify project.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Databases"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Демо-режим"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Базы данных"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veritabanları"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bases de données"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Бази даних"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datenbanken"
           }
         }
       }
     },
-    "Deploy" : {
-      "comment" : "A button that deploys an app.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deployen"
+    "Debug": {
+      "comment": "A section header in the settings view that contains debug options.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Debug"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Развернуть"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Отладка"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hata ayıklama"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Débogage"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Налагодження"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Debug"
           }
         }
       }
     },
-    "Deployments" : {
-      "comment" : "A section header for the list of deployments.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deployments"
+    "Delete": {
+      "comment": "A button that deletes a Connect account.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwijderen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Развертывания"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Удалить"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sil"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Видалити"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Löschen"
           }
         }
       }
     },
-    "Environment" : {
-      "comment" : "A label for the environment of a coolify app.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Omgeving"
+    "Demo mode": {
+      "comment": "A toggle that allows the user to enable or disable demo mode.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demomodus"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Окружение"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Демо-режим"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demo modu"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mode démo"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Демо-режим"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demo-Modus"
           }
         }
       }
     },
-    "Error" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fout"
+    "Demo Mode": {
+      "extractionState": "stale",
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demomodus"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ошибка"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Демо-режим"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demo Modu"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mode démo"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Демо-режим"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demo-Modus"
           }
         }
       }
     },
-    "Execution progress" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uitvoeringsvoortgang"
+    "Deploy": {
+      "comment": "A button that deploys an app.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deployen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Прогресс выполнения"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Развернуть"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dağıt"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Déployer"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Розгорнути"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bereitstellen"
           }
         }
       }
     },
-    "Feedback" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Feedback"
+    "Deployments": {
+      "comment": "A section header for the list of deployments.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deployments"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Обратная связь"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Развертывания"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dağıtımlar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Déploiements"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Розгортання"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bereitstellungen"
           }
         }
       }
     },
-    "Finished" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Klaar"
+    "Environment": {
+      "comment": "A label for the environment of a coolify app.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omgeving"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Завершен"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Окружение"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ortam"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Environnement"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Середовище"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Umgebung"
           }
         }
       }
     },
-    "Force deploy" : {
-      "comment" : "A button label that triggers a forced deployment of a Coolify app.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Forceer deploy"
+    "Error": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fout"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Принудительно развернуть"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ошибка"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hata"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erreur"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Помилка"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fehler"
           }
         }
       }
     },
-    "https://coolify.example.com" : {
-      "comment" : "A placeholder text for the Coolify domain URL field.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://coolify.example.com"
+    "Execution progress": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uitvoeringsvoortgang"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://coolify.example.com"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ход выполнения"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yürütme ilerlemesi"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Progression de l’exécution"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Прогрес виконання"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausführungsfortschritt"
           }
         }
       }
     },
-    "Import from Files" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Importeren vanuit Bestanden"
+    "Feedback": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feedback"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Импорт из Файлов"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Отзыв"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geri bildirim"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retour"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Відгук"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feedback"
           }
         }
       }
     },
-    "in" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "in"
+    "Finished": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voltooid"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "в"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Завершено"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamamlandı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminé"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Завершено"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abgeschlossen"
           }
         }
       }
     },
-    "Issuer ID" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Issuer ID"
+    "Force deploy": {
+      "comment": "A button label that triggers a forced deployment of a Coolify app.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deploy forceren"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Issuer ID"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Принудительное развертывание"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zorla dağıt"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forcer le déploiement"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Примусово розгорнути"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bereitstellung erzwingen"
+          }
+        }
+      }
+    },
+    "https://coolify.example.com": {
+      "comment": "A placeholder text for the Coolify domain URL field.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://coolify.example.com"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://coolify.example.com"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://coolify.example.com"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://coolify.example.com"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://coolify.example.com"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://coolify.example.com"
+          }
+        }
+      }
+    },
+    "Import from Files": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Importeren uit Bestanden"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Импортировать из Файлов"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dosyalardan içe aktar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Importer depuis Fichiers"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Імпортувати з Файлів"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aus Dateien importieren"
+          }
+        }
+      }
+    },
+    "in": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "в"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "içinde"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dans"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "у"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in"
+          }
+        }
+      }
+    },
+    "Issuer ID": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Issuer-ID"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ID издателя"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veren kimliği"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ID émetteur"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ID видавця"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Issuer-ID"
           }
         }
       },
-      "shouldTranslate" : false
+      "shouldTranslate": false
     },
-    "Issues" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Issues"
+    "Issues": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Issues"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Проблемы"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Замечания"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sorunlar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Problèmes"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Проблеми"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Probleme"
           }
         }
       }
     },
-    "Light" : {
-      "comment" : "Localized string key for the \"Light\" color theme.",
-      "extractionState" : "stale",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Licht"
+    "Light": {
+      "comment": "Localized string key for the \"Light\" color theme.",
+      "extractionState": "stale",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licht"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Светлое"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Светлая"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clair"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Світла"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hell"
           }
         }
       }
     },
-    "Line" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lijn"
+    "Line": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regel"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Строка"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Строка"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Satır"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ligne"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Рядок"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeile"
           }
         }
       }
     },
-    "Log in" : {
-      "comment" : "A button that logs in the user.",
-      "extractionState" : "stale",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Inloggen"
+    "Log in": {
+      "comment": "A button that logs in the user.",
+      "extractionState": "stale",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inloggen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Войти"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Войти"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giriş yap"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se connecter"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Увійти"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anmelden"
           }
         }
       }
     },
-    "Log out" : {
-      "comment" : "A button label that logs out the user.",
-      "extractionState" : "stale",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uitloggen"
+    "Log out": {
+      "comment": "A button label that logs out the user.",
+      "extractionState": "stale",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uitloggen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выйти"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выйти"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çıkış yap"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se déconnecter"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вийти"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abmelden"
           }
         }
       }
     },
-    "Manage Connect accounts" : {
-      "comment" : "A button that takes the user to a screen to manage their Connect accounts.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect-accounts beheren"
+    "Manage Connect accounts": {
+      "comment": "A button that takes the user to a screen to manage their Connect accounts.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect-accounts beheren"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Управлять аккаунтами Connect"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Управление аккаунтами Connect"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect hesaplarını yönet"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gérer les comptes Connect"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Керувати акаунтами Connect"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect-Konten verwalten"
           }
         }
       }
     },
-    "Manage Coolify accounts" : {
-      "comment" : "A button that takes them to a view for managing Coolify accounts.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coolify-accounts beheren"
+    "Manage Coolify accounts": {
+      "comment": "A button that takes them to a view for managing Coolify accounts.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify-accounts beheren"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Управлять аккаунтами Coolify"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Управление аккаунтами Coolify"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify hesaplarını yönet"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gérer les comptes Coolify"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Керувати акаунтами Coolify"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify-Konten verwalten"
           }
         }
       }
     },
-    "New description" : {
-      "comment" : "A label for a text field where the user can enter a new description for a project.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nieuwe beschrijving"
+    "New description": {
+      "comment": "A label for a text field where the user can enter a new description for a project.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nieuwe beschrijving"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Новое описание"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Новое описание"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni açıklama"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouvelle description"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Новий опис"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neue Beschreibung"
           }
         }
       }
     },
-    "New name" : {
-      "comment" : "A text field for renaming a Coolify project",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nieuwe naam"
+    "New name": {
+      "comment": "A text field for renaming a Coolify project",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nieuwe naam"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Новое имя"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Новое имя"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni ad"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouveau nom"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нова назва"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neuer Name"
           }
         }
       }
     },
-    "No artifacts found" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geen artifacten gevonden"
+    "No artifacts found": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen artefacten gevonden"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Артефакты не найдены"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Артефакты не найдены"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yapı çıktısı bulunamadı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun artefact trouvé"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Артефактів не знайдено"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Artefakte gefunden"
           }
         }
       }
     },
-    "No builds found" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geen builds gevonden"
+    "No builds found": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen builds gevonden"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сборки не найдены"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сборки не найдены"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Derleme bulunamadı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun build trouvé"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Збірок не знайдено"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Builds gefunden"
           }
         }
       }
     },
-    "No Connect accounts" : {
-      "comment" : "A message displayed when the user has not added any Connect accounts.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geen Connect-accounts"
+    "No Connect accounts": {
+      "comment": "A message displayed when the user has not added any Connect accounts.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen Connect-accounts"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нет аккаунтов Connect"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нет аккаунтов Connect"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect hesabı yok"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun compte Connect"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Немає акаунтів Connect"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Connect-Konten"
           }
         }
       }
     },
-    "No Coolify accounts" : {
-      "comment" : "A message indicating that the user has no Coolify accounts to display.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geen Coolify-accounts"
+    "No Coolify accounts": {
+      "comment": "A message indicating that the user has no Coolify accounts to display.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen Coolify-accounts"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нет аккаунтов Coolify"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нет аккаунтов Coolify"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coolify hesabı yok"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun compte Coolify"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Немає акаунтів Coolify"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Coolify-Konten"
           }
         }
       }
     },
-    "No deployments yet" : {
-      "comment" : "A message indicating that an app has no deployments.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nog geen deployments"
+    "No deployments yet": {
+      "comment": "A message indicating that an app has no deployments.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nog geen deployments"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Развертываний пока нет"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Развертываний пока нет"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Henüz dağıtım yok"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun déploiement pour le moment"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Розгортань ще немає"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch keine Bereitstellungen"
           }
         }
       }
     },
-    "No issues found" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geen issues gevonden"
+    "No issues found": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen issues gevonden"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Проблем не обнаружено"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Замечания не найдены"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sorun bulunamadı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun problème trouvé"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Проблем не знайдено"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Probleme gefunden"
           }
         }
       }
     },
-    "Now" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nu"
+    "Now": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nu"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сейчас"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сейчас"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şimdi"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maintenant"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Зараз"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jetzt"
           }
         }
       }
     },
-    "Open" : {
-      "comment" : "A button that opens the app's URL in the device's browser.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Open"
+    "Open": {
+      "comment": "A button that opens the app's URL in the device's browser.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Openen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Открыть"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Открыть"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aç"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Відкрити"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öffnen"
           }
         }
       }
     },
-    "Open on GitHub" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Open op GitHub"
+    "Open on GitHub": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Openen op GitHub"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Открыть на GitHub"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Открыть на GitHub"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub’da aç"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir sur GitHub"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Відкрити на GitHub"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auf GitHub öffnen"
           }
         }
       }
     },
-    "Primary repositories" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Primaire repositories"
+    "Primary repositories": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primaire repositories"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Основные репозитории"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Основные репозитории"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Birincil depolar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dépôts principaux"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Основні репозиторії"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primäre Repositories"
           }
         }
       }
     },
-    "Private Key" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Privésleutel"
+    "Private Key": {
+      "extractionState": "stale",
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privésleutel"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Приватный Ключ"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Закрытый ключ"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Özel anahtar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clé privée"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Приватний ключ"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privater Schlüssel"
           }
         }
       }
     },
-    "Private Key ID" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Privésleutel-ID"
+    "Private Key ID": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privésleutel-ID"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Идентификатор приватного ключа"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ID закрытого ключа"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Özel anahtar kimliği"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ID de clé privée"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ID приватного ключа"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ID des privaten Schlüssels"
           }
         }
       }
     },
-    "Provide credentials" : {
-      "comment" : "A button that, when pressed, shows a view to provide Coolify credentials.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gegevens invoeren"
+    "Provide credentials": {
+      "comment": "A button that, when pressed, shows a view to provide Coolify credentials.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gegevens opgeven"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ввести учетные данные"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Указать данные"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kimlik bilgilerini gir"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fournir les identifiants"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Надати облікові дані"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zugangsdaten eingeben"
           }
         }
       }
     },
-    "Reason" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reden"
+    "Reason": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reden"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Причина"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Причина"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neden"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Raison"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Причина"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grund"
           }
         }
       }
     },
-    "Rebuild" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rebuild"
+    "Rebuild": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opnieuw bouwen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пересобрать"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пересобрать"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeniden derle"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reconstruire"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Перезібрати"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neu bauen"
           }
         }
       }
     },
-    "Rebuild clean" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rebuild clean"
+    "Rebuild clean": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schoon opnieuw bouwen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Чистая пересборка"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Чистая пересборка"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temiz yeniden derle"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reconstruire proprement"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Чисте перезбирання"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sauber neu bauen"
           }
         }
       }
     },
-    "Rename" : {
-      "comment" : "A button that triggers a sheet to rename a project.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hernoemen"
+    "Rename": {
+      "comment": "A button that triggers a sheet to rename a project.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hernoemen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Переименовать"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Переименовать"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeniden adlandır"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renommer"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Перейменувати"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Umbenennen"
           }
         }
       }
     },
-    "Repository" : {
-      "comment" : "A link that takes the user to the repository of a coolify app.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Repository"
+    "Repository": {
+      "comment": "A link that takes the user to the repository of a coolify app.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repository"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Репозиторий"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Репозиторий"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Depo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dépôt"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Репозиторій"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repository"
           }
         }
       }
     },
-    "Restart" : {
-      "comment" : "A button that restarts a Coolify app.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Herstarten"
+    "Restart": {
+      "comment": "A button that restarts a Coolify app.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herstarten"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Перезапустить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Перезапустить"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeniden başlat"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redémarrer"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Перезапустити"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neu starten"
           }
         }
       }
     },
-    "Save" : {
-      "comment" : "A button to save changes made to a project's name.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Opslaan"
+    "Save": {
+      "comment": "A button to save changes made to a project's name.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opslaan"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сохранить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сохранить"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaydet"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Зберегти"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Speichern"
           }
         }
       }
     },
-    "Settings" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Instellingen"
+    "Settings": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instellingen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Настройки"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Настройки"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayarlar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réglages"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Налаштування"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einstellungen"
           }
         }
       }
     },
-    "Start build" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Build starten"
+    "Start build": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build starten"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Начать билд"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запустить сборку"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Derlemeyi başlat"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lancer le build"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запустити збірку"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Build starten"
           }
         }
       }
     },
-    "Start clean build" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schone build starten"
+    "Start clean build": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schone build starten"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Начать чистый билд"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запустить чистую сборку"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temiz derlemeyi başlat"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lancer un build propre"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запустити чисту збірку"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sauberen Build starten"
           }
         }
       }
     },
-    "Started" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gestart"
+    "Started": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gestart"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Запущен"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Начато"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Başladı"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Démarré"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Розпочато"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gestartet"
           }
         }
       }
     },
-    "Status bar" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Statusbalk"
+    "Status bar": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Statusbalk"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Строка состояния"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Строка состояния"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durum çubuğu"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barre d’état"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Рядок стану"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Statusleiste"
           }
         }
       }
     },
-    "Stop" : {
-      "comment" : "A menu item to stop a running application.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stoppen"
+    "Stop": {
+      "comment": "A menu item to stop a running application.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stoppen"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Остановить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Остановить"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durdur"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arrêter"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Зупинити"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopp"
           }
         }
       }
     },
-    "System" : {
-      "comment" : "Name of a color theme option.",
-      "extractionState" : "stale",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Systeem"
+    "System": {
+      "comment": "Name of a color theme option.",
+      "extractionState": "stale",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Systeem"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Системное"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Системная"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistem"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Système"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Системна"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "System"
           }
         }
       }
     },
-    "This could happen due to an error" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dit kan gebeuren als gevolg van een fout"
+    "This could happen due to an error": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dit kan gebeuren door een fout"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Это могло произойти из-за ошибки"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Это могло произойти из-за ошибки"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu bir hata nedeniyle olmuş olabilir"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cela peut se produire à cause d’une erreur"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Це могло статися через помилку"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das könnte durch einen Fehler passiert sein"
           }
         }
       }
     },
-    "URL" : {
-      "comment" : "A label for the URL of a website.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "URL"
+    "URL": {
+      "comment": "A label for the URL of a website.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "URL"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "URL"
           }
         }
       }
     },
-    "Without cache" : {
-      "comment" : "A description for a button that deploys a Coolify app without using the cache.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zonder cache"
+    "Without cache": {
+      "comment": "A description for a button that deploys a Coolify app without using the cache.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zonder cache"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Без кэша"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Без кэша"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Önbelleksiz"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sans cache"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Без кешу"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ohne Cache"
           }
         }
       }
     },
-    "Workflows" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Workflows"
+    "Workflows": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Workflows"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Рабочие процессы"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Рабочие процессы"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İş akışları"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Workflows"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Робочі процеси"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Workflows"
           }
         }
       }
     },
-    "Xcode Cloud" : {
-      "comment" : "A section in the debug settings for managing App Store Connect credentials.",
-      "isCommentAutoGenerated" : true
-    },
-    "You need an API key with the 'Admin' role from App Store Connect to start builds with external deployments. API keys with the 'Developer' role cannot be used for this" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Je hebt een API-sleutel met de rol ‘Beheerder’ nodig in App Store Connect om builds met externe deployments te starten. API-sleutels met de rol ‘Ontwikkelaar’ kunnen hiervoor niet worden gebruikt"
+    "Xcode Cloud": {
+      "comment": "A section in the debug settings for managing App Store Connect credentials.",
+      "isCommentAutoGenerated": true,
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode Cloud"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вам нужен ключ API с ролью «Администратор» в App Store Connect, чтобы запускать сборки с внешними деплойментами. Ключи с ролью «Разработчик» для этого не подходят"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode Cloud"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode Cloud"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode Cloud"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode Cloud"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Xcode Cloud"
           }
         }
       }
     },
-    "Your code is great!" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uw code is geweldig!"
+    "You need an API key with the 'Admin' role from App Store Connect to start builds with external deployments. API keys with the 'Developer' role cannot be used for this": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je hebt een API-sleutel met de rol 'Admin' van App Store Connect nodig om builds te starten met externe deployments. API-sleutels met de rol 'Developer' kunnen hiervoor niet worden gebruikt"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отличный код!"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вам нужен ключ API с ролью 'Admin' в App Store Connect, чтобы запускать сборки с внешними развертываниями. Ключи API с ролью 'Developer' для этого использовать нельзя"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Harici dağıtımlarla derleme başlatmak için App Store Connect’te 'Admin' rolüne sahip bir API anahtarına ihtiyacınız var. 'Developer' rolüne sahip API anahtarları bunun için kullanılamaz"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vous avez besoin d’une clé API avec le rôle 'Admin' dans App Store Connect pour lancer des builds avec des déploiements externes. Les clés API avec le rôle 'Developer' ne peuvent pas être utilisées pour cela"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вам потрібен ключ API з роллю 'Admin' в App Store Connect, щоб запускати збірки із зовнішніми розгортаннями. Ключі API з роллю 'Developer' не можна використовувати для цього"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Du benötigst einen API-Schlüssel mit der Rolle 'Admin' aus App Store Connect, um Builds mit externen Bereitstellungen zu starten. API-Schlüssel mit der Rolle 'Developer' können dafür nicht verwendet werden"
+          }
+        }
+      }
+    },
+    "Your code is great!": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je code is geweldig!"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ваш код великолепен!"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kodunuz harika!"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Votre code est excellent !"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ваш код чудовий!"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dein Code ist großartig!"
           }
         }
       }
     }
   },
-  "version" : "1.1"
+  "version": "1.1"
 }
