@@ -80,7 +80,11 @@ extension ProviderAccount {
             return issuerID.isEmpty ? String(localized: "Connect account") : issuerID
             
         case .coolify:
-            return coolifyDomain.isEmpty ? String(localized: "Coolify account") : coolifyDomain
+            let endpoint = coolifyDomain
+                .replacing("https://", with: "")
+                .replacing("http://", with: "")
+            
+            return endpoint.isEmpty ? String(localized: "Coolify account") : endpoint
         }
     }
 
