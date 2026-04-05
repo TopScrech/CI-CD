@@ -44,10 +44,8 @@ struct AccountPickerMenu: View {
     
     private var currentTitle: String {
         switch store.lastTab {
-        case .connect:
-            store.connectAccountTitle
-        case .coolify:
-            store.coolifyAccountTitle
+        case .connect: store.connectAccountTitle
+        case .coolify: store.coolifyAccountTitle
         }
     }
     
