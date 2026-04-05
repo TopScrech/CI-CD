@@ -1,21 +1,11 @@
 import SwiftUI
 
-#if canImport(Appearance)
-import Appearance
-#endif
-
 struct AppSettings: View {
-    @EnvironmentObject private var store: ValueStore
-    
     var body: some View {
         List {
-#if canImport(Appearance)
-            Section {
-                AppearancePicker($store.appearance)
-            }
-#endif
+            AppearanceSettingsSection()
             DemoSettingsSection()
-            AppSettingsFeedback()
+            FeedbackSettingsSection()
 #if DEBUG
             NavigationLink {
                 DebugSettings()
