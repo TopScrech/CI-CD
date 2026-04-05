@@ -12,36 +12,34 @@ struct CoolifyDeploymentLogsView: View {
     }
     
     var body: some View {
-        Group {
+        ScrollView {
             if vm.isLoading {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else if vm.logLines.isEmpty {
                 ContentUnavailableView("No logs available", systemImage: "doc.text.magnifyingglass")
             } else {
-                ScrollView {
-                    VStack(alignment: .leading) {
-                        ForEach(vm.logLines) { line in
-                            HStack(alignment: .top) {
-                                Text(line.timeText ?? "--:--")
-                                    .secondary()
-                                    .frame(width: 44, alignment: .leading)
-                                
-                                Text(line.message)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                            .font(.footnote.monospaced())
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                VStack(alignment: .leading) {
+                    ForEach(vm.logLines) { line in
+                        HStack(alignment: .top) {
+                            Text(line.timeText ?? "--:--")
+                                .secondary()
+                                .frame(width: 44, alignment: .leading)
+                            
+                            Text(line.message)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
+                        .font(.footnote.monospaced())
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .textSelection(.enabled)
                 }
-                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .textSelection(.enabled)
             }
         }
         .navigationTitle("Deployment logs")
         .navSubtitle(deployment.uuid ?? "")
+        .navigationBarTitleDisplayMode(.inline)
         .task {
             vm.reset()
             await load()
