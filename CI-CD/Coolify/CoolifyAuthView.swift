@@ -108,15 +108,11 @@ struct CoolifyAuthView: View {
                 .textContentType(.URL)
                 .keyboardType(.URL)
                 .autocorrectionDisabled()
-                .onChange(of: account.coolifyDomain) {
-                    account.touch()
-                }
+                .onChange(of: account.coolifyDomain, account.touch)
             
             TextField("API key", text: $account.coolifyAPIKey)
                 .autocorrectionDisabled()
-                .onChange(of: account.coolifyAPIKey) {
-                    account.touch()
-                }
+                .onChange(of: account.coolifyAPIKey, account.touch)
         }
     }
     

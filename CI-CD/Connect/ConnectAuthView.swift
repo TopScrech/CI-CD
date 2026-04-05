@@ -118,16 +118,12 @@ struct ConnectAuthView: View {
         Section {
             TextField("Account name (optional)", text: $account.name)
                 .autocorrectionDisabled()
-                .onChange(of: account.name) {
-                    account.touch()
-                }
+                .onChange(of: account.name, account.touch)
             
             HStack {
                 TextField("Issuer ID", text: $account.issuerID)
                     .autocorrectionDisabled()
-                    .onChange(of: account.issuerID) {
-                        account.touch()
-                    }
+                    .onChange(of: account.issuerID, account.touch)
 #if !os(macOS)
                     .textInputAutocapitalization(.none)
 #endif
@@ -142,9 +138,7 @@ struct ConnectAuthView: View {
             
             TextField("Private Key ID", text: $account.privateKeyID)
                 .autocorrectionDisabled()
-                .onChange(of: account.privateKeyID) {
-                    account.touch()
-                }
+                .onChange(of: account.privateKeyID, account.touch)
 #if !os(macOS)
                 .textInputAutocapitalization(.none)
 #endif

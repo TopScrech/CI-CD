@@ -66,7 +66,7 @@ struct AccountPickerMenu: View {
                     }
                 }
                 
-                Button("Manage Connect accounts", action: showConnectAuth)
+                Button("Manage Connect accounts", systemImage: "gear", action: showConnectAuth)
             }
         }
     }
@@ -88,7 +88,7 @@ struct AccountPickerMenu: View {
                     }
                 }
                 
-                Button("Manage Coolify accounts", action: showCoolifyAuth)
+                Button("Manage Coolify accounts", systemImage: "gear", action: showCoolifyAuth)
             }
         }
     }
