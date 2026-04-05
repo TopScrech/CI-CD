@@ -106,7 +106,7 @@ struct ConnectAuthView: View {
         @Bindable var account = account
         
         Section {
-            TextField("Account name", text: $account.name)
+            TextField("Account name (optional)", text: $account.name)
                 .autocorrectionDisabled()
                 .onChange(of: account.name) {
                     account.touch()

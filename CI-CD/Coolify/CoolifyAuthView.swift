@@ -89,7 +89,7 @@ struct CoolifyAuthView: View {
         @Bindable var account = account
         
         return Section("Credentials") {
-            TextField("Account name", text: $account.name)
+            TextField("Account name (optional)", text: $account.name)
                 .autocorrectionDisabled()
                 .onChange(of: account.name) {
                     account.touch()

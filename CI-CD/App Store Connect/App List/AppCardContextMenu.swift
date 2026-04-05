@@ -58,10 +58,8 @@ struct AppCardContextMenu: ViewModifier {
                     Button {
                         Pasteboard.copy(product.id)
                     } label: {
-                        Text("Copy product id")
-                        
+                        Text(String("Copy product id"))
                         Text(product.id)
-                        
                         Image(systemName: "doc.on.doc")
                     }
                     
@@ -69,10 +67,8 @@ struct AppCardContextMenu: ViewModifier {
                         Button {
                             Pasteboard.copy(appId)
                         } label: {
-                            Text("Copy app id")
-                            
+                            Text(String("Copy app id"))
                             Text(appId)
-                            
                             Image(systemName: "doc.on.doc")
                         }
                     }

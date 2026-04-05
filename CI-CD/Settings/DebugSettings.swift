@@ -24,11 +24,11 @@ struct DebugSettings: View {
                     CoolifyAuthView()
                 }
                 
-                Button("Copy Coolify API key") {
+                Button(String("Copy Coolify API key")) {
                     Pasteboard.copy(store.coolifyAccount?.apiKey ?? "")
                 }
                 
-                Button("Reset Coolify credentials", role: .destructive) {
+                Button(String("Reset Coolify credentials"), role: .destructive) {
                     resetCoolifyCredentials()
                 }
             }
@@ -41,19 +41,19 @@ struct DebugSettings: View {
                     ConnectAuthView()
                 }
                 
-                Button("Copy issuer ID") {
+                Button(String("Copy issuer ID")) {
                     Pasteboard.copy(store.connectAccount?.issuerID ?? "")
                 }
                 
-                Button("Copy private key") {
+                Button(String("Copy private key")) {
                     Pasteboard.copy(store.connectAccount?.privateKey ?? "")
                 }
                 
-                Button("Copy private key ID") {
+                Button(String("Copy private key ID")) {
                     Pasteboard.copy(store.connectAccount?.privateKeyID ?? "")
                 }
                 
-                Button("Reset App Store Connect credentials", role: .destructive) {
+                Button(String("Reset App Store Connect credentials"), role: .destructive) {
                     resetConnectCredentials()
                 }
             }

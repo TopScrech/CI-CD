@@ -49,10 +49,8 @@ struct WorkflowCard: View {
                 Button {
                     Pasteboard.copy(workflow.id)
                 } label: {
-                    Text("Copy workflow id")
-                    
+                    Text(String("Copy workflow id"))
                     Text(workflow.id)
-                    
                     Image(systemName: "doc.on.doc")
                 }
             }
