@@ -60,6 +60,7 @@ struct CoolifyProjDetails: View {
                 .autocorrectionDisabled()
             
             TextField("New description", text: $vm.projDescription)
+            Button("Cancel") {}
             Button("Save", action: save)
         }
     }
