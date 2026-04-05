@@ -133,11 +133,9 @@ struct ConnectAuthView: View {
 #endif
             }
             
-            TextEditor(text: $account.privateKey)
+            PlaceholderTextEditor("Private key", text: $account.privateKey)
                 .autocorrectionDisabled()
-                .onChange(of: account.privateKey) {
-                    account.touch()
-                }
+                .onChange(of: account.privateKey, account.touch)
 #if !os(macOS)
                 .textInputAutocapitalization(.none)
 #endif
