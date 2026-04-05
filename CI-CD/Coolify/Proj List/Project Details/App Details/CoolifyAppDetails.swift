@@ -2,9 +2,10 @@ import OSLog
 import SwiftUI
 
 struct CoolifyAppDetails: View {
+    @Environment(CoolifyAppVM.self) private var appVM
     @Environment(CoolifyAppDetailsVM.self) private var vm
-    @Environment(\.openURL) private var openURL
     @EnvironmentObject private var store: ValueStore
+    @Environment(\.openURL) private var openURL
     
     @State private var app: CoolifyApp
     
@@ -25,7 +26,7 @@ struct CoolifyAppDetails: View {
                 
                 if let urlString = app.fqdn, !urlString.isEmpty, let url = URL(string: urlString) {
                     Menu {
-                        Button("Open") {
+                        Button("Open", systemImage: "safari") {
                             openURL(url)
                         }
                         
@@ -38,7 +39,7 @@ struct CoolifyAppDetails: View {
                 
                 if let gitRepoURL = app.gitRepoURL {
                     Menu {
-                        Button("Open") {
+                        Button("Open", systemImage: "safari") {
                             openURL(gitRepoURL)
                         }
                         
@@ -92,10 +93,33 @@ struct CoolifyAppDetails: View {
             }
         }
         .toolbar {
-            Button("Rename", systemImage: "pencil") {
-                vm.newName = app.name
-                vm.newDescription = app.description ?? ""
-                alertRename = true
+            Menu {
+                Button("Rename", systemImage: "pencil") {
+                    vm.newName = app.name
+                    vm.newDescription = app.description ?? ""
+                    alertRename = true
+                }
+                
+                Section {
+                    Button("Deploy", systemImage: "play") {
+                        deploy()
+                    }
+                    
+                    Button {
+                        deploy(true)
+                    } label: {
+                        Text("Force deploy")
+                        Text("Without cache")
+                        Image(systemName: "play")
+                    }
+                }
+                
+                Section {
+                    Button("Restart", systemImage: "arrow.trianglehead.2.clockwise.rotate.90", action: restart)
+                    Button("Stop", systemImage: "stop", action: stop)
+                }
+            } label: {
+                Image(systemName: "ellipsis")
             }
         }
         .alert("Rename", isPresented: $alertRename) {
@@ -116,9 +140,27 @@ struct CoolifyAppDetails: View {
             }
         }
     }
-
+    
     private func load() async {
         await vm.fetchDeployments(app.uuid, store: store)
+    }
+    
+    private func restart() {
+        Task {
+            await appVM.restart(app.uuid, store: store)
+        }
+    }
+    
+    private func stop() {
+        Task {
+            await appVM.stop(app.uuid, store: store)
+        }
+    }
+    
+    private func deploy(_ force: Bool = false) {
+        Task {
+            await appVM.deploy(app.uuid, force: force, store: store)
+        }
     }
 }
 
