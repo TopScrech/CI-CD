@@ -31,12 +31,12 @@ final class CoolifyAppDetailsVM {
             deployments = Preview.coolifyDeployments
             return
         }
-
+        
         guard let account = store.coolifyAccount, account.isAuthorized else {
             deployments = []
             return
         }
-
+        
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
@@ -81,12 +81,11 @@ final class CoolifyAppDetailsVM {
                 environmentName: app.environmentName
             )
         }
-
-        guard let account = store.coolifyAccount, account.isAuthorized else {
-            return nil
-        }
         
-        guard let url = CoolifyAPIEndpoint.app(app.uuid, domain: account.domain) else {
+        guard
+            let account = store.coolifyAccount, account.isAuthorized,
+            let url = CoolifyAPIEndpoint.app(app.uuid, domain: account.domain)
+        else {
             return nil
         }
         
@@ -220,7 +219,7 @@ final class CoolifyAppDetailsVM {
         if store.coolifyDemoMode {
             return Preview.coolifyApps.first
         }
-
+        
         guard let account = store.coolifyAccount, account.isAuthorized else {
             return nil
         }
