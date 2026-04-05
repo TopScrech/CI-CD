@@ -48,7 +48,7 @@ struct CoolifyProjDetails: View {
         }
         .toolbar {
             Menu {
-                Button("Rename") {
+                Button("Rename", systemName: "pencil") {
                     vm.alertRename = true
                 }
             } label: {
