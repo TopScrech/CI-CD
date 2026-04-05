@@ -18,9 +18,6 @@ struct CoolifyAuthView: View {
         self.onDismiss = onDismiss
     }
     
-    @State private var lastObservedDemoAccountID: UUID?
-    @State private var lastObservedDemoMode = false
-    
     private var selectedAccount: ProviderAccount? {
         if let selectedID = store.coolifyAccount?.id,
            let match = accounts.first(where: { $0.id == selectedID }) {
@@ -32,16 +29,23 @@ struct CoolifyAuthView: View {
     
     var body: some View {
         List {
-            accountsSection
+            demoSection
             
-            if let account = selectedAccount {
-                credentialsSection(account)
-                demoSection(account)
+            if !store.coolifyDemoMode {
+                accountsSection
+
+                if let account = selectedAccount {
+                    credentialsSection(account)
+                } else {
+                    ContentUnavailableView("No Coolify accounts", systemImage: "person.crop.circle.badge.plus")
+                }
             } else {
-                ContentUnavailableView("No Coolify accounts", systemImage: "person.crop.circle.badge.plus")
+                Section {
+                    Button("Save", action: save)
+                }
             }
-            
-            if selectedAccount != nil {
+
+            if !store.coolifyDemoMode, selectedAccount != nil {
                 Section {
                     Button("Save", action: save)
                 }
@@ -111,34 +115,9 @@ struct CoolifyAuthView: View {
         }
     }
     
-    @ViewBuilder
-    private func demoSection(_ account: ProviderAccount) -> some View {
-        @Bindable var account = account
-        
+    private var demoSection: some View {
         Section {
-            Toggle("Demo mode", isOn: $account.demoMode)
-                .task(id: account.id) {
-                    lastObservedDemoAccountID = account.id
-                    lastObservedDemoMode = account.demoMode
-                }
-                .onChange(of: account.id) {
-                    lastObservedDemoAccountID = account.id
-                    lastObservedDemoMode = account.demoMode
-                }
-                .onChange(of: account.demoMode) {
-                    guard lastObservedDemoAccountID == account.id else {
-                        lastObservedDemoAccountID = account.id
-                        lastObservedDemoMode = account.demoMode
-                        return
-                    }
-                    
-                    guard lastObservedDemoMode != account.demoMode else {
-                        return
-                    }
-                    
-                    lastObservedDemoMode = account.demoMode
-                    saveChanges()
-                }
+            Toggle("Demo mode", isOn: $store.coolifyDemoMode)
         }
     }
     
