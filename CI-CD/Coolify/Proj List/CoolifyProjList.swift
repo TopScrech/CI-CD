@@ -13,12 +13,8 @@ struct CoolifyProjList: View {
                     CoolifyProjCard($0)
                 }
             } else {
-                ContentUnavailableView("Coolify credentials missing", systemImage: "key.card")
-                
-                Section {
-                    Button("Provide credentials") {
-                        sheetAuth = true
-                    }
+                ProjectListCredentialsUnavailableView(serviceName: "Coolify") {
+                    sheetAuth = true
                 }
             }
         }

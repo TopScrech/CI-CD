@@ -14,12 +14,8 @@ struct ConnectAppList: View {
                     AppCard($0)
                 }
             } else {
-                ContentUnavailableView("App Store Connect credentials missing", systemImage: "key.card")
-                
-                Section {
-                    Button("Provide credentials") {
-                        sheetAuth = true
-                    }
+                ProjectListCredentialsUnavailableView(serviceName: "App Store Connect") {
+                    sheetAuth = true
                 }
             }
         }
