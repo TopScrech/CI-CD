@@ -12,6 +12,7 @@ struct CoolifyDeployment: Identifiable, Decodable {
     let createdAt: String?
     let updatedAt: String?
     let commitMessage: String?
+    let logs: String?
     
     var createdDate: Date? {
         Self.parseDate(createdAt)

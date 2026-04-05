@@ -11,8 +11,12 @@ struct CoolifyDeploymentList: View {
             if vm.deployments.isEmpty {
                 ContentUnavailableView("No deployments yet", systemImage: "shippingbox")
             } else {
-                ForEach(vm.deployments) {
-                    CoolifyDeploymentCard($0)
+                ForEach(vm.deployments) { deployment in
+                    NavigationLink {
+                        CoolifyDeploymentLogsView(deployment)
+                    } label: {
+                        CoolifyDeploymentCard(deployment)
+                    }
                 }
             }
         }
