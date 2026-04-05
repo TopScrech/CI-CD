@@ -81,6 +81,11 @@ struct CoolifyAuthView: View {
                         }
                     }
                     .tint(.primary)
+                    .contextMenu {
+                        Button("Delete", systemImage: "trash", role: .destructive) {
+                            deleteAccount(account)
+                        }
+                    }
                 }
                 .onDelete(perform: deleteAccounts)
                 
@@ -152,6 +157,15 @@ struct CoolifyAuthView: View {
         
         accountsToDelete.forEach(modelContext.delete)
         
+        saveChanges(selecting: deletingSelected ? nil : selectedID)
+    }
+
+    private func deleteAccount(_ account: ProviderAccount) {
+        let deletingSelected = account.id == store.coolifyAccount?.id
+        let selectedID = store.coolifyAccount?.id
+
+        modelContext.delete(account)
+
         saveChanges(selecting: deletingSelected ? nil : selectedID)
     }
     

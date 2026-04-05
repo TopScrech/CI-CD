@@ -98,6 +98,11 @@ struct ConnectAuthView: View {
                         }
                     }
                     .tint(.primary)
+                    .contextMenu {
+                        Button("Delete", systemImage: "trash", role: .destructive) {
+                            deleteAccount(account)
+                        }
+                    }
                 }
                 .onDelete(perform: deleteAccounts)
                 
@@ -198,6 +203,15 @@ struct ConnectAuthView: View {
         let selectedID = store.connectAccount?.id
         
         accountsToDelete.forEach(modelContext.delete)
+        
+        saveChanges(selecting: deletingSelected ? nil : selectedID)
+    }
+    
+    private func deleteAccount(_ account: ProviderAccount) {
+        let deletingSelected = account.id == store.connectAccount?.id
+        let selectedID = store.connectAccount?.id
+        
+        modelContext.delete(account)
         
         saveChanges(selecting: deletingSelected ? nil : selectedID)
     }
