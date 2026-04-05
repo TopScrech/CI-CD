@@ -21,26 +21,15 @@ struct ConnectAppList: View {
         }
         .animation(.default, value: vm.products.count)
         .scrollIndicators(.never)
+        .refreshableTask(fetch)
         .sheet($sheetAuth) {
             ConnectAuthView {
                 fetch()
             }
         }
-        .refreshableTask {
-            fetch()
-        }
-        .task {
-            fetch()
-        }
-        .onChange(of: store.connectAccount?.id) {
-            fetch()
-        }
-        .onChange(of: store.connectDemoMode) {
-            fetch()
-        }
-        .onChange(of: store.connectRefreshToken) {
-            fetch()
-        }
+        .onChange(of: store.connectAccount?.id, fetch)
+        .onChange(of: store.connectDemoMode, fetch)
+        .onChange(of: store.connectRefreshToken, fetch)
     }
     
     private func fetch() {
