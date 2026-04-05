@@ -110,7 +110,7 @@ struct CoolifyAuthView: View {
                 .autocorrectionDisabled()
                 .onChange(of: account.coolifyDomain, account.touch)
             
-            TextField("API key", text: $account.coolifyAPIKey)
+            SecureField("API key", text: $account.coolifyAPIKey)
                 .autocorrectionDisabled()
                 .onChange(of: account.coolifyAPIKey, account.touch)
         }

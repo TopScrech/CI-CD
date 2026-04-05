@@ -135,14 +135,12 @@ struct ConnectAuthView: View {
 #if !os(macOS)
                 .textInputAutocapitalization(.none)
 #endif
-            
             TextField("Private Key ID", text: $account.privateKeyID)
                 .autocorrectionDisabled()
                 .onChange(of: account.privateKeyID, account.touch)
 #if !os(macOS)
                 .textInputAutocapitalization(.none)
 #endif
-            
             Button("Import from Files", systemImage: "document.badge.plus") {
                 showPicker = true
             }
