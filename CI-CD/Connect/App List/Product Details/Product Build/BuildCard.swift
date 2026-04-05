@@ -120,10 +120,8 @@ struct BuildCard: View {
                 Button {
                     Pasteboard.copy(build.id)
                 } label: {
-                    Text("Copy build id")
-                    
+                    Text(String("Copy build id"))
                     Text(build.id)
-                    
                     Image(systemName: "hammer")
                 }
             }

@@ -10,9 +10,10 @@ import Appearance
 #endif
 
 final class ValueStore: ObservableObject {
+    private static let connectDemoModeKey = "demo_mode"
+    private static let coolifyDemoModeKey = "coolify_demo_mode"
+
     @AppStorage("last_tab") var lastTab = HomeViewTab.connect
-    @AppStorage("demo_mode") private var legacyConnectDemoMode = false
-    @AppStorage("coolify_demo_mode") private var legacyCoolifyDemoMode = false
 #if os(iOS)
     @AppStorage("show_status_bar") var showStatusBar = true
 #endif
@@ -26,18 +27,27 @@ final class ValueStore: ObservableObject {
     @AppStorage("accounts_migrated_v1") private var accountsMigratedV1 = false
 
     private var modelContext: ModelContext?
+    private let defaults: UserDefaults
 
     @Published private(set) var connectAccount: ConnectAccountSnapshot?
     @Published private(set) var coolifyAccount: CoolifyAccountSnapshot?
     @Published private(set) var connectRefreshToken = UUID()
     @Published private(set) var coolifyRefreshToken = UUID()
-
-    var connectDemoMode: Bool {
-        connectAccount?.demoMode == true
+    @Published var connectDemoMode = false {
+        didSet {
+            persistDemoMode(connectDemoMode, for: .connect, previousValue: oldValue)
+        }
+    }
+    @Published var coolifyDemoMode = false {
+        didSet {
+            persistDemoMode(coolifyDemoMode, for: .coolify, previousValue: oldValue)
+        }
     }
 
-    var coolifyDemoMode: Bool {
-        coolifyAccount?.demoMode == true
+    init(defaults: UserDefaults = .standard) {
+        self.defaults = defaults
+        connectDemoMode = defaults.bool(forKey: Self.connectDemoModeKey)
+        coolifyDemoMode = defaults.bool(forKey: Self.coolifyDemoModeKey)
     }
 
     var connectAuthorized: Bool {
@@ -49,16 +59,25 @@ final class ValueStore: ObservableObject {
     }
 
     var connectAccountTitle: String {
-        connectAccount?.effectiveName ?? String(localized: "Connect")
+        if connectDemoMode {
+            return String(localized: "Connect demo")
+        }
+
+        return connectAccount?.effectiveName ?? String(localized: "Connect")
     }
 
     var coolifyAccountTitle: String {
-        coolifyAccount?.effectiveName ?? String(localized: "Coolify")
+        if coolifyDemoMode {
+            return String(localized: "Coolify demo")
+        }
+
+        return coolifyAccount?.effectiveName ?? String(localized: "Coolify")
     }
 
     func configure(context: ModelContext) {
         modelContext = context
         migrateLegacyCredentialsIfNeeded()
+        migrateAccountDemoModesIfNeeded()
         refreshSelections()
     }
 
@@ -101,6 +120,23 @@ final class ValueStore: ObservableObject {
             connectRefreshToken = UUID()
         case .coolify:
             coolifyRefreshToken = UUID()
+        }
+    }
+
+    private func persistDemoMode(_ enabled: Bool, for provider: AccountProvider, previousValue: Bool) {
+        guard enabled != previousValue else { return }
+
+        defaults.set(enabled, forKey: demoModeKey(for: provider))
+        refreshSelection(for: provider)
+        bumpRefreshToken(for: provider)
+    }
+
+    private func demoModeKey(for provider: AccountProvider) -> String {
+        switch provider {
+        case .connect:
+            Self.connectDemoModeKey
+        case .coolify:
+            Self.coolifyDemoModeKey
         }
     }
 
@@ -148,8 +184,6 @@ final class ValueStore: ObservableObject {
     private func migrateLegacyCredentialsIfNeeded() {
         guard !accountsMigratedV1, let modelContext else { return }
 
-        let defaults = UserDefaults.standard
-
         let issuerID = defaults.string(forKey: "issuer") ?? ""
         let privateKey = defaults.string(forKey: "private_key") ?? ""
         let privateKeyID = defaults.string(forKey: "private_key_id") ?? ""
@@ -160,35 +194,30 @@ final class ValueStore: ObservableObject {
         var migratedConnectID: UUID?
         var migratedCoolifyID: UUID?
 
-        if legacyConnectDemoMode || !issuerID.isEmpty || !privateKey.isEmpty || !privateKeyID.isEmpty {
+        if !issuerID.isEmpty || !privateKey.isEmpty || !privateKeyID.isEmpty {
             let connectAccount = ProviderAccount(
                 provider: .connect,
                 name: "",
                 issuerID: issuerID,
                 privateKey: privateKey,
-                privateKeyID: privateKeyID,
-                demoMode: legacyConnectDemoMode
+                privateKeyID: privateKeyID
             )
             modelContext.insert(connectAccount)
             migratedConnectID = connectAccount.id
         }
 
-        if legacyCoolifyDemoMode || !coolifyDomain.isEmpty || !coolifyAPIKey.isEmpty {
+        if !coolifyAPIKey.isEmpty || coolifyDomain != "https://coolify.example.com" {
             let coolifyAccount = ProviderAccount(
                 provider: .coolify,
                 name: "",
                 coolifyDomain: coolifyDomain,
-                coolifyAPIKey: coolifyAPIKey,
-                demoMode: legacyCoolifyDemoMode
+                coolifyAPIKey: coolifyAPIKey
             )
             modelContext.insert(coolifyAccount)
             migratedCoolifyID = coolifyAccount.id
         }
 
         try? modelContext.save()
-
-        legacyConnectDemoMode = false
-        legacyCoolifyDemoMode = false
 
         if selectedConnectAccountID == nil, let migratedConnectID {
             selectedConnectAccountID = migratedConnectID
@@ -200,6 +229,40 @@ final class ValueStore: ObservableObject {
 
         accountsMigratedV1 = true
     }
+
+    private func migrateAccountDemoModesIfNeeded() {
+        guard let modelContext else { return }
+
+        var didChangeAccounts = false
+
+        let connectAccounts = accounts(for: .connect, in: modelContext)
+        if connectAccounts.contains(where: \.demoMode) {
+            connectDemoMode = true
+            connectAccounts
+                .filter(\.demoMode)
+                .forEach {
+                    $0.demoMode = false
+                    $0.touch()
+                    didChangeAccounts = true
+                }
+        }
+
+        let coolifyAccounts = accounts(for: .coolify, in: modelContext)
+        if coolifyAccounts.contains(where: \.demoMode) {
+            coolifyDemoMode = true
+            coolifyAccounts
+                .filter(\.demoMode)
+                .forEach {
+                    $0.demoMode = false
+                    $0.touch()
+                    didChangeAccounts = true
+                }
+        }
+
+        guard didChangeAccounts else { return }
+
+        try? modelContext.save()
+    }
 }
 
 struct ConnectAccountSnapshot: Identifiable, Equatable {
@@ -208,7 +271,6 @@ struct ConnectAccountSnapshot: Identifiable, Equatable {
     let issuerID: String
     let privateKey: String
     let privateKeyID: String
-    let demoMode: Bool
 
     init(_ account: ProviderAccount) {
         id = account.id
@@ -216,7 +278,6 @@ struct ConnectAccountSnapshot: Identifiable, Equatable {
         issuerID = account.issuerID
         privateKey = account.privateKey
         privateKeyID = account.privateKeyID
-        demoMode = account.demoMode
     }
 
     var effectiveName: String {
@@ -224,15 +285,11 @@ struct ConnectAccountSnapshot: Identifiable, Equatable {
             return name
         }
 
-        if demoMode {
-            return String(localized: "Connect demo")
-        }
-
         return issuerID.isEmpty ? String(localized: "Connect account") : issuerID
     }
 
     var isAuthorized: Bool {
-        demoMode || (!issuerID.isEmpty && !privateKey.isEmpty && !privateKeyID.isEmpty)
+        !issuerID.isEmpty && !privateKey.isEmpty && !privateKeyID.isEmpty
     }
 }
 
@@ -241,14 +298,12 @@ struct CoolifyAccountSnapshot: Identifiable, Equatable {
     let name: String
     let domain: String
     let apiKey: String
-    let demoMode: Bool
 
     init(_ account: ProviderAccount) {
         id = account.id
         name = account.name
         domain = account.coolifyDomain
         apiKey = account.coolifyAPIKey
-        demoMode = account.demoMode
     }
 
     var effectiveName: String {
@@ -256,14 +311,10 @@ struct CoolifyAccountSnapshot: Identifiable, Equatable {
             return name
         }
 
-        if demoMode {
-            return String(localized: "Coolify demo")
-        }
-
         return domain.isEmpty ? String(localized: "Coolify account") : domain
     }
 
     var isAuthorized: Bool {
-        demoMode || (!domain.isEmpty && !apiKey.isEmpty)
+        !domain.isEmpty && !apiKey.isEmpty
     }
 }

@@ -48,7 +48,7 @@ struct CoolifyProjDetails: View {
         }
         .toolbar {
             Menu {
-                Button("Rename") {
+                Button("Rename", systemImage: "pencil") {
                     vm.alertRename = true
                 }
             } label: {
@@ -60,6 +60,7 @@ struct CoolifyProjDetails: View {
                 .autocorrectionDisabled()
             
             TextField("New description", text: $vm.projDescription)
+            Button("Cancel") {}
             Button("Save", action: save)
         }
     }

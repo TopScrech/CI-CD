@@ -48,10 +48,8 @@ struct ArtifactCard: View {
             Button {
                 Pasteboard.copy(artifact.id)
             } label: {
-                Text("Copy artifact id")
-                
+                Text(String("Copy artifact id"))
                 Text(artifact.id)
-                
                 Image(systemName: "document.on.document")
             }
             
@@ -59,10 +57,8 @@ struct ArtifactCard: View {
                 Button {
                     Pasteboard.copy(downloadURL)
                 } label: {
-                    Text("Copy download url")
-                    
+                    Text("Copy download URL")
                     Text(downloadURL)
-                    
                     Image(systemName: "document.on.document")
                 }
             }

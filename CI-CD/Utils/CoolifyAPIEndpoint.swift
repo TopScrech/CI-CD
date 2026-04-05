@@ -21,6 +21,10 @@ struct CoolifyAPIEndpoint {
         URL(string: resolvedDomain(baseDomain) + "/api/v1/deployments/applications/" + appUUID)
     }
     
+    static func deployment(_ deploymentUUID: String, domain baseDomain: String) -> URL? {
+        URL(string: resolvedDomain(baseDomain) + "/api/v1/deployments/" + deploymentUUID)
+    }
+    
     static func proj(_ projUUID: String, domain baseDomain: String) -> URL? {
         URL(string: resolvedDomain(baseDomain) + "/api/v1/projects/" + projUUID)
     }
@@ -43,5 +47,9 @@ struct CoolifyAPIEndpoint {
     
     static func app(_ appUUID: String, domain baseDomain: String) -> URL? {
         URL(string: resolvedDomain(baseDomain) + "/api/v1/applications/" + appUUID)
+    }
+    
+    static func openAPI(domain baseDomain: String) -> URL? {
+        URL(string: resolvedDomain(baseDomain) + "/openapi.json")
     }
 }

@@ -2,6 +2,7 @@ import ScrechKit
 
 struct HomeView: View {
     @EnvironmentObject private var store: ValueStore
+    
     @State private var showConnectAuth = false
     @State private var showCoolifyAuth = false
     

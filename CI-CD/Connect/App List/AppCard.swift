@@ -61,15 +61,9 @@ struct AppCard: View {
         .task {
             load()
         }
-        .onChange(of: store.connectAccount?.id) {
-            load()
-        }
-        .onChange(of: store.connectDemoMode) {
-            load()
-        }
-        .onChange(of: store.connectRefreshToken) {
-            load()
-        }
+        .onChange(of: store.connectAccount?.id, load)
+        .onChange(of: store.connectDemoMode, load)
+        .onChange(of: store.connectRefreshToken, load)
     }
 
     private func load() {

@@ -44,10 +44,8 @@ struct AccountPickerMenu: View {
     
     private var currentTitle: String {
         switch store.lastTab {
-        case .connect:
-            store.connectAccountTitle
-        case .coolify:
-            store.coolifyAccountTitle
+        case .connect: store.connectAccountTitle
+        case .coolify: store.coolifyAccountTitle
         }
     }
     
@@ -68,7 +66,7 @@ struct AccountPickerMenu: View {
                     }
                 }
                 
-                Button("Manage Connect accounts", action: showConnectAuth)
+                Button("Manage Connect accounts", systemImage: "gear", action: showConnectAuth)
             }
         }
     }
@@ -90,7 +88,7 @@ struct AccountPickerMenu: View {
                     }
                 }
                 
-                Button("Manage Coolify accounts", action: showCoolifyAuth)
+                Button("Manage Coolify accounts", systemImage: "gear", action: showCoolifyAuth)
             }
         }
     }

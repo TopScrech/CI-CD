@@ -42,7 +42,12 @@ struct Preview {
             status: .finished,
             createdAt: "2024-01-18T10:00:00Z",
             updatedAt: "2024-01-18T10:05:00Z",
-            commitMessage: "Initial deploy"
+            commitMessage: "Initial deploy",
+            logs: """
+            2024-01-18T10:00:12Z Pulling image
+            2024-01-18T10:02:31Z Building container
+            2024-01-18T10:05:00Z Deployment finished successfully
+            """
         ),
         CoolifyDeployment(
             id: 2,
@@ -50,7 +55,11 @@ struct Preview {
             status: .running,
             createdAt: "2024-01-19T12:00:00Z",
             updatedAt: "2024-01-19T12:02:00Z",
-            commitMessage: "Update dependencies"
+            commitMessage: "Update dependencies",
+            logs: """
+            2024-01-19T12:00:08Z Pulling latest changes
+            2024-01-19T12:01:14Z Installing dependencies
+            """
         )
     ]
 }

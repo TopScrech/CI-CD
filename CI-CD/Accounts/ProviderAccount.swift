@@ -75,28 +75,25 @@ extension ProviderAccount {
             return name
         }
 
-        if demoMode {
-            switch provider {
-            case .connect: return String(localized: "Connect demo")
-            case .coolify: return String(localized: "Coolify demo")
-            }
-        }
-
         switch provider {
         case .connect:
             return issuerID.isEmpty ? String(localized: "Connect account") : issuerID
             
         case .coolify:
-            return coolifyDomain.isEmpty ? String(localized: "Coolify account") : coolifyDomain
+            let endpoint = coolifyDomain
+                .replacing("https://", with: "")
+                .replacing("http://", with: "")
+            
+            return endpoint.isEmpty ? String(localized: "Coolify account") : endpoint
         }
     }
 
     var isConnectAuthorized: Bool {
-        demoMode || (!issuerID.isEmpty && !privateKey.isEmpty && !privateKeyID.isEmpty)
+        !issuerID.isEmpty && !privateKey.isEmpty && !privateKeyID.isEmpty
     }
 
     var isCoolifyAuthorized: Bool {
-        demoMode || (!coolifyDomain.isEmpty && !coolifyAPIKey.isEmpty)
+        !coolifyDomain.isEmpty && !coolifyAPIKey.isEmpty
     }
 
     func touch() {

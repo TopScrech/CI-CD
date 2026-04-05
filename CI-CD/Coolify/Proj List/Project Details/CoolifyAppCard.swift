@@ -15,6 +15,7 @@ struct CoolifyAppCard: View {
     var body: some View {
         NavigationLink {
             CoolifyAppDetails(app)
+                .environment(vm)
                 .environment(appDetailsVM)
         } label: {
             VStack(alignment: .leading) {
