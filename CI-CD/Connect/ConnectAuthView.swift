@@ -131,11 +131,6 @@ struct ConnectAuthView: View {
 #if !os(macOS)
                     .textInputAutocapitalization(.none)
 #endif
-                PasteButton(payloadType: String.self) { paste in
-                    if let issuer = paste.first, issuer.count == 36 {
-                        account.issuerID = issuer
-                    }
-                }
             }
             
             TextEditor(text: $account.privateKey)
