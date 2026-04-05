@@ -30,7 +30,11 @@ struct AppSettings: View {
             
             AppSettingsFeedback()
 #if DEBUG
-            AppSettingsDebug()
+            NavigationLink {
+                DebugSettings()
+            } label: {
+                Label("Debug", systemImage: "hammer")
+            }
 #endif
         }
         .scrollIndicators(.hidden)
