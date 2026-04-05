@@ -68,6 +68,10 @@ struct DemoSettingsSection: View {
             Toggle(isOn: $account.demoMode) {
                 Label("Connect demo", systemImage: "hammer")
             }
+            .task(id: account.id) {
+                lastObservedConnectDemoAccountID = account.id
+                lastObservedConnectDemoMode = account.demoMode
+            }
             .onChange(of: account.id) {
                 lastObservedConnectDemoAccountID = account.id
                 lastObservedConnectDemoMode = account.demoMode
@@ -100,6 +104,10 @@ struct DemoSettingsSection: View {
             
             Toggle(isOn: $account.demoMode) {
                 Label("Coolify demo", systemImage: "cloud")
+            }
+            .task(id: account.id) {
+                lastObservedCoolifyDemoAccountID = account.id
+                lastObservedCoolifyDemoMode = account.demoMode
             }
             .onChange(of: account.id) {
                 lastObservedCoolifyDemoAccountID = account.id

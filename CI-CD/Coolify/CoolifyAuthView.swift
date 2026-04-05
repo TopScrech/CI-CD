@@ -117,6 +117,10 @@ struct CoolifyAuthView: View {
         
         Section {
             Toggle("Demo mode", isOn: $account.demoMode)
+                .task(id: account.id) {
+                    lastObservedDemoAccountID = account.id
+                    lastObservedDemoMode = account.demoMode
+                }
                 .onChange(of: account.id) {
                     lastObservedDemoAccountID = account.id
                     lastObservedDemoMode = account.demoMode
