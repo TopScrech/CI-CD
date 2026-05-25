@@ -7,15 +7,7 @@ struct HomeView: View {
     @State private var showCoolifyAuth = false
     
     var body: some View {
-        TabView(selection: $store.lastTab) {
-            Tab("Connect", systemImage: "app.dashed", value: .connect) {
-                ConnectAppList()
-            }
-            
-            Tab("Coolify", systemImage: "globe", value: .coolify) {
-                CoolifyProjList()
-            }
-        }
+        PanelSidebarView()
         .navigationTitle(store.lastTab.title)
         .toolbar {
             AccountPickerMenu(
