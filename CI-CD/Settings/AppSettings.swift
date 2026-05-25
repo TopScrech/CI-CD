@@ -6,18 +6,18 @@ struct AppSettings: View {
             AppearanceSettingsSection()
             DemoSettingsSection()
             FeedbackSettingsSection()
-#if DEBUG
-            NavigationLink {
-                DebugSettings()
-            } label: {
-                Label("Debug", systemImage: "hammer")
-            }
-#endif
         }
         .scrollIndicators(.hidden)
         .navigationTitle("Settings")
         .ornamentDismissButton()
         .foregroundStyle(.foreground)
+        .toolbar {
+            NavigationLink {
+                DebugSettings()
+            } label: {
+                Label("Debug", systemImage: "hammer")
+            }
+        }
     }
 }
 
