@@ -1,6 +1,8 @@
 import ScrechKit
 
 struct GitHubWorkflowRunRow: View {
+    @Environment(\.accessibilityDifferentiateWithoutColor) private var differentiateWithoutColor
+    
     private let run: GitHubWorkflowRun
     private let rerun: () -> Void
     private let cancel: () -> Void
@@ -12,33 +14,35 @@ struct GitHubWorkflowRunRow: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(run.displayTitle)
-                        .headline()
-                    
-                    Text(subtitle)
-                        .caption()
-                        .secondary()
-                }
-                
-                Spacer()
-                
-                Image(systemName: statusImage)
-                    .foregroundStyle(statusStyle)
-            }
+        HStack {
+            Capsule()
+                .frame(width: 5, height: 50)
+                .foregroundStyle(statusColor.gradient)
+                .padding(.vertical, 5)
             
-            HStack {
-                if let branch = run.headBranch {
-                    Label(branch, systemImage: "arrow.triangle.branch")
+            VStack(alignment: .leading) {
+                if differentiateWithoutColor {
+                    Text(statusText)
                 }
                 
-                Text(run.event)
+                Text(run.displayTitle)
+                    .headline()
+                
+                HStack(spacing: 0) {
+                    if let branch = run.headBranch {
+                        Text(branch)
+                        
+                        Text(" • ")
+                    }
+                    
+                    Text(run.event)
+                }
+                .caption()
+                .secondary()
             }
-            .caption()
-            .secondary()
         }
+        .monospacedDigit()
+        .padding(.leading, -8)
         .contextMenu {
             Button("Rerun", systemImage: "arrow.clockwise", action: rerun)
             
@@ -54,7 +58,7 @@ struct GitHubWorkflowRunRow: View {
         }
     }
     
-    private var subtitle: String {
+    private var statusText: String {
         if let conclusion = run.conclusion {
             return conclusion
         }
@@ -62,21 +66,12 @@ struct GitHubWorkflowRunRow: View {
         return run.status ?? String(localized: "Unknown")
     }
     
-    private var statusImage: String {
+    private var statusColor: Color {
         switch run.conclusion ?? run.status {
-        case "success": "checkmark.circle.fill"
-        case "failure", "cancelled", "timed_out": "xmark.circle.fill"
-        case "in_progress", "queued", "waiting", "requested": "clock.fill"
-        default: "questionmark.circle"
-        }
-    }
-    
-    private var statusStyle: HierarchicalShapeStyle {
-        switch run.conclusion ?? run.status {
-        case "success": .primary
-        case "failure", "cancelled", "timed_out": .secondary
-        case "in_progress", "queued", "waiting", "requested": .primary
-        default: .secondary
+        case "success": .green
+        case "failure", "timed_out", "action_required": .red
+        case "cancelled", "skipped", "neutral": .gray
+        default: .gray
         }
     }
 }
