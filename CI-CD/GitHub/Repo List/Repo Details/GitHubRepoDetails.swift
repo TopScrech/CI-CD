@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 
 struct GitHubRepoDetails: View {
     @State private var vm = GitHubRepoDetailsVM()
@@ -49,10 +49,8 @@ struct GitHubRepoDetails: View {
             }
         }
         .navigationTitle(repository.name)
-        .refreshable {
-            await refresh()
-        }
-        .task {
+        .animation(.default, value: vm.runs)
+        .refreshableTask {
             await refresh()
         }
         .onChange(of: store.githubRefreshToken) {
