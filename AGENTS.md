@@ -10,21 +10,6 @@ A concise contributor guide for the CI-CD SwiftUI app targeting iOS, macOS, and 
 - `CI-CD.xcodeproj/` Xcode project and shared settings
 - Asset catalogs live in `CI-CD/Assets.xcassets` and `visionOS/Assets.xcassets`
 
-## Build, Test, and Development Commands
-Open `CI-CD.xcodeproj` in Xcode and run the desired scheme for your platform
-From CLI, list schemes and build
-
-```sh
-xcodebuild -list -project CI-CD.xcodeproj
-xcodebuild -project CI-CD.xcodeproj -scheme <Scheme> -configuration Debug build
-```
-
-Run tests for a scheme
-
-```sh
-xcodebuild -project CI-CD.xcodeproj -scheme <Scheme> test
-```
-
 ## Coding Style & Naming Conventions
 - Follow existing formatting and match surrounding indentation
 
