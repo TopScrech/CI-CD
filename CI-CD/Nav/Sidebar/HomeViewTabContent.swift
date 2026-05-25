@@ -5,10 +5,9 @@ struct HomeViewTabContent: View {
     
     var body: some View {
         switch selectedTab {
-        case .connect:
-            ConnectAppList()
-        case .coolify:
-            CoolifyProjList()
+        case .connect: ConnectAppList()
+        case .coolify: CoolifyProjList()
+        case .github: GitHubRepoList()
         }
     }
 }

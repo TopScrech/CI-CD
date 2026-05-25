@@ -12,6 +12,7 @@ import Appearance
 final class ValueStore: ObservableObject {
     private static let connectDemoModeKey = "demo_mode"
     private static let coolifyDemoModeKey = "coolify_demo_mode"
+    private static let githubDemoModeKey = "github_demo_mode"
 
     @AppStorage("last_tab") var lastTab = HomeViewTab.connect
 #if os(iOS)
@@ -24,6 +25,7 @@ final class ValueStore: ObservableObject {
 
     @AppStorage("selected_connect_account_id") private var selectedConnectAccountIDRaw = ""
     @AppStorage("selected_coolify_account_id") private var selectedCoolifyAccountIDRaw = ""
+    @AppStorage("selected_github_account_id") private var selectedGitHubAccountIDRaw = ""
     @AppStorage("accounts_migrated_v1") private var accountsMigratedV1 = false
 
     private var modelContext: ModelContext?
@@ -31,8 +33,10 @@ final class ValueStore: ObservableObject {
 
     @Published private(set) var connectAccount: ConnectAccountSnapshot?
     @Published private(set) var coolifyAccount: CoolifyAccountSnapshot?
+    @Published private(set) var githubAccount: GitHubAccountSnapshot?
     @Published private(set) var connectRefreshToken = UUID()
     @Published private(set) var coolifyRefreshToken = UUID()
+    @Published private(set) var githubRefreshToken = UUID()
     @Published var connectDemoMode = false {
         didSet {
             persistDemoMode(connectDemoMode, for: .connect, previousValue: oldValue)
@@ -43,11 +47,17 @@ final class ValueStore: ObservableObject {
             persistDemoMode(coolifyDemoMode, for: .coolify, previousValue: oldValue)
         }
     }
+    @Published var githubDemoMode = false {
+        didSet {
+            persistDemoMode(githubDemoMode, for: .github, previousValue: oldValue)
+        }
+    }
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
         connectDemoMode = defaults.bool(forKey: Self.connectDemoModeKey)
         coolifyDemoMode = defaults.bool(forKey: Self.coolifyDemoModeKey)
+        githubDemoMode = defaults.bool(forKey: Self.githubDemoModeKey)
     }
 
     var connectAuthorized: Bool {
@@ -56,6 +66,10 @@ final class ValueStore: ObservableObject {
 
     var coolifyAuthorized: Bool {
         coolifyAccount?.isAuthorized == true
+    }
+    
+    var githubAuthorized: Bool {
+        githubAccount?.isAuthorized == true
     }
 
     var connectAccountTitle: String {
@@ -73,6 +87,14 @@ final class ValueStore: ObservableObject {
 
         return coolifyAccount?.effectiveName ?? String(localized: "Coolify")
     }
+    
+    var githubAccountTitle: String {
+        if githubDemoMode {
+            return String(localized: "GitHub demo")
+        }
+        
+        return githubAccount?.effectiveName ?? String(localized: "GitHub")
+    }
 
     func configure(context: ModelContext) {
         modelContext = context
@@ -84,6 +106,7 @@ final class ValueStore: ObservableObject {
     func refreshSelections() {
         refreshSelection(for: .connect)
         refreshSelection(for: .coolify)
+        refreshSelection(for: .github)
     }
 
     func refreshSelection(for provider: AccountProvider) {
@@ -99,6 +122,9 @@ final class ValueStore: ObservableObject {
         case .coolify:
             coolifyAccount = selectedAccount.map(CoolifyAccountSnapshot.init)
             selectedCoolifyAccountID = selectedAccount?.id
+        case .github:
+            githubAccount = selectedAccount.map(GitHubAccountSnapshot.init)
+            selectedGitHubAccountID = selectedAccount?.id
         }
     }
 
@@ -108,6 +134,8 @@ final class ValueStore: ObservableObject {
             selectedConnectAccountID = id
         case .coolify:
             selectedCoolifyAccountID = id
+        case .github:
+            selectedGitHubAccountID = id
         }
 
         refreshSelection(for: provider)
@@ -120,6 +148,8 @@ final class ValueStore: ObservableObject {
             connectRefreshToken = UUID()
         case .coolify:
             coolifyRefreshToken = UUID()
+        case .github:
+            githubRefreshToken = UUID()
         }
     }
 
@@ -137,6 +167,8 @@ final class ValueStore: ObservableObject {
             Self.connectDemoModeKey
         case .coolify:
             Self.coolifyDemoModeKey
+        case .github:
+            Self.githubDemoModeKey
         }
     }
 
@@ -168,6 +200,8 @@ final class ValueStore: ObservableObject {
             return selectedConnectAccountID
         case .coolify:
             return selectedCoolifyAccountID
+        case .github:
+            return selectedGitHubAccountID
         }
     }
 
@@ -179,6 +213,11 @@ final class ValueStore: ObservableObject {
     private var selectedCoolifyAccountID: UUID? {
         get { UUID(uuidString: selectedCoolifyAccountIDRaw) }
         set { selectedCoolifyAccountIDRaw = newValue?.uuidString ?? "" }
+    }
+    
+    private var selectedGitHubAccountID: UUID? {
+        get { UUID(uuidString: selectedGitHubAccountIDRaw) }
+        set { selectedGitHubAccountIDRaw = newValue?.uuidString ?? "" }
     }
 
     private func migrateLegacyCredentialsIfNeeded() {
@@ -258,6 +297,18 @@ final class ValueStore: ObservableObject {
                     didChangeAccounts = true
                 }
         }
+        
+        let githubAccounts = accounts(for: .github, in: modelContext)
+        if githubAccounts.contains(where: \.demoMode) {
+            githubDemoMode = true
+            githubAccounts
+                .filter(\.demoMode)
+                .forEach {
+                    $0.demoMode = false
+                    $0.touch()
+                    didChangeAccounts = true
+                }
+        }
 
         guard didChangeAccounts else { return }
 
@@ -316,5 +367,33 @@ struct CoolifyAccountSnapshot: Identifiable, Equatable {
 
     var isAuthorized: Bool {
         !domain.isEmpty && !apiKey.isEmpty
+    }
+}
+
+struct GitHubAccountSnapshot: Identifiable, Equatable {
+    let id: UUID
+    let name: String
+    let apiBaseURL: String
+    let token: String
+    let owner: String
+    
+    init(_ account: ProviderAccount) {
+        id = account.id
+        name = account.name
+        apiBaseURL = account.githubAPIBaseURL
+        token = account.githubToken
+        owner = account.githubOwner
+    }
+    
+    var effectiveName: String {
+        if !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return name
+        }
+        
+        return owner.isEmpty ? String(localized: "GitHub account") : owner
+    }
+    
+    var isAuthorized: Bool {
+        !apiBaseURL.isEmpty && !token.isEmpty
     }
 }

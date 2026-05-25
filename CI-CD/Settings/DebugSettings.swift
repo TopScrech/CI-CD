@@ -7,6 +7,7 @@ struct DebugSettings: View {
     
     @State private var sheetAuthConnect = false
     @State private var sheetAuthCoolify = false
+    @State private var sheetAuthGitHub = false
     
     var body: some View {
         List {
@@ -57,6 +58,23 @@ struct DebugSettings: View {
                     resetConnectCredentials()
                 }
             }
+            
+            Section("GitHub") {
+                Button("GitHub credentials") {
+                    sheetAuthGitHub = true
+                }
+                .sheet($sheetAuthGitHub) {
+                    GitHubAuthView()
+                }
+                
+                Button(String("Copy GitHub token")) {
+                    Pasteboard.copy(store.githubAccount?.token ?? "")
+                }
+                
+                Button(String("Reset GitHub credentials"), role: .destructive) {
+                    resetGitHubCredentials()
+                }
+            }
         }
         .navigationTitle("Debug")
     }
@@ -84,12 +102,28 @@ struct DebugSettings: View {
         store.refreshSelection(for: .coolify)
     }
     
+    private func resetGitHubCredentials() {
+        guard let account = githubAccountModel else { return }
+        
+        account.githubAPIBaseURL = "https://api.github.com"
+        account.githubOwner = ""
+        account.githubToken = ""
+        account.touch()
+        
+        try? modelContext.save()
+        store.refreshSelection(for: .github)
+    }
+    
     private var connectAccountModel: ProviderAccount? {
         accountModel(for: store.connectAccount?.id)
     }
     
     private var coolifyAccountModel: ProviderAccount? {
         accountModel(for: store.coolifyAccount?.id)
+    }
+    
+    private var githubAccountModel: ProviderAccount? {
+        accountModel(for: store.githubAccount?.id)
     }
     
     private func accountModel(for id: UUID?) -> ProviderAccount? {

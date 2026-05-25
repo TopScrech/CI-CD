@@ -47,6 +47,10 @@ struct PanelSidebarAccountsSection: View {
                 NavigationStack {
                     CoolifyAuthView(showsAccountPicker: false)
                 }
+            case .github:
+                NavigationStack {
+                    GitHubAuthView(showsAccountPicker: false)
+                }
             }
         }
     }
@@ -57,6 +61,8 @@ struct PanelSidebarAccountsSection: View {
             store.lastTab == .connect && store.connectAccount?.id == account.id
         case .coolify:
             store.lastTab == .coolify && store.coolifyAccount?.id == account.id
+        case .github:
+            store.lastTab == .github && store.githubAccount?.id == account.id
         }
     }
     

@@ -26,7 +26,8 @@ extension PanelSidebarSection {
             key: .services,
             tabs: [
                 .connect,
-                .coolify
+                .coolify,
+                .github
             ]
         )
     ]

@@ -16,6 +16,10 @@ struct PanelSidebarAddAccountButton: View {
             Button(AccountProvider.coolify.title, image: .coolify) {
                 addAccount(.coolify)
             }
+            
+            Button(AccountProvider.github.title, image: .gitHub) {
+                addAccount(.github)
+            }
         } label: {
             HStack(spacing: 10) {
                 Text("Add account")
@@ -43,6 +47,11 @@ struct PanelSidebarAddAccountButton: View {
             case .coolify:
                 NavigationStack {
                     CoolifyAuthView(showsAccountPicker: false)
+                }
+                
+            case .github:
+                NavigationStack {
+                    GitHubAuthView(showsAccountPicker: false)
                 }
             }
         }

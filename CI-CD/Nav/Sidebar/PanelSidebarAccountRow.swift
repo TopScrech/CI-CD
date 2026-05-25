@@ -19,7 +19,7 @@ struct PanelSidebarAccountRow: View {
                 Image(account.provider.logoAssetName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 22, height: 22)
+                    .frame(22)
                     .clipShape(.rect(cornerRadius: 5))
             }
             .foregroundStyle(.foreground)
