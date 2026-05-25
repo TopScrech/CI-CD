@@ -29,9 +29,6 @@ struct GitHubRepoRow: View {
                         .secondary()
                 }
                 
-                Text(repository.defaultBranch)
-                    .caption()
-                    .secondary()
             }
         }
     }
