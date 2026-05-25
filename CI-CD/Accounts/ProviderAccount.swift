@@ -12,13 +12,6 @@ enum AccountProvider: String, CaseIterable, Identifiable, Codable {
         case .coolify: String(localized: "Coolify")
         }
     }
-
-    var systemImage: String {
-        switch self {
-        case .connect: "app.dashed"
-        case .coolify: "globe"
-        }
-    }
     
     var logoAssetName: String {
         switch self {

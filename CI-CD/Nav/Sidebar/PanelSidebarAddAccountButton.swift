@@ -9,11 +9,11 @@ struct PanelSidebarAddAccountButton: View {
     
     var body: some View {
         Menu {
-            Button(AccountProvider.connect.title, systemImage: AccountProvider.connect.systemImage) {
+            Button(AccountProvider.connect.title, image: .appStoreConnect) {
                 addAccount(.connect)
             }
             
-            Button(AccountProvider.coolify.title, systemImage: AccountProvider.coolify.systemImage) {
+            Button(AccountProvider.coolify.title, image: .coolify) {
                 addAccount(.coolify)
             }
         } label: {
@@ -28,7 +28,6 @@ struct PanelSidebarAddAccountButton: View {
                     .frame(width: 22)
             }
             .foregroundStyle(.foreground)
-//            .padding(.vertical, 7)
             .padding(.horizontal, 10)
             .contentShape(.rect)
         }
