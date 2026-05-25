@@ -12,9 +12,11 @@ struct CoolifyAuthView: View {
         order: .reverse
     ) private var accounts: [ProviderAccount]
     
+    private let showsAccountPicker: Bool
     private let onDismiss: () async -> Void
     
-    init(onDismiss: @escaping () async -> Void = {}) {
+    init(showsAccountPicker: Bool = true, onDismiss: @escaping () async -> Void = {}) {
+        self.showsAccountPicker = showsAccountPicker
         self.onDismiss = onDismiss
     }
     
@@ -32,9 +34,12 @@ struct CoolifyAuthView: View {
             demoSection
             
             if !store.coolifyDemoMode {
-                accountsSection
+                if showsAccountPicker {
+                    accountsSection
+                }
 
                 if let account = selectedAccount {
+                    AccountNameSection(account: account)
                     credentialsSection(account)
                 } else {
                     ContentUnavailableView("No Coolify accounts", systemImage: "person.crop.circle.badge.plus")
@@ -98,12 +103,6 @@ struct CoolifyAuthView: View {
         @Bindable var account = account
         
         return Section("Credentials") {
-            TextField("Account name (optional)", text: $account.name)
-                .autocorrectionDisabled()
-                .onChange(of: account.name) {
-                    account.touch()
-                }
-            
             TextField("https://coolify.example.com", text: $account.coolifyDomain)
                 .textContentType(.URL)
                 .keyboardType(.URL)

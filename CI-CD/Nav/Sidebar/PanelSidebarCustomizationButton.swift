@@ -6,13 +6,13 @@ struct PanelSidebarCustomizationButton: View {
     var body: some View {
         Button(action: action) {
             HStack(spacing: 10) {
-                Image(systemName: "slider.horizontal.3")
-                    .headline()
-                
                 Text("Customization")
                     .semibold()
                 
                 Spacer(minLength: 0)
+                
+                Image(systemName: "slider.horizontal.3")
+                    .headline()
             }
             .secondary()
             .foregroundStyle(.foreground)

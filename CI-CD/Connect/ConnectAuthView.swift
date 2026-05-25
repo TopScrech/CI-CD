@@ -14,9 +14,11 @@ struct ConnectAuthView: View {
         order: .reverse
     ) private var accounts: [ProviderAccount]
     
+    private let showsAccountPicker: Bool
     private let onDismiss: () async -> Void
     
-    init(onDismiss: @escaping () async -> Void = {}) {
+    init(showsAccountPicker: Bool = true, onDismiss: @escaping () async -> Void = {}) {
+        self.showsAccountPicker = showsAccountPicker
         self.onDismiss = onDismiss
     }
     
@@ -36,9 +38,12 @@ struct ConnectAuthView: View {
             demoSection
             
             if !store.connectDemoMode {
-                accountsSection
+                if showsAccountPicker {
+                    accountsSection
+                }
                 
                 if let account = selectedAccount {
+                    AccountNameSection(account: account)
                     credentialsSection(account)
                 } else {
                     ContentUnavailableView("No Connect accounts", systemImage: "person.crop.circle.badge.plus")
@@ -116,10 +121,6 @@ struct ConnectAuthView: View {
         @Bindable var account = account
         
         Section {
-            TextField("Account name (optional)", text: $account.name)
-                .autocorrectionDisabled()
-                .onChange(of: account.name, account.touch)
-            
             HStack {
                 TextField("Issuer ID", text: $account.issuerID)
                     .autocorrectionDisabled()

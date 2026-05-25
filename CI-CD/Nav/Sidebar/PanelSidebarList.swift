@@ -8,10 +8,12 @@ struct PanelSidebarList: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                PanelSidebarAccountsSection()
+                PanelSidebarAccountsSection(onSelect: onSelect)
+                
+                PanelSidebarAddAccountButton()
+                    .padding(.top, 14)
                 
                 PanelSidebarCustomizationButton(action: onCustomize)
-                    .padding(.top, 14)
             }
             .padding(12)
         }

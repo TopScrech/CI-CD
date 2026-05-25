@@ -4,27 +4,17 @@ struct PanelSidebarAccountRow: View {
     let account: ProviderAccount
     let isSelected: Bool
     let action: () -> Void
+    let edit: () -> Void
+    let delete: () -> Void
     
     var body: some View {
         Button(action: action) {
             HStack(spacing: 10) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(account.effectiveName)
-                        .subheadline(.semibold)
-                        .lineLimit(1)
-                    
-                    Text(account.provider.title)
-                        .caption()
-                        .secondary()
-                }
+                Text(account.effectiveName)
+                    .subheadline(.semibold)
+                    .lineLimit(1)
                 
                 Spacer(minLength: 0)
-                
-                if isSelected {
-                    Image(systemName: "checkmark")
-                        .caption(.semibold)
-                        .foregroundStyle(.tint)
-                }
                 
                 Image(account.provider.logoAssetName)
                     .resizable()
@@ -39,5 +29,12 @@ struct PanelSidebarAccountRow: View {
             .contentShape(.rect)
         }
         .buttonStyle(.plain)
+        .contextMenu {
+            Button("Edit", systemImage: "pencil", action: edit)
+            
+            Divider()
+            
+            Button("Delete", systemImage: "trash", role: .destructive, action: delete)
+        }
     }
 }
