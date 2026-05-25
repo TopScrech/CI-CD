@@ -46,6 +46,28 @@ struct GitHubAPIClient {
         return response.workflowRuns
     }
     
+    func workflowJobs(owner: String, repository: String, runID: Int) async throws -> [GitHubWorkflowJob] {
+        let response = try await request(
+            GitHubWorkflowJobResponse.self,
+            path: "/repos/\(owner)/\(repository)/actions/runs/\(runID)/jobs",
+            queryItems: [
+                URLQueryItem(name: "per_page", value: "100")
+            ]
+        )
+        return response.jobs
+    }
+    
+    func artifacts(owner: String, repository: String, runID: Int) async throws -> [GitHubArtifact] {
+        let response = try await request(
+            GitHubArtifactResponse.self,
+            path: "/repos/\(owner)/\(repository)/actions/runs/\(runID)/artifacts",
+            queryItems: [
+                URLQueryItem(name: "per_page", value: "100")
+            ]
+        )
+        return response.artifacts
+    }
+    
     func dispatchWorkflow(owner: String, repository: String, workflowID: Int, ref: String) async throws {
         let body = GitHubWorkflowDispatchRequest(ref: ref)
         _ = try await request(

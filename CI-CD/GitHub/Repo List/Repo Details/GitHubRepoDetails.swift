@@ -35,13 +35,17 @@ struct GitHubRepoDetails: View {
                     ContentUnavailableView("No runs", systemImage: "clock")
                 } else {
                     ForEach(vm.runs) { run in
-                        GitHubWorkflowRunRow(run) {
-                            Task {
-                                await vm.rerun(run, repository: repository, store: store)
-                            }
-                        } cancel: {
-                            Task {
-                                await vm.cancel(run, repository: repository, store: store)
+                        NavigationLink {
+                            GitHubRunDetails(run, repository: repository)
+                        } label: {
+                            GitHubWorkflowRunRow(run) {
+                                Task {
+                                    await vm.rerun(run, repository: repository, store: store)
+                                }
+                            } cancel: {
+                                Task {
+                                    await vm.cancel(run, repository: repository, store: store)
+                                }
                             }
                         }
                     }
