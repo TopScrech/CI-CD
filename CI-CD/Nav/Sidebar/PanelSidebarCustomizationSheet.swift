@@ -32,13 +32,6 @@ struct PanelSidebarCustomizationSheet: View {
                 }
             }
             
-            ForEach(PanelSidebarSection.all) { section in
-                Section(section.title) {
-                    ForEach(section.tabs) {
-                        PanelSidebarCustomizationTabToggle(tab: $0)
-                    }
-                }
-            }
         }
         .navigationTitle("Customization")
         .scrollIndicators(.never)

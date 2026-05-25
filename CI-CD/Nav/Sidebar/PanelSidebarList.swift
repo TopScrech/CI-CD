@@ -1,8 +1,6 @@
 import ScrechKit
 
 struct PanelSidebarList: View {
-    @Environment(PanelSidebarCustomizationVM.self) private var customizationVM
-    
     let selectedTab: HomeViewTab
     var onSelect: (HomeViewTab) -> Void
     var onCustomize: () -> Void
@@ -10,21 +8,7 @@ struct PanelSidebarList: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                ForEach(customizationVM.visibleSections) { section in
-                    VStack(alignment: .leading, spacing: 3) {
-                        Text(section.title)
-                            .caption(.semibold)
-                            .secondary()
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 2)
-                        
-                        ForEach(section.tabs) { tab in
-                            PanelSidebarTabRow(tab: tab, isSelected: selectedTab == tab) {
-                                onSelect(tab)
-                            }
-                        }
-                    }
-                }
+                PanelSidebarAccountsSection()
                 
                 PanelSidebarCustomizationButton(action: onCustomize)
                     .padding(.top, 14)
@@ -45,4 +29,6 @@ struct PanelSidebarList: View {
         
     }
     .environment(PanelSidebarCustomizationVM())
+    .environmentObject(ValueStore())
+    .modelContainer(PreviewModelContainer.inMemory)
 }

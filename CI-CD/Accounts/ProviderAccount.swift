@@ -15,10 +15,22 @@ enum AccountProvider: String, CaseIterable, Identifiable, Codable {
 
     var systemImage: String {
         switch self {
-        case .connect:
-            "app.dashed"
-        case .coolify:
-            "globe"
+        case .connect: "app.dashed"
+        case .coolify: "globe"
+        }
+    }
+    
+    var logoAssetName: String {
+        switch self {
+        case .connect: "App Store Connect"
+        case .coolify: "Coolify"
+        }
+    }
+    
+    var homeViewTab: HomeViewTab {
+        switch self {
+        case .connect: .connect
+        case .coolify: .coolify
         }
     }
 }
