@@ -1,5 +1,6 @@
 import ScrechKit
 
+#if !os(visionOS)
 struct PanelSidebarView: View {
     private let edgeSwipeWidth: CGFloat = 24
     
@@ -218,3 +219,4 @@ struct PanelSidebarView: View {
         .environmentObject(ValueStore())
         .modelContainer(PreviewModelContainer.inMemory)
 }
+#endif
