@@ -11,24 +11,24 @@ struct GitHubRepoRow: View {
         NavigationLink {
             GitHubRepoDetails(repository)
         } label: {
-            VStack(alignment: .leading) {
-                HStack {
+            HStack {
+                VStack(alignment: .leading) {
                     Text(repository.fullName)
                         .headline()
                     
-                    Spacer()
-                    
-                    if repository.privateRepository {
-                        Image(systemName: "lock")
+                    if let description = repository.description, !description.isEmpty {
+                        Text(description)
                             .secondary()
                     }
+                    
                 }
                 
-                if let description = repository.description, !description.isEmpty {
-                    Text(description)
+                Spacer()
+                
+                if repository.privateRepository {
+                    Image(systemName: "lock")
                         .secondary()
                 }
-                
             }
         }
     }
