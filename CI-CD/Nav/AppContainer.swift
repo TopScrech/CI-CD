@@ -6,6 +6,16 @@ struct AppContainer: View {
     @Environment(\.modelContext) private var modelContext
     
     var body: some View {
+#if os(visionOS)
+        HomeView()
+            .environmentObject(store)
+#if canImport(Appearance)
+            .preferredColorScheme(store.appearance.scheme)
+#endif
+            .task(id: modelContext) {
+                store.configure(context: modelContext)
+            }
+#else
         NavigationStack {
             HomeView()
         }
@@ -19,6 +29,7 @@ struct AppContainer: View {
         .task(id: modelContext) {
             store.configure(context: modelContext)
         }
+#endif
     }
 }
 

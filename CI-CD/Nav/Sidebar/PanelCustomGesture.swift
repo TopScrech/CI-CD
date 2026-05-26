@@ -1,5 +1,6 @@
 import SwiftUI
 
+#if !os(visionOS)
 struct PanelCustomGesture: UIGestureRecognizerRepresentable {
     var handle: (UIPanGestureRecognizer) -> Void
     var shouldBegin: ((UIPanGestureRecognizer) -> Bool)?
@@ -38,3 +39,4 @@ struct PanelCustomGesture: UIGestureRecognizerRepresentable {
         }
     }
 }
+#endif

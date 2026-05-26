@@ -1,5 +1,5 @@
+import ScrechKit
 import SwiftData
-import SwiftUI
 
 struct CoolifyAuthView: View {
     @EnvironmentObject private var store: ValueStore
@@ -52,6 +52,7 @@ struct CoolifyAuthView: View {
                 ContentUnavailableView("No Coolify accounts", systemImage: "person.crop.circle.badge.plus")
             }
         }
+        .ornamentDismissButton()
         .animation(.default, value: accounts.count)
         .onAppear {
             ensureAccountSelection()

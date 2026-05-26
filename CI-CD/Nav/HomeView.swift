@@ -4,16 +4,28 @@ struct HomeView: View {
     @EnvironmentObject private var store: ValueStore
     
     var body: some View {
-        PanelSidebarView()
-        .navigationTitle(store.lastTab.title)
-        .toolbar {
-            NavigationLink {
-                AppSettings()
-            } label: {
-                Image(systemName: "gear")
+#if os(visionOS)
+        VisionSidebarView()
+            .toolbar {
+                NavigationLink {
+                    AppSettings()
+                } label: {
+                    Image(systemName: "gear")
+                }
+                .keyboardShortcut("s")
             }
-            .keyboardShortcut("s")
-        }
+#else
+        PanelSidebarView()
+            .navigationTitle(store.lastTab.title)
+            .toolbar {
+                NavigationLink {
+                    AppSettings()
+                } label: {
+                    Image(systemName: "gear")
+                }
+                .keyboardShortcut("s")
+            }
+#endif
     }
 }
 

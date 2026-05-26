@@ -26,7 +26,6 @@ struct PanelSidebarCustomizationButton: View {
 }
 
 #Preview {
-    PanelSidebarCustomizationButton {
-    }
-    .padding()
+    PanelSidebarCustomizationButton {}
+        .padding()
 }

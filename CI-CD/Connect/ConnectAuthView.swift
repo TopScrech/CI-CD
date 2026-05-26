@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import SwiftData
 import UniformTypeIdentifiers
 import OSLog
@@ -56,6 +56,7 @@ struct ConnectAuthView: View {
                 ContentUnavailableView("No Connect accounts", systemImage: "person.crop.circle.badge.plus")
             }
         }
+        .ornamentDismissButton()
         .animation(.default, value: accounts.count)
         .onAppear {
             ensureAccountSelection()
