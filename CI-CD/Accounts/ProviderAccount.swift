@@ -1,8 +1,8 @@
-import Foundation
+import SwiftUI
 import SwiftData
 
 enum AccountProvider: String, CaseIterable, Identifiable, Codable {
-    case connect, coolify
+    case connect, coolify, github
 
     var id: String { rawValue }
 
@@ -10,15 +10,23 @@ enum AccountProvider: String, CaseIterable, Identifiable, Codable {
         switch self {
         case .connect: String(localized: "Connect")
         case .coolify: String(localized: "Coolify")
+        case .github: String(localized: "GitHub Actions")
         }
     }
-
-    var systemImage: String {
+    
+    var logoAssetName: ImageResource {
         switch self {
-        case .connect:
-            "app.dashed"
-        case .coolify:
-            "globe"
+        case .connect: .appStoreConnect
+        case .coolify: .coolify
+        case .github: .gitHub
+        }
+    }
+    
+    var homeViewTab: HomeViewTab {
+        switch self {
+        case .connect: .connect
+        case .coolify: .coolify
+        case .github: .github
         }
     }
 }
@@ -33,6 +41,9 @@ final class ProviderAccount {
     var privateKeyID: String = ""
     var coolifyDomain: String = "https://coolify.example.com"
     var coolifyAPIKey: String = ""
+    var githubAPIBaseURL: String = "https://api.github.com"
+    var githubToken: String = ""
+    var githubOwner: String = ""
     var demoMode: Bool = false
     var createdAt: Date = Date()
     var updatedAt: Date = Date()
@@ -46,6 +57,9 @@ final class ProviderAccount {
         privateKeyID: String = "",
         coolifyDomain: String = "https://coolify.example.com",
         coolifyAPIKey: String = "",
+        githubAPIBaseURL: String = "https://api.github.com",
+        githubToken: String = "",
+        githubOwner: String = "",
         demoMode: Bool = false,
         createdAt: Date = Date(),
         updatedAt: Date = Date()
@@ -58,6 +72,9 @@ final class ProviderAccount {
         self.privateKeyID = privateKeyID
         self.coolifyDomain = coolifyDomain
         self.coolifyAPIKey = coolifyAPIKey
+        self.githubAPIBaseURL = githubAPIBaseURL
+        self.githubToken = githubToken
+        self.githubOwner = githubOwner
         self.demoMode = demoMode
         self.createdAt = createdAt
         self.updatedAt = updatedAt
@@ -85,6 +102,9 @@ extension ProviderAccount {
                 .replacing("http://", with: "")
             
             return endpoint.isEmpty ? String(localized: "Coolify account") : endpoint
+            
+        case .github:
+            return githubOwner.isEmpty ? String(localized: "GitHub account") : githubOwner
         }
     }
 
@@ -94,6 +114,10 @@ extension ProviderAccount {
 
     var isCoolifyAuthorized: Bool {
         !coolifyDomain.isEmpty && !coolifyAPIKey.isEmpty
+    }
+    
+    var isGitHubAuthorized: Bool {
+        !githubAPIBaseURL.isEmpty && !githubToken.isEmpty
     }
 
     func touch() {

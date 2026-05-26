@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 
 struct CoolifyDeploymentLogsView: View {
     @EnvironmentObject private var store: ValueStore
@@ -29,7 +29,7 @@ struct CoolifyDeploymentLogsView: View {
                             Text(line.message)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .font(.footnote.monospaced())
+                        .footnote(design: .monospaced)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }

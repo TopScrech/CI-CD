@@ -14,9 +14,11 @@ struct ConnectAuthView: View {
         order: .reverse
     ) private var accounts: [ProviderAccount]
     
+    private let showsAccountPicker: Bool
     private let onDismiss: () async -> Void
     
-    init(onDismiss: @escaping () async -> Void = {}) {
+    init(showsAccountPicker: Bool = true, onDismiss: @escaping () async -> Void = {}) {
+        self.showsAccountPicker = showsAccountPicker
         self.onDismiss = onDismiss
     }
     
@@ -33,26 +35,25 @@ struct ConnectAuthView: View {
     
     var body: some View {
         List {
-            demoSection
-            
-            if !store.connectDemoMode {
+            if showsAccountPicker {
                 accountsSection
-                
-                if let account = selectedAccount {
-                    credentialsSection(account)
-                } else {
-                    ContentUnavailableView("No Connect accounts", systemImage: "person.crop.circle.badge.plus")
-                }
-            } else {
-                Section {
-                    Button("Save", action: save)
-                }
             }
             
-            if !store.connectDemoMode, selectedAccount != nil {
+            if let account = selectedAccount {
+                AccountNameSection(account: account)
+                AccountDemoSection(account: account) {
+                    saveChanges()
+                }
+                
+                if !account.demoMode {
+                    credentialsSection(account)
+                }
+                
                 Section {
                     Button("Save", action: save)
                 }
+            } else {
+                ContentUnavailableView("No Connect accounts", systemImage: "person.crop.circle.badge.plus")
             }
         }
         .animation(.default, value: accounts.count)
@@ -116,10 +117,6 @@ struct ConnectAuthView: View {
         @Bindable var account = account
         
         Section {
-            TextField("Account name (optional)", text: $account.name)
-                .autocorrectionDisabled()
-                .onChange(of: account.name, account.touch)
-            
             HStack {
                 TextField("Issuer ID", text: $account.issuerID)
                     .autocorrectionDisabled()
@@ -149,12 +146,6 @@ struct ConnectAuthView: View {
             Text("Credentials")
         } footer: {
             Text("You need an API key with the 'Admin' role from App Store Connect to start builds with external deployments. API keys with the 'Developer' role cannot be used for this")
-        }
-    }
-    
-    private var demoSection: some View {
-        Section {
-            Toggle("Demo mode", isOn: $store.connectDemoMode)
         }
     }
     

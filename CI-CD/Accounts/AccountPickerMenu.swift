@@ -16,18 +16,27 @@ struct AccountPickerMenu: View {
         order: .reverse
     ) private var coolifyAccounts: [ProviderAccount]
     
+    @Query(
+        filter: #Predicate<ProviderAccount> { $0.providerRawValue == "github" },
+        sort: \ProviderAccount.createdAt,
+        order: .reverse
+    ) private var githubAccounts: [ProviderAccount]
+    
     let showConnectAuth: () -> Void
     let showCoolifyAuth: () -> Void
+    let showGitHubAuth: () -> Void
     
-    init(showConnectAuth: @escaping () -> Void, showCoolifyAuth: @escaping () -> Void) {
+    init(showConnectAuth: @escaping () -> Void, showCoolifyAuth: @escaping () -> Void, showGitHubAuth: @escaping () -> Void) {
         self.showConnectAuth = showConnectAuth
         self.showCoolifyAuth = showCoolifyAuth
+        self.showGitHubAuth = showGitHubAuth
     }
     
     var body: some View {
         Menu {
             connectSection
             coolifySection
+            githubSection
         } label: {
             Label(currentTitle, systemImage: "person.crop.circle")
         }
@@ -40,12 +49,16 @@ struct AccountPickerMenu: View {
         .onChange(of: coolifyAccounts.map(\.id)) {
             store.refreshSelection(for: .coolify)
         }
+        .onChange(of: githubAccounts.map(\.id)) {
+            store.refreshSelection(for: .github)
+        }
     }
     
     private var currentTitle: String {
         switch store.lastTab {
         case .connect: store.connectAccountTitle
         case .coolify: store.coolifyAccountTitle
+        case .github: store.githubAccountTitle
         }
     }
     
@@ -89,6 +102,28 @@ struct AccountPickerMenu: View {
                 }
                 
                 Button("Manage Coolify accounts", systemImage: "gear", action: showCoolifyAuth)
+            }
+        }
+    }
+    
+    private var githubSection: some View {
+        Section(AccountProvider.github.title) {
+            if githubAccounts.isEmpty {
+                Button("Add GitHub account", action: showGitHubAuth)
+            } else {
+                ForEach(githubAccounts) { account in
+                    Button {
+                        store.lastTab = .github
+                        store.selectAccount(account.id, provider: .github)
+                    } label: {
+                        accountRowLabel(
+                            name: account.effectiveName,
+                            isSelected: store.githubAccount?.id == account.id
+                        )
+                    }
+                }
+                
+                Button("Manage GitHub accounts", systemImage: "gear", action: showGitHubAuth)
             }
         }
     }

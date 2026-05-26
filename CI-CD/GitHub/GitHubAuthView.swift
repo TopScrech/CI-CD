@@ -1,13 +1,13 @@
 import SwiftData
 import SwiftUI
 
-struct CoolifyAuthView: View {
+struct GitHubAuthView: View {
     @EnvironmentObject private var store: ValueStore
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     
     @Query(
-        filter: #Predicate<ProviderAccount> { $0.providerRawValue == "coolify" },
+        filter: #Predicate<ProviderAccount> { $0.providerRawValue == "github" },
         sort: \ProviderAccount.createdAt,
         order: .reverse
     ) private var accounts: [ProviderAccount]
@@ -21,7 +21,7 @@ struct CoolifyAuthView: View {
     }
     
     private var selectedAccount: ProviderAccount? {
-        if let selectedID = store.coolifyAccount?.id,
+        if let selectedID = store.githubAccount?.id,
            let match = accounts.first(where: { $0.id == selectedID }) {
             return match
         }
@@ -34,7 +34,7 @@ struct CoolifyAuthView: View {
             if showsAccountPicker {
                 accountsSection
             }
-
+            
             if let account = selectedAccount {
                 AccountNameSection(account: account)
                 AccountDemoSection(account: account) {
@@ -44,12 +44,12 @@ struct CoolifyAuthView: View {
                 if !account.demoMode {
                     credentialsSection(account)
                 }
-
+                
                 Section {
                     Button("Save", action: save)
                 }
             } else {
-                ContentUnavailableView("No Coolify accounts", systemImage: "person.crop.circle.badge.plus")
+                ContentUnavailableView("No GitHub accounts", systemImage: "person.crop.circle.badge.plus")
             }
         }
         .animation(.default, value: accounts.count)
@@ -58,7 +58,7 @@ struct CoolifyAuthView: View {
         }
         .onChange(of: accounts.map(\.id)) {
             ensureAccountSelection()
-            store.refreshSelection(for: .coolify)
+            store.refreshSelection(for: .github)
         }
     }
     
@@ -69,14 +69,14 @@ struct CoolifyAuthView: View {
             } else {
                 ForEach(accounts) { account in
                     Button {
-                        store.selectAccount(account.id, provider: .coolify)
+                        store.selectAccount(account.id, provider: .github)
                     } label: {
                         HStack {
                             Text(account.effectiveName)
                             
                             Spacer()
                             
-                            if store.coolifyAccount?.id == account.id {
+                            if store.githubAccount?.id == account.id {
                                 Image(systemName: "checkmark")
                             }
                         }
@@ -98,59 +98,68 @@ struct CoolifyAuthView: View {
     private func credentialsSection(_ account: ProviderAccount) -> some View {
         @Bindable var account = account
         
-        return Section("Credentials") {
-            TextField("https://coolify.example.com", text: $account.coolifyDomain)
+        return Section {
+            TextField("https://api.github.com", text: $account.githubAPIBaseURL)
                 .textContentType(.URL)
                 .keyboardType(.URL)
                 .autocorrectionDisabled()
-                .onChange(of: account.coolifyDomain, account.touch)
+                .onChange(of: account.githubAPIBaseURL, account.touch)
             
-            SecureField("API key", text: $account.coolifyAPIKey)
+            TextField("Owner or organization", text: $account.githubOwner)
                 .autocorrectionDisabled()
-                .onChange(of: account.coolifyAPIKey, account.touch)
+                .onChange(of: account.githubOwner, account.touch)
+            
+            SecureField("Personal access token", text: $account.githubToken)
+                .textContentType(.password)
+                .autocorrectionDisabled()
+                .onChange(of: account.githubToken, account.touch)
+        } header: {
+            Text("Credentials")
+        } footer: {
+            Text("Use a token with repository access and Actions permissions. Leave owner blank to show repositories available to the authenticated user")
         }
     }
     
     private func ensureAccountSelection() {
         guard !accounts.isEmpty else {
-            store.selectAccount(nil, provider: .coolify)
+            store.selectAccount(nil, provider: .github)
             return
         }
         
-        if let selectedID = store.coolifyAccount?.id,
+        if let selectedID = store.githubAccount?.id,
            accounts.contains(where: { $0.id == selectedID }) {
             return
         }
         
-        store.selectAccount(accounts.first?.id, provider: .coolify)
+        store.selectAccount(accounts.first?.id, provider: .github)
     }
     
     private func addAccount() {
-        let account = ProviderAccount(provider: .coolify)
+        let account = ProviderAccount(provider: .github)
         modelContext.insert(account)
         saveChanges(selecting: account.id)
     }
     
     private func deleteAccounts(at offsets: IndexSet) {
-        let accountsToDelete = offsets.compactMap { index in
-            accounts.indices.contains(index) ? accounts[index] : nil
+        let accountsToDelete = offsets.compactMap {
+            accounts.indices.contains($0) ? accounts[$0] : nil
         }
         guard !accountsToDelete.isEmpty else { return }
         
-        let deletingSelected = accountsToDelete.contains { $0.id == store.coolifyAccount?.id }
-        let selectedID = store.coolifyAccount?.id
+        let deletingSelected = accountsToDelete.contains { $0.id == store.githubAccount?.id }
+        let selectedID = store.githubAccount?.id
         
         accountsToDelete.forEach(modelContext.delete)
         
         saveChanges(selecting: deletingSelected ? nil : selectedID)
     }
-
+    
     private func deleteAccount(_ account: ProviderAccount) {
-        let deletingSelected = account.id == store.coolifyAccount?.id
-        let selectedID = store.coolifyAccount?.id
-
+        let deletingSelected = account.id == store.githubAccount?.id
+        let selectedID = store.githubAccount?.id
+        
         modelContext.delete(account)
-
+        
         saveChanges(selecting: deletingSelected ? nil : selectedID)
     }
     
@@ -177,11 +186,11 @@ struct CoolifyAuthView: View {
         try? modelContext.save()
         
         if let id {
-            store.selectAccount(id, provider: .coolify)
+            store.selectAccount(id, provider: .github)
         }
         
-        store.refreshSelection(for: .coolify)
-        store.bumpRefreshToken(for: .coolify)
+        store.refreshSelection(for: .github)
+        store.bumpRefreshToken(for: .github)
     }
     
     private func accountModel(for id: UUID) -> ProviderAccount? {
@@ -195,7 +204,7 @@ struct CoolifyAuthView: View {
 }
 
 #Preview {
-    CoolifyAuthView()
+    GitHubAuthView()
         .darkSchemePreferred()
         .environmentObject(ValueStore())
         .modelContainer(PreviewModelContainer.inMemory)
