@@ -31,29 +31,25 @@ struct GitHubAuthView: View {
     
     var body: some View {
         List {
-            demoSection
-            
-            if !store.githubDemoMode {
-                if showsAccountPicker {
-                    accountsSection
-                }
-                
-                if let account = selectedAccount {
-                    AccountNameSection(account: account)
-                    credentialsSection(account)
-                } else {
-                    ContentUnavailableView("No GitHub accounts", systemImage: "person.crop.circle.badge.plus")
-                }
-            } else {
-                Section {
-                    Button("Save", action: save)
-                }
+            if showsAccountPicker {
+                accountsSection
             }
             
-            if !store.githubDemoMode, selectedAccount != nil {
+            if let account = selectedAccount {
+                AccountNameSection(account: account)
+                AccountDemoSection(account: account) {
+                    saveChanges()
+                }
+                
+                if !account.demoMode {
+                    credentialsSection(account)
+                }
+                
                 Section {
                     Button("Save", action: save)
                 }
+            } else {
+                ContentUnavailableView("No GitHub accounts", systemImage: "person.crop.circle.badge.plus")
             }
         }
         .animation(.default, value: accounts.count)
@@ -121,12 +117,6 @@ struct GitHubAuthView: View {
             Text("Credentials")
         } footer: {
             Text("Use a token with repository access and Actions permissions. Leave owner blank to show repositories available to the authenticated user")
-        }
-    }
-    
-    private var demoSection: some View {
-        Section {
-            Toggle("Demo mode", isOn: $store.githubDemoMode)
         }
     }
     

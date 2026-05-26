@@ -27,6 +27,7 @@ final class ValueStore: ObservableObject {
     @AppStorage("selected_coolify_account_id") private var selectedCoolifyAccountIDRaw = ""
     @AppStorage("selected_github_account_id") private var selectedGitHubAccountIDRaw = ""
     @AppStorage("accounts_migrated_v1") private var accountsMigratedV1 = false
+    @AppStorage("account_demo_modes_migrated_v2") private var accountDemoModesMigratedV2 = false
 
     private var modelContext: ModelContext?
     private let defaults: UserDefaults
@@ -37,27 +38,21 @@ final class ValueStore: ObservableObject {
     @Published private(set) var connectRefreshToken = UUID()
     @Published private(set) var coolifyRefreshToken = UUID()
     @Published private(set) var githubRefreshToken = UUID()
-    @Published var connectDemoMode = false {
-        didSet {
-            persistDemoMode(connectDemoMode, for: .connect, previousValue: oldValue)
-        }
-    }
-    @Published var coolifyDemoMode = false {
-        didSet {
-            persistDemoMode(coolifyDemoMode, for: .coolify, previousValue: oldValue)
-        }
-    }
-    @Published var githubDemoMode = false {
-        didSet {
-            persistDemoMode(githubDemoMode, for: .github, previousValue: oldValue)
-        }
-    }
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
-        connectDemoMode = defaults.bool(forKey: Self.connectDemoModeKey)
-        coolifyDemoMode = defaults.bool(forKey: Self.coolifyDemoModeKey)
-        githubDemoMode = defaults.bool(forKey: Self.githubDemoModeKey)
+    }
+    
+    var connectDemoMode: Bool {
+        connectAccount?.demoMode == true
+    }
+    
+    var coolifyDemoMode: Bool {
+        coolifyAccount?.demoMode == true
+    }
+    
+    var githubDemoMode: Bool {
+        githubAccount?.demoMode == true
     }
 
     var connectAuthorized: Bool {
@@ -99,7 +94,7 @@ final class ValueStore: ObservableObject {
     func configure(context: ModelContext) {
         modelContext = context
         migrateLegacyCredentialsIfNeeded()
-        migrateAccountDemoModesIfNeeded()
+        migrateGlobalDemoModesIfNeeded()
         refreshSelections()
     }
 
@@ -150,25 +145,6 @@ final class ValueStore: ObservableObject {
             coolifyRefreshToken = UUID()
         case .github:
             githubRefreshToken = UUID()
-        }
-    }
-
-    private func persistDemoMode(_ enabled: Bool, for provider: AccountProvider, previousValue: Bool) {
-        guard enabled != previousValue else { return }
-
-        defaults.set(enabled, forKey: demoModeKey(for: provider))
-        refreshSelection(for: provider)
-        bumpRefreshToken(for: provider)
-    }
-
-    private func demoModeKey(for provider: AccountProvider) -> String {
-        switch provider {
-        case .connect:
-            Self.connectDemoModeKey
-        case .coolify:
-            Self.coolifyDemoModeKey
-        case .github:
-            Self.githubDemoModeKey
         }
     }
 
@@ -269,50 +245,34 @@ final class ValueStore: ObservableObject {
         accountsMigratedV1 = true
     }
 
-    private func migrateAccountDemoModesIfNeeded() {
-        guard let modelContext else { return }
-
-        var didChangeAccounts = false
-
-        let connectAccounts = accounts(for: .connect, in: modelContext)
-        if connectAccounts.contains(where: \.demoMode) {
-            connectDemoMode = true
-            connectAccounts
-                .filter(\.demoMode)
-                .forEach {
-                    $0.demoMode = false
-                    $0.touch()
-                    didChangeAccounts = true
-                }
-        }
-
-        let coolifyAccounts = accounts(for: .coolify, in: modelContext)
-        if coolifyAccounts.contains(where: \.demoMode) {
-            coolifyDemoMode = true
-            coolifyAccounts
-                .filter(\.demoMode)
-                .forEach {
-                    $0.demoMode = false
-                    $0.touch()
-                    didChangeAccounts = true
-                }
+    private func migrateGlobalDemoModesIfNeeded() {
+        guard !accountDemoModesMigratedV2, let modelContext else { return }
+        
+        migrateGlobalDemoModeIfNeeded(defaults.bool(forKey: Self.connectDemoModeKey), provider: .connect, in: modelContext)
+        migrateGlobalDemoModeIfNeeded(defaults.bool(forKey: Self.coolifyDemoModeKey), provider: .coolify, in: modelContext)
+        migrateGlobalDemoModeIfNeeded(defaults.bool(forKey: Self.githubDemoModeKey), provider: .github, in: modelContext)
+        
+        try? modelContext.save()
+        accountDemoModesMigratedV2 = true
+    }
+    
+    private func migrateGlobalDemoModeIfNeeded(_ enabled: Bool, provider: AccountProvider, in context: ModelContext) {
+        guard enabled else { return }
+        
+        let existingAccounts = accounts(for: provider, in: context)
+        let account = selectedAccount(from: existingAccounts, provider: provider) ?? ProviderAccount(
+            provider: provider,
+            name: String(localized: "\(provider.title) demo"),
+            demoMode: true
+        )
+        
+        if existingAccounts.isEmpty {
+            context.insert(account)
+            selectAccount(account.id, provider: provider)
         }
         
-        let githubAccounts = accounts(for: .github, in: modelContext)
-        if githubAccounts.contains(where: \.demoMode) {
-            githubDemoMode = true
-            githubAccounts
-                .filter(\.demoMode)
-                .forEach {
-                    $0.demoMode = false
-                    $0.touch()
-                    didChangeAccounts = true
-                }
-        }
-
-        guard didChangeAccounts else { return }
-
-        try? modelContext.save()
+        account.demoMode = true
+        account.touch()
     }
 }
 
@@ -322,6 +282,7 @@ struct ConnectAccountSnapshot: Identifiable, Equatable {
     let issuerID: String
     let privateKey: String
     let privateKeyID: String
+    let demoMode: Bool
 
     init(_ account: ProviderAccount) {
         id = account.id
@@ -329,6 +290,7 @@ struct ConnectAccountSnapshot: Identifiable, Equatable {
         issuerID = account.issuerID
         privateKey = account.privateKey
         privateKeyID = account.privateKeyID
+        demoMode = account.demoMode
     }
 
     var effectiveName: String {
@@ -349,12 +311,14 @@ struct CoolifyAccountSnapshot: Identifiable, Equatable {
     let name: String
     let domain: String
     let apiKey: String
+    let demoMode: Bool
 
     init(_ account: ProviderAccount) {
         id = account.id
         name = account.name
         domain = account.coolifyDomain
         apiKey = account.coolifyAPIKey
+        demoMode = account.demoMode
     }
 
     var effectiveName: String {
@@ -376,6 +340,7 @@ struct GitHubAccountSnapshot: Identifiable, Equatable {
     let apiBaseURL: String
     let token: String
     let owner: String
+    let demoMode: Bool
     
     init(_ account: ProviderAccount) {
         id = account.id
@@ -383,6 +348,7 @@ struct GitHubAccountSnapshot: Identifiable, Equatable {
         apiBaseURL = account.githubAPIBaseURL
         token = account.githubToken
         owner = account.githubOwner
+        demoMode = account.demoMode
     }
     
     var effectiveName: String {

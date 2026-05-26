@@ -31,29 +31,25 @@ struct CoolifyAuthView: View {
     
     var body: some View {
         List {
-            demoSection
-            
-            if !store.coolifyDemoMode {
-                if showsAccountPicker {
-                    accountsSection
-                }
-
-                if let account = selectedAccount {
-                    AccountNameSection(account: account)
-                    credentialsSection(account)
-                } else {
-                    ContentUnavailableView("No Coolify accounts", systemImage: "person.crop.circle.badge.plus")
-                }
-            } else {
-                Section {
-                    Button("Save", action: save)
-                }
+            if showsAccountPicker {
+                accountsSection
             }
 
-            if !store.coolifyDemoMode, selectedAccount != nil {
+            if let account = selectedAccount {
+                AccountNameSection(account: account)
+                AccountDemoSection(account: account) {
+                    saveChanges()
+                }
+                
+                if !account.demoMode {
+                    credentialsSection(account)
+                }
+
                 Section {
                     Button("Save", action: save)
                 }
+            } else {
+                ContentUnavailableView("No Coolify accounts", systemImage: "person.crop.circle.badge.plus")
             }
         }
         .animation(.default, value: accounts.count)
@@ -112,12 +108,6 @@ struct CoolifyAuthView: View {
             SecureField("API key", text: $account.coolifyAPIKey)
                 .autocorrectionDisabled()
                 .onChange(of: account.coolifyAPIKey, account.touch)
-        }
-    }
-    
-    private var demoSection: some View {
-        Section {
-            Toggle("Demo mode", isOn: $store.coolifyDemoMode)
         }
     }
     

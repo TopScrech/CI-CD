@@ -4,7 +4,6 @@ struct AppSettings: View {
     var body: some View {
         List {
             AppearanceSettingsSection()
-            DemoSettingsSection()
             FeedbackSettingsSection()
         }
         .scrollIndicators(.hidden)
