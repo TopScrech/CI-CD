@@ -3,7 +3,7 @@ import SwiftUI
 struct AppSettings: View {
     var body: some View {
         List {
-            AppearanceSettingsSection()
+            GeneralSettings()
             FeedbackSettingsSection()
             
             Section {
