@@ -8,6 +8,8 @@ struct PanelSidebarAccountsSection: View {
     let onSelect: (HomeViewTab) -> Void
     
     @State private var managementDestination: AccountProvider?
+    @State private var deletionRequest: PanelSidebarAccountDeletionRequest?
+    @State private var showsDeletionAlert = false
     
     @Query(sort: \ProviderAccount.createdAt, order: .reverse) private var accounts: [ProviderAccount]
     
@@ -26,7 +28,7 @@ struct PanelSidebarAccountsSection: View {
                     } edit: {
                         editAccount(account)
                     } delete: {
-                        deleteAccount(account)
+                        requestAccountDeletion(account)
                     }
                 }
             }
@@ -53,6 +55,20 @@ struct PanelSidebarAccountsSection: View {
                 }
             }
         }
+        .alert("Delete account?", isPresented: $showsDeletionAlert) {
+            Button("Cancel", role: .cancel) {
+                deletionRequest = nil
+            }
+            Button("Delete", role: .destructive) {
+                if let deletionRequest {
+                    deleteAccount(id: deletionRequest.id)
+                }
+            }
+        } message: {
+            if let deletionRequest {
+                Text("This will remove \(deletionRequest.name) from CI/CD")
+            }
+        }
     }
     
     private func isSelected(_ account: ProviderAccount) -> Bool {
@@ -76,10 +92,18 @@ struct PanelSidebarAccountsSection: View {
         managementDestination = destination(for: account.provider)
     }
     
-    private func deleteAccount(_ account: ProviderAccount) {
+    private func requestAccountDeletion(_ account: ProviderAccount) {
+        deletionRequest = PanelSidebarAccountDeletionRequest(account)
+        showsDeletionAlert = true
+    }
+    
+    private func deleteAccount(id: UUID) {
+        guard let account = accounts.first(where: { $0.id == id }) else { return }
+        
         let provider = account.provider
         modelContext.delete(account)
         try? modelContext.save()
+        deletionRequest = nil
         store.refreshSelection(for: provider)
         store.bumpRefreshToken(for: provider)
     }
