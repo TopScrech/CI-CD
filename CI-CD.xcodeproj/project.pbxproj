@@ -82,7 +82,6 @@
 		F3721A452ECFD02900CCE9EE /* Exceptions for "CI-CD" folder in "Unit Tests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Coolify/Models/CoolifyApp.swift,
 				Coolify/Models/CoolifyDatabase.swift,
 				Coolify/Models/CoolifyDeployment.swift,
 				Coolify/Models/CoolifyProject.swift,
