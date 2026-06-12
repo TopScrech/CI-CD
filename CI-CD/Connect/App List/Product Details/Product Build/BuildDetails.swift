@@ -1,5 +1,6 @@
 import SwiftUI
 import AppStoreConnect_Swift_SDK
+import OSLog
 
 struct BuildDetails: View {
     @Environment(BuildVM.self) private var vm
@@ -17,13 +18,21 @@ struct BuildDetails: View {
                 if !store.connectDemoMode, let workflow = build.relationships?.workflow?.data {
                     Button("Rebuild", systemImage: "hammer") {
                         Task {
-                            try await vm.startRebuild(of: build.id, in: workflow.id, store: store)
+                            do {
+                                try await vm.startRebuild(of: build.id, in: workflow.id, store: store)
+                            } catch {
+                                Logger().error("Failed to start rebuild: \(error)")
+                            }
                         }
                     }
                     
                     Button("Rebuild clean", systemImage: "hammer") {
                         Task {
-                            try await vm.startRebuild(of: build.id, in: workflow.id, clean: true, store: store)
+                            do {
+                                try await vm.startRebuild(of: build.id, in: workflow.id, clean: true, store: store)
+                            } catch {
+                                Logger().error("Failed to start clean rebuild: \(error)")
+                            }
                         }
                     }
                 }

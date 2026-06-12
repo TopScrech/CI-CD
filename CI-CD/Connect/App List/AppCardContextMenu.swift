@@ -1,5 +1,6 @@
 import ScrechKit
 import AppStoreConnect_Swift_SDK
+import OSLog
 
 struct AppCardContextMenu: ViewModifier {
     @Environment(AppVM.self) private var vm
@@ -21,7 +22,11 @@ struct AppCardContextMenu: ViewModifier {
                         Section {
                             Button {
                                 Task {
-                                    try await vm.startBuild(workflow.id, store: store)
+                                    do {
+                                        try await vm.startBuild(workflow.id, store: store)
+                                    } catch {
+                                        Logger().error("Failed to start build: \(error)")
+                                    }
                                 }
                             } label: {
                                 Text("Start build")
@@ -33,7 +38,11 @@ struct AppCardContextMenu: ViewModifier {
                             
                             Button {
                                 Task {
-                                    try await vm.startBuild(workflow.id, clean: true, store: store)
+                                    do {
+                                        try await vm.startBuild(workflow.id, clean: true, store: store)
+                                    } catch {
+                                        Logger().error("Failed to start clean build: \(error)")
+                                    }
                                 }
                             } label: {
                                 Text("Start clean build")

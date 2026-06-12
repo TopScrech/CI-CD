@@ -1,6 +1,7 @@
 import ScrechKit
 import Kingfisher
 import AppStoreConnect_Swift_SDK
+import OSLog
 
 struct BuildCard: View {
     @State private var vm = BuildVM()
@@ -136,7 +137,11 @@ struct BuildCard: View {
             }
         } else {
             Task {
-                try await vm.startRebuild(of: build.id, in: workflowId, store: store)
+                do {
+                    try await vm.startRebuild(of: build.id, in: workflowId, store: store)
+                } catch {
+                    Logger().error("Failed to start rebuild: \(error)")
+                }
             }
         }
     }
@@ -148,7 +153,11 @@ struct BuildCard: View {
             }
         } else {
             Task {
-                try await vm.startRebuild(of: build.id, in: workflowId, clean: true, store: store)
+                do {
+                    try await vm.startRebuild(of: build.id, in: workflowId, clean: true, store: store)
+                } catch {
+                    Logger().error("Failed to start clean rebuild: \(error)")
+                }
             }
         }
     }

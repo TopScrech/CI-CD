@@ -1,5 +1,6 @@
 import ScrechKit
 import AppStoreConnect_Swift_SDK
+import OSLog
 
 struct WorkflowCard: View {
     @Environment(AppVM.self) private var vm
@@ -67,7 +68,11 @@ struct WorkflowCard: View {
             }
         } else {
             Task {
-                try await vm.startBuild(workflow.id, store: store)
+                do {
+                    try await vm.startBuild(workflow.id, store: store)
+                } catch {
+                    Logger().error("Failed to start build: \(error)")
+                }
             }
         }
     }
@@ -79,7 +84,11 @@ struct WorkflowCard: View {
             }
         } else {
             Task {
-                try await vm.startBuild(workflow.id, clean: true, store: store)
+                do {
+                    try await vm.startBuild(workflow.id, clean: true, store: store)
+                } catch {
+                    Logger().error("Failed to start clean build: \(error)")
+                }
             }
         }
     }
