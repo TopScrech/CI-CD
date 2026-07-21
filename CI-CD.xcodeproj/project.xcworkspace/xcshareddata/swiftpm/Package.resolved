@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AvdLee/appstoreconnect-swift-sdk",
       "state" : {
-        "revision" : "afac9aecf8eee2896dca6c4c9789128a6046419d",
-        "version" : "4.4.0"
+        "revision" : "84cee71f95660e505cb9a9c4d46417dc1d8eefdb",
+        "version" : "4.4.1"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher",
       "state" : {
-        "revision" : "cf8be20d07654570554c8a8a4952bc8a5766a8b0",
-        "version" : "8.9.0"
+        "revision" : "ac632bd26a1c00f139ff62fd01806f21cf67325e",
+        "version" : "8.10.0"
       }
     },
     {
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/TopScrech/ScrechKit",
       "state" : {
-        "revision" : "971c2ceb06ecd109d3dfdde5d4076d92ab6baf4b",
-        "version" : "1.0.8"
+        "revision" : "40f089e897c48986d101a5630c1597241b40c6c5",
+        "version" : "1.0.9"
       }
     },
     {
