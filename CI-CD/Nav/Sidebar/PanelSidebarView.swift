@@ -15,11 +15,11 @@ struct PanelSidebarView: View {
         PanelAdaptiveView { _, isLandscape in
             let sideBarWidth: CGFloat = isLandscape ? 220 : 250
             let layout = isLandscape
-                ? AnyLayout(HStackLayout(spacing: 0))
-                : AnyLayout(ZStackLayout(alignment: .leading))
+            ? AnyLayout(HStackLayout(spacing: 0))
+            : AnyLayout(ZStackLayout(alignment: .leading))
             
             layout {
-                PanelSidebarList(selectedTab: store.lastTab) { tab in
+                PanelSidebarList { tab in
                     toggleSidebar()
                     
                     if store.lastTab == tab { return }

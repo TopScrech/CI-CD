@@ -1,7 +1,6 @@
 import ScrechKit
 
 struct PanelSidebarList: View {
-    let selectedTab: HomeViewTab
     var onSelect: (HomeViewTab) -> Void
     
     var body: some View {
@@ -22,7 +21,7 @@ struct PanelSidebarList: View {
 #Preview {
     @Previewable @State var tab: HomeViewTab = .connect
     
-    PanelSidebarList(selectedTab: tab) {
+    PanelSidebarList {
         tab = $0
     }
     .environmentObject(ValueStore())
