@@ -3,7 +3,6 @@ import ScrechKit
 struct PanelSidebarList: View {
     let selectedTab: HomeViewTab
     var onSelect: (HomeViewTab) -> Void
-    var onCustomize: () -> Void
     
     var body: some View {
         ScrollView {
@@ -12,8 +11,6 @@ struct PanelSidebarList: View {
                 
                 PanelSidebarAddAccountButton()
                     .padding(.top, 14)
-                
-                PanelSidebarCustomizationButton(action: onCustomize)
             }
             .padding(12)
         }
@@ -27,10 +24,7 @@ struct PanelSidebarList: View {
     
     PanelSidebarList(selectedTab: tab) {
         tab = $0
-    } onCustomize: {
-        
     }
-    .environment(PanelSidebarCustomizationVM())
     .environmentObject(ValueStore())
     .modelContainer(PreviewModelContainer.inMemory)
 }

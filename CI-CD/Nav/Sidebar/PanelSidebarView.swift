@@ -6,8 +6,6 @@ struct PanelSidebarView: View {
     
     @EnvironmentObject private var store: ValueStore
     
-    @State private var customizationVM = PanelSidebarCustomizationVM()
-    @State private var sheetCustomization = false
     @State private var offset = 0.0
     @State private var lastDragOffset = 0.0
     @State private var progress = 0.0
@@ -16,33 +14,11 @@ struct PanelSidebarView: View {
     var body: some View {
         PanelAdaptiveView { _, isLandscape in
             let sideBarWidth: CGFloat = isLandscape ? 220 : 250
-            let isSidebarOnRight = customizationVM.placement == .right
-            let sidebarBaseOffset = isSidebarOnRight ? sideBarWidth : -sideBarWidth
-            let sidebarOffset = isSidebarOnRight ? -offset : offset
-            let contentOffset = isSidebarOnRight ? -offset : offset
-            
             let layout = isLandscape
                 ? AnyLayout(HStackLayout(spacing: 0))
-                : AnyLayout(ZStackLayout(alignment: isSidebarOnRight ? .trailing : .leading))
+                : AnyLayout(ZStackLayout(alignment: .leading))
             
             layout {
-                if isLandscape && isSidebarOnRight {
-                    ZStack {
-                        HomeViewTabContent(selectedTab: store.lastTab)
-                            .id(store.lastTab)
-                            .transition(.opacity)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .contentShape(.rect)
-                    .overlay {
-                        Rectangle()
-                            .fill(.black.opacity(0.25))
-                            .ignoresSafeArea()
-                            .opacity(isLandscape ? 0 : progress)
-                    }
-                    .offset(x: isLandscape ? 0 : contentOffset)
-                }
-                
                 PanelSidebarList(selectedTab: store.lastTab) { tab in
                     toggleSidebar()
                     
@@ -51,37 +27,25 @@ struct PanelSidebarView: View {
                     withAnimation(.easeInOut(duration: 0.5)) {
                         store.lastTab = tab
                     }
-                } onCustomize: {
-                    sheetCustomization = true
                 }
                 .frame(width: sideBarWidth)
                 .background(.thickMaterial)
-                .offset(x: isLandscape ? 0 : sidebarBaseOffset)
-                .offset(x: isLandscape ? 0 : sidebarOffset)
-                .environment(customizationVM)
-                .sheet($sheetCustomization) {
-                    NavigationStack {
-                        PanelSidebarCustomizationSheet()
-                            .environment(customizationVM)
-                    }
-                }
+                .offset(x: isLandscape ? 0 : -sideBarWidth + offset)
                 
-                if !isLandscape || !isSidebarOnRight {
-                    ZStack {
-                        HomeViewTabContent(selectedTab: store.lastTab)
-                            .id(store.lastTab)
-                            .transition(.opacity)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .contentShape(.rect)
-                    .overlay {
-                        Rectangle()
-                            .fill(.black.opacity(0.25))
-                            .ignoresSafeArea()
-                            .opacity(isLandscape ? 0 : progress)
-                    }
-                    .offset(x: isLandscape ? 0 : contentOffset)
+                ZStack {
+                    HomeViewTabContent(selectedTab: store.lastTab)
+                        .id(store.lastTab)
+                        .transition(.opacity)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .contentShape(.rect)
+                .overlay {
+                    Rectangle()
+                        .fill(.black.opacity(0.25))
+                        .ignoresSafeArea()
+                        .opacity(isLandscape ? 0 : progress)
+                }
+                .offset(x: isLandscape ? 0 : offset)
             }
             .animation(.easeInOut(duration: 0.5), value: store.lastTab)
             .gesture(
@@ -93,9 +57,8 @@ struct PanelSidebarView: View {
                     let state = gesture.state
                     let translationX = gesture.translation(in: gesture.view).x
                     let velocityX = gesture.velocity(in: gesture.view).x
-                    let directionMultiplier: CGFloat = isSidebarOnRight ? -1 : 1
-                    let translation = (translationX * directionMultiplier) + lastDragOffset
-                    let velocity = (velocityX * directionMultiplier) / 3
+                    let translation = translationX + lastDragOffset
+                    let velocity = velocityX / 3
                     
                     if state == .began || state == .changed {
                         offset = max(min(translation, sideBarWidth), 0)
@@ -117,26 +80,13 @@ struct PanelSidebarView: View {
                     if isLandscape { return false }
                     
                     let startX = gesture.location(in: gesture.view).x
-                    let viewWidth = gesture.view?.bounds.width ?? 0
-                    
-                    let isEdgeSwipe = isSidebarOnRight
-                        ? startX >= (viewWidth - edgeSwipeWidth)
-                        : startX <= edgeSwipeWidth
+                    let isEdgeSwipe = startX <= edgeSwipeWidth
                     
                     return !(isEdgeSwipe && offset == 0)
                 }
             )
             .onChange(of: isLandscape) { _, newValue in
                 panGesture?.isEnabled = !newValue
-            }
-            .onChange(of: customizationVM.tabVisibility) { _, _ in
-                ensureSelectedTabIsVisible()
-            }
-            .onChange(of: customizationVM.placement) { _, _ in
-                toggleSidebar()
-            }
-            .onAppear {
-                ensureSelectedTabIsVisible(animated: false)
             }
         }
         .background {
@@ -166,24 +116,6 @@ struct PanelSidebarView: View {
         }
     }
     
-    private func ensureSelectedTabIsVisible(animated: Bool = true) {
-        guard !customizationVM.isTabVisible(store.lastTab) else {
-            return
-        }
-        
-        guard let fallbackTab = customizationVM.firstVisibleTab else {
-            return
-        }
-        
-        if animated {
-            withAnimation(.easeInOut(duration: 0.25)) {
-                store.lastTab = fallbackTab
-            }
-        } else {
-            store.lastTab = fallbackTab
-        }
-    }
-    
     private func selectPreviousTab() {
         selectVisibleTab(offset: -1)
     }
@@ -193,7 +125,7 @@ struct PanelSidebarView: View {
     }
     
     private func selectVisibleTab(offset: Int) {
-        let visibleTabs = customizationVM.visibleSections.flatMap(\.tabs)
+        let visibleTabs = PanelSidebarSection.all.flatMap(\.tabs)
         
         guard !visibleTabs.isEmpty else {
             return
