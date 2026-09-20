@@ -29,8 +29,4 @@ enum HomeViewTab: String, CaseIterable, Identifiable {
         case .github: "checkmark.seal"
         }
     }
-    
-    var visibilityID: String {
-        rawValue
-    }
 }

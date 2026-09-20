@@ -3,9 +3,9 @@ import SwiftData
 
 enum AccountProvider: String, CaseIterable, Identifiable, Codable {
     case connect, coolify, github
-
+    
     var id: String { rawValue }
-
+    
     var title: String {
         switch self {
         case .connect: String(localized: "Connect")
@@ -47,7 +47,7 @@ final class ProviderAccount {
     var demoMode: Bool = false
     var createdAt: Date = Date()
     var updatedAt: Date = Date()
-
+    
     init(
         id: UUID = UUID(),
         provider: AccountProvider,
@@ -86,12 +86,12 @@ extension ProviderAccount {
         get { AccountProvider(rawValue: providerRawValue) ?? .connect }
         set { providerRawValue = newValue.rawValue }
     }
-
+    
     var effectiveName: String {
         if !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             return name
         }
-
+        
         switch provider {
         case .connect:
             return issuerID.isEmpty ? String(localized: "Connect account") : issuerID
@@ -107,19 +107,7 @@ extension ProviderAccount {
             return githubOwner.isEmpty ? String(localized: "GitHub account") : githubOwner
         }
     }
-
-    var isConnectAuthorized: Bool {
-        !issuerID.isEmpty && !privateKey.isEmpty && !privateKeyID.isEmpty
-    }
-
-    var isCoolifyAuthorized: Bool {
-        !coolifyDomain.isEmpty && !coolifyAPIKey.isEmpty
-    }
     
-    var isGitHubAuthorized: Bool {
-        !githubAPIBaseURL.isEmpty && !githubToken.isEmpty
-    }
-
     func touch() {
         updatedAt = Date()
     }

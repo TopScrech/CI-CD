@@ -3,11 +3,6 @@ import SwiftData
 
 struct DebugSettings: View {
     @EnvironmentObject private var store: ValueStore
-    @Environment(\.modelContext) private var modelContext
-    
-    @State private var sheetAuthConnect = false
-    @State private var sheetAuthCoolify = false
-    @State private var sheetAuthGitHub = false
     
     var body: some View {
         List {
