@@ -34,7 +34,7 @@ struct CoolifyAuthView: View {
             if showsAccountPicker {
                 accountsSection
             }
-
+            
             if let account = selectedAccount {
                 AccountNameSection(account: account)
                 AccountDemoSection(account: account) {
@@ -44,9 +44,9 @@ struct CoolifyAuthView: View {
                 if !account.demoMode {
                     credentialsSection(account)
                 }
-
+                
                 Section {
-                    Button("Save", action: save)
+                    AsyncButton("Save", action: save)
                 }
             } else {
                 ContentUnavailableView("No Coolify accounts", systemImage: "person.crop.circle.badge.plus")
@@ -145,23 +145,19 @@ struct CoolifyAuthView: View {
         
         saveChanges(selecting: deletingSelected ? nil : selectedID)
     }
-
+    
     private func deleteAccount(_ account: ProviderAccount) {
         let deletingSelected = account.id == store.coolifyAccount?.id
         let selectedID = store.coolifyAccount?.id
-
+        
         modelContext.delete(account)
-
+        
         saveChanges(selecting: deletingSelected ? nil : selectedID)
     }
     
-    private func save() {
+    private func save() async {
         saveChanges()
-        
-        Task {
-            await onDismiss()
-        }
-        
+        await onDismiss()
         dismiss()
     }
     

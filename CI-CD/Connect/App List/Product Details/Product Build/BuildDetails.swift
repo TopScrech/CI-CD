@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import AppStoreConnect_Swift_SDK
 import OSLog
 
@@ -16,23 +16,19 @@ struct BuildDetails: View {
         List {
             Section {
                 if !store.connectDemoMode, let workflow = build.relationships?.workflow?.data {
-                    Button("Rebuild", systemImage: "hammer") {
-                        Task {
-                            do {
-                                try await vm.startRebuild(of: build.id, in: workflow.id, store: store)
-                            } catch {
-                                Logger().error("Failed to start rebuild: \(error)")
-                            }
+                    AsyncButton("Rebuild", systemImage: "hammer") {
+                        do {
+                            try await vm.startRebuild(of: build.id, in: workflow.id, store: store)
+                        } catch {
+                            Logger().error("Failed to start rebuild: \(error)")
                         }
                     }
                     
-                    Button("Rebuild clean", systemImage: "hammer") {
-                        Task {
-                            do {
-                                try await vm.startRebuild(of: build.id, in: workflow.id, clean: true, store: store)
-                            } catch {
-                                Logger().error("Failed to start clean rebuild: \(error)")
-                            }
+                    AsyncButton("Rebuild clean", systemImage: "hammer") {
+                        do {
+                            try await vm.startRebuild(of: build.id, in: workflow.id, clean: true, store: store)
+                        } catch {
+                            Logger().error("Failed to start clean rebuild: \(error)")
                         }
                     }
                 }
@@ -108,11 +104,11 @@ struct BuildDetails: View {
             load()
         }
     }
-
+    
     private func load() {
         Task {
             guard !store.connectDemoMode else { return }
-
+            
             try? await vm.buildActions(build.id, store: store)
         }
     }

@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 
 struct CoolifyAppCard: View {
     @State private var vm = CoolifyAppVM()
@@ -33,12 +33,12 @@ struct CoolifyAppCard: View {
         }
         .contextMenu {
             Section {
-                Button("Deploy", systemImage: "play") {
-                    deploy()
+                AsyncButton("Deploy", systemImage: "play") {
+                    await vm.deploy(app.uuid, force: false, store: store)
                 }
                 
-                Button {
-                    deploy(true)
+                AsyncButton {
+                    await vm.deploy(app.uuid, force: true, store: store)
                 } label: {
                     Text("Force deploy")
                     Text("Without cache")
@@ -47,8 +47,13 @@ struct CoolifyAppCard: View {
             }
             
             Section {
-                Button("Restart", systemImage: "arrow.trianglehead.2.clockwise.rotate.90", action: restart)
-                Button("Stop", systemImage: "stop", action: stop)
+                AsyncButton("Restart", systemImage: "arrow.trianglehead.2.clockwise.rotate.90") {
+                    await vm.restart(app.uuid, store: store)
+                }
+                
+                AsyncButton("Stop", systemImage: "stop") {
+                    await vm.stop(app.uuid, store: store)
+                }
             }
             
             if let urlString = app.gitRepository, let url = URL(string: urlString) {
@@ -56,24 +61,6 @@ struct CoolifyAppCard: View {
                     openURL(url)
                 }
             }
-        }
-    }
-    
-    private func restart() {
-        Task {
-            await vm.restart(app.uuid, store: store)
-        }
-    }
-    
-    private func stop() {
-        Task {
-            await vm.stop(app.uuid, store: store)
-        }
-    }
-    
-    private func deploy(_ force: Bool = false) {
-        Task {
-            await vm.deploy(app.uuid, force: force, store: store)
         }
     }
 }

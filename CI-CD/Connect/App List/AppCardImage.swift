@@ -23,22 +23,20 @@ struct AppCardImage: View {
         }
         .animation(.default, value: vm.iconURL)
         .task {
-            if let appId = product.relationships?.app?.data?.id {
-                try? await vm.appBuilds(appId, store: store)
-            }
+            appBuilds()
         }
         .onChange(of: store.connectAccount?.id) {
-            Task {
-                if let appId = product.relationships?.app?.data?.id {
-                    try? await vm.appBuilds(appId, store: store)
-                }
-            }
+            appBuilds()
         }
         .onChange(of: store.connectRefreshToken) {
-            Task {
-                if let appId = product.relationships?.app?.data?.id {
-                    try? await vm.appBuilds(appId, store: store)
-                }
+            appBuilds()
+        }
+    }
+    
+    private func appBuilds() {
+        Task {
+            if let appId = product.relationships?.app?.data?.id {
+                try? await vm.appBuilds(appId, store: store)
             }
         }
     }

@@ -20,40 +20,36 @@ struct CoolifyProjList: View {
         }
         .environment(vm)
         .refreshableTask {
-            await refreshProjects()
+            refreshProjects()
         }
         .task {
-            await refreshProjects()
+            refreshProjects()
         }
         .onChange(of: store.coolifyAccount?.id) {
-            Task {
-                await refreshProjects()
-            }
+            refreshProjects()
         }
         .onChange(of: store.coolifyDemoMode) {
-            Task {
-                await refreshProjects()
-            }
+            refreshProjects()
         }
         .onChange(of: store.coolifyRefreshToken) {
-            Task {
-                await refreshProjects()
-            }
+            refreshProjects()
         }
         .sheet($sheetAuth) {
             CoolifyAuthView {
-                await refreshProjects()
+                refreshProjects()
             }
         }
     }
     
-    private func refreshProjects() async {
+    private func refreshProjects() {
         if store.coolifyDemoMode {
             vm.projects = [Preview.coolifyProj]
             return
         }
-
-        await vm.fetchProjects(store: store)
+        
+        Task {
+            await vm.fetchProjects(store: store)
+        }
     }
 }
 

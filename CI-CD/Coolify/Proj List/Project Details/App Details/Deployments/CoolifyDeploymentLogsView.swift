@@ -41,26 +41,23 @@ struct CoolifyDeploymentLogsView: View {
         .navSubtitle(deployment.uuid ?? "")
         .navigationBarTitleDisplayMode(.inline)
         .task {
-            vm.reset()
-            await load()
+            resetAndLoad()
         }
         .onChange(of: store.coolifyAccount?.id) {
-            Task {
-                vm.reset()
-                await load()
-            }
+            resetAndLoad()
         }
         .onChange(of: store.coolifyDemoMode) {
-            Task {
-                vm.reset()
-                await load()
-            }
+            resetAndLoad()
         }
         .onChange(of: store.coolifyRefreshToken) {
-            Task {
-                vm.reset()
-                await load()
-            }
+            resetAndLoad()
+        }
+    }
+    
+    private func resetAndLoad() {
+        Task {
+            vm.reset()
+            await load()
         }
     }
     

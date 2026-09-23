@@ -1,5 +1,5 @@
+import ScrechKit
 import OSLog
-import SwiftUI
 
 struct CoolifyProjCard: View {
     @State private var projDetailsVM = CoolifyProjDetailsVM()
@@ -49,15 +49,13 @@ struct CoolifyProjCard: View {
             
             TextField("New description", text: $projDetailsVM.projDescription)
             Button("Cancel") {}
-            Button("Save", action: save)
+            AsyncButton("Save", action: save)
         }
     }
     
-    private func save() {
-        Task {
-            if let proj = await projDetailsVM.rename(proj.uuid, store: store) {
-                self.proj = proj
-            }
+    private func save() async {
+        if let proj = await projDetailsVM.rename(proj.uuid, store: store) {
+            self.proj = proj
         }
     }
 }
