@@ -25,35 +25,31 @@ struct GitHubRepoList: View {
         .animation(.default, value: vm.repositories.count)
         .scrollIndicators(.hidden)
         .refreshable {
-            await refreshRepositories()
+            refreshRepositories()
         }
         .task {
-            await refreshRepositories()
+            refreshRepositories()
         }
         .onChange(of: store.githubAccount?.id) {
-            Task {
-                await refreshRepositories()
-            }
+            refreshRepositories()
         }
         .onChange(of: store.githubDemoMode) {
-            Task {
-                await refreshRepositories()
-            }
+            refreshRepositories()
         }
         .onChange(of: store.githubRefreshToken) {
-            Task {
-                await refreshRepositories()
-            }
+            refreshRepositories()
         }
         .sheet($sheetAuth) {
             GitHubAuthView {
-                await refreshRepositories()
+                refreshRepositories()
             }
         }
     }
     
-    private func refreshRepositories() async {
-        await vm.fetchRepositories(store: store)
+    private func refreshRepositories() {
+        Task {
+            await vm.fetchRepositories(store: store)
+        }
     }
 }
 

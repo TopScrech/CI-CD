@@ -41,6 +41,7 @@ struct ConnectAuthView: View {
             
             if let account = selectedAccount {
                 AccountNameSection(account: account)
+                
                 AccountDemoSection(account: account) {
                     saveChanges()
                 }
@@ -50,7 +51,7 @@ struct ConnectAuthView: View {
                 }
                 
                 Section {
-                    Button("Save", action: save)
+                    AsyncButton("Save", action: save)
                 }
             } else {
                 ContentUnavailableView("No Connect accounts", systemImage: "person.crop.circle.badge.plus")
@@ -193,13 +194,9 @@ struct ConnectAuthView: View {
         saveChanges(selecting: deletingSelected ? nil : selectedID)
     }
     
-    private func save() {
+    private func save() async {
         saveChanges()
-        
-        Task {
-            await onDismiss()
-        }
-        
+        await onDismiss()
         dismiss()
     }
     

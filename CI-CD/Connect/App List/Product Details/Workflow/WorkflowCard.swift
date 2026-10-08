@@ -56,39 +56,35 @@ struct WorkflowCard: View {
                 }
             }
 #endif
-            Button("Start build", systemImage: "play", action: startBuild)
-            Button("Start clean build", systemImage: "play", action: startCleanBuild)
+            AsyncButton("Start build", systemImage: "play", action: startBuild)
+            AsyncButton("Start clean build", systemImage: "play", action: startCleanBuild)
         }
     }
     
-    private func startBuild() {
+    private func startBuild() async {
         if store.connectDemoMode {
             if let build = vm.builds.first {
                 vm.builds.append(build)
             }
         } else {
-            Task {
-                do {
-                    try await vm.startBuild(workflow.id, store: store)
-                } catch {
-                    Logger().error("Failed to start build: \(error)")
-                }
+            do {
+                try await vm.startBuild(workflow.id, store: store)
+            } catch {
+                Logger().error("Failed to start build: \(error)")
             }
         }
     }
     
-    private func startCleanBuild() {
+    private func startCleanBuild() async {
         if store.connectDemoMode {
             if let build = vm.builds.first {
                 vm.builds.append(build)
             }
         } else {
-            Task {
-                do {
-                    try await vm.startBuild(workflow.id, clean: true, store: store)
-                } catch {
-                    Logger().error("Failed to start clean build: \(error)")
-                }
+            do {
+                try await vm.startBuild(workflow.id, clean: true, store: store)
+            } catch {
+                Logger().error("Failed to start clean build: \(error)")
             }
         }
     }

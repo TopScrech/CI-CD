@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct AppVersionCard: View {
@@ -45,7 +45,9 @@ struct AppVersionCard: View {
                     }
                     
                 } else if !vm.isProcessing {
-                    Button(action: startProcessing) {
+                    AsyncButton {
+                        await vm.startProcessing(versionString)
+                    } label: {
                         Image(systemName: "square.and.arrow.down")
                             .title3(.semibold)
                     }
@@ -71,12 +73,6 @@ struct AppVersionCard: View {
         .onChange(of: store.connectRefreshToken) {
             vm.reset()
             load()
-        }
-    }
-    
-    private func startProcessing() {
-        Task {
-            await vm.startProcessing(versionString)
         }
     }
 

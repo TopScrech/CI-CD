@@ -65,7 +65,7 @@ struct AppCard: View {
         .onChange(of: store.connectDemoMode, load)
         .onChange(of: store.connectRefreshToken, load)
     }
-
+    
     private func load() {
         Task {
             if store.connectDemoMode {
@@ -76,7 +76,7 @@ struct AppCard: View {
                 async let primaryRepos: () = vm.primaryRepositories(product.id, store: store)
                 async let additionalRepos: () = vm.additionalRepositories(product.id, store: store)
                 async let versions: () = vm.getVersions(product.relationships?.app?.data?.id, store: store)
-
+                
                 _ = try? await (workflows, builds, additionalRepos, primaryRepos, versions)
             }
         }

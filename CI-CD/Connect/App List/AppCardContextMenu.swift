@@ -20,35 +20,27 @@ struct AppCardContextMenu: ViewModifier {
                 ForEach(vm.workflows) { workflow in
                     if let name = workflow.attributes?.name {
                         Section {
-                            Button {
-                                Task {
-                                    do {
-                                        try await vm.startBuild(workflow.id, store: store)
-                                    } catch {
-                                        Logger().error("Failed to start build: \(error)")
-                                    }
+                            AsyncButton {
+                                do {
+                                    try await vm.startBuild(workflow.id, store: store)
+                                } catch {
+                                    Logger().error("Failed to start build: \(error)")
                                 }
                             } label: {
                                 Text("Start build")
-                                
                                 Text(name)
-                                
                                 Image(systemName: "play")
                             }
                             
-                            Button {
-                                Task {
-                                    do {
-                                        try await vm.startBuild(workflow.id, clean: true, store: store)
-                                    } catch {
-                                        Logger().error("Failed to start clean build: \(error)")
-                                    }
+                            AsyncButton {
+                                do {
+                                    try await vm.startBuild(workflow.id, clean: true, store: store)
+                                } catch {
+                                    Logger().error("Failed to start clean build: \(error)")
                                 }
                             } label: {
                                 Text("Start clean build")
-                                
                                 Text(name)
-                                
                                 Image(systemName: "play")
                             }
                         }

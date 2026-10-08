@@ -108,12 +108,12 @@ struct BuildCard: View {
         .padding(.leading, -8)
         .contextMenu {
             if let workflow = build.relationships?.workflow?.data {
-                Button("Rebuild", systemImage: "hammer") {
-                    rebuild(workflow.id)
+                AsyncButton("Rebuild", systemImage: "hammer") {
+                    await rebuild(workflow.id)
                 }
                 
-                Button("Rebuild clean", systemImage: "hammer") {
-                    rebuildClean(workflow.id)
+                AsyncButton("Rebuild clean", systemImage: "hammer") {
+                    await rebuildClean(workflow.id)
                 }
             }
 #if DEBUG
@@ -130,34 +130,30 @@ struct BuildCard: View {
         }
     }
     
-    private func rebuild(_ workflowId: String) {
+    private func rebuild(_ workflowId: String) async {
         if store.connectDemoMode {
             if let build = productVM.builds.first {
                 productVM.builds.append(build)
             }
         } else {
-            Task {
-                do {
-                    try await vm.startRebuild(of: build.id, in: workflowId, store: store)
-                } catch {
-                    Logger().error("Failed to start rebuild: \(error)")
-                }
+            do {
+                try await vm.startRebuild(of: build.id, in: workflowId, store: store)
+            } catch {
+                Logger().error("Failed to start rebuild: \(error)")
             }
         }
     }
     
-    private func rebuildClean(_ workflowId: String) {
+    private func rebuildClean(_ workflowId: String) async {
         if store.connectDemoMode {
             if let build = productVM.builds.first {
                 productVM.builds.append(build)
             }
         } else {
-            Task {
-                do {
-                    try await vm.startRebuild(of: build.id, in: workflowId, clean: true, store: store)
-                } catch {
-                    Logger().error("Failed to start clean rebuild: \(error)")
-                }
+            do {
+                try await vm.startRebuild(of: build.id, in: workflowId, clean: true, store: store)
+            } catch {
+                Logger().error("Failed to start clean rebuild: \(error)")
             }
         }
     }

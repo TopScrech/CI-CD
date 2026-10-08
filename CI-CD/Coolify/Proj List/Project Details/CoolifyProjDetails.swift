@@ -26,25 +26,16 @@ struct CoolifyProjDetails: View {
         .navigationTitle(proj.name)
         .navSubtitle(proj.description ?? "")
         .refreshableTask {
-            await load()
-        }
-        .task {
-            await load()
+            load()
         }
         .onChange(of: store.coolifyAccount?.id) {
-            Task {
-                await load()
-            }
+            load()
         }
         .onChange(of: store.coolifyDemoMode) {
-            Task {
-                await load()
-            }
+            load()
         }
         .onChange(of: store.coolifyRefreshToken) {
-            Task {
-                await load()
-            }
+            load()
         }
         .toolbar {
             Menu {
@@ -61,21 +52,21 @@ struct CoolifyProjDetails: View {
             
             TextField("New description", text: $vm.projDescription)
             Button("Cancel") {}
-            Button("Save", action: save)
+            AsyncButton("Save", action: save)
         }
     }
     
-    private func save() {
-        Task {
-            if let updated = await vm.rename(proj.uuid, store: store) {
-                proj = updated
-                await vm.load(updated.uuid, store: store)
-            }
+    private func save() async {
+        if let updated = await vm.rename(proj.uuid, store: store) {
+            proj = updated
+            await vm.load(updated.uuid, store: store)
         }
     }
-
-    private func load() async {
-        await vm.load(proj.uuid, store: store)
+    
+    private func load() {
+        Task {
+            await vm.load(proj.uuid, store: store)
+        }
     }
 }
 

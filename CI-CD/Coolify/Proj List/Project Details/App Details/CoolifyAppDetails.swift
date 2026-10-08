@@ -1,5 +1,5 @@
+import ScrechKit
 import OSLog
-import SwiftUI
 
 struct CoolifyAppDetails: View {
     @Environment(CoolifyAppVM.self) private var appVM
@@ -67,7 +67,8 @@ struct CoolifyAppDetails: View {
                 } else if !vm.availableBuildPacks.isEmpty {
                     Picker("Build pack", selection: $vm.newBuildPack) {
                         ForEach(vm.availableBuildPacks) {
-                            Text($0.title).tag($0.rawValue)
+                            Text($0.title)
+                                .tag($0.rawValue)
                         }
                     }
                 }
@@ -81,30 +82,16 @@ struct CoolifyAppDetails: View {
         .navigationTitle(app.name)
         .navSubtitle(app.description ?? "")
         .refreshableTask {
-            vm.resetLoading()
-            await load()
-        }
-        .task {
-            vm.resetLoading()
-            await load()
+            resetAndLoad()
         }
         .onChange(of: store.coolifyAccount?.id) {
-            Task {
-                vm.resetLoading()
-                await load()
-            }
+            resetAndLoad()
         }
         .onChange(of: store.coolifyDemoMode) {
-            Task {
-                vm.resetLoading()
-                await load()
-            }
+            resetAndLoad()
         }
         .onChange(of: store.coolifyRefreshToken) {
-            Task {
-                vm.resetLoading()
-                await load()
-            }
+            resetAndLoad()
         }
         .toolbar {
             Menu {
@@ -115,12 +102,12 @@ struct CoolifyAppDetails: View {
                 }
                 
                 Section {
-                    Button("Deploy", systemImage: "play") {
-                        deploy()
+                    AsyncButton("Deploy", systemImage: "play") {
+                        await appVM.deploy(app.uuid, force: false, store: store)
                     }
                     
-                    Button {
-                        deploy(true)
+                    AsyncButton {
+                        await appVM.deploy(app.uuid, force: true, store: store)
                     } label: {
                         Text("Force deploy")
                         Text("Without cache")
@@ -129,8 +116,13 @@ struct CoolifyAppDetails: View {
                 }
                 
                 Section {
-                    Button("Restart", systemImage: "arrow.trianglehead.2.clockwise.rotate.90", action: restart)
-                    Button("Stop", systemImage: "stop", action: stop)
+                    AsyncButton("Restart", systemImage: "arrow.trianglehead.2.clockwise.rotate.90") {
+                        await appVM.restart(app.uuid, store: store)
+                    }
+                    
+                    AsyncButton("Stop", systemImage: "stop") {
+                        await appVM.stop(app.uuid, store: store)
+                    }
                 }
             } label: {
                 Image(systemName: "ellipsis")
@@ -141,9 +133,8 @@ struct CoolifyAppDetails: View {
                 .autocorrectionDisabled()
             
             TextField("New description", text: $vm.newDescription)
-            
             Button("Cancel", role: .cancel) {}
-            Button("Save", action: save)
+            AsyncButton("Save", action: save)
         }
         .onChange(of: vm.newBuildPack) { oldValue, newValue in
             guard
@@ -156,42 +147,31 @@ struct CoolifyAppDetails: View {
                 return
             }
             
-            save()
+            Task {
+                await save()
+            }
         }
     }
     
-    private func save() {
+    private func resetAndLoad() {
         Task {
-            if let app = await vm.renameApp(app, store: store) {
-                self.app = app
-                Logger().info("New app name: \(app.name)")
-            } else {
-                Logger().warning("New app object not returned")
-            }
+            vm.resetLoading()
+            await load()
+        }
+    }
+    
+    private func save() async {
+        if let app = await vm.renameApp(app, store: store) {
+            self.app = app
+            Logger().info("New app name: \(app.name)")
+        } else {
+            Logger().warning("New app object not returned")
         }
     }
     
     private func load() async {
         await vm.prepareEditor(for: app, store: store)
         await vm.fetchDeployments(app.uuid, store: store)
-    }
-    
-    private func restart() {
-        Task {
-            await appVM.restart(app.uuid, store: store)
-        }
-    }
-    
-    private func stop() {
-        Task {
-            await appVM.stop(app.uuid, store: store)
-        }
-    }
-    
-    private func deploy(_ force: Bool = false) {
-        Task {
-            await appVM.deploy(app.uuid, force: force, store: store)
-        }
     }
 }
 

@@ -55,12 +55,10 @@ struct GitHubRepoDetails: View {
         .navigationTitle(repository.name)
         .animation(.default, value: vm.runs)
         .refreshableTask {
-            await refresh()
+            refresh()
         }
         .onChange(of: store.githubRefreshToken) {
-            Task {
-                await refresh()
-            }
+            refresh()
         }
         .toolbar {
             if let url = repository.htmlURL {
@@ -71,8 +69,10 @@ struct GitHubRepoDetails: View {
         }
     }
     
-    private func refresh() async {
-        await vm.fetch(repository: repository, store: store)
+    private func refresh() {
+        Task {
+            await vm.fetch(repository: repository, store: store)
+        }
     }
 }
 

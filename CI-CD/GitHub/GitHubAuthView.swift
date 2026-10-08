@@ -47,7 +47,7 @@ struct GitHubAuthView: View {
                 }
                 
                 Section {
-                    Button("Save", action: save)
+                    AsyncButton("Save", action: save)
                 }
             } else {
                 ContentUnavailableView("No GitHub accounts", systemImage: "person.crop.circle.badge.plus")
@@ -165,13 +165,9 @@ struct GitHubAuthView: View {
         saveChanges(selecting: deletingSelected ? nil : selectedID)
     }
     
-    private func save() {
+    private func save() async {
         saveChanges()
-        
-        Task {
-            await onDismiss()
-        }
-        
+        await onDismiss()
         dismiss()
     }
     
@@ -199,6 +195,7 @@ struct GitHubAuthView: View {
         var descriptor = FetchDescriptor<ProviderAccount>(
             predicate: #Predicate { $0.id == id }
         )
+        
         descriptor.fetchLimit = 1
         
         return try? modelContext.fetch(descriptor).first
