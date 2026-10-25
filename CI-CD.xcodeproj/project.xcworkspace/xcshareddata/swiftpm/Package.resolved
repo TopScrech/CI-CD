@@ -29,6 +29,15 @@
       }
     },
     {
+      "identity" : "mailcover",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TopScrech/MailCover",
+      "state" : {
+        "revision" : "3c4d0451afd466da6919c4c08b7bc93c1045f124",
+        "version" : "1.1.2"
+      }
+    },
+    {
       "identity" : "safaricover",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/TopScrech/SafariCover",

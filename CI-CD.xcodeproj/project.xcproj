@@ -37,6 +37,12 @@
       },
     }, {
       "kind": "remote",
+      "repository": "https://github.com/TopScrech/MailCover",
+      "version": {
+        "up-to-next-major-version": "1.0.0",
+      },
+    }, {
+      "kind": "remote",
       "repository": "https://github.com/TopScrech/SafariCover",
       "version": {
         "up-to-next-major-version": "1.0.0",
@@ -145,6 +151,10 @@
           "product-name": "Kingfisher",
           "build-phase": { "build-phase": "frameworks" },
         }, {
+          "package": "MailCover",
+          "product-name": "MailCover",
+          "build-phase": { "build-phase": "frameworks" },
+        }, {
           "package": "SafariCover",
           "product-name": "SafariCover",
           "build-phase": { "build-phase": "frameworks" },
@@ -214,6 +224,10 @@
         {
           "package": "Kingfisher",
           "product-name": "Kingfisher",
+          "build-phase": { "build-phase": "frameworks" },
+        }, {
+          "package": "MailCover",
+          "product-name": "MailCover",
           "build-phase": { "build-phase": "frameworks" },
         }, {
           "package": "SafariCover",
