@@ -17,6 +17,7 @@ final class ValueStore: ObservableObject {
     @AppStorage("last_tab") var lastTab = HomeViewTab.connect
 #if os(iOS)
     @AppStorage("show_status_bar") var showStatusBar = true
+    @AppStorage("connect_hide_removed_apps") var connectHideRemovedApps = true
 #endif
     
 #if canImport(Appearance)

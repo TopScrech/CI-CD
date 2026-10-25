@@ -10,7 +10,7 @@ struct ConnectAppList: View {
     var body: some View {
         List {
             if store.connectDemoMode || store.connectAuthorized {
-                ForEach(vm.products) {
+                ForEach(vm.visibleProducts(hidingRemovedApps: store.connectHideRemovedApps && !store.connectDemoMode)) {
                     AppCard($0)
                 }
             } else {

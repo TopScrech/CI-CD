@@ -36,14 +36,6 @@ struct AppCard: View {
                 }
                 
                 Spacer()
-                
-                VStack(alignment: .trailing, spacing: 0) {
-                    ForEach(vm.workflows) {
-                        Text($0.attributes?.name ?? "")
-                            .secondary()
-                            .footnote()
-                    }
-                }
             }
         }
         .appCardContextMenu($sheetVersions, product: product)

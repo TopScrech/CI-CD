@@ -1,9 +1,17 @@
 import SwiftUI
 
 struct AppSettings: View {
+    @EnvironmentObject private var store: ValueStore
+
     var body: some View {
         List {
             GeneralSettings()
+
+            Section {
+                Toggle("Hide removed apps", isOn: $store.connectHideRemovedApps)
+            } header: {
+                Text("App Store Connect")
+            }
             
             Section {
                 Link(destination: URL(string: "https://github.com/TopScrech/CI-CD")!) {
