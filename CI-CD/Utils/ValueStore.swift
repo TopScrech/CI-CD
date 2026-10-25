@@ -17,8 +17,8 @@ final class ValueStore: ObservableObject {
     @AppStorage("last_tab") var lastTab = HomeViewTab.connect
 #if os(iOS)
     @AppStorage("show_status_bar") var showStatusBar = true
-    @AppStorage("connect_hide_removed_apps") var connectHideRemovedApps = true
 #endif
+    @AppStorage("connect_hide_removed_apps") var connectHideRemovedApps = true
     
 #if canImport(Appearance)
     @AppStorage("appearance") var appearance: Appearance = .system
@@ -289,6 +289,7 @@ struct CoolifyAccountSnapshot: Identifiable, Equatable {
     let name: String
     let domain: String
     let apiKey: String
+    let proxyEnabled: Bool
     let demoMode: Bool
     
     init(_ account: ProviderAccount) {
@@ -296,6 +297,7 @@ struct CoolifyAccountSnapshot: Identifiable, Equatable {
         name = account.name
         domain = account.coolifyDomain
         apiKey = account.coolifyAPIKey
+        proxyEnabled = account.coolifyProxyEnabled
         demoMode = account.demoMode
     }
     

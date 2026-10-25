@@ -49,7 +49,7 @@ final class CoolifyAppDetailsVM {
         request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (data, _) = try await URLSession.shared.data(for: request)
+            let (data, _) = try await CoolifyTransport.data(for: request, account: account)
             
             Logger().info("Deployments: \(prettyJSON(data) ?? "Invalid JSON")")
             
@@ -101,7 +101,7 @@ final class CoolifyAppDetailsVM {
             encoder.keyEncodingStrategy = .convertToSnakeCase
             request.httpBody = try encoder.encode(patchedApp)
             
-            let (_, _) = try await URLSession.shared.data(for: request)
+            let (_, _) = try await CoolifyTransport.data(for: request, account: account)
             
             isSaving = false
             return await fetchApp(app.uuid, store: store)
@@ -146,7 +146,7 @@ final class CoolifyAppDetailsVM {
                 request.setValue("application/json", forHTTPHeaderField: "Accept")
                 request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
                 
-                let (data, _) = try await URLSession.shared.data(for: request)
+                let (data, _) = try await CoolifyTransport.data(for: request, account: account)
                 let buildPacks = try buildPacks(from: data, selectedBuildPack: selectedBuildPack)
                 
                 availableBuildPacks = buildPacks
@@ -234,7 +234,7 @@ final class CoolifyAppDetailsVM {
         request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (data, _) = try await URLSession.shared.data(for: request)
+            let (data, _) = try await CoolifyTransport.data(for: request, account: account)
             
             Logger().info("Fetched app: \(prettyJSON(data) ?? "Invalid JSON")")
             

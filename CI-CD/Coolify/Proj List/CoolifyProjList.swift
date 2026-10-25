@@ -9,6 +9,22 @@ struct CoolifyProjList: View {
     var body: some View {
         List {
             if store.coolifyDemoMode || store.coolifyAuthorized {
+                if let errorMessage = vm.errorMessage {
+                    ContentUnavailableView {
+                        Label("Couldn’t load projects", systemImage: "exclamationmark.triangle")
+                    } description: {
+                        Text(errorMessage)
+                    } actions: {
+                        Button("Retry", systemImage: "arrow.clockwise") {
+                            store.bumpRefreshToken(for: .coolify)
+                        }
+
+                        Button("Account settings", systemImage: "gear") {
+                            sheetAuth = true
+                        }
+                    }
+                }
+
                 ForEach(vm.projects) {
                     CoolifyProjCard($0)
                 }
@@ -19,36 +35,17 @@ struct CoolifyProjList: View {
             }
         }
         .environment(vm)
-        .refreshableTask {
-            refreshProjects()
+        .refreshable {
+            await vm.fetchProjects(store: store)
         }
-        .task {
-            refreshProjects()
+        .task(id: store.coolifyRefreshToken) {
+            await vm.fetchProjects(store: store)
         }
-        .onChange(of: store.coolifyAccount?.id) {
-            refreshProjects()
-        }
-        .onChange(of: store.coolifyDemoMode) {
-            refreshProjects()
-        }
-        .onChange(of: store.coolifyRefreshToken) {
-            refreshProjects()
+        .onChange(of: store.coolifyAccount) {
+            store.bumpRefreshToken(for: .coolify)
         }
         .sheet($sheetAuth) {
-            CoolifyAuthView {
-                refreshProjects()
-            }
-        }
-    }
-    
-    private func refreshProjects() {
-        if store.coolifyDemoMode {
-            vm.projects = [Preview.coolifyProj]
-            return
-        }
-        
-        Task {
-            await vm.fetchProjects(store: store)
+            CoolifyAuthView()
         }
     }
 }

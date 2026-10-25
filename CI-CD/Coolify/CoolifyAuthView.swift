@@ -2,6 +2,7 @@ import ScrechKit
 import SwiftData
 
 struct CoolifyAuthView: View {
+    @State private var proxySettings = CoolifyProxySettingsVM()
     @EnvironmentObject private var store: ValueStore
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
@@ -43,6 +44,7 @@ struct CoolifyAuthView: View {
                 
                 if !account.demoMode {
                     credentialsSection(account)
+                    CoolifyProxySettingsView()
                 }
                 
                 Section {
@@ -53,6 +55,12 @@ struct CoolifyAuthView: View {
             }
         }
         .ornamentDismissButton()
+        .environment(proxySettings)
+        .task(id: selectedAccount?.id) {
+            if let account = selectedAccount {
+                proxySettings.load(account: account)
+            }
+        }
         .animation(.default, value: accounts.count)
         .onAppear {
             ensureAccountSelection()
@@ -156,6 +164,9 @@ struct CoolifyAuthView: View {
     }
     
     private func save() async {
+        if let account = selectedAccount, !account.demoMode, !proxySettings.save(account: account) {
+            return
+        }
         saveChanges()
         await onDismiss()
         dismiss()

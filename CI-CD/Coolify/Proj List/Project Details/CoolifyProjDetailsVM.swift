@@ -48,7 +48,7 @@ final class CoolifyProjDetailsVM {
         renameRequest.httpBody = body
         
         do {
-            _ = try await URLSession.shared.data(for: renameRequest)
+            _ = try await CoolifyTransport.data(for: renameRequest, account: account)
             return await fetchProject(projUUID, store: store)
         } catch {
             logger.error("Error renaming proj: \(error)")
@@ -99,7 +99,7 @@ final class CoolifyProjDetailsVM {
         request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (data, _) = try await URLSession.shared.data(for: request)
+            let (data, _) = try await CoolifyTransport.data(for: request, account: account)
             let envs = try decoder.decode([CoolifyProjectEnv].self, from: data)
             
             return Dictionary(uniqueKeysWithValues: envs.map { ($0.id, $0) })
@@ -126,7 +126,7 @@ final class CoolifyProjDetailsVM {
         request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (data, _) = try await URLSession.shared.data(for: request)
+            let (data, _) = try await CoolifyTransport.data(for: request, account: account)
             return try decoder.decode(CoolifyProject.self, from: data)
         } catch {
             logger.error("Error fetching project: \(error)")
@@ -148,7 +148,7 @@ final class CoolifyProjDetailsVM {
         request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (data, _) = try await URLSession.shared.data(for: request)
+            let (data, _) = try await CoolifyTransport.data(for: request, account: account)
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -201,7 +201,7 @@ final class CoolifyProjDetailsVM {
         request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (data, _) = try await URLSession.shared.data(for: request)
+            let (data, _) = try await CoolifyTransport.data(for: request, account: account)
             let databases = try decoder.decode([CoolifyDatabase].self, from: data)
             
             return databases.compactMap { database in

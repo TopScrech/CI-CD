@@ -24,10 +24,7 @@ struct GitHubRepoList: View {
         }
         .animation(.default, value: vm.repositories.count)
         .scrollIndicators(.hidden)
-        .refreshable {
-            refreshRepositories()
-        }
-        .task {
+        .refreshableTask {
             refreshRepositories()
         }
         .onChange(of: store.githubAccount?.id) {

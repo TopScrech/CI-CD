@@ -23,7 +23,7 @@ final class CoolifyAppVM {
         request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (_, _) = try await URLSession.shared.data(for: request)
+            let (_, _) = try await CoolifyTransport.data(for: request, account: account)
             logger.info("Successfully queued a deployment")
         } catch {
             logger.error("Error fetching projects: \(error)")
@@ -44,7 +44,7 @@ final class CoolifyAppVM {
         request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (_, _) = try await URLSession.shared.data(for: request)
+            let (_, _) = try await CoolifyTransport.data(for: request, account: account)
             logger.info("Successfully restarted app")
         } catch {
             logger.error("Error startig app: \(error)")
@@ -65,7 +65,7 @@ final class CoolifyAppVM {
         request.setValue("Bearer \(account.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
-            let (_, _) = try await URLSession.shared.data(for: request)
+            let (_, _) = try await CoolifyTransport.data(for: request, account: account)
             logger.info("Successfully restarted an app")
         } catch {
             logger.error("Error restarting app: \(error)")

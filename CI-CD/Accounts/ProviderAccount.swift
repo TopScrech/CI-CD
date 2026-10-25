@@ -33,20 +33,21 @@ enum AccountProvider: String, CaseIterable, Identifiable, Codable {
 
 @Model
 final class ProviderAccount {
-    var id: UUID = UUID()
-    var providerRawValue: String = AccountProvider.connect.rawValue
-    var name: String = ""
-    var issuerID: String = ""
-    var privateKey: String = ""
-    var privateKeyID: String = ""
-    var coolifyDomain: String = "https://coolify.example.com"
-    var coolifyAPIKey: String = ""
-    var githubAPIBaseURL: String = "https://api.github.com"
-    var githubToken: String = ""
-    var githubOwner: String = ""
-    var demoMode: Bool = false
-    var createdAt: Date = Date()
-    var updatedAt: Date = Date()
+    var id = UUID()
+    var providerRawValue = AccountProvider.connect.rawValue
+    var name = ""
+    var issuerID = ""
+    var privateKey = ""
+    var privateKeyID = ""
+    var coolifyDomain = "https://coolify.example.com"
+    var coolifyAPIKey = ""
+    var coolifyProxyEnabled = false
+    var githubAPIBaseURL = "https://api.github.com"
+    var githubToken = ""
+    var githubOwner = ""
+    var demoMode = false
+    var createdAt = Date()
+    var updatedAt = Date()
     
     init(
         id: UUID = UUID(),

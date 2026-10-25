@@ -47,7 +47,7 @@ final class CoolifyDeploymentLogsVM {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             
-            let (data, _) = try await URLSession.shared.data(for: request)
+            let (data, _) = try await CoolifyTransport.data(for: request, account: account)
             deployment = try decoder.decode(CoolifyDeployment.self, from: data)
         } catch {
             Logger().error("Error fetching deployment logs: \(error)")
