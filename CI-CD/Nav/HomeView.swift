@@ -27,12 +27,14 @@ struct HomeView: View {
                         .transition(.opacity)
                 }
 
-                NavigationLink {
-                    AppSettings()
-                } label: {
-                    Image(systemName: "gear")
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        AppSettings()
+                    } label: {
+                        Image(systemName: "gear")
+                    }
+                    .keyboardShortcut("s")
                 }
-                .keyboardShortcut("s")
             }
 #endif
     }
