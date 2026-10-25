@@ -14,6 +14,7 @@ struct PanelSidebarList: View {
             .padding(12)
         }
         .scrollIndicators(.never)
+        .panelSidebarBarMinimizationDisabled()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 }
