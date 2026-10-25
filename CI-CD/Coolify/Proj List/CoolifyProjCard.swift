@@ -37,11 +37,6 @@ struct CoolifyProjCard: View {
             Button("Rename", systemImage: "pencil") {
                 alertRename = true
             }
-#if DEBUG
-            Button("Print", systemImage: "hammer") {
-                Logger().info("Project: \(String(describing: proj))")
-            }
-#endif
         }
         .alert("Rename", isPresented: $alertRename) {
             TextField("New name", text: $projDetailsVM.projName)

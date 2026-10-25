@@ -54,27 +54,6 @@ struct AppCardContextMenu: ViewModifier {
                         }
                     }
                 }
-#if DEBUG
-                Section {
-                    Button {
-                        Pasteboard.copy(product.id)
-                    } label: {
-                        Text(String("Copy product id"))
-                        Text(product.id)
-                        Image(systemName: "doc.on.doc")
-                    }
-                    
-                    if let appId = product.relationships?.app?.data?.id {
-                        Button {
-                            Pasteboard.copy(appId)
-                        } label: {
-                            Text(String("Copy app id"))
-                            Text(appId)
-                            Image(systemName: "doc.on.doc")
-                        }
-                    }
-                }
-#endif
             }
     }
 }

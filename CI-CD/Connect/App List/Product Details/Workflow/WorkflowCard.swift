@@ -45,17 +45,6 @@ struct WorkflowCard: View {
             }
         }
         .contextMenu {
-#if DEBUG
-            Section {
-                Button {
-                    Pasteboard.copy(workflow.id)
-                } label: {
-                    Text(String("Copy workflow id"))
-                    Text(workflow.id)
-                    Image(systemName: "doc.on.doc")
-                }
-            }
-#endif
             AsyncButton("Start build", systemImage: "play", action: startBuild)
             AsyncButton("Start clean build", systemImage: "play", action: startCleanBuild)
         }

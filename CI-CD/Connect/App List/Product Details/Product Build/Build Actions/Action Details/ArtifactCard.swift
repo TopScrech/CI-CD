@@ -43,27 +43,6 @@ struct ArtifactCard: View {
             }
         }
         .safariCover($safariCover, url: downloadURL ?? "https://bisquit.host/404")
-#if DEBUG
-        .contextMenu {
-            Button {
-                Pasteboard.copy(artifact.id)
-            } label: {
-                Text(String("Copy artifact id"))
-                Text(artifact.id)
-                Image(systemName: "document.on.document")
-            }
-            
-            if let downloadURL {
-                Button {
-                    Pasteboard.copy(downloadURL)
-                } label: {
-                    Text("Copy download URL")
-                    Text(downloadURL)
-                    Image(systemName: "document.on.document")
-                }
-            }
-        }
-#endif
     }
 }
 

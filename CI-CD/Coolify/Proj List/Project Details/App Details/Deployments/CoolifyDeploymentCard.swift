@@ -52,13 +52,6 @@ struct CoolifyDeploymentCard: View {
                 }
             }
         }
-#if DEBUG
-        .contextMenu {
-            Button("Print", systemImage: "hammer") {
-                Logger().info("Deployment: \(String(describing: deployment))")
-            }
-        }
-#endif
     }
 }
 

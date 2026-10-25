@@ -116,17 +116,6 @@ struct BuildCard: View {
                     await rebuildClean(workflow.id)
                 }
             }
-#if DEBUG
-            Section {
-                Button {
-                    Pasteboard.copy(build.id)
-                } label: {
-                    Text(String("Copy build id"))
-                    Text(build.id)
-                    Image(systemName: "hammer")
-                }
-            }
-#endif
         }
     }
     

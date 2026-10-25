@@ -26,13 +26,6 @@ struct AppCard: View {
                         Text(name)
                             .title3()
                     }
-#if DEBUG
-                    if let bundleId = product.relationships?.bundleID?.data?.id {
-                        Text(bundleId)
-                            .secondary()
-                            .footnote()
-                    }
-#endif
                 }
                 
                 Spacer()
@@ -40,6 +33,9 @@ struct AppCard: View {
         }
         .appCardContextMenu($sheetVersions, product: product)
         .environment(vm)
+        .task {
+            load()
+        }
         .sheet($sheetVersions) {
             NavigationView {
                 if let appId = product.relationships?.app?.data?.id {
@@ -49,9 +45,6 @@ struct AppCard: View {
                     Text("Error")
                 }
             }
-        }
-        .task {
-            load()
         }
         .onChange(of: store.connectAccount?.id, load)
         .onChange(of: store.connectDemoMode, load)
