@@ -15,65 +15,55 @@ final class AppVM {
     var iconURL: String?
     
     func appBuilds(_ appId: String, store: ValueStore) async throws {
-        guard
-            let provider = try await provider(store: store)
-        else {
+        guard let accountID = store.connectAccount?.id, !store.connectDemoMode else {
+            iconURL = nil
             return
         }
-        
-        let request = APIEndpoint
-            .v1
-            .apps
-            .id(appId)
-            .builds
-            .get()
-        
+
+        let cacheKey = "connect.iconURL.\(accountID).\(appId)"
+        iconURL = UserDefaults.standard.string(forKey: cacheKey)
+
+        guard let provider = try await provider(store: store) else {
+            return
+        }
+
         do {
-            let builds = try await provider.request(request)
-            
-            if let buildId = builds.data.first?.id {
-                try await appBuildIcon(buildId, store: store)
+            let builds = try await provider.request(
+                APIEndpoint.v1.apps.id(appId).builds.get()
+            )
+            try Task.checkCancellation()
+
+            guard let buildID = builds.data.first?.id else {
+                return
             }
-        } catch {
-            logger.error("Failed to fetch app builds: \(error)")
-        }
-    }
-    
-    private func appBuildIcon(_ buildId: String, store: ValueStore) async throws {
-        guard
-            let provider = try await provider(store: store)
-        else {
-            return
-        }
-        
-        let request = APIEndpoint
-            .v1
-            .builds
-            .id(buildId)
-            .icons
-            .get()
-        
-        do {
-            let icons = try await provider.request(request).data
-            
+
+            let icons = try await provider.request(
+                APIEndpoint.v1.builds.id(buildID).icons.get()
+            ).data
+            try Task.checkCancellation()
+
             guard
+                store.connectAccount?.id == accountID,
                 let appStoreIcon = icons.first(where: { $0.attributes?.iconType == .appStore }),
                 let urlTemplate = appStoreIcon.attributes?.iconAsset?.templateURL
             else {
                 return
             }
-            
+
             let url = urlTemplate
                 .replacing("{w}", with: "1024")
                 .replacing("{h}", with: "1024")
                 .replacing("{f}", with: "png")
-            
+
+            UserDefaults.standard.set(url, forKey: cacheKey)
             iconURL = url
+        } catch is CancellationError {
+            return
         } catch {
-            logger.error("Failed to fetch build icon: \(error)")
+            logger.error("Failed to refresh app icon: \(error)")
         }
     }
-    
+
     func fetchWorkflows(_ id: String, store: ValueStore) async throws {
         guard
             let provider = try await provider(store: store)

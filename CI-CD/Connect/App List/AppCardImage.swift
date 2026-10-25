@@ -14,27 +14,18 @@ struct AppCardImage: View {
     
     var body: some View {
         VStack {
-            if let urlStrting = vm.iconURL, let url = URL(string: urlStrting) {
+            if let urlString = vm.iconURL, let url = URL(string: urlString) {
                 KFImage(url)
+                    .diskCacheExpiration(.never)
+                    .loadDiskFileSynchronously()
+                    .waitForCache()
                     .resizable()
                     .frame(32)
                     .clipShape(.rect(cornerRadius: 8))
             }
         }
         .animation(.default, value: vm.iconURL)
-        .task {
-            appBuilds()
-        }
-        .onChange(of: store.connectAccount?.id) {
-            appBuilds()
-        }
-        .onChange(of: store.connectRefreshToken) {
-            appBuilds()
-        }
-    }
-    
-    private func appBuilds() {
-        Task {
+        .task(id: "\(store.connectAccount?.id.uuidString ?? "").\(product.id).\(store.connectRefreshToken).\(store.connectDemoMode)") {
             if let appId = product.relationships?.app?.data?.id {
                 try? await vm.appBuilds(appId, store: store)
             }
