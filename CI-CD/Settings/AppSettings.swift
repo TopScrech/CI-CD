@@ -4,7 +4,6 @@ struct AppSettings: View {
     var body: some View {
         List {
             GeneralSettings()
-            FeedbackSettingsSection()
             
             Section {
                 Link(destination: URL(string: "https://github.com/TopScrech/CI-CD")!) {
