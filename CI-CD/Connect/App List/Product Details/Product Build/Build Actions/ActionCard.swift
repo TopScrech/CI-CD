@@ -21,6 +21,8 @@ struct ActionCard: View {
                     .semibold()
                     .padding(.bottom, 2)
                 
+                ActionProgressView(action)
+
                 if vm.artifacts.count > 0 {
                     Text("📁 \(vm.artifacts.count)x Artifacts")
                 }

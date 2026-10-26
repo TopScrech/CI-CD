@@ -8,46 +8,32 @@ struct WorkflowEnvironmentSectionView: View {
     var body: some View {
         @Bindable var vm = vm
         @Bindable var editorVM = editorVM
+        let isShowingProgress = vm.isLoading || !vm.hasLoaded || editorVM.isRefreshing
 
         Section("Environment") {
-            if vm.isLoading || !vm.hasLoaded || editorVM.isRefreshing {
-                LabeledContent("Xcode") {
-                    ProgressView()
-                        .accessibilityLabel("Loading Xcode versions")
+            WorkflowVersionPickerView(
+                title: "Xcode",
+                selection: $vm.xcodeVersionID,
+                options: vm.xcodeOptions,
+                catalog: vm.xcodeOptions,
+                currentVersion: vm.xcodeAliasCurrentVersion,
+                isLoading: isShowingProgress
+            )
+            .onChange(of: vm.xcodeVersionID) {
+                // Refresh preserves the saved pair without selecting a replacement
+                if vm.hasChanges {
+                    vm.selectCompatibleMacOSVersion()
                 }
-
-                LabeledContent("macOS") {
-                    ProgressView()
-                        .accessibilityLabel("Loading macOS versions")
-                }
-            } else {
-                Picker("Xcode", selection: $vm.xcodeVersionID) {
-                    if !vm.xcodeVersions.contains(where: { $0.id == vm.xcodeVersionID }) {
-                        Text(vm.xcodeVersionID == nil ? "Select a version" : "Current version (unavailable)")
-                            .tag(vm.xcodeVersionID)
-                    }
-
-                    WorkflowVersionOptionsView(options: vm.xcodeOptions, catalog: vm.xcodeOptions)
-                }
-                .disabled(vm.isLoading || vm.xcodeVersions.isEmpty)
-                .onChange(of: vm.xcodeVersionID) {
-                    // Refresh preserves the saved pair without selecting a replacement
-                    if vm.hasChanges {
-                        vm.selectCompatibleMacOSVersion()
-                    }
-                }
-
-                Picker("macOS", selection: $vm.macOSVersionID) {
-                    if !vm.compatibleMacOSVersions.contains(where: { $0.id == vm.macOSVersionID }) {
-                        Text(vm.macOSVersionID == nil ? "Select a version" : "Current version (unavailable)")
-                            .tag(vm.macOSVersionID)
-                    }
-
-                    WorkflowVersionOptionsView(options: vm.compatibleMacOSOptions, catalog: vm.macOSOptions)
-                }
-                .disabled(vm.isLoading || vm.compatibleMacOSVersions.isEmpty)
-
             }
+
+            WorkflowVersionPickerView(
+                title: "macOS",
+                selection: $vm.macOSVersionID,
+                options: vm.compatibleMacOSOptions,
+                catalog: vm.macOSOptions,
+                currentVersion: vm.macOSAliasCurrentVersion,
+                isLoading: isShowingProgress
+            )
 
             Toggle(isOn: $editorVM.isClean) {
                 Text("Clean")
@@ -56,7 +42,7 @@ struct WorkflowEnvironmentSectionView: View {
 
             if let errorMessage = vm.errorMessage {
                 Text(errorMessage)
-                    .foregroundStyle(.secondary)
+                    .secondary()
 
                 AsyncButton("Retry", systemImage: "arrow.clockwise") {
                     await vm.load(store: store)

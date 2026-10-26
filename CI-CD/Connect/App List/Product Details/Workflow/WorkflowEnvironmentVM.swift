@@ -46,6 +46,14 @@ final class WorkflowEnvironmentVM {
         return macOSOptions.filter { compatibleIDs.contains($0.id) }
     }
 
+    var xcodeAliasCurrentVersion: String? {
+        xcodeOptions.first { $0.id == xcodeVersionID }?.currentVersion(in: xcodeOptions)
+    }
+
+    var macOSAliasCurrentVersion: String? {
+        compatibleMacOSOptions.first { $0.id == macOSVersionID }?.currentVersion(in: macOSOptions)
+    }
+
     var hasChanges: Bool {
         xcodeVersionID != originalXcodeVersionID || macOSVersionID != originalMacOSVersionID
     }
