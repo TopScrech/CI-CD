@@ -25,9 +25,6 @@ struct AppVersions: View {
         .refreshableTask {
             await load()
         }
-        .task {
-            await load()
-        }
         .onChange(of: store.connectAccount?.id) {
             Task {
                 await load()

@@ -111,9 +111,6 @@ struct ProductDetails: View {
         .refreshableTask {
             await refresh()
         }
-        .task {
-            await refresh()
-        }
         .onChange(of: store.connectAccount?.id) {
             Task {
                 await refresh()

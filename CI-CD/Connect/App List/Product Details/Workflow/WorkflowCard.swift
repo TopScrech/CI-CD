@@ -54,10 +54,8 @@ struct WorkflowCard: View {
 
             Divider()
             
-            Button("Delete", systemImage: "trash", role: .destructive) {
-                Task {
-                    await deleteWorkflow()
-                }
+            AsyncButton("Delete", systemImage: "trash", role: .destructive) {
+                await deleteWorkflow()
             }
             .disabled(isDeleting)
         }

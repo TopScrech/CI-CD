@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 
 struct WorkflowEnvironmentSectionView: View {
     @Environment(WorkflowEnvironmentVM.self) private var vm
@@ -7,6 +7,7 @@ struct WorkflowEnvironmentSectionView: View {
 
     var body: some View {
         @Bindable var vm = vm
+        @Bindable var editorVM = editorVM
 
         Section("Environment") {
             if vm.isLoading || !vm.hasLoaded || editorVM.isRefreshing {
@@ -48,14 +49,17 @@ struct WorkflowEnvironmentSectionView: View {
 
             }
 
+            Toggle(isOn: $editorVM.isClean) {
+                Text("Clean")
+                Text("Xcode Cloud will not restore derived data or caches for your builds, which may take significantly longer as a result")
+            }
+
             if let errorMessage = vm.errorMessage {
                 Text(errorMessage)
                     .foregroundStyle(.secondary)
 
-                Button("Retry", systemImage: "arrow.clockwise") {
-                    Task {
-                        await vm.load(store: store)
-                    }
+                AsyncButton("Retry", systemImage: "arrow.clockwise") {
+                    await vm.load(store: store)
                 }
             }
         }

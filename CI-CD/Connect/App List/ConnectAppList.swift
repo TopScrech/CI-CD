@@ -28,7 +28,9 @@ struct ConnectAppList: View {
         }
         .animation(.default, value: vm.products.count)
         .scrollIndicators(.never)
-        .refreshableTask(fetch)
+        .refreshableTask {
+            fetch()
+        }
         .sheet($sheetAuth) {
             ConnectAuthView {
                 fetch()

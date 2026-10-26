@@ -36,10 +36,6 @@ struct WorkflowEditorView: View {
                 .environment(vm.environment)
                 .environment(vm)
 
-            Toggle(isOn: $vm.isClean) {
-                Text("Clean")
-                Text("Xcode Cloud will not restore derived data or caches for your builds, which may take significantly longer as a result")
-            }
         }
         .disabled(vm.isSaving || vm.isRefreshing)
         .refreshableTask {
