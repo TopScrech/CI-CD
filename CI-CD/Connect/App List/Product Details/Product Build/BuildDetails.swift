@@ -2,6 +2,7 @@ import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct BuildDetails: View {
+    @State private var webBuildVM = ConnectWebBuildVM()
     @Environment(BuildVM.self) private var vm
     @EnvironmentObject private var store: ValueStore
     
@@ -17,7 +18,7 @@ struct BuildDetails: View {
             
             Section {
                 if let startedReason = build.attributes?.startReason {
-                    LabeledContent("Reason", value: startedReason.rawValue.lowercased().capitalized)
+                    LabeledContent("Start condition", value: startedReason.rawValue.lowercased().capitalized)
                 }
                 
                 if let created = build.attributes?.createdDate {
@@ -54,8 +55,13 @@ struct BuildDetails: View {
                 }
             }
             
-            Section {
-                BuildTimingView(build: build)
+            if #available(iOS 26, macOS 26, visionOS 26, *) {
+                ConnectWebBuildSectionView(build: build)
+                    .id("\(store.connectAccount?.id.uuidString ?? "").\(store.connectDemoMode)")
+            } else {
+                Section {
+                    BuildTimingView(build: build)
+                }
             }
 
             BuildCommitDetails(build)
@@ -72,6 +78,7 @@ struct BuildDetails: View {
         .toolbar {
             BuildDetailsToolbar(build: build)
         }
+        .environment(webBuildVM)
         .foregroundStyle(.foreground)
         .scrollIndicators(.never)
         .task {

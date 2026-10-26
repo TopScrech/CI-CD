@@ -48,6 +48,10 @@ struct ConnectAuthView: View {
                 
                 if !account.demoMode {
                     credentialsSection(account)
+                    if #available(iOS 26, macOS 26, visionOS 26, *) {
+                        ConnectWebAccountSectionView(accountID: account.id)
+                            .id(account.id)
+                    }
                 }
                 
                 Section {

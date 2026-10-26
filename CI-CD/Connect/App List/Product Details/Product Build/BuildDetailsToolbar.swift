@@ -3,12 +3,21 @@ import AppStoreConnect_Swift_SDK
 import OSLog
 
 struct BuildDetailsToolbar: ToolbarContent {
+    @Environment(ConnectWebBuildVM.self) private var webBuildVM
     @Environment(BuildVM.self) private var vm
     @EnvironmentObject private var store: ValueStore
 
     let build: CiBuildRun
 
     var body: some ToolbarContent {
+        if webBuildVM.isLoading {
+            ToolbarItem(placement: .primaryAction) {
+                ProgressView()
+                    .accessibilityLabel("Loading build environment")
+            }
+            .preferredToolbarAxis(.verticalPreferred)
+        }
+
         if !store.connectDemoMode, let workflow = build.relationships?.workflow?.data {
             ToolbarItem(placement: .primaryAction) {
                 Menu("Build actions", systemImage: "ellipsis") {

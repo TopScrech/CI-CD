@@ -5,6 +5,7 @@ import OSLog
 
 struct BuildCard: View {
     @State private var vm = BuildVM()
+    @Environment(\.connectProductID) private var productID
     @Environment(AppVM.self) private var productVM
     @EnvironmentObject private var store: ValueStore
     @Environment(\.accessibilityDifferentiateWithoutColor) private var differentiateWithoutColor
@@ -35,6 +36,7 @@ struct BuildCard: View {
         NavigationLink {
             BuildDetails(build)
                 .environment(vm)
+                .environment(\.connectProductID, productID)
         } label: {
             HStack {
                 Capsule()
