@@ -17,6 +17,12 @@ final class AppVM {
             }
         }
     }
+    private var betaStatesByBuildID: [String: [ExternalBetaState]] = [:]
+    var latestBuildBetaStates: [ExternalBetaState] {
+        guard let latestBuild else { return [] }
+        return betaStatesByBuildID[latestBuild.id] ?? []
+    }
+
     private var cachedLatestBuild: CiBuildRun?
     private var latestBuildCache: ProductLatestBuildCache?
     var latestBuild: CiBuildRun? {
@@ -225,6 +231,7 @@ final class AppVM {
         guard !store.connectDemoMode, let accountID else {
             latestBuildCache = nil
             cachedLatestBuild = nil
+            betaStatesByBuildID = [:]
             builds = []
             return
         }
@@ -234,6 +241,7 @@ final class AppVM {
         builds = []
         let cache = ProductLatestBuildCache(accountID: accountID, productID: productID)
         cachedLatestBuild = cache.load()
+        betaStatesByBuildID = cache.loadBetaStates()
         latestBuildCache = cache
     }
 
@@ -257,6 +265,46 @@ final class AppVM {
                   latestBuildCache?.productID == id else { return }
             builds = fetchedBuilds.sorted {
                 ($0.attributes?.number ?? -1) < ($1.attributes?.number ?? -1)
+            }
+
+            guard let build = latestBuild else { return }
+            do {
+                let betaRequest = APIEndpoint.v1.ciBuildRuns.id(build.id).builds.get(
+                    parameters: .init(include: [.buildBetaDetail])
+                )
+                var states: [ExternalBetaState] = []
+                for try await page in provider.paged(betaRequest) {
+                    var includedStates: [String: ExternalBetaState] = [:]
+                    for item in page.included ?? [] {
+                        if case .buildBetaDetail(let detail) = item,
+                           let state = detail.attributes?.externalBuildState {
+                            includedStates[detail.id] = state
+                        }
+                    }
+                    for uploadedBuild in page.data {
+                        let detailID = uploadedBuild.relationships?.buildBetaDetail?.data?.id ?? uploadedBuild.id
+                        if let state = includedStates[detailID] {
+                            states.append(state)
+                        } else {
+                            // Xcode Cloud can return empty included details even when the direct endpoint has review state
+                            let detail = try await provider.request(
+                                APIEndpoint.v1.builds.id(uploadedBuild.id).buildBetaDetail.get()
+                            ).data
+                            if let state = detail.attributes?.externalBuildState {
+                                states.append(state)
+                            }
+                        }
+                    }
+                }
+                try Task.checkCancellation()
+                guard store.connectAccount?.id == accountID, !store.connectDemoMode,
+                      latestBuildCache?.productID == id, latestBuild?.id == build.id else { return }
+                betaStatesByBuildID = [build.id: states]
+                try latestBuildCache?.saveBetaStates(states, for: build.id)
+            } catch is CancellationError {
+                return
+            } catch {
+                logger.error("Failed to refresh latest build beta review state: \(error)")
             }
         } catch is CancellationError {
             return

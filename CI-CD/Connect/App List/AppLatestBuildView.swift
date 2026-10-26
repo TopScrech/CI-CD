@@ -3,10 +3,11 @@ import AppStoreConnect_Swift_SDK
 
 struct AppLatestBuildView: View {
     let build: CiBuildRun
+    let betaStates: [ExternalBetaState]
 
     var body: some View {
         if let number = build.attributes?.number {
-            let status = AppBuildStatus(build)
+            let status = AppBuildStatus(build, betaStates: betaStates)
 
             HStack(spacing: 4) {
                 Image(systemName: status.symbol)

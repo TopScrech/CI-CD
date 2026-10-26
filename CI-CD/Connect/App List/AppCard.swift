@@ -25,7 +25,7 @@ struct AppCard: View {
                     }
 
                     if let build = vm.latestBuild {
-                        AppLatestBuildView(build: build)
+                        AppLatestBuildView(build: build, betaStates: vm.latestBuildBetaStates)
                     }
                 }
                 
