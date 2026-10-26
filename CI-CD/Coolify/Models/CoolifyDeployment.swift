@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct DeploymentResponse: Decodable {
-    let count: Int
     let deployments: [CoolifyDeployment]
 }
 

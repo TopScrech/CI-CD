@@ -32,11 +32,9 @@ struct GitHubActor: Codable, Hashable {
 }
 
 struct GitHubWorkflowRunResponse: Codable {
-    let totalCount: Int
     let workflowRuns: [GitHubWorkflowRun]
     
     enum CodingKeys: String, CodingKey {
-        case totalCount = "total_count"
         case workflowRuns = "workflow_runs"
     }
 }

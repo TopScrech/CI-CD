@@ -193,7 +193,7 @@ struct PanelSidebarView: View {
     }
 
     private func selectTab(offset: Int) {
-        let tabs = PanelSidebarSection.all.flatMap(\.tabs)
+        let tabs = HomeViewTab.allCases
 
         guard !tabs.isEmpty else {
             return

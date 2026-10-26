@@ -14,14 +14,6 @@ enum HomeViewTab: String, CaseIterable, Identifiable {
         }
     }
     
-    var localizedTitle: LocalizedStringKey {
-        switch self {
-        case .connect: "Connect"
-        case .coolify: "Coolify"
-        case .github: "GitHub"
-        }
-    }
-    
     var systemImage: String {
         switch self {
         case .connect: "app.dashed"

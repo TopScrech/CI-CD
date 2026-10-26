@@ -1,4 +1,5 @@
 import Foundation
+import Network
 import Testing
 
 struct CoolifyProxyTests {

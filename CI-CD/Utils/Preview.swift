@@ -5,8 +5,7 @@ struct Preview {
         id: 1,
         uuid: "demo-proj-1",
         name: "Demo Project",
-        description: "Sample project",
-        environments: []
+        description: "Sample project"
     )
     
     static var coolifyApps = [

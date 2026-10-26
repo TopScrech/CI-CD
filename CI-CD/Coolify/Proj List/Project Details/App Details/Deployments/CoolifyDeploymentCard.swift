@@ -54,10 +54,3 @@ struct CoolifyDeploymentCard: View {
         }
     }
 }
-
-//#Preview {
-//    List {
-//        CoolifyDeploymentCard()
-//    }
-//    .darkSchemePreferred()
-//}

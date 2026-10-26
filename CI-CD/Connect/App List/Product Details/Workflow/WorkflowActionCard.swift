@@ -46,10 +46,3 @@ struct WorkflowActionCard: View {
         .footnote()
     }
 }
-
-//#Preview {
-//    List {
-//        WorkflowActionCard(CiAction.preview)
-//    }
-//    .darkSchemePreferred()
-//}

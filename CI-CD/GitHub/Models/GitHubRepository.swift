@@ -9,7 +9,6 @@ struct GitHubRepository: Codable, Identifiable, Hashable {
     let description: String?
     let defaultBranch: String
     let owner: GitHubRepositoryOwner
-    let pushedAt: Date?
     
     var ownerName: String {
         owner.login
@@ -21,7 +20,6 @@ struct GitHubRepository: Codable, Identifiable, Hashable {
         case privateRepository = "private"
         case htmlURL = "html_url"
         case defaultBranch = "default_branch"
-        case pushedAt = "pushed_at"
     }
 }
 

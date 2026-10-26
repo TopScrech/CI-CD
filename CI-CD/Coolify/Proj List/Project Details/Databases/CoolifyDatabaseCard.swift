@@ -25,10 +25,3 @@ struct CoolifyDatabaseCard: View {
         }
     }
 }
-
-//#Preview {
-//    CoolifyDatabaseCard(
-//        CoolifyDatabase(rawId: 1, uuid: "", environmentId: 1, name: "Postgres", description: "Main DB", environmentName: "Production")
-//    )
-//    .darkSchemePreferred()
-//}

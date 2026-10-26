@@ -271,14 +271,6 @@ struct ConnectAccountSnapshot: Identifiable, Equatable {
         demoMode = account.demoMode
     }
     
-    var effectiveName: String {
-        if !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            return name
-        }
-        
-        return issuerID.isEmpty ? String(localized: "Connect account") : issuerID
-    }
-    
     var isAuthorized: Bool {
         !issuerID.isEmpty && !privateKey.isEmpty && !privateKeyID.isEmpty
     }
@@ -301,14 +293,6 @@ struct CoolifyAccountSnapshot: Identifiable, Equatable {
         demoMode = account.demoMode
     }
     
-    var effectiveName: String {
-        if !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            return name
-        }
-        
-        return domain.isEmpty ? String(localized: "Coolify account") : domain
-    }
-    
     var isAuthorized: Bool {
         !domain.isEmpty && !apiKey.isEmpty
     }
@@ -329,14 +313,6 @@ struct GitHubAccountSnapshot: Identifiable, Equatable {
         token = account.githubToken
         owner = account.githubOwner
         demoMode = account.demoMode
-    }
-    
-    var effectiveName: String {
-        if !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            return name
-        }
-        
-        return owner.isEmpty ? String(localized: "GitHub account") : owner
     }
     
     var isAuthorized: Bool {

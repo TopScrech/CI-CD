@@ -22,11 +22,7 @@ struct BuildCard: View {
         case .canceled, .skipped: .gray
             
         default:
-#if os(macOS)
-            Color(nsColor: .darkGray)
-#else
             Color(uiColor: .darkGray)
-#endif
         }
     }
     

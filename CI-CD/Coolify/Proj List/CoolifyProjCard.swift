@@ -3,7 +3,6 @@ import OSLog
 
 struct CoolifyProjCard: View {
     @State private var projDetailsVM = CoolifyProjDetailsVM()
-    @Environment(CoolifyProjListVM.self) private var vm
     @EnvironmentObject private var store: ValueStore
     
     @State private var proj: CoolifyProject

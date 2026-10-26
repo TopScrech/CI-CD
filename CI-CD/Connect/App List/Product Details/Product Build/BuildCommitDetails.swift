@@ -55,8 +55,3 @@ struct BuildCommitDetails: View {
         }
     }
 }
-
-//#Preview {
-//    BuildCommitDetails()
-//        .darkSchemePreferred()
-//}

@@ -18,8 +18,7 @@ final class CoolifyProjDetailsVM {
                 id: Preview.coolifyProj.id,
                 uuid: projUUID,
                 name: projName,
-                description: projDescription,
-                environments: []
+                description: projDescription
             )
         }
 

@@ -64,10 +64,3 @@ struct CoolifyAppCard: View {
         }
     }
 }
-
-//#Preview {
-//    List {
-//        CoolifyAppCard()
-//    }
-//    .darkSchemePreferred()
-//}

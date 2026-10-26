@@ -9,8 +9,7 @@ enum GitHubPreview {
         htmlURL: URL(string: "https://github.com/topscrech/ci-cd"),
         description: "Build and release automation",
         defaultBranch: "main",
-        owner: GitHubRepositoryOwner(login: "topscrech"),
-        pushedAt: .now
+        owner: GitHubRepositoryOwner(login: "topscrech")
     )
     
     static let workflow = GitHubWorkflow(
@@ -18,8 +17,7 @@ enum GitHubPreview {
         name: "iOS",
         path: ".github/workflows/ios.yml",
         state: "active",
-        htmlURL: URL(string: "https://github.com/topscrech/ci-cd/actions/workflows/ios.yml"),
-        badgeURL: nil
+        htmlURL: URL(string: "https://github.com/topscrech/ci-cd/actions/workflows/ios.yml")
     )
     
     static let workflowRun = GitHubWorkflowRun(
@@ -40,21 +38,16 @@ enum GitHubPreview {
     
     static let job = GitHubWorkflowJob(
         id: 4,
-        runID: 3,
         name: "Build",
         status: "completed",
         conclusion: "success",
-        startedAt: .now,
-        completedAt: .now,
         htmlURL: URL(string: "https://github.com/topscrech/ci-cd/actions/runs/3/job/4"),
         steps: [
             GitHubWorkflowStep(
                 name: "Checkout",
                 status: "completed",
                 conclusion: "success",
-                number: 1,
-                startedAt: .now,
-                completedAt: .now
+                number: 1
             )
         ]
     )
@@ -63,11 +56,8 @@ enum GitHubPreview {
         id: 5,
         name: "Build Logs",
         sizeInBytes: 24_576,
-        url: URL(string: "https://api.github.com/repos/topscrech/ci-cd/actions/artifacts/5"),
         archiveDownloadURL: URL(string: "https://api.github.com/repos/topscrech/ci-cd/actions/artifacts/5/zip"),
         expired: false,
-        createdAt: .now,
-        expiresAt: .now,
-        updatedAt: .now
+        expiresAt: .now
     )
 }
