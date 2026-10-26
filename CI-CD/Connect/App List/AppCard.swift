@@ -49,6 +49,8 @@ struct AppCard: View {
     }
     
     private func load() {
+        vm.restoreRepositories(product.id, store: store)
+
         Task {
             if store.connectDemoMode {
                 vm.workflows = [CiWorkflow.preview]

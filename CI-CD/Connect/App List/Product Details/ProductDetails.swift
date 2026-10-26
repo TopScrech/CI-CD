@@ -104,7 +104,7 @@ struct ProductDetails: View {
                     }
                 }
             } label: {
-                Image(systemName: "line.3.horizontal.decrease.circle")
+                Image(systemName: "line.3.horizontal.decrease")
                     .symbolVariant(selectedAuthor == nil ? .none : .fill)
             }
         }
@@ -129,8 +129,7 @@ struct ProductDetails: View {
     }
 
     private func refresh() async {
-        vm.primaryRepos = []
-        vm.additionalRepos = []
+        vm.restoreRepositories(product.id, store: store)
 
         if store.connectDemoMode {
             vm.builds = [CiBuildRun.preview]

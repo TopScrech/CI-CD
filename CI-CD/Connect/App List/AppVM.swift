@@ -261,42 +261,64 @@ final class AppVM {
         }
     }
     
+    func restoreRepositories(_ productID: String, store: ValueStore) {
+        guard let accountID = store.connectAccount?.id, !store.connectDemoMode else {
+            primaryRepos = []
+            additionalRepos = []
+            return
+        }
+
+        let cache = ProductRepositoryCache(accountID: accountID, productID: productID)
+        primaryRepos = cache.load(.primary) ?? []
+        additionalRepos = cache.load(.additional) ?? []
+    }
+
     func primaryRepositories(_ productId: String, store: ValueStore) async throws {
-        guard let provider = try await provider(store: store) else {
-            return
-        }
-        
-        let request = APIEndpoint.v1
-            .ciProducts
-            .id(productId)
-            .primaryRepositories
-            .get()
-        
+        guard let accountID = store.connectAccount?.id, !store.connectDemoMode else { return }
+        let cache = ProductRepositoryCache(accountID: accountID, productID: productId)
+
         do {
-            primaryRepos = try await provider.request(request).data
+            guard let provider = try await provider(store: store) else { return }
+            let request = APIEndpoint.v1.ciProducts.id(productId).primaryRepositories.get()
+            var repositories: [ScmRepository] = []
+            for try await page in provider.paged(request) {
+                repositories.append(contentsOf: page.data)
+            }
+            try Task.checkCancellation()
+            guard store.connectAccount?.id == accountID, !store.connectDemoMode else { return }
+
+            primaryRepos = repositories
+            try cache.save(repositories, for: .primary)
+        } catch is CancellationError {
+            return
         } catch {
-            logger.error("Failed to fetch primary repositories: \(error)")
+            logger.error("Failed to refresh primary repositories: \(error)")
         }
     }
-    
+
     func additionalRepositories(_ productId: String, store: ValueStore) async throws {
-        guard let provider = try await provider(store: store) else {
-            return
-        }
-        
-        let request = APIEndpoint.v1
-            .ciProducts
-            .id(productId)
-            .additionalRepositories
-            .get()
-        
+        guard let accountID = store.connectAccount?.id, !store.connectDemoMode else { return }
+        let cache = ProductRepositoryCache(accountID: accountID, productID: productId)
+
         do {
-            additionalRepos = try await provider.request(request).data
+            guard let provider = try await provider(store: store) else { return }
+            let request = APIEndpoint.v1.ciProducts.id(productId).additionalRepositories.get()
+            var repositories: [ScmRepository] = []
+            for try await page in provider.paged(request) {
+                repositories.append(contentsOf: page.data)
+            }
+            try Task.checkCancellation()
+            guard store.connectAccount?.id == accountID, !store.connectDemoMode else { return }
+
+            additionalRepos = repositories
+            try cache.save(repositories, for: .additional)
+        } catch is CancellationError {
+            return
         } catch {
-            logger.error("Failed to fetch additional repositories: \(error)")
+            logger.error("Failed to refresh additional repositories: \(error)")
         }
     }
-    
+
     func getVersions(_ appId: String?, store: ValueStore) async throws {
         guard
             let appId,

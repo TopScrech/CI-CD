@@ -87,14 +87,14 @@
         }, {
           "target": "Unit Tests",
           "inclusions": [
-            "Coolify/Proxy/CoolifyProxyCredentials.swift",
-            "Coolify/Proxy/CoolifyProxyError.swift",
             "Coolify/CoolifyAPIResponse.swift",
             "Coolify/Models/CoolifyAPIError.swift",
             "Coolify/Models/CoolifyAPIErrorResponse.swift",
             "Coolify/Models/CoolifyApp.swift",
             "Coolify/Models/CoolifyDatabase.swift",
             "Coolify/Models/CoolifyProject.swift",
+            "Coolify/Proxy/CoolifyProxyCredentials.swift",
+            "Coolify/Proxy/CoolifyProxyError.swift",
             "Utils/CoolifyAPIEndpoint.swift",
           ],
         },
