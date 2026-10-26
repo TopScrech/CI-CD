@@ -160,6 +160,38 @@ final class AppVM {
         }
     }
 
+    func renameWorkflow(_ workflow: CiWorkflow, name: String, description: String, store: ValueStore) async throws {
+        let updated: CiWorkflow
+
+        if store.connectDemoMode {
+            var draft = workflows.first { $0.id == workflow.id } ?? workflow
+            if draft.attributes == nil {
+                draft.attributes = .init()
+            }
+            draft.attributes?.name = name
+            draft.attributes?.description = description
+            updated = draft
+        } else {
+            guard let provider = try await provider(store: store) else {
+                throw URLError(.userAuthenticationRequired)
+            }
+
+            updated = try await provider.request(
+                APIEndpoint.v1.ciWorkflows.id(workflow.id).patch(
+                    .init(data: .init(
+                        type: .ciWorkflows,
+                        id: workflow.id,
+                        attributes: .init(name: name, description: description)
+                    ))
+                )
+            ).data
+        }
+
+        if let index = workflows.firstIndex(where: { $0.id == workflow.id }) {
+            workflows[index] = updated
+        }
+    }
+
     func deleteWorkflow(_ id: String, store: ValueStore) async throws {
         if !store.connectDemoMode {
             guard let provider = try await provider(store: store) else {

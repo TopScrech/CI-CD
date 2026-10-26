@@ -6,6 +6,7 @@ struct WorkflowCard: View {
     @Environment(AppVM.self) private var vm
     @EnvironmentObject private var store: ValueStore
     
+    @State private var renameVM = WorkflowRenameVM()
     @State private var isDeleting = false
     @State private var showDeleteError = false
     @State private var deleteError = ""
@@ -25,6 +26,8 @@ struct WorkflowCard: View {
     }
     
     var body: some View {
+        @Bindable var renameVM = renameVM
+
         VStack(alignment: .leading, spacing: 12) {
             Label {
                 Text(workflow.attributes?.name ?? "")
@@ -53,11 +56,34 @@ struct WorkflowCard: View {
             AsyncButton("Start clean build", systemImage: "play", action: startCleanBuild)
 
             Divider()
+
+            Button("Rename", systemImage: "pencil") {
+                renameVM.present(workflow)
+            }
+            .disabled(isDeleting || renameVM.isSaving)
             
             AsyncButton("Delete", systemImage: "trash", role: .destructive) {
                 await deleteWorkflow()
             }
-            .disabled(isDeleting)
+            .disabled(isDeleting || renameVM.isSaving)
+        }
+        .alert("Rename workflow", isPresented: $renameVM.isPresented) {
+            TextField("Name", text: $renameVM.name)
+            TextField("Description", text: $renameVM.description)
+
+            Button("Cancel", role: .cancel) {}
+
+            Button("Save") {
+                Task {
+                    await renameVM.save(workflow, appVM: vm, store: store)
+                }
+            }
+            .disabled(!renameVM.canSave)
+        }
+        .alert("Could not rename workflow", isPresented: $renameVM.showError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(renameVM.errorMessage)
         }
         .alert("Could not delete workflow", isPresented: $showDeleteError) {
             Button("OK", role: .cancel) {}
