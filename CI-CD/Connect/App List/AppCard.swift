@@ -23,6 +23,10 @@ struct AppCard: View {
                         Text(name)
                             .title3()
                     }
+
+                    if let build = vm.latestBuild {
+                        AppLatestBuildView(build: build)
+                    }
                 }
                 
                 Spacer()
@@ -49,11 +53,13 @@ struct AppCard: View {
     }
     
     private func load() {
+        vm.restoreLatestBuild(product.id, store: store)
         vm.restoreRepositories(product.id, store: store)
 
         Task {
             if store.connectDemoMode {
                 vm.workflows = [CiWorkflow.preview]
+                vm.builds = [CiBuildRun.preview]
             } else {
                 async let workflows: () = vm.fetchWorkflows(product.id, store: store)
                 async let builds: () = vm.fetchBuilds(product.id, store: store)

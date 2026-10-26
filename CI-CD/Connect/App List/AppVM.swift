@@ -6,7 +6,23 @@ private let logger = Logger(subsystem: "dev.topscrech.CI-CD", category: "AppVM")
 
 @Observable
 final class AppVM {
-    var builds: [CiBuildRun] = []
+    var builds: [CiBuildRun] = [] {
+        didSet {
+            guard let latestBuildCache else { return }
+            cachedLatestBuild = builds.max { ($0.attributes?.number ?? -1) < ($1.attributes?.number ?? -1) }
+            do {
+                try latestBuildCache.save(cachedLatestBuild)
+            } catch {
+                logger.error("Failed to cache latest build: \(error)")
+            }
+        }
+    }
+    private var cachedLatestBuild: CiBuildRun?
+    private var latestBuildCache: ProductLatestBuildCache?
+    var latestBuild: CiBuildRun? {
+        builds.max { ($0.attributes?.number ?? -1) < ($1.attributes?.number ?? -1) } ?? cachedLatestBuild
+    }
+
     var workflows: [CiWorkflow] = []
     var primaryRepos: [ScmRepository] = []
     var additionalRepos: [ScmRepository] = []
@@ -204,29 +220,54 @@ final class AppVM {
         workflows.removeAll { $0.id == id }
     }
 
-    func fetchBuilds(_ id: String, store: ValueStore) async throws {
-        guard
-            let provider = try await provider(store: store)
-        else {
+    func restoreLatestBuild(_ productID: String, store: ValueStore) {
+        let accountID = store.connectAccount?.id
+        guard !store.connectDemoMode, let accountID else {
+            latestBuildCache = nil
+            cachedLatestBuild = nil
+            builds = []
             return
         }
-        
+        guard latestBuildCache?.accountID != accountID || latestBuildCache?.productID != productID else { return }
+
+        latestBuildCache = nil
+        builds = []
+        let cache = ProductLatestBuildCache(accountID: accountID, productID: productID)
+        cachedLatestBuild = cache.load()
+        latestBuildCache = cache
+    }
+
+    func fetchBuilds(_ id: String, store: ValueStore) async throws {
+        restoreLatestBuild(id, store: store)
+        guard let accountID = store.connectAccount?.id, !store.connectDemoMode,
+              let provider = try await provider(store: store) else { return }
+
         let request = APIEndpoint.v1
             .ciProducts
             .id(id)
             .buildRuns
             .get(
-                parameters: .init(include: [.workflow])
+                parameters: .init(sort: [.minusnumber], include: [.workflow])
             )
         
         do {
-            builds = try await provider.request(request).data
+            let fetchedBuilds = try await provider.request(request).data
+            try Task.checkCancellation()
+            guard store.connectAccount?.id == accountID, !store.connectDemoMode,
+                  latestBuildCache?.productID == id else { return }
+            builds = fetchedBuilds.sorted {
+                ($0.attributes?.number ?? -1) < ($1.attributes?.number ?? -1)
+            }
+        } catch is CancellationError {
+            return
         } catch {
             logger.error("Failed to fetch builds: \(error)")
         }
     }
     
     func startBuild(_ workflowId: String, clean: Bool = false, store: ValueStore) async throws {
+        let accountID = store.connectAccount?.id
+        let productID = latestBuildCache?.productID
         guard
             let provider = try await provider(store: store)
         else {
@@ -255,6 +296,9 @@ final class AppVM {
         
         do {
             let build = try await provider.request(request).data
+            try Task.checkCancellation()
+            guard store.connectAccount?.id == accountID, !store.connectDemoMode,
+                  latestBuildCache?.productID == productID else { return }
             builds.append(build)
         } catch {
             logger.error("Failed to start build: \(error)")

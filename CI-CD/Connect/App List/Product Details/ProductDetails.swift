@@ -129,6 +129,7 @@ struct ProductDetails: View {
     }
 
     private func refresh() async {
+        vm.restoreLatestBuild(product.id, store: store)
         vm.restoreRepositories(product.id, store: store)
 
         if store.connectDemoMode {
