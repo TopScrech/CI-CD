@@ -2956,6 +2956,7 @@
       }
     },
     "Copy repository url" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -3024,6 +3025,9 @@
           }
         }
       }
+    },
+    "Copy URL" : {
+
     },
     "Could not delete workflow" : {
       "comment" : "A title for an alert that displays when a user tries to delete a workflow but an error occurs.",

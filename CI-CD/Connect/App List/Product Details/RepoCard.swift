@@ -36,7 +36,7 @@ struct RepoCard: View {
                     }
                 }
                 
-                Button("Copy repository url", systemImage: "doc.on.doc") {
+                Button("Copy URL", systemImage: "doc.on.doc") {
                     Pasteboard.copy(url)
                 }
                 
