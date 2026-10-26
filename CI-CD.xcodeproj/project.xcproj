@@ -93,6 +93,7 @@
             "Coolify/Models/CoolifyApp.swift",
             "Coolify/Models/CoolifyDatabase.swift",
             "Coolify/Models/CoolifyProject.swift",
+            "Coolify/Proj List/CoolifyProjectCache.swift",
             "Coolify/Proxy/CoolifyProxyCredentials.swift",
             "Coolify/Proxy/CoolifyProxyError.swift",
             "Utils/CoolifyAPIEndpoint.swift",

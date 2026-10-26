@@ -4,8 +4,9 @@ import OSLog
 struct CoolifyProjCard: View {
     @State private var projDetailsVM = CoolifyProjDetailsVM()
     @EnvironmentObject private var store: ValueStore
+    @Environment(CoolifyProjListVM.self) private var listVM
     
-    @State private var proj: CoolifyProject
+    private let proj: CoolifyProject
     
     init(_ proj: CoolifyProject) {
         self.proj = proj
@@ -28,7 +29,7 @@ struct CoolifyProjCard: View {
                 }
             }
         }
-        .task {
+        .onChange(of: proj, initial: true) {
             projDetailsVM.projName = proj.name
             projDetailsVM.projDescription = proj.description ?? ""
         }
@@ -48,8 +49,9 @@ struct CoolifyProjCard: View {
     }
     
     private func save() async {
+        let account = store.coolifyAccount
         if let proj = await projDetailsVM.rename(proj.uuid, store: store) {
-            self.proj = proj
+            listVM.updateProject(proj, account: account)
         }
     }
 }

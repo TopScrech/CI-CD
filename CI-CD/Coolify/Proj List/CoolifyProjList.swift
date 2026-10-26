@@ -3,6 +3,7 @@ import SwiftUI
 struct CoolifyProjList: View {
     @State private var vm = CoolifyProjListVM()
     @EnvironmentObject private var store: ValueStore
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     
     @State private var sheetAuth = false
     
@@ -35,6 +36,7 @@ struct CoolifyProjList: View {
             }
         }
         .environment(vm)
+        .animation(reduceMotion ? nil : .default, value: vm.projects)
         .refreshable {
             await vm.fetchProjects(store: store)
         }
