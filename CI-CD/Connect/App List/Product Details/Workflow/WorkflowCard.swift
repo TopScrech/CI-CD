@@ -6,6 +6,10 @@ struct WorkflowCard: View {
     @Environment(AppVM.self) private var vm
     @EnvironmentObject private var store: ValueStore
     
+    @State private var isDeleting = false
+    @State private var showDeleteError = false
+    @State private var deleteError = ""
+
     private let workflow: CiWorkflow
     
     init(_ workflow: CiWorkflow) {
@@ -47,9 +51,36 @@ struct WorkflowCard: View {
         .contextMenu {
             AsyncButton("Start build", systemImage: "play", action: startBuild)
             AsyncButton("Start clean build", systemImage: "play", action: startCleanBuild)
+
+            Divider()
+            
+            Button("Delete", systemImage: "trash", role: .destructive) {
+                Task {
+                    await deleteWorkflow()
+                }
+            }
+            .disabled(isDeleting)
+        }
+        .alert("Could not delete workflow", isPresented: $showDeleteError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(deleteError)
         }
     }
     
+    private func deleteWorkflow() async {
+        guard !isDeleting else { return }
+        isDeleting = true
+        defer { isDeleting = false }
+
+        do {
+            try await vm.deleteWorkflow(workflow.id, store: store)
+        } catch {
+            deleteError = error.localizedDescription
+            showDeleteError = true
+        }
+    }
+
     private func startBuild() async {
         if store.connectDemoMode {
             if let build = vm.builds.first {

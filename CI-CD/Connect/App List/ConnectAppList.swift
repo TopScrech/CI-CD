@@ -12,11 +12,18 @@ struct ConnectAppList: View {
             if store.connectDemoMode || store.connectAuthorized {
                 ForEach(vm.visibleProducts(hidingRemovedApps: store.connectHideRemovedApps && !store.connectDemoMode)) {
                     AppCard($0)
+                        .environment(vm.appViewModel(for: $0.id))
                 }
             } else {
                 ProjectListCredentialsUnavailableView(serviceName: "App Store Connect") {
                     sheetAuth = true
                 }
+            }
+        }
+        .navigationDestination(for: ProductRoute.self) { route in
+            if let product = vm.products.first(where: { $0.id == route.id }) {
+                ProductDetails(product)
+                    .environment(vm.appViewModel(for: route.id))
             }
         }
         .animation(.default, value: vm.products.count)

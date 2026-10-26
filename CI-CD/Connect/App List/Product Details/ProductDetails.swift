@@ -31,8 +31,10 @@ struct ProductDetails: View {
         List {
             if !vm.workflows.isEmpty {
                 Section("Workflows") {
-                    ForEach(vm.workflows) {
-                        WorkflowCard($0)
+                    ForEach(vm.workflows) { workflow in
+                        NavigationLink(value: WorkflowRoute(id: workflow.id)) {
+                            WorkflowCard(workflow)
+                        }
                     }
                 }
             }
@@ -65,6 +67,12 @@ struct ProductDetails: View {
                         BuildCard($0)
                     }
                 }
+            }
+        }
+        .navigationDestination(for: WorkflowRoute.self) { route in
+            if let workflow = vm.workflows.first(where: { $0.id == route.id }) {
+                WorkflowEditorView(workflow)
+                    .environment(vm)
             }
         }
         .animation(.default, value: selectedAuthor)
@@ -132,11 +140,12 @@ struct ProductDetails: View {
             return
         }
 
+        async let workflows: () = vm.fetchWorkflows(product.id, store: store)
         async let builds: () = vm.fetchBuilds(product.id, store: store)
         async let primary: () = vm.primaryRepositories(product.id, store: store)
         async let additional: () = vm.additionalRepositories(product.id, store: store)
 
-        _ = try? await (builds, primary, additional)
+        _ = try? await (workflows, builds, primary, additional)
     }
 }
 

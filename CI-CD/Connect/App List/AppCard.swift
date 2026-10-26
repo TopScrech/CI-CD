@@ -2,7 +2,7 @@ import ScrechKit
 @preconcurrency import AppStoreConnect_Swift_SDK
 
 struct AppCard: View {
-    @State private var vm = AppVM()
+    @Environment(AppVM.self) private var vm
     @EnvironmentObject private var store: ValueStore
     
     private let product: CiProduct
@@ -14,10 +14,7 @@ struct AppCard: View {
     @State private var sheetVersions = false
     
     var body: some View {
-        NavigationLink {
-            ProductDetails(product)
-                .environment(vm)
-        } label: {
+        NavigationLink(value: ProductRoute(id: product.id)) {
             HStack {
                 AppCardImage(product)
                 
@@ -72,4 +69,5 @@ struct AppCard: View {
     AppCard(CiProduct.preview)
         .darkSchemePreferred()
         .environmentObject(ValueStore())
+        .environment(AppVM())
 }

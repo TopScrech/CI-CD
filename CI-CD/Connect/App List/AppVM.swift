@@ -84,6 +84,74 @@ final class AppVM {
         }
     }
     
+    func fetchWorkflow(_ id: String, store: ValueStore) async throws -> CiWorkflow {
+        if store.connectDemoMode {
+            guard let workflow = workflows.first(where: { $0.id == id }) else {
+                throw URLError(.resourceUnavailable)
+            }
+            return workflow
+        }
+
+        guard let provider = try await provider(store: store) else {
+            throw URLError(.userAuthenticationRequired)
+        }
+
+        let workflow = try await provider.request(APIEndpoint.v1.ciWorkflows.id(id).get()).data
+        if let index = workflows.firstIndex(where: { $0.id == id }) {
+            workflows[index] = workflow
+        }
+        return workflow
+    }
+
+    func updateWorkflow(_ workflow: CiWorkflow, name: String, description: String, restrictEditing: Bool, store: ValueStore) async throws {
+        let updated: CiWorkflow
+
+        if store.connectDemoMode {
+            var draft = workflow
+            if draft.attributes == nil {
+                draft.attributes = .init()
+            }
+            draft.attributes?.name = name
+            draft.attributes?.description = description
+            draft.attributes?.isLockedForEditing = restrictEditing
+            updated = draft
+        } else {
+            guard let provider = try await provider(store: store) else {
+                throw URLError(.userAuthenticationRequired)
+            }
+
+            updated = try await provider.request(
+                APIEndpoint.v1.ciWorkflows.id(workflow.id).patch(
+                    .init(data: .init(
+                        type: .ciWorkflows,
+                        id: workflow.id,
+                        attributes: .init(
+                            name: name,
+                            description: description,
+                            isLockedForEditing: restrictEditing
+                        )
+                    ))
+                )
+            ).data
+        }
+
+        if let index = workflows.firstIndex(where: { $0.id == workflow.id }) {
+            workflows[index] = updated
+        }
+    }
+
+    func deleteWorkflow(_ id: String, store: ValueStore) async throws {
+        if !store.connectDemoMode {
+            guard let provider = try await provider(store: store) else {
+                throw URLError(.userAuthenticationRequired)
+            }
+
+            try await provider.request(APIEndpoint.v1.ciWorkflows.id(id).delete)
+        }
+
+        workflows.removeAll { $0.id == id }
+    }
+
     func fetchBuilds(_ id: String, store: ValueStore) async throws {
         guard
             let provider = try await provider(store: store)

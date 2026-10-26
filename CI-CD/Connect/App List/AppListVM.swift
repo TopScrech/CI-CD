@@ -7,6 +7,17 @@ final class AppListVM {
     var products: [CiProduct] = []
     private(set) var availableAppIDs: Set<String>?
     private var fetchID = UUID()
+    @ObservationIgnored private var appViewModels: [String: AppVM] = [:]
+
+    func appViewModel(for productID: String) -> AppVM {
+        if let vm = appViewModels[productID] {
+            return vm
+        }
+
+        let vm = AppVM()
+        appViewModels[productID] = vm
+        return vm
+    }
 
     func visibleProducts(hidingRemovedApps: Bool) -> [CiProduct] {
         guard hidingRemovedApps, let availableAppIDs else {
