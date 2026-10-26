@@ -9,7 +9,7 @@ struct ActionProgressView: View {
     }
 
     var body: some View {
-        HStack {
+        HStack(spacing: 4) {
             if let status = action.attributes?.completionStatus {
                 switch status {
                 case .succeeded:
@@ -54,6 +54,7 @@ struct ActionProgressView: View {
                     .foregroundStyle(.secondary)
             }
         }
+        .labelStyle(CompactStatusLabelStyle())
         .font(.subheadline)
     }
 }

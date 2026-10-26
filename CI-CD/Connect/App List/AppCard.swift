@@ -2,6 +2,7 @@ import ScrechKit
 @preconcurrency import AppStoreConnect_Swift_SDK
 
 struct AppCard: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(AppVM.self) private var vm
     @EnvironmentObject private var store: ValueStore
     
@@ -26,12 +27,14 @@ struct AppCard: View {
 
                     if let build = vm.latestBuild {
                         AppLatestBuildView(build: build, betaStates: vm.latestBuildBetaStates)
+                            .transition(.opacity)
                     }
                 }
                 
                 Spacer()
             }
         }
+        .animation(reduceMotion ? nil : .easeInOut, value: vm.latestBuild?.id)
         .appCardContextMenu($sheetVersions, product: product)
         .environment(vm)
         .task {

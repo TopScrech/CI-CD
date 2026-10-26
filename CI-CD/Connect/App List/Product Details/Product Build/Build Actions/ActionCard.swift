@@ -24,23 +24,23 @@ struct ActionCard: View {
                 ActionProgressView(action)
 
                 if vm.artifacts.count > 0 {
-                    Text("📁 \(vm.artifacts.count)x Artifacts")
+                    Text("\(vm.artifacts.count) Artifacts")
                 }
                 
                 if let errors = vm.errorCount, errors > 0 {
-                    Text("⛔️ \(errors)x Errors")
+                    Text("\(errors) Errors")
                 }
                 
                 if let warnings = vm.warningCount, warnings > 0 {
-                    Text("⚠️ \(warnings)x Warnings")
+                    Text("⚠️ \(warnings) Warnings")
                 }
                 
                 if let analyzerWarnings = vm.analyzerWarningCount, analyzerWarnings > 0 {
-                    Text("⚠️ \(analyzerWarnings)x Analyzer Warnings")
+                    Text("⚠️ \(analyzerWarnings) Analyzer Warnings")
                 }
                 
                 if let testFailures = vm.testFailureCount, testFailures > 0 {
-                    Text("⛔️ \(testFailures)x Test Failures")
+                    Text("⛔️ \(testFailures) Test Failures")
                 }
             }
             .animation(.default, value: vm.errorCount)

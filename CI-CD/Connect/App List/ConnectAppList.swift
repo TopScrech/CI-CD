@@ -2,15 +2,18 @@ import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct ConnectAppList: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var vm = AppListVM()
     @EnvironmentObject private var store: ValueStore
     
     @State private var sheetAuth = false
     
     var body: some View {
+        let products = vm.visibleProducts(hidingRemovedApps: store.connectHideRemovedApps && !store.connectDemoMode)
+
         List {
             if store.connectDemoMode || store.connectAuthorized {
-                ForEach(vm.visibleProducts(hidingRemovedApps: store.connectHideRemovedApps && !store.connectDemoMode)) {
+                ForEach(products) {
                     AppCard($0)
                         .environment(vm.appViewModel(for: $0.id))
                 }
@@ -26,7 +29,7 @@ struct ConnectAppList: View {
                     .environment(vm.appViewModel(for: route.id))
             }
         }
-        .animation(.default, value: vm.products.count)
+        .animation(reduceMotion ? nil : .default, value: products.map(\.id))
         .scrollIndicators(.never)
         .refreshableTask {
             fetch()
