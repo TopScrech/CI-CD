@@ -96,14 +96,14 @@ final class AppVM {
             throw URLError(.userAuthenticationRequired)
         }
 
-        let workflow = try await provider.request(APIEndpoint.v1.ciWorkflows.id(id).get()).data
+        let workflow = try await provider.request(APIEndpoint.v1.ciWorkflows.id(id).get(parameters: .init(include: [.xcodeVersion, .macOsVersion]))).data
         if let index = workflows.firstIndex(where: { $0.id == id }) {
             workflows[index] = workflow
         }
         return workflow
     }
 
-    func updateWorkflow(_ workflow: CiWorkflow, name: String, description: String, restrictEditing: Bool, store: ValueStore) async throws {
+    func updateWorkflow(_ workflow: CiWorkflow, name: String, description: String, restrictEditing: Bool, isClean: Bool, xcodeVersionID: String?, macOSVersionID: String?, store: ValueStore) async throws {
         let updated: CiWorkflow
 
         if store.connectDemoMode {
@@ -114,10 +114,28 @@ final class AppVM {
             draft.attributes?.name = name
             draft.attributes?.description = description
             draft.attributes?.isLockedForEditing = restrictEditing
+            draft.attributes?.isClean = isClean
+            if draft.relationships == nil {
+                draft.relationships = .init()
+            }
+            if let xcodeVersionID {
+                draft.relationships?.xcodeVersion = .init(data: .init(type: .ciXcodeVersions, id: xcodeVersionID))
+            }
+            if let macOSVersionID {
+                draft.relationships?.macOsVersion = .init(data: .init(type: .ciMacOsVersions, id: macOSVersionID))
+            }
             updated = draft
         } else {
             guard let provider = try await provider(store: store) else {
                 throw URLError(.userAuthenticationRequired)
+            }
+
+            var relationships = CiWorkflowUpdateRequest.Data.Relationships()
+            if let xcodeVersionID {
+                relationships.xcodeVersion = .init(data: .init(type: .ciXcodeVersions, id: xcodeVersionID))
+            }
+            if let macOSVersionID {
+                relationships.macOsVersion = .init(data: .init(type: .ciMacOsVersions, id: macOSVersionID))
             }
 
             updated = try await provider.request(
@@ -128,8 +146,10 @@ final class AppVM {
                         attributes: .init(
                             name: name,
                             description: description,
-                            isLockedForEditing: restrictEditing
-                        )
+                            isLockedForEditing: restrictEditing,
+                            isClean: isClean
+                        ),
+                        relationships: relationships
                     ))
                 )
             ).data

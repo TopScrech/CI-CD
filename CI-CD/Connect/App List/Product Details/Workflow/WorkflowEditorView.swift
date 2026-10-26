@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import AppStoreConnect_Swift_SDK
 
 struct WorkflowEditorView: View {
@@ -26,15 +26,23 @@ struct WorkflowEditorView: View {
                 TextField("Description", text: $vm.description, axis: .vertical)
                     .lineLimit(3...10)
             }
-
-            Section {
-                Toggle("Restrict Editing", isOn: $vm.restrictEditing)
-            } footer: {
+            
+            Toggle(isOn: $vm.restrictEditing) {
+                Text("Restrict Editing")
                 Text("Only Admins and App Managers on your team will be able to make changes")
+            }
+
+            WorkflowEnvironmentSectionView()
+                .environment(vm.environment)
+                .environment(vm)
+
+            Toggle(isOn: $vm.isClean) {
+                Text("Clean")
+                Text("Xcode Cloud will not restore derived data or caches for your builds, which may take significantly longer as a result")
             }
         }
         .disabled(vm.isSaving || vm.isRefreshing)
-        .refreshable {
+        .refreshableTask {
             await refresh()
         }
         .navigationTitle("Edit workflow")
@@ -44,10 +52,8 @@ struct WorkflowEditorView: View {
                     ProgressView()
                         .accessibilityLabel("Saving changes")
                 } else {
-                    Button("Save", systemImage: "checkmark") {
-                        Task {
-                            await save()
-                        }
+                    AsyncButton("Save", systemImage: "checkmark") {
+                        await save()
                     }
                     .disabled(!vm.canSave)
                 }
@@ -66,6 +72,8 @@ struct WorkflowEditorView: View {
         vm.isRefreshing = true
         defer { vm.isRefreshing = false }
 
+        async let versions: () = vm.environment.load(store: store)
+
         do {
             let refreshed = try await appVM.fetchWorkflow(workflow.id, store: store)
             vm.refresh(from: refreshed)
@@ -76,6 +84,8 @@ struct WorkflowEditorView: View {
             vm.errorMessage = error.localizedDescription
             vm.showError = true
         }
+
+        await versions
     }
 
     private func save() async {
@@ -89,6 +99,9 @@ struct WorkflowEditorView: View {
                 name: vm.trimmedName,
                 description: vm.description,
                 restrictEditing: vm.restrictEditing,
+                isClean: vm.isClean,
+                xcodeVersionID: vm.environment.hasChanges ? vm.environment.xcodeVersionID : nil,
+                macOSVersionID: vm.environment.hasChanges ? vm.environment.macOSVersionID : nil,
                 store: store
             )
             dismiss()
