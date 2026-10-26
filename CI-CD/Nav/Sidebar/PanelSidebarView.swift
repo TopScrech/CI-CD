@@ -28,6 +28,7 @@ struct PanelSidebarView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .contentShape(.rect)
                 .accessibilityHidden(!isPersistent && sidebarProgress > 0)
+                .toolbarAwareScenePadding()
         }
         .overlay(alignment: .leading) {
             if !isPersistent {
