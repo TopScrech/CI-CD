@@ -6,6 +6,13 @@ import AppStoreConnect_Swift_SDK
 final class BuildVM {
     private(set) var actions: [CiBuildAction] = []
 
+    func duration(of build: CiBuildRun, now: Date) -> Duration? {
+        guard let attributes = build.attributes, let start = attributes.startedDate else { return nil }
+        guard let end = attributes.finishedDate ?? (attributes.executionProgress == .running ? now : nil),
+              end >= start else { return nil }
+        return .seconds(end.timeIntervalSince(start))
+    }
+
     func reset() {
         actions = []
     }
@@ -66,7 +73,12 @@ final class BuildVM {
             .get()
         
         do {
-            actions = try await provider.request(request).data.sorted {
+            var fetchedActions: [CiBuildAction] = []
+            for try await page in provider.paged(request) {
+                fetchedActions.append(contentsOf: page.data)
+            }
+            try Task.checkCancellation()
+            actions = fetchedActions.sorted {
                 $0.attributes?.name ?? "" < $1.attributes?.name ?? ""
             }
         } catch {

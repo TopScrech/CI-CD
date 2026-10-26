@@ -1,6 +1,5 @@
 import ScrechKit
 import AppStoreConnect_Swift_SDK
-import OSLog
 
 struct BuildDetails: View {
     @Environment(BuildVM.self) private var vm
@@ -14,26 +13,6 @@ struct BuildDetails: View {
     
     var body: some View {
         List {
-            Section {
-                if !store.connectDemoMode, let workflow = build.relationships?.workflow?.data {
-                    AsyncButton("Rebuild", systemImage: "hammer") {
-                        do {
-                            try await vm.startRebuild(of: build.id, in: workflow.id, store: store)
-                        } catch {
-                            Logger().error("Failed to start rebuild: \(error)")
-                        }
-                    }
-                    
-                    AsyncButton("Rebuild clean", systemImage: "hammer") {
-                        do {
-                            try await vm.startRebuild(of: build.id, in: workflow.id, clean: true, store: store)
-                        } catch {
-                            Logger().error("Failed to start clean rebuild: \(error)")
-                        }
-                    }
-                }
-            }
-            
             BuildDetailsProgress(build)
             
             Section {
@@ -47,7 +26,7 @@ struct BuildDetails: View {
                         
                         Spacer()
                         
-                        Text(created, format: .dateTime)
+                        BuildDateView(date: created)
                             .secondary()
                     }
                 }
@@ -58,7 +37,7 @@ struct BuildDetails: View {
                         
                         Spacer()
                         
-                        Text(started, format: .dateTime)
+                        BuildDateView(date: started)
                             .secondary()
                     }
                 }
@@ -69,12 +48,16 @@ struct BuildDetails: View {
                         
                         Spacer()
                         
-                        Text(finished, format: .dateTime)
+                        BuildDateView(date: finished)
                             .secondary()
                     }
                 }
             }
             
+            Section {
+                BuildTimingView(build: build)
+            }
+
             BuildCommitDetails(build)
             
             if !vm.actions.isEmpty {
@@ -86,6 +69,9 @@ struct BuildDetails: View {
             }
         }
         .navigationTitle("Build \(build.attributes?.number?.description ?? "")")
+        .toolbar {
+            BuildDetailsToolbar(build: build)
+        }
         .foregroundStyle(.foreground)
         .scrollIndicators(.never)
         .task {
