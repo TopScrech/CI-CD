@@ -4,6 +4,7 @@ import AppStoreConnect_Swift_SDK
 struct ConnectAppList: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var vm = AppListVM()
+    @State private var usageVM = ConnectUsageVM()
     @EnvironmentObject private var store: ValueStore
     
     @State private var sheetAuth = false
@@ -13,9 +14,15 @@ struct ConnectAppList: View {
 
         List {
             if store.connectDemoMode || store.connectAuthorized {
-                ForEach(products) {
-                    AppCard($0)
-                        .environment(vm.appViewModel(for: $0.id))
+                if #available(iOS 26, macOS 26, visionOS 26, *), !store.connectDemoMode {
+                    ConnectUsageSectionView()
+                }
+
+                Section {
+                    ForEach(products) {
+                        AppCard($0)
+                            .environment(vm.appViewModel(for: $0.id))
+                    }
                 }
             } else {
                 ProjectListCredentialsUnavailableView(serviceName: "App Store Connect") {
@@ -31,8 +38,13 @@ struct ConnectAppList: View {
         }
         .animation(reduceMotion ? nil : .default, value: products.map(\.id))
         .scrollIndicators(.never)
+        .environment(usageVM)
+        .task(id: "\(store.connectAccount?.id.uuidString ?? "").\(store.connectDemoMode).\(store.connectRefreshToken)") {
+            await loadUsage()
+        }
         .refreshableTask {
             fetch()
+            await loadUsage()
         }
         .sheet($sheetAuth) {
             ConnectAuthView {
@@ -44,6 +56,16 @@ struct ConnectAppList: View {
         .onChange(of: store.connectRefreshToken, fetch)
     }
     
+    private func loadUsage() async {
+        guard !store.connectDemoMode, let accountID = store.connectAccount?.id else {
+            usageVM.reset()
+            return
+        }
+        if #available(iOS 26, macOS 26, visionOS 26, *) {
+            await usageVM.load(accountID: accountID)
+        }
+    }
+
     private func fetch() {
         Task {
             if store.connectDemoMode {

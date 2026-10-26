@@ -46,7 +46,7 @@ enum ConnectWebSession {
         try ConnectWebSessionKeychain.delete(accountID: accountID)
         UserDefaults.standard.removeObject(forKey: key(accountID))
         let cachePrefix = "connect.web.build.\(accountID)."
-        for key in UserDefaults.standard.dictionaryRepresentation().keys where key.hasPrefix(cachePrefix) {
+        for key in UserDefaults.standard.dictionaryRepresentation().keys where key.hasPrefix(cachePrefix) || key.hasPrefix("connect.web.usage.\(accountID).") {
             UserDefaults.standard.removeObject(forKey: key)
         }
         let store = WKWebsiteDataStore(forIdentifier: accountID)

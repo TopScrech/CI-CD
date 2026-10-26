@@ -89,9 +89,11 @@
           "inclusions": [
             "Connect/Web Session/ConnectWebBuildSummary.swift",
             "Connect/Web Session/ConnectWebBuildTiming.swift",
+            "Connect/Web Session/ConnectWebCookie.swift",
+            "Connect/App List/Usage/ConnectUsagePlan.swift",
+            "Connect/App List/Usage/ConnectUsageSummary.swift",
             "Connect/Web Session/ConnectWebError.swift",
             "Connect/Web Session/ConnectWebResponse.swift",
-            "Connect/Web Session/ConnectWebCookie.swift",
             "Coolify/CoolifyAPIResponse.swift",
             "Coolify/Models/CoolifyAPIError.swift",
             "Coolify/Models/CoolifyAPIErrorResponse.swift",

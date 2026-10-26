@@ -4,6 +4,16 @@ import WebKit
 @available(iOS 26, macOS 26, visionOS 26, *)
 enum ConnectWebClient {
     static func buildSummary(accountID: UUID, provider: ConnectWebProvider, productID: String, buildID: String) async throws -> ConnectWebBuildSummary {
+        let data = try await authenticatedData(accountID: accountID, provider: provider, path: ["products", productID, "builds", buildID, "details-v3"])
+        return try ConnectWebBuildSummary.decode(data)
+    }
+
+    static func usage(accountID: UUID, provider: ConnectWebProvider) async throws -> ConnectUsagePlan {
+        let data = try await authenticatedData(accountID: accountID, provider: provider, path: ["usage", "summary"])
+        return try JSONDecoder().decode(ConnectUsageSummary.self, from: data).plan
+    }
+
+    private static func authenticatedData(accountID: UUID, provider: ConnectWebProvider, path: [String]) async throws -> Data {
         let cookieStore = WKWebsiteDataStore(forIdentifier: accountID).httpCookieStore
         let cookies = try await ConnectWebSession.restoreCookies(accountID: accountID)
         try Task.checkCancellation()
@@ -27,9 +37,8 @@ enum ConnectWebClient {
             throw ConnectWebError.wrongTeam
         }
 
-        let endpoint = baseURL.appending(components: "ci", "api", "teams", provider.publicProviderId, "products", productID, "builds", buildID, "details-v3")
+        let endpoint = (["ci", "api", "teams", provider.publicProviderId] + path).reduce(baseURL) { $0.appending(component: $1) }
         let responseData = try await data(from: endpoint, session: session)
-        let summary = try ConnectWebBuildSummary.decode(responseData)
 
         try Task.checkCancellation()
         // Do not restore session cookies if the user disconnected during the request
@@ -40,7 +49,7 @@ enum ConnectWebClient {
                 await cookieStore.setCookie(cookie)
             }
         }
-        return summary
+        return responseData
     }
 
     private static func data(from url: URL, session: URLSession) async throws -> Data {
