@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CoolifyDeploymentList: View {
     @Environment(CoolifyAppDetailsVM.self) private var vm
+    @EnvironmentObject private var store: ValueStore
     
     var body: some View {
         if vm.isLoading {
@@ -13,7 +14,7 @@ struct CoolifyDeploymentList: View {
             } else {
                 ForEach(vm.deployments) { deployment in
                     NavigationLink {
-                        CoolifyDeploymentLogsView(deployment)
+                        CoolifyDeploymentLogsView(deployment, account: store.coolifyAccount)
                     } label: {
                         CoolifyDeploymentCard(deployment)
                     }

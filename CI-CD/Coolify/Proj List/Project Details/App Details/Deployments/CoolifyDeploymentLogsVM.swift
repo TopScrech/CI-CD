@@ -4,38 +4,69 @@ import SwiftUI
 @Observable
 final class CoolifyDeploymentLogsVM {
     var isLoading = true
-    var deployment: CoolifyDeployment?
+    var deployment: CoolifyDeployment? {
+        didSet {
+            if oldValue?.logs != deployment?.logs {
+                logLines = parsedLogLines(from: logs)
+            }
+        }
+    }
+    private(set) var logLines: [CoolifyDeploymentLogLine] = []
+    private var loadedAccount: CoolifyAccountSnapshot?
+    private var loadedDeploymentUUID: String?
+    private var latestRequestID = UUID()
     
     var logs: String {
         deployment?.logs ?? ""
     }
     
-    var logLines: [CoolifyDeploymentLogLine] {
-        parsedLogLines(from: logs)
-    }
-    
-    func reset() {
-        isLoading = true
-        deployment = nil
+    init(fallback: CoolifyDeployment, account: CoolifyAccountSnapshot?) {
+        loadedAccount = account
+        loadedDeploymentUUID = fallback.uuid
+        if let account, account.isAuthorized, !account.demoMode, let uuid = fallback.uuid {
+            deployment = CoolifyDeploymentLogsCache(accountID: account.id, domain: account.domain, deploymentUUID: uuid).load() ?? fallback
+        } else {
+            deployment = fallback
+        }
+        logLines = parsedLogLines(from: logs)
+        isLoading = logLines.isEmpty
     }
     
     func fetchDeployment(_ deploymentUUID: String, fallback: CoolifyDeployment, store: ValueStore) async {
-        defer {
-            isLoading = false
+        let requestID = UUID()
+        latestRequestID = requestID
+        let account = store.coolifyAccount
+
+        if loadedAccount != account || loadedDeploymentUUID != deploymentUUID {
+            deployment = nil
+            loadedAccount = account
+            loadedDeploymentUUID = deploymentUUID
+            if let account, account.isAuthorized, !account.demoMode {
+                deployment = CoolifyDeploymentLogsCache(accountID: account.id, domain: account.domain, deploymentUUID: deploymentUUID).load()
+            }
         }
-        
+
+        if deployment == nil {
+            deployment = fallback
+        }
+        isLoading = logs.isEmpty
+        defer {
+            if latestRequestID == requestID {
+                isLoading = false
+            }
+        }
+
         if store.coolifyDemoMode {
             deployment = fallback
             return
         }
         
-        guard let account = store.coolifyAccount, account.isAuthorized else {
+        guard let account, account.isAuthorized else {
             deployment = fallback
             return
         }
         
         guard let url = CoolifyAPIEndpoint.deployment(deploymentUUID, domain: account.domain) else {
-            deployment = fallback
             return
         }
         
@@ -48,10 +79,17 @@ final class CoolifyDeploymentLogsVM {
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             
             let (data, _) = try await CoolifyTransport.data(for: request, account: account)
-            deployment = try decoder.decode(CoolifyDeployment.self, from: data)
+            let refreshedDeployment = try decoder.decode(CoolifyDeployment.self, from: data)
+            try Task.checkCancellation()
+            guard latestRequestID == requestID, store.coolifyAccount == account else { return }
+            deployment = refreshedDeployment
+            do {
+                try CoolifyDeploymentLogsCache(accountID: account.id, domain: account.domain, deploymentUUID: deploymentUUID).save(refreshedDeployment)
+            } catch {
+                Logger().error("Failed to cache Coolify deployment logs: \(error)")
+            }
         } catch {
             Logger().error("Error fetching deployment logs: \(error)")
-            deployment = fallback
         }
     }
     

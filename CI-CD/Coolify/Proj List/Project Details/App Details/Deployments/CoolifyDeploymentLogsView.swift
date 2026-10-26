@@ -3,12 +3,13 @@ import ScrechKit
 struct CoolifyDeploymentLogsView: View {
     @EnvironmentObject private var store: ValueStore
     
-    @State private var vm = CoolifyDeploymentLogsVM()
+    @State private var vm: CoolifyDeploymentLogsVM
     
     private let deployment: CoolifyDeployment
     
-    init(_ deployment: CoolifyDeployment) {
+    init(_ deployment: CoolifyDeployment, account: CoolifyAccountSnapshot? = nil) {
         self.deployment = deployment
+        _vm = State(initialValue: CoolifyDeploymentLogsVM(fallback: deployment, account: account))
     }
     
     var body: some View {
@@ -19,7 +20,7 @@ struct CoolifyDeploymentLogsView: View {
             } else if vm.logLines.isEmpty {
                 ContentUnavailableView("No logs available", systemImage: "doc.text.magnifyingglass")
             } else {
-                VStack(alignment: .leading) {
+                LazyVStack(alignment: .leading) {
                     ForEach(vm.logLines) { line in
                         HStack(alignment: .top) {
                             Text(line.timeText ?? "--:--")
@@ -40,27 +41,14 @@ struct CoolifyDeploymentLogsView: View {
         .navigationTitle("Deployment logs")
         .navSubtitle(deployment.uuid ?? "")
         .navigationBarTitleDisplayMode(.inline)
-        .task {
-            resetAndLoad()
-        }
-        .onChange(of: store.coolifyAccount?.id) {
-            resetAndLoad()
-        }
-        .onChange(of: store.coolifyDemoMode) {
-            resetAndLoad()
-        }
-        .onChange(of: store.coolifyRefreshToken) {
-            resetAndLoad()
-        }
-    }
-    
-    private func resetAndLoad() {
-        Task {
-            vm.reset()
+        .task(id: store.coolifyRefreshToken) {
             await load()
         }
+        .onChange(of: store.coolifyAccount) {
+            store.bumpRefreshToken(for: .coolify)
+        }
     }
-    
+
     private func load() async {
         guard let uuid = deployment.uuid else {
             vm.deployment = deployment

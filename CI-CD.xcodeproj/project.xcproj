@@ -95,6 +95,7 @@
             "Coolify/Models/CoolifyProject.swift",
             "Coolify/Models/CoolifyDeployment.swift",
             "Coolify/Proj List/Project Details/App Details/Deployments/CoolifyDeploymentCache.swift",
+            "Coolify/Proj List/Project Details/App Details/Deployments/CoolifyDeploymentLogsCache.swift",
             "Coolify/Proj List/CoolifyProjectCache.swift",
             "Coolify/Proj List/Project Details/CoolifyProjectAppsCache.swift",
             "Coolify/Proxy/CoolifyProxyCredentials.swift",
