@@ -170,8 +170,9 @@ struct CoolifyAppDetails: View {
     }
     
     private func load() async {
+        async let deployments: Void = vm.fetchDeployments(app.uuid, store: store)
         await vm.prepareEditor(for: app, store: store)
-        await vm.fetchDeployments(app.uuid, store: store)
+        await deployments
     }
 }
 

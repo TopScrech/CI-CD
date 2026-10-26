@@ -7,6 +7,9 @@ private let logger = Logger(subsystem: "dev.topscrech.CI-CD", category: "Coolify
 final class CoolifyProjDetailsVM {
     var apps: [CoolifyApp] = []
     var databases: [CoolifyDatabase] = []
+    private var loadedAccount: CoolifyAccountSnapshot?
+    private var loadedProjectUUID: String?
+    private var latestRequestID = UUID()
     
     var projName = ""
     var projDescription = ""
@@ -56,36 +59,58 @@ final class CoolifyProjDetailsVM {
     }
     
     func load(_ projUUID: String, store: ValueStore) async {
+        let requestID = UUID()
+        latestRequestID = requestID
+        let account = store.coolifyAccount
+
+        if loadedAccount != account || loadedProjectUUID != projUUID {
+            apps = []
+            databases = []
+            loadedAccount = account
+            loadedProjectUUID = projUUID
+
+            if let account, account.isAuthorized, !account.demoMode {
+                apps = CoolifyProjectAppsCache(accountID: account.id, domain: account.domain, projectUUID: projUUID).load() ?? []
+            }
+        }
+
         if store.coolifyDemoMode {
             apps = Preview.coolifyApps
             databases = Preview.coolifyDatabases
             return
         }
 
-        guard store.coolifyAccount?.isAuthorized == true else {
+        guard let account, account.isAuthorized else {
             apps = []
             databases = []
             return
         }
-        
-        guard let environments = await fetchEnvironments(projUUID, store: store) else {
-            return
-        }
-        
+
+        guard let environments = await fetchEnvironments(projUUID, account: account),
+              !Task.isCancelled, latestRequestID == requestID, store.coolifyAccount == account else { return }
+
         let envIds = Set(environments.keys)
-        
-        async let apps = fetchApps(envIds: envIds, environments: environments, store: store)
-        async let databases = fetchDatabases(envIds: envIds, environments: environments, store: store)
-        
-        self.apps = await apps ?? []
-        self.databases = await databases ?? []
-    }
-    
-    private func fetchEnvironments(_ projUUID: String, store: ValueStore) async -> [Int: CoolifyProjectEnv]? {
-        guard let account = store.coolifyAccount, account.isAuthorized else {
-            return nil
+        async let fetchedApps = fetchApps(envIds: envIds, environments: environments, account: account)
+        async let fetchedDatabases = fetchDatabases(envIds: envIds, environments: environments, account: account)
+        let (apps, databases) = await (fetchedApps, fetchedDatabases)
+
+        guard !Task.isCancelled, latestRequestID == requestID, store.coolifyAccount == account else { return }
+
+        if let apps {
+            self.apps = apps
+            do {
+                try CoolifyProjectAppsCache(accountID: account.id, domain: account.domain, projectUUID: projUUID).save(apps)
+            } catch {
+                logger.error("Failed to cache Coolify apps: \(error)")
+            }
         }
 
+        if let databases {
+            self.databases = databases
+        }
+    }
+
+    private func fetchEnvironments(_ projUUID: String, account: CoolifyAccountSnapshot) async -> [Int: CoolifyProjectEnv]? {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
@@ -133,11 +158,7 @@ final class CoolifyProjDetailsVM {
         }
     }
     
-    private func fetchApps(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv], store: ValueStore) async -> [CoolifyApp]? {
-        guard let account = store.coolifyAccount, account.isAuthorized else {
-            return nil
-        }
-
+    private func fetchApps(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv], account: CoolifyAccountSnapshot) async -> [CoolifyApp]? {
         guard let url = CoolifyAPIEndpoint.fetchApps(domain: account.domain) else {
             return nil
         }
@@ -183,11 +204,7 @@ final class CoolifyProjDetailsVM {
         }
     }
     
-    private func fetchDatabases(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv], store: ValueStore) async -> [CoolifyDatabase]? {
-        guard let account = store.coolifyAccount, account.isAuthorized else {
-            return nil
-        }
-
+    private func fetchDatabases(envIds: Set<Int>, environments: [Int: CoolifyProjectEnv], account: CoolifyAccountSnapshot) async -> [CoolifyDatabase]? {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         

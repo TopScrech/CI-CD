@@ -5,6 +5,9 @@ import ScrechKit
 final class CoolifyAppDetailsVM {
     var isLoading = true
     var deployments: [CoolifyDeployment] = []
+    private var deploymentsAccount: CoolifyAccountSnapshot?
+    private var deploymentsAppUUID: String?
+    private var latestDeploymentRequestID = UUID()
     
     var availableBuildPacks: [CoolifyBuildPack] = []
     var isLoadingBuildPacks = false
@@ -16,23 +19,36 @@ final class CoolifyAppDetailsVM {
     var newBuildPack = ""
     
     func resetLoading() {
-        isLoading = true
-        deployments = []
+        isLoading = deployments.isEmpty
     }
     
     func fetchDeployments(_ appUUID: String, store: ValueStore) async {
+        let requestID = UUID()
+        latestDeploymentRequestID = requestID
+        let account = store.coolifyAccount
+
+        if deploymentsAccount != account || deploymentsAppUUID != appUUID {
+            deployments = []
+            deploymentsAccount = account
+            deploymentsAppUUID = appUUID
+            if let account, account.isAuthorized, !account.demoMode {
+                deployments = CoolifyDeploymentCache(accountID: account.id, domain: account.domain, appUUID: appUUID).load() ?? []
+            }
+        }
+
+        isLoading = deployments.isEmpty
         defer {
-            withAnimation {
+            if latestDeploymentRequestID == requestID {
                 isLoading = false
             }
         }
-        
+
         if store.coolifyDemoMode {
             deployments = Preview.coolifyDeployments
             return
         }
         
-        guard let account = store.coolifyAccount, account.isAuthorized else {
+        guard let account, account.isAuthorized else {
             deployments = []
             return
         }
@@ -54,7 +70,14 @@ final class CoolifyAppDetailsVM {
             Logger().info("Deployments: \(prettyJSON(data) ?? "Invalid JSON")")
             
             let response = try decoder.decode(DeploymentResponse.self, from: data)
+            try Task.checkCancellation()
+            guard latestDeploymentRequestID == requestID, store.coolifyAccount == account else { return }
             deployments = response.deployments
+            do {
+                try CoolifyDeploymentCache(accountID: account.id, domain: account.domain, appUUID: appUUID).save(deployments)
+            } catch {
+                Logger().error("Failed to cache Coolify deployments: \(error)")
+            }
         } catch {
             Logger().error("Error fetching deployments: \(error)")
         }

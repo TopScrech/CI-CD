@@ -4,7 +4,7 @@ struct DeploymentResponse: Decodable {
     let deployments: [CoolifyDeployment]
 }
 
-struct CoolifyDeployment: Identifiable, Decodable {
+struct CoolifyDeployment: Identifiable, Codable {
     var id: Int
     let uuid: String?
     let status: DeploymentStatus
@@ -94,7 +94,7 @@ struct CoolifyDeployment: Identifiable, Decodable {
     }
 }
 
-enum DeploymentStatus: String, Decodable {
+enum DeploymentStatus: String, Codable {
     case finished,
          failed,
          queued,
