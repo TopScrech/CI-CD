@@ -11,7 +11,7 @@ struct WorkflowEnvironmentSectionView: View {
         let isShowingProgress = vm.isLoading || !vm.hasLoaded || editorVM.isRefreshing
 
         Section("Environment") {
-            WorkflowVersionPickerView(
+            WorkflowVersionPicker(
                 title: "Xcode",
                 selection: $vm.xcodeVersionID,
                 options: vm.xcodeOptions,
@@ -26,7 +26,7 @@ struct WorkflowEnvironmentSectionView: View {
                 }
             }
 
-            WorkflowVersionPickerView(
+            WorkflowVersionPicker(
                 title: "macOS",
                 selection: $vm.macOSVersionID,
                 options: vm.compatibleMacOSOptions,

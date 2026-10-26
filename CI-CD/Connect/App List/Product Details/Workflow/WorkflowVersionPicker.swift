@@ -1,6 +1,6 @@
 import ScrechKit
 
-struct WorkflowVersionPickerView: View {
+struct WorkflowVersionPicker: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     let title: String
