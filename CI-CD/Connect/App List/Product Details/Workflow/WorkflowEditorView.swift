@@ -18,26 +18,27 @@ struct WorkflowEditorView: View {
         @Bindable var vm = vm
 
         Form {
-            Section("Name") {
-                TextField("Name", text: $vm.name)
-            }
+            Group {
+                Section("Name") {
+                    TextField("Name", text: $vm.name)
+                }
 
-            Section("Description") {
-                TextField("Description", text: $vm.description, axis: .vertical)
-                    .lineLimit(3...10)
-            }
-            
-            Toggle(isOn: $vm.restrictEditing) {
-                Text("Restrict Editing")
-                Text("Only Admins and App Managers on your team will be able to make changes")
-            }
+                Section("Description") {
+                    TextField("Description", text: $vm.description, axis: .vertical)
+                        .lineLimit(3...10)
+                }
 
-            WorkflowEnvironmentSectionView()
-                .environment(vm.environment)
-                .environment(vm)
+                Toggle(isOn: $vm.restrictEditing) {
+                    Text("Restrict Editing")
+                    Text("Only Admins and App Managers on your team will be able to make changes")
+                }
 
+                WorkflowEnvironmentSectionView()
+                    .environment(vm.environment)
+                    .environment(vm)
+            }
+            .disabled(vm.isSaving || vm.isRefreshing)
         }
-        .disabled(vm.isSaving || vm.isRefreshing)
         .refreshableTask {
             await refresh()
         }
