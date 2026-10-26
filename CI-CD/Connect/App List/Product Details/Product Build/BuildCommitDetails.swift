@@ -44,13 +44,15 @@ struct BuildCommitDetails: View {
                 Text(commit?.message ?? "-")
                     .monospaced()
             }
-            
-            if let commit, let urlString = commit.webURL, let url = URL(string: urlString) {
-                Button("Open on GitHub", systemImage: "link") {
-                    openURL(url)
+            .contentShape(.rect)
+            .contextMenu {
+                if let commit, let urlString = commit.webURL, let url = URL(string: urlString) {
+                    Button("Open on GitHub", systemImage: "link") {
+                        openURL(url)
+                    }
+
+                    ShareLink(item: url)
                 }
-                
-                ShareLink(item: url)
             }
         }
     }
