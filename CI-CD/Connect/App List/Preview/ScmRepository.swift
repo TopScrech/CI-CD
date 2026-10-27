@@ -1,5 +1,5 @@
 import Foundation
-import AppStoreConnect_Swift_SDK
+import ASC
 
 public extension ScmRepository {
     static var preview: ScmRepository {

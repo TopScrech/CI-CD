@@ -1,5 +1,5 @@
 import ScrechKit
-import AppStoreConnect_Swift_SDK
+import ASC
 
 struct ArtifactCard: View {
     private let artifact: CiArtifact

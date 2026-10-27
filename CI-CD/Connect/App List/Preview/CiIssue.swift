@@ -1,5 +1,5 @@
 import Foundation
-import AppStoreConnect_Swift_SDK
+import ASC
 
 extension CiIssue {
     public static var preview: CiIssue {

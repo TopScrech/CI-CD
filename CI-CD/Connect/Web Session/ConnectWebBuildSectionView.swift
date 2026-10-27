@@ -1,5 +1,5 @@
 import ScrechKit
-import AppStoreConnect_Swift_SDK
+import ASC
 
 @available(iOS 26.0, macOS 26.0, visionOS 26.0, *)
 struct ConnectWebBuildSectionView: View {

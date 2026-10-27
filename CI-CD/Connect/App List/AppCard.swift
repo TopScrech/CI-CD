@@ -1,5 +1,5 @@
 import ScrechKit
-@preconcurrency import AppStoreConnect_Swift_SDK
+@preconcurrency import ASC
 
 struct AppCard: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion

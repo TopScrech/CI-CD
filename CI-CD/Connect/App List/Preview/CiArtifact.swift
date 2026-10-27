@@ -1,5 +1,5 @@
 import Foundation
-import AppStoreConnect_Swift_SDK
+import ASC
 
 extension CiArtifact {
     public static var preview: CiArtifact {

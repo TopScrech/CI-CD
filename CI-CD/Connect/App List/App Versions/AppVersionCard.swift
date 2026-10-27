@@ -1,5 +1,5 @@
 import ScrechKit
-import AppStoreConnect_Swift_SDK
+import ASC
 
 struct AppVersionCard: View {
     @State private var vm = AppVersionCardVM()

@@ -1,5 +1,5 @@
 import Foundation
-import AppStoreConnect_Swift_SDK
+import ASC
 
 extension CiWorkflow {
     public static var preview: CiWorkflow {

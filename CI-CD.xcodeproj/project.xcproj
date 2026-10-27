@@ -42,9 +42,9 @@
       },
     }, {
       "kind": "remote",
-      "repository": "https://github.com/AvdLee/appstoreconnect-swift-sdk",
+      "repository": "https://github.com/TopScrech/ASC",
       "version": {
-        "up-to-next-major-version": "4.0.0",
+        "branch": "main",
       },
     }, {
       "kind": "remote",
@@ -202,8 +202,8 @@
           "product-name": "ScrechKit",
           "build-phase": { "build-phase": "frameworks" },
         }, {
-          "package": "appstoreconnect-swift-sdk",
-          "product-name": "AppStoreConnect-Swift-SDK",
+          "package": "ASC",
+          "product-name": "ASC",
           "build-phase": { "build-phase": "frameworks" },
         },
       ],
@@ -277,8 +277,8 @@
           "product-name": "ScrechKit",
           "build-phase": { "build-phase": "frameworks" },
         }, {
-          "package": "appstoreconnect-swift-sdk",
-          "product-name": "AppStoreConnect-Swift-SDK",
+          "package": "ASC",
+          "product-name": "ASC",
           "build-phase": { "build-phase": "frameworks" },
         },
       ],

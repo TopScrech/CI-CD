@@ -1,5 +1,5 @@
 import ScrechKit
-import AppStoreConnect_Swift_SDK
+import ASC
 
 struct ConnectAppList: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion

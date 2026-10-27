@@ -1,5 +1,5 @@
 import SwiftUI
-import AppStoreConnect_Swift_SDK
+import ASC
 
 struct BuildDetailsProgress: View {
     private let build: CiBuildRun

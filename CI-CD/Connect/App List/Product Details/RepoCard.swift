@@ -1,5 +1,5 @@
 import ScrechKit
-import AppStoreConnect_Swift_SDK
+import ASC
 
 struct RepoCard: View {
     @Environment(\.openURL) private var openURL

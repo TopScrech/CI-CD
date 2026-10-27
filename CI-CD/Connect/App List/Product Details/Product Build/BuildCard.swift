@@ -1,6 +1,6 @@
 import ScrechKit
 import Kingfisher
-import AppStoreConnect_Swift_SDK
+import ASC
 import OSLog
 
 struct BuildCard: View {

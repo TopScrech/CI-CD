@@ -1,5 +1,5 @@
 import SwiftUI
-import AppStoreConnect_Swift_SDK
+import ASC
 
 enum AppBuildStatus {
     case pending, pendingBetaReview, inBetaReview, betaRejected, running, succeeded, failed, errored, canceled, skipped, unknown

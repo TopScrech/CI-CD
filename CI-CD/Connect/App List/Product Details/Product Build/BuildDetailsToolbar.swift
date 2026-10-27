@@ -1,5 +1,5 @@
 import ScrechKit
-import AppStoreConnect_Swift_SDK
+import ASC
 import OSLog
 
 struct BuildDetailsToolbar: ToolbarContent {

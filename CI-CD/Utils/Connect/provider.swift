@@ -1,5 +1,5 @@
 import Foundation
-import AppStoreConnect_Swift_SDK
+import ASC
 
 func provider(store: ValueStore) async throws -> APIProvider? {
     guard !store.connectDemoMode else {

@@ -1,6 +1,6 @@
 import Foundation
 import OSLog
-import AppStoreConnect_Swift_SDK
+import ASC
 
 @Observable
 final class BuildVM {
