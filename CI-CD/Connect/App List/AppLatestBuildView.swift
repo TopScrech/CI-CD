@@ -23,7 +23,7 @@ struct AppLatestBuildView: View {
             }
             .animation(reduceMotion ? nil : .easeInOut, value: status)
             .animation(reduceMotion ? nil : .easeInOut, value: number)
-            .font(.footnote)
+            .footnote()
             .accessibilityElement(children: .combine)
         }
     }

@@ -21,7 +21,7 @@ struct ConnectUsageCardView: View {
 
             if let resetDate = plan.resetOn {
                 Text("Resets on \(resetDate.formatted(date: .abbreviated, time: .shortened))")
-                    .font(.footnote)
+                    .footnote()
                     .secondary()
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }

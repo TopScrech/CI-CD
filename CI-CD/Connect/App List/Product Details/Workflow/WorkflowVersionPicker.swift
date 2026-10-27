@@ -33,7 +33,7 @@ struct WorkflowVersionPicker: View {
 
                     if let currentVersion {
                         Text("Currently \(currentVersion)")
-                            .font(.footnote)
+                            .footnote()
                             .foregroundStyle(.tertiary)
                             .multilineTextAlignment(.trailing)
                     }

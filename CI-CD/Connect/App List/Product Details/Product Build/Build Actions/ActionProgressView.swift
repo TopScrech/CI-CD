@@ -55,6 +55,6 @@ struct ActionProgressView: View {
             }
         }
         .labelStyle(CompactStatusLabelStyle())
-        .font(.subheadline)
+        .subheadline()
     }
 }

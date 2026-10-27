@@ -24,6 +24,13 @@
   "packages": [
     {
       "kind": "remote",
+      "repository": "https://github.com/SimplyDanny/SwiftLintPlugins",
+      "version": {
+        "up-to-next-major-version": "0.65.1",
+      },
+    },
+    {
+      "kind": "remote",
       "repository": "https://github.com/TopScrech/ScrechKit",
       "version": {
         "up-to-next-major-version": "1.0.0",
@@ -55,6 +62,7 @@
     },
   ],
   "files": [
+    { "path": ".swiftlint.yml" },
     { "path": "README.md" },
     { "path": "AGENTS.md" },
     {
@@ -144,6 +152,9 @@
       "id": "F337089E2DD93A01006834F8",
       "product": "Products/iOS.app",
       "product-type": "application",
+      "dependencies": [
+        { "kind": "package", "package": "SwiftLintPlugins", "product-name": "SwiftLintBuildToolPlugin", "product-type": "build-tool-plugin" },
+      ],
       "build-phases": [
         "compile-sources",
         "frameworks",
@@ -224,6 +235,9 @@
       "id": "F32429E62DDDD018000A16E8",
       "product": "Products/visionOS.app",
       "product-type": "application",
+      "dependencies": [
+        { "kind": "package", "package": "SwiftLintPlugins", "product-name": "SwiftLintBuildToolPlugin", "product-type": "build-tool-plugin" },
+      ],
       "build-phases": [
         "compile-sources",
         "frameworks",
@@ -279,6 +293,9 @@
       "id": "F32A1AEE2ECB958400BE176C",
       "product": "Products/macOS.app",
       "product-type": "application",
+      "dependencies": [
+        { "kind": "package", "package": "SwiftLintPlugins", "product-name": "SwiftLintBuildToolPlugin", "product-type": "build-tool-plugin" },
+      ],
       "build-phases": [
         "compile-sources",
         "frameworks",
@@ -339,6 +356,7 @@
       "product-type": "bundle.unit-test",
       "test-host-target": "macOS",
       "dependencies": [
+        { "kind": "package", "package": "SwiftLintPlugins", "product-name": "SwiftLintBuildToolPlugin", "product-type": "build-tool-plugin" },
         "macOS",
       ],
       "build-phases": [
