@@ -28,8 +28,7 @@
       "version": {
         "up-to-next-major-version": "0.65.1",
       },
-    },
-    {
+    }, {
       "kind": "remote",
       "repository": "https://github.com/TopScrech/ScrechKit",
       "version": {
@@ -148,11 +147,31 @@
   ],
   "targets": [
     {
+      "name": "Check Package Updates",
+      "id": "D26607A2FEB74A2982898DA2",
+      "kind": "aggregate",
+      "build-phases": [
+        {
+          "kind": "script",
+          "name": "Check Package Updates",
+          "run-on-every-build": true,
+          "shell": "/bin/sh",
+          "script": "/usr/bin/python3 \"$SRCROOT/Scripts/check-package-updates.py\"",
+        },
+      ],
+      "build-settings": {
+        "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
+        "SDKROOT": "macosx",
+        "SKIP_INSTALL": "YES",
+        "SUPPORTED_PLATFORMS": "macosx",
+      },
+    }, {
       "name": "iOS",
       "id": "F337089E2DD93A01006834F8",
       "product": "Products/iOS.app",
       "product-type": "application",
       "dependencies": [
+        "Check Package Updates",
         { "kind": "package", "package": "SwiftLintPlugins", "product-name": "SwiftLintBuildToolPlugin", "product-type": "build-tool-plugin" },
       ],
       "build-phases": [
@@ -236,6 +255,7 @@
       "product": "Products/visionOS.app",
       "product-type": "application",
       "dependencies": [
+        "Check Package Updates",
         { "kind": "package", "package": "SwiftLintPlugins", "product-name": "SwiftLintBuildToolPlugin", "product-type": "build-tool-plugin" },
       ],
       "build-phases": [
@@ -294,6 +314,7 @@
       "product": "Products/macOS.app",
       "product-type": "application",
       "dependencies": [
+        "Check Package Updates",
         { "kind": "package", "package": "SwiftLintPlugins", "product-name": "SwiftLintBuildToolPlugin", "product-type": "build-tool-plugin" },
       ],
       "build-phases": [
@@ -356,6 +377,7 @@
       "product-type": "bundle.unit-test",
       "test-host-target": "macOS",
       "dependencies": [
+        "Check Package Updates",
         { "kind": "package", "package": "SwiftLintPlugins", "product-name": "SwiftLintBuildToolPlugin", "product-type": "build-tool-plugin" },
         "macOS",
       ],
