@@ -6,7 +6,7 @@ struct ConnectUsageCardView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Quota")
+                Text("Xcode Cloud quota")
 
                 Spacer()
 
@@ -18,7 +18,14 @@ struct ConnectUsageCardView: View {
                 .progressViewStyle(ConnectUsageProgressStyle())
                 .accessibilityLabel("Quota")
                 .accessibilityValue(plan.fractionUsed.formatted(.percent.precision(.fractionLength(0))))
+
+            if let resetDate = plan.resetOn {
+                Text("Resets on \(resetDate.formatted(date: .abbreviated, time: .shortened))")
+                    .font(.footnote)
+                    .secondary()
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+            }
         }
-        .padding(.vertical)
+        .padding(.vertical, 4)
     }
 }
