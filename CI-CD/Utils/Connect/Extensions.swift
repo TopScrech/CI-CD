@@ -1,8 +1,6 @@
 import Foundation
 import ASC
 
-extension APIProvider: @retroactive @unchecked Sendable {}
-
 extension CiGitUser: @retroactive Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(displayName)

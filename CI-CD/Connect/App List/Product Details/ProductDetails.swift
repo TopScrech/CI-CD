@@ -1,5 +1,5 @@
 import SwiftUI
-@preconcurrency import ASC
+import ASC
 
 struct ProductDetails: View {
     @Environment(AppVM.self) private var vm
@@ -130,18 +130,20 @@ struct ProductDetails: View {
     }
 
     private func refresh() async {
-        vm.restoreLatestBuild(product.id, store: store)
-        vm.restoreRepositories(product.id, store: store)
+        let productID = product.id
+
+        vm.restoreLatestBuild(productID, store: store)
+        vm.restoreRepositories(productID, store: store)
 
         if store.connectDemoMode {
             vm.builds = [CiBuildRun.preview]
             return
         }
 
-        async let workflows: () = vm.fetchWorkflows(product.id, store: store)
-        async let builds: () = vm.fetchBuilds(product.id, store: store)
-        async let primary: () = vm.primaryRepositories(product.id, store: store)
-        async let additional: () = vm.additionalRepositories(product.id, store: store)
+        async let workflows: () = vm.fetchWorkflows(productID, store: store)
+        async let builds: () = vm.fetchBuilds(productID, store: store)
+        async let primary: () = vm.primaryRepositories(productID, store: store)
+        async let additional: () = vm.additionalRepositories(productID, store: store)
 
         _ = try? await (workflows, builds, primary, additional)
     }

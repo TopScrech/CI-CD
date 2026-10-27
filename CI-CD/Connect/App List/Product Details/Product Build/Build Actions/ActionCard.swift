@@ -1,5 +1,5 @@
 import ScrechKit
-@preconcurrency import ASC
+import ASC
 
 struct ActionCard: View {
     @State private var vm = ActionVM()
@@ -73,11 +73,13 @@ struct ActionCard: View {
     }
 
     private func load() {
+        let actionID = action.id
+
         Task {
             guard !store.connectDemoMode else { return }
 
-            async let issues: () = vm.buildIssues(action.id, store: store)
-            async let artifacts: () = vm.buildArtifacts(action.id, store: store)
+            async let issues: () = vm.buildIssues(actionID, store: store)
+            async let artifacts: () = vm.buildArtifacts(actionID, store: store)
 
             _ = try? await (issues, artifacts)
         }
