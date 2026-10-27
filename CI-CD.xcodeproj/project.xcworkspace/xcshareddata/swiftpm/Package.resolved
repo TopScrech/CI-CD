@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/TopScrech/ASC",
       "state" : {
-        "branch" : "main",
-        "revision" : "b99ab228d2f927f8f967dca64c5cc6d6c1ffb91c"
+        "revision" : "b99ab228d2f927f8f967dca64c5cc6d6c1ffb91c",
+        "version" : "1.0.0"
       }
     },
     {

@@ -44,7 +44,7 @@
       "kind": "remote",
       "repository": "https://github.com/TopScrech/ASC",
       "version": {
-        "branch": "main",
+        "up-to-next-major-version": "1.0.0",
       },
     }, {
       "kind": "remote",
@@ -186,6 +186,10 @@
       ],
       "package-product-members": [
         {
+          "package": "ASC",
+          "product-name": "ASC",
+          "build-phase": { "build-phase": "frameworks" },
+        }, {
           "package": "Appearance",
           "product-name": "Appearance",
           "build-phase": { "build-phase": "frameworks" },
@@ -200,10 +204,6 @@
         }, {
           "package": "ScrechKit",
           "product-name": "ScrechKit",
-          "build-phase": { "build-phase": "frameworks" },
-        }, {
-          "package": "ASC",
-          "product-name": "ASC",
           "build-phase": { "build-phase": "frameworks" },
         },
       ],
@@ -265,6 +265,10 @@
       ],
       "package-product-members": [
         {
+          "package": "ASC",
+          "product-name": "ASC",
+          "build-phase": { "build-phase": "frameworks" },
+        }, {
           "package": "Kingfisher",
           "product-name": "Kingfisher",
           "build-phase": { "build-phase": "frameworks" },
@@ -275,10 +279,6 @@
         }, {
           "package": "ScrechKit",
           "product-name": "ScrechKit",
-          "build-phase": { "build-phase": "frameworks" },
-        }, {
-          "package": "ASC",
-          "product-name": "ASC",
           "build-phase": { "build-phase": "frameworks" },
         },
       ],
