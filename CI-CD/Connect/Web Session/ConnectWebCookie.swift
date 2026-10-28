@@ -1,6 +1,6 @@
 import Foundation
 
-struct ConnectWebCookie: Codable {
+struct ConnectWebCookie: Codable, Equatable {
     let name: String
     let value: String
     let domain: String
@@ -33,6 +33,24 @@ struct ConnectWebCookie: Codable {
         if httpOnly { properties[.init("HttpOnly")] = "TRUE" }
         if let sameSite { properties[.sameSitePolicy] = sameSite }
         return HTTPCookie(properties: properties)
+    }
+
+    // Apply only response changes whose original value is still current
+    static func reconcile(original: [HTTPCookie], updated: [HTTPCookie], current: [HTTPCookie]) -> [HTTPCookie] {
+        func indexed(_ cookies: [HTTPCookie]) -> [String: ConnectWebCookie] {
+            cookies.reduce(into: [:]) {
+                let cookie = Self($1)
+                $0[cookie.identity] = cookie
+            }
+        }
+        let original = indexed(original)
+        let updated = indexed(updated)
+        var result = indexed(current)
+        for identity in Set(original.keys).union(updated.keys) {
+            guard original[identity] != updated[identity], result[identity] == original[identity] else { continue }
+            result[identity] = updated[identity]
+        }
+        return merge(saved: [], current: result.values.compactMap(\.cookie))
     }
 
     static func merge(saved: [HTTPCookie], current: [HTTPCookie]) -> [HTTPCookie] {

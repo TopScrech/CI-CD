@@ -8,19 +8,40 @@ struct ConnectWebResponseTests {
         try ConnectWebResponse.validate(response, for: url)
     }
 
-    @Test(arguments: [401, 403])
-    func requiredReconnectForExpiredSession(status: Int) throws {
+    @Test func requiredReconnectForExpiredSession() throws {
         let url = try #require(URL(string: "https://appstoreconnect.apple.com/ci/api/test"))
-        let response = try #require(HTTPURLResponse(url: url, statusCode: status, httpVersion: nil, headerFields: nil))
+        let response = try #require(HTTPURLResponse(url: url, statusCode: 401, httpVersion: nil, headerFields: nil))
         do {
             try ConnectWebResponse.validate(response, for: url)
             Issue.record("Expected sign-in error")
         } catch ConnectWebError.signInRequired {}
     }
 
+    @Test(arguments: ["application/json", "text/html"])
+    func preservedPermissionFailure(contentType: String) throws {
+        let url = try #require(URL(string: "https://appstoreconnect.apple.com/ci/api/test"))
+        let response = try #require(HTTPURLResponse(url: url, statusCode: 403, httpVersion: nil, headerFields: ["Content-Type": contentType]))
+        do {
+            try ConnectWebResponse.validate(response, for: url)
+            Issue.record("Expected permission error")
+        } catch ConnectWebError.accessDenied {
+            #expect(!ConnectWebError.accessDenied.requiresSignIn)
+        }
+    }
+
     @Test func rejectedSignInHTML() throws {
         let url = try #require(URL(string: "https://appstoreconnect.apple.com/ci/api/test"))
         let response = try #require(HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "text/html"]))
+        do {
+            try ConnectWebResponse.validate(response, for: url)
+            Issue.record("Expected sign-in error")
+        } catch ConnectWebError.signInRequired {}
+    }
+
+    @Test func requiredSignInAfterAuthenticationRedirect() throws {
+        let url = try #require(URL(string: "https://appstoreconnect.apple.com/ci/api/test"))
+        let signInURL = try #require(URL(string: "https://idmsa.apple.com/"))
+        let response = try #require(HTTPURLResponse(url: signInURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "text/html"]))
         do {
             try ConnectWebResponse.validate(response, for: url)
             Issue.record("Expected sign-in error")

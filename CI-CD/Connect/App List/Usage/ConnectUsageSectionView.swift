@@ -24,6 +24,9 @@ struct ConnectUsageSectionView: View {
                         AsyncButton("Retry", systemImage: "arrow.clockwise") {
                             await vm.load(accountID: accountID)
                         }
+                        if vm.requiresSignIn {
+                            ConnectWebSignInButton(accountID: accountID, isReconnect: true)
+                        }
                     }
                 }
             }

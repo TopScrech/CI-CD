@@ -28,8 +28,7 @@
       "version": {
         "up-to-next-major-version": "1.1.0",
       },
-    },
-    {
+    }, {
       "kind": "remote",
       "repository": "https://github.com/SimplyDanny/SwiftLintPlugins",
       "version": {
@@ -107,7 +106,9 @@
             "Connect/Web Session/ConnectWebBuildTiming.swift",
             "Connect/Web Session/ConnectWebCookie.swift",
             "Connect/Web Session/ConnectWebError.swift",
+            "Connect/Web Session/ConnectWebRecovery.swift",
             "Connect/Web Session/ConnectWebResponse.swift",
+            "Connect/Web Session/ConnectWebSessionQueue.swift",
             "Coolify/CoolifyAPIResponse.swift",
             "Coolify/Models/CoolifyAPIError.swift",
             "Coolify/Models/CoolifyAPIErrorResponse.swift",
@@ -157,28 +158,28 @@
     {
       "name": "Package Update Tools",
       "id": "8A2CD99A825E9A9598838A97",
-      "product": "id:BA0DAFAA197A931FE4DD3936",
+      "product": "Products/Package Update Tools.bundle",
       "product-type": "bundle",
       "dependencies": [
         { "kind": "package", "package": "swift-update", "product-name": "swift-update" },
       ],
-      "build-phases": [],
       "build-settings": {
-        "SDKROOT": "macosx",
-        "SUPPORTED_PLATFORMS": "macosx",
-        "MACOSX_DEPLOYMENT_TARGET": "13.0",
         "CODE_SIGNING_ALLOWED": "NO",
         "GENERATE_INFOPLIST_FILE": "YES",
+        "MACOSX_DEPLOYMENT_TARGET": "13.0",
         "PRODUCT_BUNDLE_IDENTIFIER": "dev.topscrech.PackageUpdateTools",
         "PRODUCT_NAME": "Package Update Tools",
+        "SDKROOT": "macosx",
         "SKIP_INSTALL": "YES",
+        "SUPPORTED_PLATFORMS": "macosx",
       },
-    },
-    {
+    }, {
       "name": "Check Package Updates",
       "id": "D26607A2FEB74A2982898DA2",
       "kind": "aggregate",
-      "dependencies": [ "Package Update Tools" ],
+      "dependencies": [
+        "Package Update Tools",
+      ],
       "build-phases": [
         {
           "kind": "script",
@@ -511,6 +512,6 @@
     "SWIFT_EMIT_LOC_STRINGS": "YES",
     "SWIFT_OPTIMIZATION_LEVEL[config=Debug]": "-Onone",
   },
-  "last-upgrade": "27.0",
+  "last-upgrade": "27.2",
   "last-swift-update": "26.2",
 }

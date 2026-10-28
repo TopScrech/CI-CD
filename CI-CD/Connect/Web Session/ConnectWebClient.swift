@@ -14,7 +14,19 @@ enum ConnectWebClient {
     }
 
     private static func authenticatedData(accountID: UUID, provider: ConnectWebProvider, path: [String]) async throws -> Data {
-        let cookieStore = WKWebsiteDataStore(forIdentifier: accountID).httpCookieStore
+        try await ConnectWebSessionQueue.withAccess(accountID: accountID) {
+            guard ConnectWebSession.provider(accountID: accountID) == provider else {
+                throw ConnectWebError.signInRequired
+            }
+            return try await ConnectWebRecovery.data {
+                try await requestData(accountID: accountID, provider: provider, path: path)
+            } recover: {
+                try await ConnectWebSession.recover(accountID: accountID, provider: provider)
+            }
+        }
+    }
+
+    private static func requestData(accountID: UUID, provider: ConnectWebProvider, path: [String]) async throws -> Data {
         let cookies = try await ConnectWebSession.restoreCookies(accountID: accountID)
         try Task.checkCancellation()
 
@@ -31,25 +43,43 @@ enum ConnectWebClient {
         guard let baseURL = URL(string: "https://appstoreconnect.apple.com") else {
             throw ConnectWebError.summaryUnavailable
         }
-        let sessionData = try await data(from: baseURL.appending(path: "olympus/v1/session"), session: session)
-        let currentProvider = try JSONDecoder().decode(ConnectWebSessionInfo.self, from: sessionData).provider
-        guard currentProvider.publicProviderId == provider.publicProviderId else {
-            throw ConnectWebError.wrongTeam
+        let responseData: Data
+        do {
+            let sessionData = try await data(from: baseURL.appending(path: "olympus/v1/session"), session: session)
+            let currentProvider = try JSONDecoder().decode(ConnectWebSessionInfo.self, from: sessionData).provider
+            guard currentProvider.publicProviderId == provider.publicProviderId else {
+                throw ConnectWebError.wrongTeam
+            }
+
+            let endpoint = (["ci", "api", "teams", provider.publicProviderId] + path).reduce(baseURL) { $0.appending(component: $1) }
+            responseData = try await data(from: endpoint, session: session)
+        } catch {
+            // Session probes can rotate cookies even if the resource request fails
+            try await persistCookies(accountID: accountID, original: cookies, updated: configuration.httpCookieStorage?.cookies ?? [])
+            throw error
         }
+        try await persistCookies(accountID: accountID, original: cookies, updated: configuration.httpCookieStorage?.cookies ?? [])
+        return responseData
+    }
 
-        let endpoint = (["ci", "api", "teams", provider.publicProviderId] + path).reduce(baseURL) { $0.appending(component: $1) }
-        let responseData = try await data(from: endpoint, session: session)
-
+    private static func persistCookies(accountID: UUID, original: [HTTPCookie], updated: [HTTPCookie]) async throws {
         try Task.checkCancellation()
-        // Do not restore session cookies if the user disconnected during the request
-        if ConnectWebSession.provider(accountID: accountID) == provider {
-            let renewedCookies = configuration.httpCookieStorage?.cookies ?? []
-            try ConnectWebSessionKeychain.save(renewedCookies, accountID: accountID)
-            for cookie in renewedCookies {
-                await cookieStore.setCookie(cookie)
+        let store = WKWebsiteDataStore(forIdentifier: accountID).httpCookieStore
+        let current = ConnectWebCookie.merge(saved: [], current: await store.allCookies())
+        let reconciled = ConnectWebCookie.reconcile(original: original, updated: updated, current: current)
+        try Task.checkCancellation()
+        for cookie in current {
+            let identity = ConnectWebCookie(cookie).identity
+            if !reconciled.contains(where: { ConnectWebCookie($0).identity == identity }) {
+                await store.deleteCookie(cookie)
             }
         }
-        return responseData
+        for cookie in reconciled where !current.contains(where: { ConnectWebCookie($0) == ConnectWebCookie(cookie) }) {
+            await store.setCookie(cookie)
+        }
+        let latest = await store.allCookies()
+        try Task.checkCancellation()
+        try ConnectWebSessionKeychain.save(latest, accountID: accountID)
     }
 
     private static func data(from url: URL, session: URLSession) async throws -> Data {

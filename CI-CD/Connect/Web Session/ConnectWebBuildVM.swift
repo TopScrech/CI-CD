@@ -5,6 +5,7 @@ final class ConnectWebBuildVM {
     private(set) var summary: ConnectWebBuildSummary?
     private(set) var isLoading = false
     private(set) var errorMessage: String?
+    private(set) var requiresSignIn = false
     private var requestID = UUID()
 
     @available(iOS 26, macOS 26, visionOS 26, *)
@@ -14,6 +15,7 @@ final class ConnectWebBuildVM {
         isLoading = false
         summary = nil
         errorMessage = nil
+        requiresSignIn = false
         guard let provider = ConnectWebSession.provider(accountID: accountID) else { return }
         guard let productID, let buildNumber else {
             errorMessage = ConnectWebError.summaryUnavailable.errorDescription
@@ -43,6 +45,7 @@ final class ConnectWebBuildVM {
             return
         } catch {
             guard self.requestID == requestID else { return }
+            requiresSignIn = (error as? ConnectWebError)?.requiresSignIn ?? false
             if let webError = error as? ConnectWebError {
                 errorMessage = webError.errorDescription
             } else if let decodingError = error as? DecodingError {

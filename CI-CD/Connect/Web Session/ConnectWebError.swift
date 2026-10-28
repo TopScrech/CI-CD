@@ -1,15 +1,23 @@
 import Foundation
 
 enum ConnectWebError: LocalizedError {
-    case signInRequired, wrongTeam, summaryUnavailable
+    case signInRequired, accessDenied, wrongTeam, summaryUnavailable
     case httpStatus(Int)
 
     var errorDescription: String? {
         switch self {
         case .signInRequired: String(localized: "Sign in to App Store Connect to load build environment and timing")
+        case .accessDenied: String(localized: "Your Apple Account does not have permission to access this App Store Connect resource")
         case .wrongTeam: String(localized: "Select the connected team in App Store Connect and try again")
         case .summaryUnavailable: String(localized: "Could not read the build summary from App Store Connect")
         case .httpStatus(let status): String(localized: "Could not load the build summary") + " (HTTP \(status))"
+        }
+    }
+
+    var requiresSignIn: Bool {
+        switch self {
+        case .signInRequired, .wrongTeam: true
+        default: false
         }
     }
 

@@ -16,7 +16,9 @@ final class ConnectWebSignInVM {
 
     func load() async {
         do {
-            _ = try await ConnectWebSession.restoreCookies(accountID: accountID)
+            _ = try await ConnectWebSessionQueue.withAccess(accountID: accountID) {
+                try await ConnectWebSession.restoreCookies(accountID: accountID)
+            }
             for try await _ in page.load(URL(string: "https://appstoreconnect.apple.com/")) {}
         } catch is CancellationError {
             return
@@ -34,7 +36,7 @@ final class ConnectWebSignInVM {
             _ = try await ConnectWebSession.connect(page: page, accountID: accountID)
             return true
         } catch {
-            errorMessage = error is ConnectWebError
+            errorMessage = (error as? ConnectWebError)?.requiresSignIn == true
                 ? String(localized: "Finish signing in and select your team, then tap Connect")
                 : error.localizedDescription
             return false

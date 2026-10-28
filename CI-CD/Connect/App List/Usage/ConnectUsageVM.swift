@@ -5,6 +5,7 @@ final class ConnectUsageVM {
     private(set) var plan: ConnectUsagePlan?
     private(set) var isLoading = false
     private(set) var errorMessage: String?
+    private(set) var requiresSignIn = false
     private var requestID = UUID()
 
     func reset() {
@@ -12,6 +13,7 @@ final class ConnectUsageVM {
         plan = nil
         isLoading = false
         errorMessage = nil
+        requiresSignIn = false
     }
 
     @available(iOS 26, macOS 26, visionOS 26, *)
@@ -36,6 +38,7 @@ final class ConnectUsageVM {
             return
         } catch {
             guard self.requestID == requestID else { return }
+            requiresSignIn = (error as? ConnectWebError)?.requiresSignIn ?? false
             errorMessage = error.localizedDescription
         }
     }
