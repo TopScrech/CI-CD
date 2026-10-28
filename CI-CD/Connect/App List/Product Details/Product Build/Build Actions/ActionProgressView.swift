@@ -32,6 +32,9 @@ struct ActionProgressView: View {
                     Label("Skipped", systemImage: "forward.end.circle")
                         .foregroundStyle(.secondary)
                 }
+            } else if action.isPendingBetaReview {
+                Label("Pending beta review", systemImage: "clock")
+                    .foregroundStyle(.orange)
             } else if let progress = action.attributes?.executionProgress {
                 switch progress {
                 case .pending:
