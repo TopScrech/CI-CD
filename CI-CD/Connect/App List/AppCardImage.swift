@@ -24,6 +24,7 @@ struct AppCardImage: View {
                     .clipShape(.rect(cornerRadius: 8))
             }
         }
+        .frame(32)
         .animation(.default, value: vm.iconURL)
         .task(id: "\(store.connectAccount?.id.uuidString ?? "").\(product.id).\(store.connectRefreshToken).\(store.connectDemoMode)") {
             if let appId = product.relationships?.app?.data?.id {
