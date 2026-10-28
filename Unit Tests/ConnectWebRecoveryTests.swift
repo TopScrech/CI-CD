@@ -79,4 +79,44 @@ struct ConnectWebRecoveryTests {
         } catch is CancellationError {}
         #expect(recoveries == 0)
     }
+
+    @Test func offeredSignInAfterUnexpectedRecoveryFailure() async throws {
+        var requests = 0
+        do {
+            _ = try await ConnectWebRecovery.data {
+                requests += 1
+                throw ConnectWebError.signInRequired
+            } recover: {
+                throw NSError(domain: "WKErrorDomain", code: 4)
+            }
+            Issue.record("Expected recovery failure")
+        } catch ConnectWebError.recoveryFailed {
+            #expect(ConnectWebError.recoveryFailed.requiresSignIn)
+        }
+        #expect(requests == 1)
+    }
+
+    @Test func preservedPermissionFailureDuringRecovery() async throws {
+        do {
+            _ = try await ConnectWebRecovery.data {
+                throw ConnectWebError.signInRequired
+            } recover: {
+                throw ConnectWebError.accessDenied
+            }
+            Issue.record("Expected permission error")
+        } catch ConnectWebError.accessDenied {
+            #expect(!ConnectWebError.accessDenied.requiresSignIn)
+        }
+    }
+
+    @Test func preservedCancellationDuringRecovery() async throws {
+        do {
+            _ = try await ConnectWebRecovery.data {
+                throw ConnectWebError.signInRequired
+            } recover: {
+                throw CancellationError()
+            }
+            Issue.record("Expected cancellation")
+        } catch is CancellationError {}
+    }
 }

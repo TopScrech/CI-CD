@@ -26,10 +26,30 @@ enum ConnectWebClient {
         }
     }
 
+    // The caller holds the account queue and WebKit has already loaded the session
+    static func currentProvider(accountID: UUID) async throws -> ConnectWebProvider {
+        let cookies = await WKWebsiteDataStore(forIdentifier: accountID).httpCookieStore.allCookies()
+        let sessionData = try await withSession(accountID: accountID, cookies: cookies) { session, baseURL in
+            try await data(from: baseURL.appending(path: "olympus/v1/session"), session: session)
+        }
+        return try JSONDecoder().decode(ConnectWebSessionInfo.self, from: sessionData).provider
+    }
+
     private static func requestData(accountID: UUID, provider: ConnectWebProvider, path: [String]) async throws -> Data {
         let cookies = try await ConnectWebSession.restoreCookies(accountID: accountID)
-        try Task.checkCancellation()
+        return try await withSession(accountID: accountID, cookies: cookies) { session, baseURL in
+            let sessionData = try await data(from: baseURL.appending(path: "olympus/v1/session"), session: session)
+            let currentProvider = try JSONDecoder().decode(ConnectWebSessionInfo.self, from: sessionData).provider
+            guard currentProvider.publicProviderId == provider.publicProviderId else {
+                throw ConnectWebError.wrongTeam
+            }
+            let endpoint = (["ci", "api", "teams", provider.publicProviderId] + path).reduce(baseURL) { $0.appending(component: $1) }
+            return try await data(from: endpoint, session: session)
+        }
+    }
 
+    private static func withSession(accountID: UUID, cookies: [HTTPCookie], operation: @MainActor (URLSession, URL) async throws -> Data) async throws -> Data {
+        try Task.checkCancellation()
         let configuration = URLSessionConfiguration.ephemeral
         configuration.timeoutIntervalForRequest = 30
         configuration.timeoutIntervalForResource = 60
@@ -45,14 +65,7 @@ enum ConnectWebClient {
         }
         let responseData: Data
         do {
-            let sessionData = try await data(from: baseURL.appending(path: "olympus/v1/session"), session: session)
-            let currentProvider = try JSONDecoder().decode(ConnectWebSessionInfo.self, from: sessionData).provider
-            guard currentProvider.publicProviderId == provider.publicProviderId else {
-                throw ConnectWebError.wrongTeam
-            }
-
-            let endpoint = (["ci", "api", "teams", provider.publicProviderId] + path).reduce(baseURL) { $0.appending(component: $1) }
-            responseData = try await data(from: endpoint, session: session)
+            responseData = try await operation(session, baseURL)
         } catch {
             // Session probes can rotate cookies even if the resource request fails
             try await persistCookies(accountID: accountID, original: cookies, updated: configuration.httpCookieStorage?.cookies ?? [])

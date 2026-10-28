@@ -16,7 +16,7 @@ enum ConnectWebSession {
 
     static func connect(page: WebPage, accountID: UUID) async throws -> ConnectWebProvider {
         try await ConnectWebSessionQueue.withAccess(accountID: accountID) {
-            let provider = try await currentProvider(page: page)
+            let provider = try await currentProvider(page: page, accountID: accountID)
             let cookies = await WKWebsiteDataStore(forIdentifier: accountID).httpCookieStore.allCookies()
             try Task.checkCancellation()
             try ConnectWebSessionKeychain.save(cookies, accountID: accountID)
@@ -25,32 +25,11 @@ enum ConnectWebSession {
         }
     }
 
-    static func currentProvider(page: WebPage) async throws -> ConnectWebProvider {
+    static func currentProvider(page: WebPage, accountID: UUID) async throws -> ConnectWebProvider {
         guard page.url?.scheme == "https", page.url?.host == "appstoreconnect.apple.com" else {
             throw ConnectWebError.signInRequired
         }
-        let result = try await page.callJavaScript("""
-            const response = await fetch('/olympus/v1/session', { credentials: 'same-origin', signal: AbortSignal.timeout(10000) });
-            if (!response.ok) return response.status;
-            if (!response.headers.get('content-type')?.includes('json')) return null;
-            const session = await response.json();
-            if (!session.provider?.publicProviderId) return null;
-            return JSON.stringify({ provider: {
-                publicProviderId: session.provider.publicProviderId,
-                name: session.provider.name
-            }});
-            """)
-        if let status = result as? Int {
-            switch status {
-            case 401: throw ConnectWebError.signInRequired
-            case 403: throw ConnectWebError.accessDenied
-            default: throw ConnectWebError.httpStatus(status)
-            }
-        }
-        guard let json = result as? String, let data = json.data(using: .utf8) else {
-            throw ConnectWebError.signInRequired
-        }
-        return try JSONDecoder().decode(ConnectWebSessionInfo.self, from: data).provider
+        return try await ConnectWebClient.currentProvider(accountID: accountID)
     }
 
     static func disconnect(accountID: UUID) async throws {
@@ -95,7 +74,7 @@ enum ConnectWebSession {
             try Task.checkCancellation()
         }
         try Task.checkCancellation()
-        let current = try await currentProvider(page: page)
+        let current = try await currentProvider(page: page, accountID: accountID)
         guard current.publicProviderId == provider.publicProviderId else {
             throw ConnectWebError.wrongTeam
         }
