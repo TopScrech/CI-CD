@@ -42,11 +42,8 @@ struct ConnectWebBuildSectionView: View {
 
             if !vm.isLoading, let errorMessage = vm.errorMessage {
                 Text(errorMessage)
-                    .secondary()
-                AsyncButton("Retry", systemImage: "arrow.clockwise", action: load)
-                if vm.requiresSignIn, let accountID = store.connectAccount?.id {
-                    ConnectWebSignInButton(accountID: accountID, isReconnect: true)
-                }
+                    .footnote()
+                    .foregroundStyle(.red)
             } else if !vm.isLoading, vm.summary == nil, !store.connectDemoMode {
                 if let accountID = store.connectAccount?.id {
                     ConnectWebSignInButton(accountID: accountID)

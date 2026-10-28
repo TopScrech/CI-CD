@@ -4,6 +4,7 @@ import ASC
 struct BuildDetails: View {
     @State private var webBuildVM = ConnectWebBuildVM()
     @Environment(BuildVM.self) private var vm
+    @Environment(\.connectProductID) private var productID
     @EnvironmentObject private var store: ValueStore
     
     private let build: CiBuildRun
@@ -81,6 +82,15 @@ struct BuildDetails: View {
         .environment(webBuildVM)
         .foregroundStyle(.foreground)
         .scrollIndicators(.never)
+        .refreshableTask {
+            guard !store.connectDemoMode else { return }
+
+            try? await vm.buildActions(build.id, store: store)
+
+            if #available(iOS 26, macOS 26, visionOS 26, *), let accountID = store.connectAccount?.id {
+                await webBuildVM.load(accountID: accountID, productID: productID, buildID: build.id, buildNumber: build.attributes?.number)
+            }
+        }
         .task {
             load()
         }
